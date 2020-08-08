@@ -1,0 +1,738 @@
+\theoremstyle{plain}
+\newtheorem{teoDeLaDim}{Teorema}[section]
+\newtheorem{propoAbiertoEsLocEuc}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{lemaCocienteHaus}[teoDeLaDim]{Lema}
+\newtheorem{lemaCocienteLocEuc}[teoDeLaDim]{Lema}
+\newtheorem{lemaBolasCoordenadas}[teoDeLaDim]{Lema}
+\newtheorem{propoVariedadesSonLocArco}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{propoVarTopLocComp}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{propoVarTopParacomp}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{propoVarTopSigmacomp}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{lemaNdosImplicaSubcubNumerable}[teoDeLaDim]{Lema}
+
+\newtheorem{teoCaractDeSubesp}[teoDeLaDim]{Teorema}
+\newtheorem{teoUnicidadDeSubesp}[teoDeLaDim]{Teorema}
+
+\newtheorem{lemaEntornoDeUnPuntoLCH}[teoDeLaDim]{Lema}
+\newtheorem{lemaEntornoDeUnCompactoLCH}[teoDeLaDim]{Lema}
+\newtheorem{propoUrysohnLCH}[teoDeLaDim]{Proposici\'{o}n}
+\newtheorem{propoTietzeLCH}[teoDeLaDim]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{remarkVarTopParacomp}{Observaci\'{o}n}[section]
+\newtheorem{remarkVarTopParacompI}[remarkVarTopParacomp]{Observaci\'{o}n}
+\newtheorem{remarkVarTopParacompII}[remarkVarTopParacomp]{Observaci\'{o}n}
+\newtheorem{remarkVarTopParacompIII}[remarkVarTopParacomp]{Observaci\'{o}n}
+\newtheorem{remarkVarTopParacompIV}[remarkVarTopParacomp]{Observaci\'{o}n}
+
+%--------------------
+
+\subsection{Definiciones y repaso de nociones de Topolog\'{\i}a}
+
+Sea $M$ un espacio topol\'{o}gico. Se dice que $M$ es una \emph{variedad %
+topol\'{o}gica de dimensi\'{o}n $n$}, si
+\begin{itemize}
+	\item[(\i)] $M$ es $T_{2}$,
+	\item[(\i\i)] $M$ es $N_{2}$ y
+	\item[(\i\i\i)] $M$ es localmente euclideo de dimensi\'{o}n $n$,
+\end{itemize}
+%
+es decir,
+\begin{itemize}
+	\item[(\i)] dados dos puntos $p,q\in M$ distintos, existen entornos
+		abiertos $U$ y $V$ de $p$ y de $q$, respectivamente, tales
+		que $U\cap V=\varnothing$,
+	\item[(\i\i)] existe una familia numerable de abiertos de $M$,
+		$\{U_{n}\}_{n\geq 1}$ que constituye una base para la
+		topolog\'{\i}a de $M$ y
+	\item[(\i\i\i)] dado $p\in M$, existe $U\subset M$ entorno abierto
+		de $p$ homeomorfo a un abierto de $\bb{R}^{n}$.
+\end{itemize}
+%
+
+El teorema de la dimensi\'{o}n implica que la noci\'{o}n de dimensi\'{o}n en
+un espacio localmente euclideo est\'{a} bien definida. En particular,
+la dimensi\'{o}n de una variedad topol\'{o}gica (no vac\'{\i}a\dots)
+est\'{e} bien definida, tambi\'{e}n.
+
+\begin{teoDeLaDim}[de la dimensi\'{o}n]\label{thm:deladim}
+	Sean $U\subset\bb{R}^{n}$ y $V\subset\bb{R}^{m}$ abiertos no
+	vac\'{\i}os y homeomorfos. Entonces $n=m$.
+\end{teoDeLaDim}
+
+Las propiedades de ser Hausdorff y de admitir una base numerable para la
+topolog\'{\i}a se preservan al pasar a un subespacio. En el caso de la
+propiedad de ser localmente euclideo de dimensi\'{o}n $n\geq 0$, esto
+mismo es cierto para subespacios abiertos.
+
+\begin{propoAbiertoEsLocEuc}\label{thm:abiertoesloceuc}
+	Sea $X$ un espacio topol\'{o}gico y sea $Y$ un subespacio.
+	\begin{itemize}
+		\item[(a)] Si $X$ es $T_{2}$, $Y$ es $T_{2}$.
+		\item[(b)] Si $X$ es $N_{2}$, $Y$ es $N_{2}$.
+		\item[(c)] Si $X$ es localmente euclideo de dimensi\'{o}n
+			$n\geq 0$ e $Y$ es abierto, entonces $Y$ es
+			localmente euclideo de dimensi\'{o}n $n$.
+	\end{itemize}
+	%
+	En particular, si $M$ es una variedad topol\'{o}gica de dimensi\'{o}n
+	$n\geq 0$ y $U\subset M$ es abierto, $U$ tambi\'{e}n tiene estructura
+	de variedad topol\'{o}gica de dimensi\'{o}n $n$.
+\end{propoAbiertoEsLocEuc}
+
+\begin{lemaNdosImplicaSubcubNumerable}\label{thm:subcubnum}
+	Si $X$ es un espacio topol\'{o}gico $N_{2}$, entonces todo cubrimiento
+	de $X$ por abiertos admite un subcubrimiento numerable.
+\end{lemaNdosImplicaSubcubNumerable}
+
+\begin{lemaCocienteHaus}\label{thm:cocientehaus}
+	Sean $X$ un espacio topol\'{o}gico Hausdorff y sea
+	$q:\,X\rightarrow X/R$ una funci\'{o}n cociente \emph{abierta}
+	donde $R\subset X\times X$ es una relaci\'{o}n. Entonces el
+	cociente $X/R$ es Hasudorff, si y s\'{o}lo si $R$ es cerrada en
+	el producto.
+\end{lemaCocienteHaus}
+
+\begin{lemaCocienteLocEuc}\label{thm:cocienteloceuc}
+	Sea $X$ un espacio topol\'{o}gico $N_{2}$ y sea $R$ una relaci\'{o}n
+	tal que el cociente $X/R$ es localmente euclideo. Entonces $X/R$
+	es, tambi\'{e}n $N_{2}$.
+\end{lemaCocienteLocEuc}
+
+\subsection{Variedades con borde y variedades con esquinas}
+Una \emph{variedad con borde}, espec\'{\i}ficamente, una \emph{variedad %
+topol\'{o}gica con borde} se define como un espacio topol\'{o}gico
+Hausdorff y $N_{2}$ tal que todo punto del mismo tiene un entorno homeomorfo
+a un abierto del semiespacio superior $\bb{H}^{d}$ para alg\'{u}n $d\geq 0$.
+El valor de $d$ es la dimensi\'{o}n de la variedad (y, por un corolario del
+teorema de la dimensi\'{o}n \ref{thm:deladim}, est\'{a} bien definida).
+Es decir, en lugar de estar modelado localmente como $\bb{R}^{d}$, una
+variedad con borde es localmente como
+\begin{align*}
+	\bb{H}^{d} & \,=\,\left\lbrace (\lista*{x}{d})\in\bb{R}^{d}\,:\,
+				x^{d}\geq 0\right\rbrace
+	\text{ .}
+\end{align*}
+%
+Si $M$ es una variedad con borde y $p\in M$, existe un abierto $U$ de $M$
+y un homeomorfismo $\varphi:\,U\rightarrow\varphi(U)$ con un abierto de
+$\bb{H}^{d}$ tal que $p\in U$. Como en el caso de una variedad topol\'{o}gica,
+un par $(U,\varphi)$ se denominar\'{a} \emph{carta} para $M$ en $p$.
+
+El \emph{borde} de $\bb{H}^{d}$ en $\bb{R}^{d}$ es el conjunto de puntos
+$\lista*{x}{d}$ tales que $x^{d}=0$, lo denotaremos $\partial\bb{H}^{d}$.
+El \emph{interior} de $\bb{H}^{d}$ se define como el conjunto de puntos
+$\lista*{x}{d}$ tales que $x^{d}>0$ y lo denotamos $\interior{\bb{H}^{d}}$.
+Si $M$ es una variedad con borde, el \emph{borde} de $M$ ser\'{a} el
+conjunto de puntos $p\in M$ para los cuales existe una carta $(U,\varphi)$
+tal que $\varphi(p)\in\partial\bb{H}^{d}$, es decir, $\pi^{d}(\varphi(p))=0$.
+El \emph{interior} de $M$ se define como el subconjunto formado por aquellos
+puntos $p\in M$ para los cuales existe una carta $(U,\varphi)$ tal que
+$\varphi(p)\in\interior{\bb{H}^{d}}$, es decir, $\pi^{d}(\varphi(p))>0$.
+Los puntos del interior de $M$ admiten entornos homeomorfos a abiertos de
+$\bb{R}^{d}$. Denotamos el borde de $M$ por $\partial M$ y su interior por
+$\interior{M}$.
+
+Si bien los conjuntos $\interior{M}$ y $\partial M$ est\'{a}n bien definidos
+e, intuitivamente, deber\'{\i}an ser disjuntos, no es claro, \textit{a %
+priori} que as\'{\i} lo sea.
+
+
+El interior $\interior{M}$ de una variedad $M$ de dimensi\'{o}n $d$ es una
+variedad de dimensi\'{o}n $d$ (sin borde), pues es un subespacio
+abierto de la variedad $M$. El borde $\partial M$ tambi\'{e}n es una
+variedad topol\'{o}gica (sin borde). Su dimensi\'{o}n es $d-1$: si $p$
+es un punto del borde y $(U,\varphi)$ es una carta para $M$ en $p$,
+entonces
+\begin{align*}
+	U\cap\partial M & \,=\,\left\lbrace q\in U\,:\,\pi^{d}(\varphi(q))=0
+				\right\rbrace
+	\text{ .}
+\end{align*}
+%
+De esto se deduce que $(U\cap\partial M,\tilde{\varphi})$ es una carta para
+$\partial M$ en $p$, donde $\tilde{\varphi}=(\lista*{\varphi}{d-1})$ --es
+decir, proyectar sobre las primeras $d-1$ coordenadas la \emph{coordenada}
+$\varphi$, valga la redundancia. La imagen de esta carta es un abierto de
+$\bb{R}^{d-1}$ dado por intersecar el abierto $\varphi(U)$ de $\bb{R}^{d}$
+con el hiperplano $\{x^{d}=0\}$ (y proyectar sobre las primeras $d-1$
+coordenadas).
+
+\begin{subsubsection}{Subespacios}
+Dado un espacio topol\'{o}gico $X$, un subespacio es un subconjunto
+$A\subset X$ al cual se le da la topolog\'{\i}a cuyos abiertos son,
+precisamente, los subconjuntos que se obtienen de intersecar $A$ con un
+abierto cualquiera de $X$. Una funci\'{o}n continua $i:\,A\rightarrow X$
+entre espacios topol\'{o}gicos se dice subespacio, si es
+inyectiva y determina un homeomorfismo con su imagen, es decir, $A$ e $i(A)$
+son homeomorfos, donde a $i(A)$ se le da la topolog\'{\i}a subespacio de $X$.
+Tambi\'{e}n se dir\'{a} que $i$ es un \emph{embedding topol\'{o}gico}.
+La inclusi\'{o}n de un subespacio es una funci\'{o}n subespacio.
+
+\begin{teoCaractDeSubesp}[Propiedad caracter\'{\i}stica de la %
+	topolog\'{\i}a subespacio]\label{thm:caractdesubesp}
+	Sea $X$ un espacio topol\'{o}gico y sea $\inc{A}:\,A\hookrightarrow X$
+	un subespacio. Para todo espacio $Y$ y toda funci\'{o}n (conjuntista)
+	$f:\,Y\rightarrow A$, la funci\'{o}n $f$ es continua, si y s\'{o}lo
+	si la composici\'{o}n $\inc{A}\circ f$ es continua.
+\end{teoCaractDeSubesp}
+
+Las funciones subespacio est\'{a}n caracterizadas por la propiedad anterior.
+Es decir, si $i:\,A\rightarrow X$ verifica el enunciado de la proposici\'{o}n
+anterior en el lugar de $\inc{A}$, entonces $i$ es una funci\'{o}n
+subespacio. M\'{a}s aun, la topolog\'{\i}a de subespacio es \'{u}nica de
+manera que la propiedad se verifica.
+
+\begin{teoUnicidadDeSubesp}[Unicidad de la topolog\'{\i}a subespacio]
+	\label{thm:unicidaddesubesp}
+	Sea $A$ un subconjunto de un espacio topol\'{o}gico $X$. Entonces
+	la topolog\'{\i}a de subespacio en $A$ es la \'{u}nica topolog\'{\i}a
+	para la cual se verifica la propiedad caracter\'{\i}stica de
+	\ref{thm:caractdesubesp}.
+\end{teoUnicidadDeSubesp}
+
+\end{subsubsection}
+
+\begin{subsubsection}{Cocientes}
+
+\end{subsubsection}
+
+\begin{subsubsection}{Espacios localmente compactos Hausdorff}
+Sea $X$ un espacio topol\'{o}gico localmente compacto y Hausdorff
+Todo punto de $X$ posee un entorno cuya clausura es compacta.
+
+\begin{lemaEntornoDeUnPuntoLCH}\label{thm:entornodeunpuntolch}
+	Sea $U\subset X$ un subconjunto abierto y sea $x\in U$. Existe
+	un abierto $V$ tal que $x\in V$, $\clos{V}$ es compacta y
+	$\clos{V}\subset U$.
+\end{lemaEntornoDeUnPuntoLCH}
+
+Diremos en general que un subconjunto $A\subset X$ es un entorno de un
+punto $x$, si $x\in\interior{A}$. El lema anterior se puede expresar
+diciendo que dado un punto $x$ y un abierto $U$ que lo contiene,
+existe un entorno compacto de $x$ contenido en $U$.
+
+\begin{proof}
+	Como $X$ es localmente compacto y Hausdorff, podemos asumir que
+	$\clos{U}$ es compacto, en otro caso, reemplazamos $U$ por
+	$U\cap V$ donde $V$ es un entorno de $x$ con clausura copmpacta.
+	Como $X$ es Hausdorff, existen abiertos en $\clos{U}$, $V$ y $W$,
+	tales que $x\in V$, $\borde[U]\subset W$ y $V\cap W=\varnothing$.
+	Como $U$ es abierto y $V\subset U$, $V$ es abierto en $X$. Su
+	clausura $\clos{V}$ est\'{a} contenida en $U\setmin W$ y es compacta,
+	por estar contenida en el compacto $\clos{U}$.
+\end{proof}
+
+\begin{lemaEntornoDeUnCompactoLCH}\label{thm:entornodeuncompactolch}
+	Si $U\subset X$ es abierto y $K$ es un compacto contenido
+	en $U$, entonces existe un abierto $V$ cuya clausura es
+	comapcta, $K\subset V$ y $\clos{V}\subset U$.
+\end{lemaEntornoDeUnCompactoLCH}
+
+\begin{proof}
+	Por \ref{thm:entornodeuncompactolch}, para cada $x\in K$ existe un
+	entorno comacto $N_{x}$ de $x$ contenido en $U$. La familia
+	$\{\interior{N_{x}}\}_{x\in K}$ es un cubrimiento por abiertos
+	de $K$. Como $K$ es compacto, admite un subcubrimiento finito
+	$\{\interior{N_{x_{1}}},\,\dots,\,\interior{N_{x_{k}}}\}$
+	Si llamamos $V$ a la uni\'{o}n de los abiertos $\interior{N_{x_{i}}}$,
+	entonces $K\subset V$ y $\clos{V}=\bigcup_{i=1}^{k}\,N_{x_{i}}$ es
+	compacto y est\'{a} contenido en $U$.
+\end{proof}
+
+\begin{propoUrysohnLCH}\label{thm:urysohnlch}
+	Sea $U\subset X$ un abierto y sea $K\subset U$ un compacto contenido
+	en $U$. Existe una funci\'{o}n continua $f$ en $X$ tal que
+	$0\leq f\leq 1$, $f=1$ en $K$ y $f=0$ fuera de un compacto contenido
+	en $U$.
+\end{propoUrysohnLCH}
+
+\begin{proof}
+	Existe un abierto $V$ con clausura compacta tal que $K\subset V$
+	y $\clos{V}\subset U$, por \ref{thm:entornodeuncompactolch}.
+	Como todo espacio compacto Hausdorff es $T_{4}$, existe, por
+	el \emph{lema de Uryshohn}, una funci\'{o}n continua
+	$f:\,\clos{V}\rightarrow[0,1]$ tal que $f=1$ en $K$ y $f=0$ en
+	$\borde[V]$. Sea $\tilde{f}:\,X\rightarrow[0,1]$ la funci\'{o}n
+	dada por
+	\begin{align*}
+		\tilde{f}(x) & \,=\,
+			\begin{cases}
+				f(x) & \text{ si }x\in\clos{V} \\
+				0 & \text{ en otro caso.}
+			\end{cases}
+	\end{align*}
+	%
+	Esta funci\'{o}n satisface lo pedido. S\'{o}lo hay que verificar que
+	sea continua. Pero si $E\subset [0,1]$ es cerrado, entonces
+	\begin{align*}
+		\tilde{f}^{-1}(E) & \,=\,
+			\begin{cases}
+				f^{-1}(E) & \text{ si}0\in E \\
+				f^{-1}(E)\cup\setcomp{\clos{V}}
+				\,=\,f^{-1}(E)\cup\setcomp{V} & \text{ si no.}
+			\end{cases}
+	\end{align*}
+	%
+	En cualquiera de los dos casos, $\tilde{f}^{-1}(E)$ es cerrado en
+	$X$ y $\tilde{f}$ es continua.
+\end{proof}
+
+\begin{propoTietzeLCH}\label{thm:tietzelch}
+	Sea $K\subset X$ compacto y sea $f$ una funci\'{o}n continua en $K$.
+	Existe una extensi\'{o}n $F$ definida en $X$ que es continua y
+	tiene soporte compacto.
+\end{propoTietzeLCH}
+
+\end{subsubsection}
+
+\subsection{Propiedades b\'{a}sicas de las variedades}
+Toda variedad topol\'{o}gica tiene una base numerable que consiste en bolas
+coordenadas con clausura compacta (este es el \emph{lema de las bolas
+coordenadas}).
+
+\begin{lemaBolasCoordenadas}[de las bolas coordenadas]
+	\label{thm:bolascoordenadas}
+	Toda variedad topol\'{o}gica admite una base numerable de bolas
+	precompactas.
+\end{lemaBolasCoordenadas}
+
+De este lema, se deduce la siguiente proposici\'{o}n.
+
+\begin{propoVariedadesSonLocArco}[las variedades topol\'{o}gicas son %
+	localmente arcoconexas]\label{thm:varssonlocarco}
+	Sea $M$ una variedad topol\'{o}gica. Entonces
+	\begin{itemize}
+		\item[(a)] $M$ es localmente arcoconexa;
+		\item[(b)] $M$ es conexa, si y s\'{o}lo si es arcoconexa;
+		\item[(c)] las componentes conexas de $M$ coinciden con sus
+			componentes arcoconexas y
+		\item[(d)] $M$ tiene una cantidad numerable de componentes.
+	\end{itemize}
+	%
+	Adem\'{a}s, cada componente es abierta y una variedad topol\'{o}gica
+	conexa.
+\end{propoVariedadesSonLocArco}
+
+\begin{proof}
+	Dado que las bolas en $\bb{R}^{n}$ son arcoconexas, las bolas
+	coordenadas de $M$, siendo homeomorfas a bolas de $\bb{R}^{n}$,
+	tambi\'{e}n lo son. Dado que, por el lema \ref{thm:bolascoordenadas},
+	$M$ posee una base de bolas coordenadas, $M$ es localmente arcoconexa:
+	dados un punto $p$ de $M$ y un abierto $V$ que lo contenga, existe
+	un abierto de la base $B$ tal que $p\in B\subset V$ y $B$ es
+	arcoconexo.
+
+	Dado que $M$ es localmente arcoconexa, las componentes arcoconexas
+	de $M$ deben ser abiertas. Como $M$ es la uni\'{o}n de dichas
+	componentes, lass mismas deben ser, tambi\'{e}n, cerradas. En
+	particular, $M$ es conexa, si y s\'{o}lo si es arcoconexa y,
+	m\'{a}s aun, las componentes conexas coinciden con las componentes
+	arcoconexas. En particular, las componentes conexas son abiertas en
+	$M$ y constituyen un cubrimiento por abiertos de $M$. Como todo
+	cubrimiento por abiertos admite un subcubrimiento numerable, la
+	cantidad de componentes de $M$ debe ser, a lo sumo, numerable.
+
+	Finalmente, como cada componente es abierta, tiene estructura de
+	variedad topol\'{o}gica.
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n (de \ref{thm:bolascoordenadas})]
+	Si $M$ es homeomorfo a un abierto $U$ de $\bb{R}^{n}$ v\'{\i}a un
+	homeomorfismo $\varphi:\,M\rightarrow U$, entonces, como $U$ admite
+	una base de esas caracter\'{\i}sticas, $M$ tambi\'{e}n.
+
+	En general, $M$ admite un cubrimiento por abiertos homeomorfos a
+	abiertos de $\bb{R}^{n}$. Como $M$ es $N_{2}$, admite un
+	subcubrimiento numerable, existe un cubrimiento $\{U_{l}\}_{l\geq 1}$
+	por abiertos de $M$ homeomorfos a abiertos de $\bb{R}^{n}$.
+	Para cada $U_{l}$ existe una base numerable de bolas
+	coordenadas precompactas (en $U_{l}$). La uni\'{o}n de estas bases
+	constituye una base de $M$ por bolas coordenadas. Si $B$ es una de
+	ellas y $B$ viene del abierto $U_{l}$ del cubrimiento, sea
+	$\clos{B}$ la clausura de $B$ \emph{en $U_{l}$}. Entonces $\clos{B}$
+	es compacta. Como subespacio de subespacio es subespacio, $\clos{B}$
+	es un subespacio compacto de $M$. Como $M$ es $T_{2}$, esta clausura
+	es cerrada en $M$. En particular, la clausura de $B$ en $U_{l}$ debe
+	coincidir con la clausura en $M$ y, por lo tanto, $B\subset M$ es
+	una bola coordenada precompacta.
+\end{proof}
+
+Otra consecuencia casi inmediata del lema \ref{thm:bolascoordenadas}
+--aunque tambi\'{e}n es consecuencia de la propiedad de ser localmente
+euclideas de las variedades-- es que las variedades topol\'{o}gicas son
+localmente compactas.
+
+\begin{propoVarTopLocComp}\label{thm:vartoploccomp}
+	Sea $X$ un espacio topol\'{o}gico localmente euclideo de dimensi\'{o}n
+	$n\geq 0$. Entonces $X$ es localmente compacto.
+\end{propoVarTopLocComp}
+
+Adem\'{a}s de ser localmente compactas, las variedades topol\'{o}gicas
+son \emph{paracompactas}. Para dar una definici\'{o}n de esta propiedad,
+es necesario definir otras nociones primero.
+
+Sea $X$ un espacio topol\'{o}gico y sea $\cal{T}$ una colecci\'{o}n de
+subconjuntos de $X$. La colecci\'{o}n $\cal{T}$ se dice \emph{localmente %
+finita}, si, para todo punto $p\in X$, existe un entorno $V\subset M$ de $p$
+tal que $V\cap T$ es vac\'{\i}a para todos salvo finitos elementos
+$T\in\cal{T}$. Por otro lado, dado un cubrimiento $\cal{U}$ de $X$, un
+\emph{refinamiento} de $\cal{U}$ es otro cubrimiento $\cal{V}$ de $X$ tal
+que, para cada $V\in\cal{V}$, existe $U\in\cal{U}$ con $V\subset U$.
+
+Ahora s\'{\i} podemos definir lo que quiere decir que un espacio
+topol\'{o}gico sea paracompacto. Un espacio topol\'{o}gico $X$ se dice
+paracompacto, si todo cubrimiento por abiertos de $X$ admite un refinamiento
+localmente finito conformado por abiertos de $X$.
+
+\begin{propoVarTopParacomp}\label{thm:vartopparacomp}
+	Sea $M$ una variedad topol\'{o}gica. Sea $\cal{U}$ un cubrimiento
+	de $M$ por abiertos y sea $\cal{B}$ una base para la topolog\'{\i}a
+	de $M$. Entonces existe un refinamiento numerable y localmente
+	finito de $\cal{U}$ compuesto por elementos de $\cal{B}$.
+	En particular, toda variedad topol\'{o}gica es paracompacta.
+\end{propoVarTopParacomp}
+
+\begin{proof}
+	En primer lugar, sea $\{K_{j}\}_{j\geq 1}$ una sucesi\'{o}n creciente
+	de subconjuntos compactos de $M$ tal que
+	\begin{align*}
+		M & \,=\,\bigcup_{j\geq 1}\,K_{j}\quad\text{y} \\
+		K_{j} & \,\subset\, K_{j+1}
+	\end{align*}
+	%
+	para todo $j\geq 1$. Se define $K_{0}=\varnothing$ y, para $j\geq 1$,
+	\begin{align*}
+		F_{j} & \,=\,K_{j+1}\setmin\interior{K_{j}}\quad\text{y} \\
+		W_{j} & \,=\,\interior{K_{j+2}}\setmin K_{j-1}
+		\text{ .}
+	\end{align*}
+	%
+	De esta manera, $\{W_{j}\}_{j\geq 1}$ es un cubrimiento de $M$ por
+	abiertos y $W_{j}\supset F_{j}$ para todo $j$. Adem\'{a}s, cada
+	$F_{j}$ es compacto y
+	\begin{align*}
+		W_{j}\cap W_{j'}\not =\varnothing & \,\Rightarrow\,
+			|j-j'|<3\text{ .}
+	\end{align*}
+	%
+
+	Sea $j\geq 1$. Para cada $x\in F_{j}$, existe un abierto
+	$U_{x}\in\cal{U}$ tal que $x\in U_{x}$. Como $\cal{B}$ es una base
+	para la topolog\'{\i}a de $M$, existe $B_{x}\in\cal{B}$ tal que
+	$x\in B_{x}\subset U_{x}\cap W_{j}$. Entonces $F_{j}$ est\'{a}
+	contenido en una uni\'{o}n de finitos abiertos b\'{a}sicos $B_{x}$.
+	La colecci\'{o}n de estos abiertos, con $j$ variando en los enteros
+	positivos, es una colecci\'{o}n numerable de abiertos b\'{a}sicos
+	pertenecientes a $\cal{B}$. Cada elemento de esta colecci\'{o}n
+	est\'{a} contenido en un elemento de $\cal{U}$ seg\'{u}n la manera
+	en que fueron elegidos, por lo que constituye un refinamiento de
+	$\cal{U}$. Para terminar de demostrar la proposci\'{o}n, resta
+	verificar que esta colecci\'{o}n es localmente finita.
+
+	Ahora bien, dado que cada elemento del refinamiento encontrado
+	est\'{a} contenido, adem\'{a}s, en alg\'{u}n $W_{j}$ y que $W_{j}$
+	s\'{o}lo interseca finitos abiertos $W_{j'}$, se deduce que cada
+	$W_{j}$ contiene finitos elementos del refinamiento y que cada uno
+	de estos elementos interseca a lo sumo finitos elementos distintos.
+	En particular, dado un punto $p\in M$, tomando un $W_{j}$ o un
+	elemento de la colecci\'{o}n que lo contenga, se deduce que existe
+	un entorno de $p$ en $M$ que interseca s\'{o}lo finitos elementos
+	del refinamiento, es decir, el mismo es localmente finito.
+\end{proof}
+
+\subsection{Algunas observaciones}
+A continuaci\'{o}n realizamos algunas observaciones acerca de los resultados
+demostrados anteriormente.
+
+\begin{remarkVarTopParacomp}
+	La proposici\'{o}n \ref{thm:vartopparacomp} dice m\'{a}s que que
+	toda variedad es paracompacta. Si solamente se quiere demostrar
+	la paracompacidad de una variedad topol\'{o}gica, se puede proceder
+	usando algunas de las siguientes implicaciones:
+	\begin{align*}
+		\text{$T_{2}$ y loc. euc.} & \,\Rightarrow\,
+			\text{$T_{2}$ y loc. comp.}\,\Rightarrow\,
+			\text{$T_{3\frac{1}{2}}$}\\
+		\text{loc. euc. y $N_{2}$} & \,\Rightarrow\,
+			\text{$\sigma$-comp.} \\
+		\text{loc. comp. y $N_{2}$} & \,\Rightarrow\,
+			\text{$\sigma$-comp.} \\
+		\text{$T_{2}$, loc. comp. y $\sigma$-comp.} & \,\Rightarrow\,
+			\text{$T_{4}$} \\
+		\text{$T_{2}$, loc. comp. y $\sigma$-comp.} & \,\Rightarrow\,
+			\text{paracomp.} \\
+		\text{$T_{2}$, loc. comp. y $N_{2}$} & \,\Rightarrow\,
+			\text{metrizable} \\
+		\text{$T_{4}$ y $N_{2}$} & \,\Rightarrow\,
+			\text{metrizable} \\
+		\text{paracomp. y loc. metrizable} & \,\Rightarrow\,
+			\text{metrizable} \\
+		\text{metrizable} & \,\Rightarrow\,\text{paracomp.}
+	\end{align*}
+	%
+\end{remarkVarTopParacomp}
+
+\begin{remarkVarTopParacompI}\label{rem:vartopparacompI}
+	En la demostraci\'{o}n de la proposici\'{o}n \ref{thm:vartopparacomp},
+	se usa de manera esencial que toda variedad topol\'{o}gica admite una
+	sucesi\'{o}n exhaustiva de compactos $\{K_{j}\}_{j\geq 1}$, es
+	decir, tales que $M=\bigcup_{j}\,K_{j}$ y que
+	$K_{j}\subset\interior{K_{j+1}}$. un espacio topl\'{o}gico con
+	esta propiedad se denomina $\sigma$-compacto. El hecho de que las
+	variedades topol\'{o}gicas poseen esta propiedad es consecuencia de
+	la siguiente proposici\'{o}n.
+\end{remarkVarTopParacompI}
+
+\begin{propoVarTopSigmacomp}\label{thm:vartopsigmacomp}
+	Sea $X$ un espacio topol\'{o}gico localmente compacto Hausdorff y
+	que admite una base numerable para su topolog\'{\i}a, es decir, es
+	$N_{2}$. Entonces existe una sucesi\'{o}n exhaustiva de compactos
+	para $X$, es decir, $X$ es $\sigma$-compacto. En particular, toda
+	variedad topol\'{o}gica es $\sigma$-compacta.
+\end{propoVarTopSigmacomp}
+
+\begin{proof}
+	Dado que $X$ es localmente compacto y Hausdorff, existe una base de
+	abiertos con clausura compacta. Dado que, adem\'{a}s, $X$ es $N_{2}$,
+	esta base, por ser un cubrimiento por abiertos de $X$, admite un
+	subcubrimiento numerable. Sea $K_{1}=\clos{U_{1}}$, donde
+	$\{U_{n}\}_{n}$ es un cubrimiento numerable por abiertos
+	precompactos. Existe $n_{1}$ tal que
+	\begin{align*}
+		K_{1} & \,\subset\,U_{1}\cup\,\cdots\,\cup U_{n_{1}}
+		\text{ .}
+	\end{align*}
+	%
+	Sea $K_{2}$ la uni\'{o}n de las clausuras de los abiertos que
+	aparecen en la uni\'{o}n:
+	\begin{align*}
+		K_{2} & \,=\,\clos{U_{1}}\cup\,\cdots\,\cup\clos{U_{n_{1}}}
+		\text{ .}
+	\end{align*}
+	%
+	Si $n_{1}<2$, se puede tomar $n_{1}=2$ y sigue siendo cierto que
+	$K_{1}\subset\interior{K_{2}}$. Adem\'{a}s, eligiendo $n_{1}$ de
+	esta manera, $K_{2}\supset U_{2}$.
+
+	Habiendo definido $K_{1},\,\dots,\,K_{j}$ compactos tales que
+	$K_{i}\subset\interior{K_{i+1}}$ y tales que $U_{i}\subset K_{i}$, sea
+	$K_{j+1}=\clos{U_{1}}\cup\,\cdots\,\cup\clos{U_{n_{j}}}$, donde
+	$n_{j}$ es tal que $K_{j}\subset U_{1}\cup\,\cdots\,\cup U_{n_{j}}$.
+	Se puede suponer que $n_{j}\geq j+1$, de manera que
+	$K_{j}\subset\interior{K_{j+1}}$ y que $K_{j+1}\supset U_{j+1}$,
+	tambi\'{e}n. La sucesi\'{o}n que se obtiene as\'{\i} es una
+	sucesi\'{o}n exhaustiva de $X$ por compactos.
+\end{proof}
+
+\begin{remarkVarTopParacompII}\label{rem:vartopparacompII}
+	Si $X$ es un espacio topol\'{o}gico localmente compacto y tal que
+	todo cubrimiento por abiertos admite un subcubrimiento numerable,
+	para cada punto $p\in X$ existen un abierto $U_{p}$ y un compacto
+	$C_{p}$ tales que $p\in U_{p}\subset C_{p}$. La colecci\'{o}n
+	$\{U_{p}\,:\,p\in\ X\}$ es un cubrimiento de $X$ y admite, pues, un
+	subcubrimiento numerable, $\{U_{n}\}_{n\geq 1}$. Sea
+	$\{C_{n}\}_{n\geq 1}$ la familia de compactos correspondiente.
+	Sea $K_{1}=C_{1}$. Como $K_{1}$ es compacto, existe $n_{1}$
+	(que se puede suponer mayor o igual a $2$) tal que
+	\begin{align*}
+		K_{1} & \,\subset\, U_{1}\cup\,\cdots\,\cup U_{n_{1}}
+		\text{ .}
+	\end{align*}
+	%
+	Sea $K_{2}=C_{1}\cup\,\cdots\,\cup C_{n_{1}}$. Entonces
+	\begin{align*}
+		K_{1} & \,\subset\,U_{1}\cup\,\cdots\,\cup U_{n_{1}}
+			\,\subset\, C_{1}\cup\,\cdots\,\cup C_{n_{1}}
+		\text{ .}
+	\end{align*}
+	%
+	As\'{\i}, $K_{1}\subset\interior{K_{2}}$ y $K_{2}\supset U_{2}$.
+	Inductivamente, queda definida una sucesi\'{o}n $\{K_{j}\}_{j\geq 1}$
+	de compactos tales que $K_{j}\subset\interior{K_{j+1}}$ y
+	$K_{j}\supset U_{j}$. Como $\{U_{j}\}_{j\geq 1}$ es un cubrimiento
+	de $X$, se deduce que
+	\begin{align*}
+		X & \,=\,\bigcup_{j\geq 1}\,K_{j}
+		\text{ .}
+	\end{align*}
+	%
+	El espacio topol\'{o}gico $X$ admite una sucesi\'{o}n exhaustiva de
+	compactos. En definitiva, hemos demostrado una versi\'{o}n un poco
+	m\'{a}s general de \ref{thm:vartopsigmacomp}.
+\end{remarkVarTopParacompII}
+
+\begin{propoVarTopSigmacomp}\label{thm:vartopsigmacompbis}
+ Si $X$ es un espacio topol\'{o}gico localmente compacto y es tal
+ que todo cubrimiento por abiertos admite un subcubriento numerable,
+ entonces $X$ es \emph{$\sigma$-compacto}. En este contexto,
+ esto quiere decir que $X$ admite una sucesi\'{o}n exhaustiva de
+ compactos.
+\end{propoVarTopSigmacomp}
+
+\begin{remarkVarTopParacompIII}\label{rem:vartopparacompIII}
+	La propiedad de ser localmente compacta de una variedad topol\'{o}gica
+	se puede demostrar sin el lema de las bolas coordenadas. Mejor dicho,
+	las conclusiones del lema se pueden deducir asumiendo \'{u}nicamente
+	que $M$ es un espacio topol\'{o}gico localmente euclideo. La
+	cardinalidad de la base es consecuencia de que $M$ admite un
+	subcubrimiento numerable porque es, adem\'{a}s, $N_{2}$.
+
+	Si decimos que $X$ es un espacio topol\'{o}gico localmente euclideo
+	de dimensi\'{o}n $n\geq 0$, estamos diciendo que $X$ admite un
+	cubrimiento por abiertos homeomorfos a abiertos de $\bb{R}^{n}$.
+	Es decir, existe una familia de pares $(U,\varphi)$ donde
+	$U$ es abierto de $X$ y $\varphi:\,U\rightarrow\bb{R}^{n}$ determina
+	un homeomorfismo entre $U$ y un abierto de $\bb{R}^{n}$ y los
+	abiertos $U$ cubren a $X$. Por cada uno de estos pares,
+	$\varphi(U)$ es un abierto de $\bb{R}^{n}$ homeomorfo a $U$. Dado
+	que $\varphi(U)$ admite una base numerable de bolas precompactas
+	$\{B_{k}\}_{k\geq 1}$, la familia $\{\varphi^{-1}(B_{k})\}_{k\geq 1}$
+	es una base numerable para la topolog\'{\i}a de $U$, porque $\varphi$
+	es un homeomorismo. Pero $U$ tiene la topolog\'{\i}a subespacio
+	de $X$ y cada \emph{bola} $\varphi^{-1}(B_{k})$ tiene clausura
+	compacta \emph{en $U$}. Es decir, $\clos{\varphi^{-1}(B_{k})}^{U}$
+	es compacta como subespacio de $U$. Pero subespcio de subespacio
+	es subespacio, por lo tanto, $\clos{\varphi^{-1}(B_{k})}^{U}$ debe ser
+	compacto como subespacio de $X$, aunque talvez no coincida con la
+	clausura de $\varphi^{-1}(B_{k})$ en $X$.
+
+	En definitiva, por cada par $(U,\varphi)$ con $U\subset X$ abierto
+	y $\varphi:\,U\rightarrow\bb{R}^{n}$ un homeomorfismo con un abierto
+	de $\bb{R}^{n}$, existe una base numerable de bolas de $X$ y por
+	cada una de ellas un compacto de $U$ (y, por lo tanto, de $X$) que
+	la contiene. Es decir, cada bola de la base $U$ es precompacta en
+	el sentido de que est\'{a} contenida en un subespacio compacto.
+	Agrupando las bases asociadas a cada par $(U,\varphi)$ se obtiene
+	una base para $X$.
+
+	Si ahora asumimos que todo cubrimiento de $X$ admite un subcubrimiento
+	numerable, entonces $X$ admite un cubrimiento numerable por bolas
+	tales que cada una de ellas est\'{e} contenida en un subespacio
+	compacto. Si $X$ es, adem\'{a}s, Hausdorff, se puede asumir que
+	dichos compactos son las clausuras (en $X$ o en el abierto $U$
+	correspondiente, pues son iguales) de las respectivas bolas
+	$\varphi^{-1}(B)$ de $X$. Obtenemos as\'{\i} una demostraci\'{o}n
+	de la proposici\'{o}n \ref{thm:vartoploccomp} y una generalizaci\'{o}n
+	del lema \ref{thm:bolascoordenadas} de las bolas coordenadas.
+\end{remarkVarTopParacompIII}
+
+\begin{remarkVarTopParacompIV}\label{rem:vartopparacompIV}
+	Si $X$ es un espacio topol\'{o}gico $\sigma$-compacto y que,
+	adem\'{a}s es Hausdorff, entonces, siguiendo el argumento en
+	la demostraci\'{o}n de la proposici\'{o}n \ref{thm:vartopparacomp},
+	se deduce que, dado un cubrimiento por abiertos y una base,
+	existe un refinamiento numerable localmente finito del cubrimiento
+	por elementos de la base. Es decir, todo espacio $\sigma$-compacto
+	y Hausdorff es paracompacto.
+\end{remarkVarTopParacompIV}
+
+\subsection{Cartas coordenadas}
+Sea $M$ una variedad topol\'{o}gica de dimensi\'{o}n $n$. Una
+\emph{carta coordenada} (mapa coordenado, mapa, coordenada, carta, sistema
+de coordenadas, etc.) para/en/de $M$ es un par $(U,\varphi)$ donde
+$U\subset M$ es abierto y $\varphi:\,U\rightarrow\bb{R}^{n}$ es un
+homemorfismo sobre su imagen. Tambi\'{e}n se puede definir como una terna
+$(U,\tilde{U},\varphi)$ donde $U$ es abierto en $M$, $\tilde{U}$ es abierto
+en $\bb{R}^{n}$ y $\varphi:\,U\rightarrow\tilde{U}$ es un homeomorfismo.
+Dado un punto $p\in M$, se dice que una carta $(U,\varphi)$ \emph{est\'{a} %
+centrada} en $p$, si $p\in U$ y $\varphi(p)=0$. Dada una carta $(U,\varphi)$,
+$U$ se denomina el \emph{dominio coordenado} de la carta y $\varphi$ el
+\emph{mapa coordenado}. Las funciones
+\begin{align*}
+	x^{k} & \,=\,\pi^{k}\circ\varphi\,:\,U\,\rightarrow\,\bb{R}
+	\text{ ,}
+\end{align*}
+%
+donde $\pi^{k}:\,\bb{R}^{n}\rightarrow\bb{R}$ denota la proyecci\'{o}n en la
+coordenada $k$, son las \emph{funciones coordenadas} o \emph{coordenadas %
+locales en $U$}.
+
+Con esta noci\'{o}n, podemos reformular la definici\'{o}n d variedad
+topol\'{o}gica: una variedad topol\'{o}gica es un espacio topol\'{o}gico
+Hausdorff $M$ que admite una base numerable para su topolog\'{\i}a y
+que posee, adem\'{a}s, un cubrimiento por abiertos $\{U_{\alpha}\}_{\alpha}$,
+donde los conjuntos $U_{\alpha}$ son domnios de una carta coordenada
+$(U_{\alpha},\varphi_{\alpha})$ para $M$.
+
+\subsection{Par\'{e}ntesis: el grupo fundamental de una variedad}
+Sea $M$ una variedad topol\'{o}gica y sea $\cal{B}$ una base numerable de
+bolas coordenadas precompactas. Sea $p\in M$ un punto arbitrario y sea
+$f:\,[0,1]\rightarrow M$ un camino cerrado basado en $p$, es decir, una
+funci\'{o}n continua tal que $f(0)=f(1)=p$. Dado que $\cal{B}$ constituye
+un cubrimiento por abiertos de $M$ y, en particular, de $f([0,1])$,
+existen finitos puntos $\{a_{0},\,\dots,\,a_{k}\}$
+tales que $a_{0}=0<a_{1}<\cdots<a_{k-1}<a_{k}=1$ y existen tambi\'{e}n bolas
+$B_{1},\,\dots,\,B_{k}$ pertenecientes a $\cal{B}$ tales que
+\begin{align*}
+	f([a_{t-1},a_{t}]) & \,\subset\,B_{t}
+	\text{ .}
+\end{align*}
+%
+El camino $f$ se factoriza como un producto de caminos
+\begin{align*}
+	f & \,\sim\,f_{1}\sqcdot\,\cdots\,\sqcdot f_{k}
+	\text{ ,}
+\end{align*}
+%
+donde $f_{t}=f|_{[a_{t-1},a_{t}]}$ (reparametriado adecuadamente para que su
+dominio sea $[0,1]$). Sea $x\in B_{t-1}\cap B_{t}$ un punto de la misma
+componente conexa de $B_{t-1}\cap B_{t}$ que $f(a_{t-1})=:x_{t-1}$.
+Existe un camino contenido en $B_{t}$ de $x_{t-1}$ a $x$. Sea $g_{t-1}$ tal
+camino. As\'{\i},
+\begin{align*}
+	f & \,\sim\, f_{1}\sqcdot\,\cdots\,\sqcdot f_{k} \\
+	& \,\sim\,(f_{1}\sqcdot g_{1})\sqcdot
+		(\reverse{g_{1}}\sqcdot f_{2}\sqcdot g_{2})
+		\sqcdot\,\cdots\,\sqcdot (\reverse{g_{k-1}}\sqdot f_{k})
+	\text{ ,}
+\end{align*}
+%
+donde $\reverse{g}$ es el camino inverso de $g$.
+
+Sea $B\in\cal{B}$ un elemento arbitrario de la base. Para cada $B'\in\cal{B}$,
+posiblemente igual a $B$, se elige un punto en cada componente conexa
+de $B\cap B'$. Como las componentes conecas de dicha intersecci\'{o}n son
+numerables en cantidad y $\cal{B}$ contiene numerables bolas, son numerables
+los puntos elegidos. Llamemos a estos puntos \emph{puntos especiales}. Si
+$B\in\cal{B}$ y si $x',x''\in B$ son dos puntos especiales ($x'\in B'\cap B$
+y $x''\in B''\cap B$, por ponerles un nombre), sea $h_{x',x''}^{B}$ un camino
+contenido en $B$ con $h_{x',x''}^{B}(0)=x'$ y $h_{x',x''}^{B}(1)=x''$.
+Por cada terna $(B,x',x'')$ se elige un camino, que se denominar\'{a}
+\emph{camino especial}, contenido en $B$ de $x'$ a $x''$. La cantidad de
+caminos as\'{\i} elegidos es, pues, numerable.
+
+Por otro lado, se puede asumir que el punto $p$ es uno de los puntos
+especiales: en primer lugar, la elecci\'{o}n de los puntos especiales
+fue realizada sin menci\'{o}n de $p$; en segundo lugar, dado un punto
+$p\in M$ arbitrario, existe un punto especial $x$ en la misma componente
+conexa de $M$ que $p$, entonces $\pi(M,p)\simeq\pi(M,x)$. Por el
+argumento del p\'{a}rrafo anterior, para cada $t\in[\![1,k-1]\!]$,
+existe un camino $g_{t}$ contenido en $B_{t}\cap B_{t+1}$ con origen en
+$x_{t}=f(a_{t})$ que termina en un punto $x\in B_{t}\cap B_{t+1}$ en la
+misma componente conexa de $B_{t}\cap B_{t+1}$ que $x_{t}$. Ahora bien,
+si $g_{0}$ es el camino constante fijo en $x_{0}=f(a_{0})=f(0)=p$ y $g_{k}$
+es el camino constante fijo en $x_{k}=f(a_{k})=f(1)=p$, vale que
+\begin{align*}
+	f & \,\sim\,f_{1}\sqcdot\,\cdots\,\sqcdot f_{k} \\
+	& \,\sim\, (\reverse{g_{0}}\sqcdot f_{1}\sqcdot g_{1})\sqcdot
+		(\reverse{g_{1}}\sqcdot f_{2}\sqcdot g_{2})\sqcdot
+		\,\cdots\,\sqcdot (\reverse{g_{k-1}}\sqcdot f_{k}\sqcdot g_{k})
+	\text{ .}
+\end{align*}
+%
+Pero $\reverse{g_{t-1}}\sqcdot f_{t}\sqcdot g_{t}$ es un camino contenido en
+$B_{t}$, que es simplemente conexa, que comienza en un punto especial
+$x_{t}'$ y termina en otro punto especial $x_{t}''$. En particular,
+\begin{align*}
+	\reverse{g_{t-1}}\sqcdot f_{t}\sqcdot g_{t} &
+		\,\sim\, h_{x_{t}',x_{t}''}^{B_{t}}\quad\text{y} \\
+	f & \,\sim\, h_{x_{1}',x_{1}''}^{B_{1}}\sqcdot\,\cdots\,\sqcdot
+		h_{x_{k}',x_{k}''}^{B_{k}}
+	\text{ .}
+\end{align*}
+%
+En definitiva, todo loop basado en $p$ es homot\'{o}pico a un producto
+finito de caminos especiales, lo que implica que $\pi(M,p)$ es, a lo sumo,
+numerable.
+

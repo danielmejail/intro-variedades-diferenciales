@@ -1,0 +1,184 @@
+
+
+
+
+\begin{ejemplo}\nom{El gr\'{a}fico de una funci\'{o}n}
+	Sea $U\subset\bb{R}^{n}$ un subconjunto abierto y sea
+	$f:\,U\rightarrow\bb{R}^{k}$ una funci\'{o}n \emph{continua}. El
+	\emph{gr\'{a}fico de $f$} es el subconjunto de
+	$\bb{R}^{n}\times\bb{R}^{k}$ definido por
+	\begin{align*}
+		\graf{f} & \,=\,\big\lbrace (x,y)\in\bb{R}^{n}\times\bb{R}^{k}
+			\,:\,x\in U,\,y=f(x)\big\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	A este subconjunto se le da la topolog\'{\i}a de subespacio del
+	producto. Sea $\pi_{1}:\,\bb{R}^{n}\times\bb{R}^{k}\rightarrow%
+	\bb{R}^{n}$ la proyecci\'{o}n en el primer factor y sea
+	$\varphi:\,\graf{f}\rightarrow U$ la restricci\'{o}n de $\pi_{1}$
+	al gr\'{a}fico de $f$. La aplicaci\'{o}n $\varphi$ es continua,
+	siendo la restricci\'{o}n de una funci\'{o}n continua a un subespacio;
+	su imagen es el abierto $U$ de $\bb{R}^{n}$ y
+	$\varphi^{-1}(x)=(x,f(x))$ es una inversa para $\varphi$ definida en
+	$U$. En definitiva, $\graf{f}$ es homeomorfo a $U$ v\'{\i}a
+	$\varphi$ y el par $(\graf{f},\varphi)$ es una carta global
+	para $\graf{f}$ que hace del mismo un espacio localmente euclideo
+	de dimensi\'{o}n $n$. Como $\graf{f}$ es $T_{2}$ y $N_{2}$, por
+	ser subespacio de $\bb{R}^{n}\times\bb{R}^{k}$, resulta ser una
+	variedad topol\'{o}gica de dimensi\'{o}n $n$, tambi\'{e}n.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Espacios euclideos}
+	Para cada entero $n\geq 0$, $\bb{R}^{n}$ es una variedad diferencial
+	de dimensi\'{o}n $n$. Su estructura suave est\'{a} determinada por el
+	atlas trivial $\{(\bb{R}^{n},\id[\bb{R}^{n}])\}$ que consta de una
+	\'{u}nica carta. Esta estructura diferencial en $\bb{R}^{n}$ se
+	denominar\'{a} \emph{estructura usual} de $\bb{R}^{n}$ o
+	\emph{coordenadas usuales}. Vale la pena observar que las cartas
+	compatibles con esta estructura son, precisamente, los pares
+	$(U,\varphi)$ con $U$ es abierto (en la topolog\'{\i}a usual) y
+	$\varphi:\,U\rightarrow\bb{R}^{n}$ es difrenciable en el sentido
+	usual, tambi\'{e}n.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Subvariedades abiertas}
+	Sea $U$ un subconjunto abierto de $\bb{R}^{n}$. Entonces $U$ es una
+	variedad topol\'{o}gica de dimensi\'{o}n $n$ y la carta
+	$(U,\id[U])$ define una estructura suave en $U$. En general, sea
+	$M$ es una variedad diferencial y sea $U$ un abierto de $M$.
+	Sea $\cal{A}$ la colecci\'{o}n de todas las cartas suaves para
+	$M$, es decir, el atlas maximal que define la estructura de $M$
+	como variedad diferencial. La colecci\'{o}n
+	\begin{align*}
+		\cal{A}_{U} & \,=\,\left\lbrace
+			(V,\varphi)\in\cal{A}\,:\,V\subset U\right\rbrace
+	\end{align*}
+	%
+	es un atlas de $U$ que es, adem\'{a}s, suavemente compatible.
+	Este atlas determina naturalmente una estructura diferencial
+	sobre $U$. Los subconjuntos abiertos de una variedad $M$ son
+	de manera natural variedades diferenciales que denominaremos
+	\emph{subvariedades abierta} de $M$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El gr\'{a}fico de una funci\'{o}n diferenciable}
+	Sea $U\subset\bb{R}^{n}$ un abierto y sea $f:\,U\rightarrow\bb{R}^{k}$
+	una funci\'{o}n diferenciable. El gr\'{a}fico de $f$ es una variedad
+	topol\'{o}gica, dado que $f$ es continua. Dado que, adem\'{a}s, el
+	gr\'{a}fico de $f$, $\graf{f}$, se puede cubrir con una \'{u}nica
+	carta, $(\graf{f},\varphi)$, donde $\varphi:\,\graf{f}\rightarrow U$
+	es la restricci\'{o}n de la proyecci\'{o}n en la primer coordenada,
+	el gr\'{a}fico de una funci\'{o}n suave tiene una estructura suave
+	de manera can\'{o}nica.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Las proyecciones son submersiones}
+	Sean $M_{1},\,\dots,\,M_{k}$ variedades diferenciales y sea
+	$M$ el producto de todas ellas. Cada una de las proyecciones
+	$\pi_{i}:\,M\rightarrow M_{i}$ es una submeris\'{o}n. Si tomamos
+	cartas $(U_{i},\varphi_{i})$ para cada \'{\i}ndice $i$, entonces
+	\begin{align*}
+		\widehat{\pi_{i}} & \,=\,
+		\varphi_{i}\circ\pi_{i}\circ
+			(\varphi_{1}\times\,\cdots\,\times\varphi_{k})^{-1}
+			(\lista{x}{k})
+			\,=\,x_{i}
+		\text{ .}
+	\end{align*}
+	%
+	La matriz jacobiana de la representaci\'{o}n en coordenadas
+	$\widehat{\pi_{i}}$ es
+	\begin{align*}
+		\jacobiana[x_{i}]{\widehat{\pi_{i}}} & \,=\,
+		\sbox0{$
+			\begin{matrix}
+				1 & & \\
+				& \ddots & \\
+				& & 1
+			\end{matrix}
+		$}
+		\sbox1{$
+			\begin{matrix}
+				\ddots
+			\end{matrix}
+		$}
+		\left[
+		\begin{array}{ccc}
+			\vphantom{\usebox{0}}\makebox[\wd0]{} &
+			\usebox{0} &
+			\vphantom{\usebox{0}}\makebox[\wd0]{}
+		\end{array}
+		\right]
+	\end{align*}
+	%
+	que es sobreyectiva.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Una curva con velocidad nunca nula es inmersi\'{o}n}
+	Sea $\gamma:\,J\rightarrow M$ una curva suave en una variedad $M$.
+	Una condici\'{o}n necesaria y suficiente para que $\gamma$
+	esa una inmersi\'{o}n es que su velocidad $\diferencial[t]{\gamma}=%
+	\dot{\gamma}(t)$ sea distinta de cero en todo instante $t\in J$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{La proyecci\'{o}n desde el fibrado tangente}
+	Sea $M$ una variedad diferencial y sea $TM$ su fibrado tangente.
+	Sea $\pi:\,TM\rightarrow M$ la proyecci\'{o}n can\'{o}nica
+	$\pi:\,(p,v_{p})\mapsto p$. Tomando coordenadas $(U,\varphi)$ en $M$ y
+	las coordenadas correspondientes $(\widetilde{U},\widetilde{\varphi})$
+	en $TM$,
+	\begin{align*}
+		\widehat{\pi}(\lista*{x}{n},\,\lista*{v}{n}) & \,=\,
+			(\lista*{x}{n})
+	\end{align*}
+	%
+	y su matriz jacobiana es igual a
+	\begin{align*}
+		\jacobiana[(x^{i},v^{i})]{\widehat{\pi}} & \,=\,
+		\sbox0{$
+			\begin{matrix}
+				1 & & \\
+				& \ddots & \\
+				& & 1
+			\end{matrix}
+		$}
+		\left[
+		\begin{array}{cc}
+			\usebox{0} & \makebox[\wd0]{}
+		\end{array}
+		\right]
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El toro parametrizado}
+	Sea $X:\,\bb{R}^{2}\rightarrow\bb{R}^{3}$ la funci\'{o}n dada por
+	\begin{align*}
+		X(u,v) & \,=\,\big(
+		(2+\cos 2\pi u)\,\cos 2\pi v,\,
+		(2+\cos 2\pi u)\,\sin 2\pi v,\,
+		\sin 2\pi u\big)
+		\text{ .}
+	\end{align*}
+	%
+	Su matriz jacobiana est\'{a} dada por
+	\begin{align*}
+		\jacobiana[(u,v)]{X} & \,=\,
+			\begin{bmatrix}
+				-2\pi\,(\sin 2\pi u)\,(\cos 2\pi v) &
+					-2\pi\,(2+\cos 2\pi u)\,\sin 2\pi v \\
+				-2\pi\,(\sin 2\pi u)\,(\sin 2\pi v) &
+					2\pi\,(2+\cos 2\pi u)\,\cos 2\pi v \\
+				2\pi\,\cos 2\pi u & 0
+			\end{bmatrix}
+		\text{ .}
+	\end{align*}
+	%
+	El determinante de la submatriz superior es igual a
+	$(-4\pi^{2})(\sin 2\pi u)(2+\cos 2\pi u)$ que es distinto de cero,
+	salvo en $u\in\frac{1}{2}\bb{Z}$. Pero para estos valores de $u$,
+	las columnas de $\jacobiana[(u,v)]{X}$ son linealmente
+	independientes. Entonces $X$ es una inmersi\'{o}n.
+\end{ejemplo}

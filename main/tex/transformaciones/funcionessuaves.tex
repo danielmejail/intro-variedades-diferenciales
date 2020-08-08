@@ -1,0 +1,232 @@
+\theoremstyle{plain}
+\newtheorem{propoSuavidadEsLocal}{Proposici\'{o}n}[section]
+\newtheorem{propoSuaveEsConti}[propoSuavidadEsLocal]{Proposici\'{o}n}
+\newtheorem{propoDelPegado}[propoSuavidadEsLocal]{Proposici\'{o}n}
+\newtheorem{propoAlgunasFuncionesSuaves}[propoSuavidadEsLocal]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsComoLaUsual}{Observaci\'{o}n}[section]
+\newtheorem{obsTodasSonSuaves}[obsComoLaUsual]{Observaci\'{o}n}
+\newtheorem{obsOtrasCaracterizacionesDeSuavidad}[obsComoLaUsual]%
+	{Observaci\'{o}n}
+
+%-------------
+
+Sea $M$ una variedad y sea $f:\,M\rightarrow\bb{R}$ una funci\'{o}n
+arbitraria. Para describir a $f$, para poder decir algo acerca de sus
+propiedades, estudiamos la funci\'{o}n en coordenadas. La
+\emph{representaci\'{o}n de $f$ en coordenadas} o la funci\'{o}n $f$
+\emph{en coordenadas} es cualquier composici\'{o}n de $f$ con la inversa de
+una carta para $M$, es decir, algo de la forma $f\circ\varphi^{-1}$,
+donde $\varphi$ es la funci\'{o}n coordenada de una carta $(U,\varphi)$
+para $M$. Para hacer uso de esta idea, no es necesario que el codominio de
+$f$ sea $\bb{R}$. La idea es que todo, o mucho de lo que se puede conocer de
+$M$ se conoce a trav\'{e}s de las cartas.
+
+\subsection{Funciones suaves}
+Una funci\'{o}n $f:\,M\rightarrow\bb{R}$ o, m\'{a}s en general, una funci\'{o}n $f:\,M\rightarrow\bb{R}^{l}$ es una
+\emph{funci\'{o}n suave}, si, para todo punto $p\in M$, existe una carta
+compatible $(U,\varphi)$ para $M$ en $p$ tal que la composici\'{o}n
+\begin{align*}
+	f\circ\varphi^{-1} & \,:\,\varphi(U)\subset\bb{R}^{d}\,\rightarrow\,
+					\bb{R}^{l}
+\end{align*}
+%
+es suave en el sentido \emph{usual}: diremos que $f$ es diferenciable, de
+clase $C^{1}$, de clase $C^{k}$, \textit{etcetera}, si todas las
+composiciones $f\circ\varphi^{-1}$ tienen la propiedad correspondiente,
+propiedades que dependen de la existencia de ciertos l\'{\i}mites y
+de la continuidad de los mismos. En general, toda propiedad local acerca
+de funciones definidas en abiertos de $\bb{R}^{d}$ se puede definir
+tambi\'{e}n para funciones definidas en abiertos de variedades usando las
+cartas (compatibles) para la variedad. Decimos que $f$ es \emph{regular},
+si vista en coordenadas es regular.
+
+Si $U$ es un abierto euclideo, entonces hay dos nociones de suavidad de
+funciones. Si $f:\,U\rightarrow\bb{R}^{l}$ es una funci\'{o}n, podemos
+decir que $f$ es suave porque es de clase $C^{k}$ en $U$ para todo $k\geq 1$,
+en el sentido de que existen las derivadas parciales de orden $k$ y son
+continuas para todo $k\geq 1$; o bien podemos decir que es suave porque
+para todo punto $p\in U$ existe una carta $(U',\varphi)$ en $p$ tal que
+$f\circ\varphi^{-1}$ es suave. Ambas nociones coinciden: si $f$ es suave en
+el sentido usual, entonces, tomando la carta global $(U,\id[U])$, se ve
+que $f\circ\id[U]^{-1}=f$ es suave (en el sentido usual) y que, por lo
+tanto, para todo punto se puede hallar una carta tal que la funci\'{o}n
+en coordenadas es suave en el sentido usual; rec\'{\i}procamente, basta
+notar que, dada una carta $(V,\psi)$ para $U$, las funciones $\psi$ y
+$\psi^{-1}$ son funciones suaves en sentido usual, ya que $\psi$ es la
+funci\'{o}n de una carta compatible con la estructura en $U$ determinada
+por el atlas $C^{\infty}$ $\{(U,\id[U])\}$.
+
+\begin{obsComoLaUsual}\label{obs:comolausual}
+Veamos esto \'{u}ltimo en detalle. La estructura diferencial usual en
+$U$ es aquella determinada por el atlas que consiste en la \'{u}nica
+carta $(U,\id[U])$ que se obtiene de restringir la carta $(\bb{R}^{d},\id)$
+que define la estructura diferencial usual de $\bb{R}^{d}$. Sea $(V,\psi)$
+una carta para $U$ compatible con esta estructura. Como $(U,\id[U])$ y
+$(V,\psi)$ son cartas compatibles, las funciones
+\begin{align*}
+	\psi(U\cap V)\,\rightarrow\,\id[U](U\cap V) &
+	\quad\text{e}\quad
+	\id[U](U\cap V)\,\rightarrow\psi(U\cap V)
+\end{align*}
+%
+son diferenciables (en el sentido usual, naturalmente). Pero estas funciones
+son, precisamente, $\psi^{-1}:\,\psi(V)\rightarrow V$ y
+$\psi:\,V\rightarrow\psi(V)$. Es decir, $\psi$ y $\psi^{-1}$ son suaves
+en el sentido usual y $\psi$ es un difeomorfismo, en el sentido usual.
+\end{obsComoLaUsual}
+
+\begin{obsTodasSonSuaves}\label{obs:todassonsuaves}
+Sea $M$ una variedad diferencial y sea $f:\,M\rightarrow\bb{R}^{l}$ una
+funci\'{o}n suave. Sea $(U,\varphi)$ una carta compatible para $M$. Entonces
+$f\circ\varphi^{-1}$ es suave: si $p\in U$ y $(V,\psi)$ es una carta tal
+que $p\in V$ y $f\circ\psi^{-1}$ es suave,
+\begin{align*}
+	f\circ\varphi^{-1}|_{\varphi(U\cap V)} & \,=\,
+	(f\circ\psi^{-1})|_{\psi(U\cap V)}\circ
+		(\psi\circ\varphi^{-1})|_{\varphi(U\cap V)}
+	\text{ .}
+\end{align*}
+%
+Esta descomposi\'{o}n muestra que $f\circ\varphi^{-1}$ es suave ``en $p$''.
+Como $p\in U$ era arbitrario, $f\circ\varphi^{-1}$ es suave.
+\end{obsTodasSonSuaves}
+
+Si $f:\,M\rightarrow\bb{R}^{l}$ es suave y $(U,\varphi)$ es una carta
+(compatible) para $M$, la composici\'{o}n $\hat{f}=f\circ\varphi^{-1}$ se
+denomina \emph{representaci\'{o}n de $f$ en coordenadas (respecto de la %
+carta $\varphi$)}. La observaci\'{o}n \ref{obs:todassonsuaves} muestra que
+la suavidad de las representaciones no depende de la carta.
+
+\subsection{Transformaciones suaves}
+Una funci\'{o}n $F:\,M\rightarrow N$ entre variedades diferenciales se dice
+\emph{suave} o \emph{transformaci\'{o}n suave} (para distinguirlas de aquellas
+con codominio $\bb{R}$ o $\bb{R}^{l}$), si, para todo punto $p\in M$
+existen cartas $(U,\varphi)$ para $M$ en $p$ y $(V,\psi)$ para $N$ en
+$F(p)$ tales que
+\begin{itemize}
+	\item[\i] $F(U)\subset V$ y
+	\item[\i\i] $\psi\circ F\circ\varphi^{-1}:\,%
+		\varphi(U)\rightarrow\psi(V)$ es suave en sentido usual entre
+		abiertos de $\bb{R}^{\dim\,M}$ y de $\bb{R}^{\dim\,N}$.
+\end{itemize}
+%
+Esta definici\'{o}n coincide con la definici\'{o}n de funci\'{o}n suave
+pensando al codominio $\bb{R}^{l}$ como una variedad diferencial con su
+estructura usual argumentando como en la observaci\'{o}n
+\ref{obs:comolausual}. De manera similar al caso de funciones en $\bb{R}^{l}$,
+llamamos \emph{representaci\'{o}n en coordenadas de $F$} a
+$\hat{F}=\psi\circ F\circ\varphi^{-1}$.
+
+\begin{obsOtrasCaracterizacionesDeSuavidad}\label{obsotrassuavidad}
+	Sea $F:\,M\rightarrow N$ una funci\'{o}n. Entonces $F$ es suave, si
+	y s\'{o}lo si para todo $p\in M$ existen cartas $(U,\varphi)$ en
+	$p$ y $(V,\psi)$ en $F(p)$ tales que $U\cap F^{-1}(V)$ sea abierta
+	en $M$ y
+	\begin{align*}
+		\psi\circ F\circ\varphi^{-1} & \,:\,
+			\varphi(U\cap F^{-1}(V))\,\rightarrow\,\psi(V)
+	\end{align*}
+	%
+	sea suave. Equivalentemente, $F$ es suave, si y s\'{o}lo si
+	$F$ es continua y existen atlas compatibles
+	$\{(U_{\alpha},\varphi_{\alpha})\}_{\alpha}$ de $M$ y
+	$\{(V_{\beta},\psi_{\beta})\}_{\beta}$ de $N$ tales que las
+	composiciones
+	\begin{align*}
+		\psi_{\beta}\circ F\circ\varphi_{\alpha}^{-1} & \,:\,
+			\varphi_{\alpha}(U_{\alpha}\cap F^{-1}(V_{\beta}))
+			\,\rightarrow\,\psi_{\beta}(V_{\beta})
+	\end{align*}
+	%
+	sean suaves.
+\end{obsOtrasCaracterizacionesDeSuavidad}
+
+\subsection{Propiedades locales}
+Al igual que la continuidad de funciones, suavidad es una propiedad
+local.
+
+\begin{propoSuavidadEsLocal}[Suavidad es una propiedad local]%
+	\label{thm:suavidadeslocal}
+	Sea $F:\,M\rightarrow N$ una funci\'{o}n entre variedades
+	diferenciales. Entonces, si $F$ es suave, la restricci\'{o}n
+	$F|_{U}:\,U\rightarrow N$ es suave para todo abierto $U\subset M$.
+	Rec\'{\i}procamente, si todo punto admite un entorno $U$ tal que
+	$F|_{U}$ sea suave, entonces $F$ es suave. Diremos que $F$ es suave
+	en un punto $p\in M$, si exite un entorno $U$ de $p$ tal que la
+	restricci\'{o}n $F|_{U}$ sea suave.
+\end{propoSuavidadEsLocal}
+
+Dado que las cartas son homeomorfismo podemos deducir la siguiente propiedad
+\emph{deseable}.
+
+\begin{propoSuaveEsConti}\label{thm:suaveesconti}
+	Toda funci\'{o}n suave $F:\,M\rightarrow N$ es continua.
+\end{propoSuaveEsConti}
+
+\begin{proof}
+	Para cada punto $p$ existen cartas $(U,\varphi)$ en $p$ y $(V,\psi)$
+	en $F(p)$ tales que $F(U)\subset V$. Entonces
+	\begin{align*}
+		F|_{U} & \,=\,\psi^{-1}\circ (\psi\circ F\circ\varphi^{-1})
+			\circ\varphi
+	\end{align*}
+	%
+	implica que $F$ es continua restringida a $U$. Como esto es
+	v\'{a}lido para todo punto $p\in M$, $F$ es continua en $M$.
+\end{proof}
+
+De manera similar, el lema del pegado para funciones continuas tambi\'{e}n
+tiene su an\'{a}logo acerca de funciones suaves.
+
+\begin{propoDelPegado}[Lema del pegado]\label{thm:delpegado}
+	Sean $M$ y $N$ variedades diferenciales. Sea
+	$\cal{U}=\{U_{\alpha}\}_{\alpha}$ un cubrimiento de $M$ por abiertos.
+	Si, para cada $\alpha$, existe una funci\'{o}n suave
+	$F_{\alpha}:\,U_{\alpha}\rightarrow N$ de manera que
+	\begin{align*}
+		F_{\alpha}|_{U_{\alpha}\cap U_{\beta}} & \,=\,
+			F_{\beta}|_{U_{\alpha}\cap U_{\beta}}
+	\end{align*}
+	%
+	para todo par $\alpha,\beta$, entonces existe una \'{u}nica funci\'{o}n
+	suave $F:\,M\rightarrow N$ tal que $F|_{U_{\alpha}}=F_{\alpha}$
+	para todo $\alpha$.
+\end{propoDelPegado}
+
+\begin{propoAlgunasFuncionesSuaves}\label{thm:algunassuaves}
+	Las funciones constantes $c:\,M\rightarrow N$ son suaves. La
+	identidad $\id[M]:\,M\rightarrow M$ es suave. La inclusi\'{o}n
+	$U\hookrightarrow M$ de una subvariedad abierta es suave.
+
+	Si $\lista{M}{k}$ y $N$ son variedades diferenciales (y, a lo sumo,
+	una de las $M_{i}$ posee borde no vac\'{\i}o), entonces una
+	funci\'{o}n $F:\,N\rightarrow M_{1}\times\,\cdots\,\times M_{k}$
+	es suave, si y s\'{o}lo si las composiciones
+	$\pi_{i}\circ F:\,N\rightarrow M_{i}$ son suaves.
+
+	La composici\'{o}n de funciones suaves es suave.
+\end{propoAlgunasFuncionesSuaves}
+
+\begin{proof}
+	Demostramos la \'{u}ltima afirmaci\'{o}n.
+	Supongamos que $F:\,M\rightarrow N$ y que $G:\,N\rightarrow\tilde{N}$
+	son funciones suaves. Sea $p\in M$. Por hip\'{o}tesis, existen cartas
+	$(V,\varphi)$ en $F(p)$, $(W,\psi)$ en $G(F(p))$ tales que
+	$G(V)\subset W$ y de manera que $\psi\circ G\varphi^{-1}$ es suave
+	en $\varphi(V)$. Porque $F$ es continua, $F^{-1}(V)$ es abierta en
+	$M$ y contiene a $p$. Existe, entonces, una carta $(U,\tilde{\varphi})$
+	tal que $p\in U\subset F^{-1}(V)$. En particular,
+	$\varphi\circ F\circ\tilde{\varphi}^{-1}:%
+		\,\tilde{\varphi}(U)\rightarrow\varphi(V)$. Se deduce entonces
+	que $G\circ F(U)\subset G(V)\subset W$ y que
+	\begin{align*}
+		\psi\circ(G\circ F)\circ\tilde{\varphi}^{-1} & \,=\,
+			(\psi\circ G\circ\varphi^{-1})\circ
+			(\varphi\circ F\tilde{\varphi}^{-1})
+	\end{align*}
+	%
+	es suave por ser composici\'{o}n de funciones suaves entre abiertos
+	de espacios euclideos.
+\end{proof}

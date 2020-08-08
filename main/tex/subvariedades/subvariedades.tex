@@ -1,0 +1,619 @@
+\theoremstyle{plain}
+\newtheorem{teoDeLasFetas}{Teorema}[section]
+\newtheorem{propoEmbeddingEsEmbedding}[teoDeLasFetas]{Proposici\'{o}n}
+\newtheorem{propoRegularCerradaSiiPropia}[teoDeLasFetas]{Proposici\'{o}n}
+\newtheorem{lemaContinuaPropia}[teoDeLasFetas]{Lema}
+\newtheorem{lemaPropiaEsCerrada}[teoDeLasFetas]{Lema}
+\newtheorem{teoDeLosConjuntosDeNivel}[teoDeLasFetas]{Teorema}
+\newtheorem{coroDelValorRegular}[teoDeLasFetas]{Corolario}
+\newtheorem{propoRegularEsLocalmenteDeNivel}[teoDeLasFetas]{Proposici\'{o}n}
+\newtheorem{propoInmersaEsInmersa}[teoDeLasFetas]{Proposici\'{o}n}
+\newtheorem{propoDeLasParametrizaciones}[teoDeLasFetas]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsCuandoInmersaEsRegular}{Observaci\'{o}n}[section]
+
+%-------------
+
+Dicho r\'{a}pidamente, una \emph{subvariedad} es un subconjunto de una
+variedad que posee, a su vez, una topolog\'{\i}a y una estructura diferencial
+(de manera que la inclusi\'{o}n sea suave). En esta secci\'{o}n indagamos un
+poco m\'{a}s en las propiedades de los embeddings y de las inmersiones
+con el objetivo de poder estudiar los distintos tipos de subvariedades.
+
+\subsection{Subvariedades regulares}
+En primer lugarm dada una variedad $M$, un subconjunto $S\subset M$ se dice
+\emph{subvariedad regular} (o, a veces, \emph{subvariedad} a secas), si,
+en tanto subespacio topol\'{o}gico es una variedad topol\'{o}gica
+\emph{sin borde} y posee una estructura diferencial respecto de la cual
+$\inc[S]:\,S\rightarrow M$ es un embedding (suave). Las subvariedades con
+borde se definen de manera an\'{a}loga, pero algunos resultados v\'{a}lidos
+para subvariedades sin borde no lo son para subvariedades con borde; las
+definiremos m\'{a}s adelante.
+
+La \'{u}ltima condici\'{o}n en la definici\'{o}n de subvariedad regular
+se puede reemplazar por la condici\'{o}n de que $\inc[S]$ sea suave y que
+el rango de $\inc[S]$ sea $\dim\,S$ (que, necesariamente, es
+$\dim\,S\leq\dim\,M$), pues la condici\'{o}n de ser subespacio fue
+incluida expl\'{\i}citamente antes.
+
+Aunque parezca inmediato de las definiciones, demostramos la siguiente
+proposici\'{o}n, pues, en alg\'{u}n sentido, introduce la idea de estructura
+natural en una subvariedad.
+
+\begin{propoEmbeddingEsEmbedding}\label{thm:embeddingesembedding}
+	Sea $M$ una variedad diferencial y sea $N$ una variedad diferencial
+	sin borde. Sea $F:\,N\rightarrow M$ un embedding suave. Sea
+	$S=F(N)$ la imagen de $F$ en $M$. Entonces \emph{(a)} con la
+	topolog\'{\i}a de subespacio de $M$, el subconjunto $S$ es una
+	variedad topol\'{o}gica y \emph{(b)} admite una estructura
+	diferencial de manera que $S$ sea una subvariedad regular de $M$ y
+	$F|:\,N\rightarrow S$ sea un difeomorfismo. Esta topolog\'{\i}a
+	y esta estructura diferencial en $S$ son las \'{u}nicas con
+	estas propiedades.
+\end{propoEmbeddingEsEmbedding}
+
+\begin{proof}
+	Le damos a $S=F(N)$ la topolog\'{\i}a de subespacio de $M$.
+	De la definici\'{o}n de subvariedad regular, se deduce que esta
+	es la \'{u}nica topolog\'{\i}a posible con la que $S$ puede ser
+	una subvariedad regular. Como $F$ es un embedding, es, en
+	particular, un subespacio y un homeomorfismo entre $N$ y $S$.
+	Notemos tambi\'{e}n que, si deseamos que $F|:\,N\rightarrow S$
+	sea un \emph{homeomorfismo}, como $F$ es subespacio, $S$ \emph{debe}
+	tener la topolog\'{\i}a de subespacio de $M$. En particular, como
+	$N$ es una variedad topol\'{o}gica, $S$ tambi\'{e}n lo es.
+	
+	De la misma manera, pasando a la estructura suave, si deseamos que
+	$F|:\,N\rightarrow S$ sea un difeomorfismo, entonces los pares
+	$(F(U),\varphi\circ F^{-1})$, donde $(U,\varphi)$ es una carta
+	para $N$, deben ser cartas compatibles con la estructura de $S$.
+	Notemos que la colecci\'{o}n
+	\begin{align*}
+		\cal{A}_{S} & \,=\,\left\lbrace (F(U),\varphi\circ F^{-1})\,:\,
+			(U,\varphi)\text{ carta para } N\right\rbrace
+	\end{align*}
+	%
+	es un atlas suavemente compatible (pues $N$ tiene una estructura
+	diferencial y las cartas $(U,\varphi)$ consideradas son las
+	cartas compatibles con dicha estructura). Con lo cual, la
+	condici\'{o}n de que $F|:\,N\rightarrow S$ sea difeomorfismo
+	impone una estructura suave sobre $S$. Finalmente, notemos que
+	la inclusi\'{o}n $\inc[S]:\,S\rightarrow M$ se descompone de la
+	siguiente manera:
+	\begin{align*}
+		\inc[S] & \,=\,F\circ (F|^{-1})
+		\text{ ,}
+	\end{align*}
+	%
+	donde $F|^{-1}$ es un difeomorfismo y $F$ es un embedding. En
+	particular, $\inc[S]$ es embedding.
+\end{proof}
+
+Una subvariedad regular $S\subset M$ se dice \emph{propia}, si la
+inclusi\'{o}n $\inc[S]:\,S\rightarrow M$ es una funci\'{o}n propia. Las
+subvariedades propias son, exactamente, las subvariedades \emph{regulares} que
+son cerradas en $M$.
+
+\begin{propoRegularCerradaSiiPropia}\label{thm:regularcerradasiipropia}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una
+	subvariedad regular. Entonces $S$ es una subvariedad regular
+	propia, si y s\'{o}lo si $S\subset M$ es una subconjunto cerrado.
+\end{propoRegularCerradaSiiPropia}
+
+Como toda funci\'{o}n continua y propia entre
+variedades topol\'{o}gicas es cerrada, dichas funciones son, adem\'{a}s,
+subespacio, con lo cual, si $\inc[S]:\,S\rightarrow M$ es continua y
+propia, $\inc[S]$ es embedding (topol\'{o}gico). Es decir, no existen
+subvariedades propias (tales que la inclusi\'{o}n sea propia) que no sean
+subvariedades regulares (es decir, subespacios topol\'{o}gicos). Aun as\'{\i},
+existen subvariedades \emph{cerradas} pero que no son regulares, es decir,
+subespacios.
+
+Antes de demostrar la proposici\'{o}n recordamos algunos lemas acerca de
+funciones continuas propias.
+
+\begin{lemaContinuaPropia}\label{thm:continuapropia}
+	\emph{(a)} Sea $f:\,X\rightarrow Y$ una funci\'{o}n continua. Si
+	$f$ es cerrada y las fibras $f^{-1}(y)$ con $y\in Y$ son compactas,
+	entonces $f$ es propia; \emph{(b)} en particular, si $f$ es un
+	embedding en un subespacio cerrado, entonces $f$ es propia;
+	\emph{(c)} si $Y:T_{2}$ y $f$ admite una rettracci\'{o}n
+	$g:\,Y\rightarrow X$ con $g\circ f=\id[X]$, entonces $f$ es
+	propia; \emph{(d)} si $f$ es propia y $A\subset X$ es saturado
+	($f^{-1}(f(A))=A$), entonces $f|_{A}:\,A\rightarrow f(A)$ es propia.
+\end{lemaContinuaPropia}
+
+\begin{proof}
+	\emph{(a)}: Sea $K\subset Y$ un compacto. Sea $\{A_{i}\}_{i}$ una
+	familia de subconjuntos cerrados de $f^{-1}(K)$ con la propiedad de
+	la intersecci\'{o}n finita. Sea $I=\{i_{1},\,\dots,\,i_{k}\}$ un
+	subconjunto finito de \'{\i}ndices. La familia
+	\begin{align*}
+		& \left\lbrace A_{I}:=A_{i_{1}}\cap \,\cdots\,\cap A_{i_{k}}
+			\,:\, I=\{i_{1},\,\dots,\,i_{k}\}\right\rbrace
+	\end{align*}
+	%
+	donde $I$ recorre todos los subconjuntos finitos de \'{\i}ndices
+	constituye una familia de cerrados de $f^{-1}(K)$ con la propiedad
+	de la intersecci\'{o}n finita, tambi\'{e}n. Como $f$ es cerrada,
+	$f(A_{I})$ es cerrada en $K$ para cada $I$ (tomamos
+	$\widetilde{A_{I}}$ cerrado en $X$ tal que
+	$A_{I}=f^{-1}(K)\cap\widetilde{A_{I}}$, entonces $f(\widetilde{A_{I}}$
+	es cerrado en $Y$ y $K\cap f(\widetilde{A_{I}})$ es igual $f(A_{I})$).
+	La familia $\{f(A_{I})\}_{I}$ est\'{a} compuesta por cerrados (de $K$)
+	y tales que
+	\begin{align*}
+		f(A_{I_{1}})\cap\,\cdots\,\cap f(A_{I_{t}}) & \,\supset\,
+			f(A_{I_{1}}\cap\,\cdots\,\cap A_{I_{t}})\,\not=\,
+			\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	Concluimos entonces que $\{f(A_{I})\}_{I}$ tiene la propiedad de
+	la intersecci\'{o}n finita, tambi\'{e}n. Como $K$ es compacto,
+	existe $y\in K$ tal que $y\in\bigcap_{I}\,f(A_{I})$. Pero esto
+	quiere decir que existen, para cada $I$, elementos $x_{I}\in A_{I}$
+	tales que $f(x_{I})=y$, es decir, $x_{I}\in A_{I}\cap f^{-1}(y)$.
+	Por hip\'{o}tesis, $f^{-1}(y)$ es compacta. Adem\'{a}s, por lo
+	anterior,
+	\begin{align*}
+		\varnothing & \,\not=\,\big(A_{i_{1}}\cap\,\cdots\,\cap
+			A_{i_{k}}\big)\cap f^{-1}(y) \,=\,
+			\big(A_{i_{1}}\cap f^{-1}(y)\big) \cap\,\cdots\,\cap
+			\big(A_{i_{k}}\cap f^{-1}(y)\big)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\{A_{i}\cap f^{-1}(y)\}_{i}$ es una familia de cerrados
+	en el compacto $f^{-1}(y)$ con la propiedad de intersecci\'{o}n
+	finita. Por lo tanto,
+	\begin{align*}
+		\varnothing & \,\not=\,\bigcap_{i}\,
+			\big(A_{i}\cap f^{-1}(y)\big) \,=\,
+			\big(\bigcap_{i}\,A_{i}\big)\cap f^{-1}(y)
+			\,\subset\, \bigcap_{i}\,A_{i}
+		\text{ .}
+	\end{align*}
+	%
+
+	\emph{(b)} Si asumimos que $f:\, X\rightarrow Y$ es subespacio y
+	que $f(X)\subset Y$ es cerrada, entonces $f^{-1}(y)$ es vac\'{\i}a
+	o consiste en un \'{u}nico punto. En cualquier caso,
+	$f^{-1}(y)$ es compacta para todo $y\in Y$ y, como
+	$f|:\,X\rightarrow f(X)$ es homeomorfismo, si $A\subset X$ es cerrado,
+	entonces $f(A)$ es cerrada en $f(X)$ y, por lo tanto, en $Y$.
+
+	\emph{(c)} Si $Y$ es Hausdorff y $f$ admite una retracci\'{o}n
+	continua $g:\,Y\rightarrow X$, entonces, si $K\subset Y$ es compacto,
+	entonces $K$ es cerrado en $Y$, $f^{-1}(K)$ es cerrado en $X$ y
+	$g(K)$ es compacto (pues $g$ es continua). Pero, si $f(x)\in K$,
+	entonces $x=g(f(x))$ y
+	\begin{align*}
+		f^{-1}(K) & \,\subset\, g(K)
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, $f^{-1}(K)$ es compacto.
+
+	\emph{(d)} Si $K\subset f(A)$ es compacto, entonces $K\subset Y$
+	es compacto y, por, hip\'{o}tesis, $f^{-1}(K)$ es compacto.
+	Pero $f^{-1}(K)\subset f^{-1}(f(A))=A$.
+\end{proof}
+
+\begin{lemaPropiaEsCerrada}\label{thm:propiaescerrada}
+	Si $f:\,x\rightarrow Y$ es continua, $Y$ es localmente compacto
+	Hausdorff y, adem\'{a}s, $f$ es propia, entonces $f$ es cerrada.
+\end{lemaPropiaEsCerrada}
+
+\begin{proof}
+	Sea $A\subset X$ cerrado. Sea $y\in\clos{f(A)}$ y sea $U\subset Y$
+	un entorno de $y$ con clausura compacta $C$. Entonces
+	$y\in\clos{f(A)\cap C}$ (si $V$ es entorno de $y$, entonces
+	$V\cap U$ es abierta, $V\cap U\subset U\subset C$ y
+	$(V\cap U)\cap f(A)\not=\varnothing$), con lo cual
+	$(V\cap U)\cap (f(A)\cap C)\not=\varnothing$). Como $f$ es propia,
+	$f^{-1}(C)$ es compacto y $A\cap f^{-1}(C)$ tambi\'{e}n, por ser
+	cerrado contenido en un compacto. Como $f$ es continua,
+	$f(A\cap f^{-1}(C))=f(A)\cap C$ es compacto. Como $Y$ es Hausdorff,
+	$f(A)\cap C$ es cerrada e $y\in f(A)\cap C\subset f(A)$. Con lo
+	cual $f(A)$ es cerrada.
+\end{proof}
+
+Ahora s\'{\i}, pasamos a la demostraci\'{o}n de la proposici\'{o}n.
+
+\begin{proof}[Demostraci\'{o}n de \ref{thm:regularcerradasiipropia}]
+	Si $S\hookrightarrow M$ es propia, $S\subset M$ es cerrado,
+	por \ref{thm:propiaescerrada}. Si $S\subset M$ es cerrado,
+	$\inc[S]:\,S\rightarrow M$ es subespacio cerrado y, por lo tanto,
+	propia por \ref{thm:continuapropia}.
+\end{proof}
+
+\subsection{Cartas preferenciales}
+Localmente, las subvariedadesregulares se pueden identificar con una
+subvariedad lineal de un espacio euclideo ambiente. Para ser precisos,
+llamamos, dado un abierto $U\subset\bb{R}^{n}$, \emph{feta de dimensi\'{o}n %
+$k$}, o \emph{$k$-feta}, de $U$ a los subconjuntos de la forma
+\begin{align*}
+	S & \,=\,\left\lbrace (\lista*{x}{k},\,x^{k+1},\,\dots,\,x^{n})\in U
+		\,:\, x^{k+1}=c^{k+1},\,\dots,\,x^{n}=c^{n}\right\rbrace
+\end{align*}
+%
+para ciertas constantes reales $c^{k+1},\,\dots,\,c^{n}$. Es decir,
+$S$ es igual a la intersecci\'{o}n de $U$ con un subesapcio lineal de
+$\bb{R}^{n}$. En general, una $k$-feta $S$ es homeomorfa a un subconjunto
+abierto de $\bb{R}^{k}$.
+
+Dada una variedad (topol\'{o}gica o diferencial) $M$, definimos una
+\emph{feta de dimensi\'{o}n $k$} de manera an\'{a}loga, tomando cartas.
+Si $(U,\varphi)$ es una carta para $M$ y $S\subset U$ es un subconjunto
+tal que $\varphi(S)\subset\varphi(U)\subset\bb{R}^{n}$ es una feta de
+dimensi\'{o}n $k$ de $\varphi(U)$, decimos que $S$ es una feta de
+dimensi\'{o}n $k$ de $U$. En ese caso, $S$ debe ser de la forma
+$S=\{\varphi^{-1}(\lista*{x}{n})\,:\, x^{k+1}=c^{k+1},\,\dots,\,x^{n}=c^{n}\}$.
+Como la aplicaci\'{o}n
+\begin{align*}
+	(\lista*{x}{n}) & \,\mapsto\, (\lista*{x}{k},\,x^{k+1}-c^{k+1},\,
+		\dots,\,x^{n}-c^{n})
+\end{align*}
+%
+es un difeomorfismo (homeomorfismo), toda $k$-feta de un abierto coordenado
+$U$ es igual a la preimagen de los puntos tales que las \'{u}ltimas
+coordenadas son iguales a cero.
+
+Si, ahora, $S\subset M$ es un subconjunto arbitrario de la variedad, una
+\emph{carta preferencial para $S$ en $M$} es una carta $(U,\varphi)$
+tal que $S\cap U$ es, v\'{\i}a $\varphi$, una $k$-feta de $U$. Las
+funciones coordenadas $(\lista*{x}{n})$ de una carta preferencial
+para $S$ en $M$ se denominar\'{a}n \emph{coordenadas preferenciales}.
+Si existe $k\geq 0$ tal que para todo punto del subconjunto $S$ existe un
+entorno coordenado $U$ tal que $S\cap U$ es una $k$-feta de $U$, decimos que
+\emph{$S$ verifica localmente (en $M$) la condici\'{o}n de ser $k$-feta} o
+que \emph{es localmente una $k$-feta}. Dicho de otra manera, $S$ es localmente
+una feta de dimensi\'{o}n $k$, si existe un cubrimiento de $S$ por entornos
+coordenados $U$ tales que $S\cap U$ es una feta de dimensi\'{o}n $k$
+de $U$. Con el nombre de carta preferencial la dimensi\'{o}n de la feta
+resultante no queda especificada.
+
+Las $k$-fetas de un abierto de $\bb{R}^{n}$ son homeomorfos a abiertos de
+$\bb{R}^{k}$. Por lo tanto, es de esperar que un subconjunto de una variedad
+que verifica localmente la condici\'{o}n de ser $k$-feta tenga, naturalmente,
+una estructura de variedad. Por otro lado, si bien ser una subvariedad regular
+es una propiedad global de un subconjunto $S\subset M$ (o, mejor dicho, de
+la inclusi\'{o}n $\inc[S]$), es posible formular un criterio local para
+determinar si un subconjunto admite una estructura de subvariedad regular
+(es decir, determinar si $\inc[S]$ es un embedding).
+
+\begin{teoDeLasFetas}\label{thm:delasfetas}
+	Sea $M$ una variedad diferencial (sin borde) y sea $S\subset M$ una
+	subvariedad regular de $M$ de dimensi\'{o}n $k$, Entonces
+	para todo punto $p\in S$ existe un carta $(U,\varphi)$ para $M$
+	en $p=\inc[S](p)$ tal que $S\cap U$ es una $k$-feta de $U$.
+	Rec\'{\i}procamente, si $S\subset M$ es un subconjunto que
+	verifica localmente la condici\'{o}n de ser una $k$-feta, entonces,
+	con la topolog\'{\i}a de subespacio de $M$, $S$ es una variedad
+	topol\'{o}gica de dimensi\'{o}n $k$ y, adem\'{a}s, admite una
+	estructura diferencial de manera que resulta ser una subvariedad
+	regular de $M$ de dimensi\'{o}n $k$.
+\end{teoDeLasFetas}
+
+\begin{proof}
+	Supongamos, en primer lugar, que $S\subset M$ es una subvariedad
+	regular de dimensi\'{o}n $k$. Por el teorema del rango
+	\ref{thm:delrango}, como $\inc[S]:\,S\rightarrow M$ es una
+	inmersi\'{o}n, si $p\in S$, existen coordenadas $(V,\psi)$ para
+	$M$ en $p$ y $(U,\varphi)$ para $S$ tales que
+	\begin{align*}
+		\psi\circ\inc[S]\circ\varphi^{-1}(\lista*{x}{k}) &
+			\,=\,(\lista*{x}{k},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	Notemos que $\psi\circ\inc[S]\circ\varphi^{-1}=%
+	\inc[U]:\,U\rightarrow V$. Es decir, $U$ se incluye en $V$ como
+	una $k$-feta. El problema es que no podemos afirmar que $U$ sea
+	exactamente $V\cap\{x^{k+1}=\,\cdots\,=x^{n}=0\}$.
+
+	Tomemos $\epsilon>0$ tal que
+	$U_{0}=\varphi^{-1}(\bola[k]{\epsilon}{0})\subset U$ y
+	$V_{0}=\psi^{-1}(\bola[n]{\epsilon}{0})\subset V$. Como
+	$U_{0}\subset S$ es abierto, existe $W\subset M$ tal que
+	$U_{0}=S\cap W$. Sea $V_{1}=W\cap V_{0}$ y sea
+	$\psi_{1}=\psi|_{V_{1}}$. Entonces $(V_{1},\psi_{1})$ es una carta
+	para $M$ en $p$ y $S\cap V_{1}=U_{0}\cap V_{0}=U_{0}$. Entonces
+	$V_{0}\cap\{x^{k+1}=\,\cdots\,=x^{n}=0\}=U_{0}$, $U_{0}$ es una
+	$k$-feta de $V_{1}$ y $(V_{1},\psi_{1})$ es una carta preferencial
+	para $S$ en $M$ en $p$.
+
+	Rec\'{\i}procamente, supongamos que $S\subset M$ es un subconjunto
+	que verifica localmente la condici\'{o}n de ser una feta de
+	dimensi\'{o}n $k$ de $M$. En la topolog\'{\i}a de subespacio,
+	$S$ es $T_{2}$ y $N_{2}$. Veamos que es localmente euclideo
+	y que su dimensi\'{o}n es $k$.
+	
+	Sea $\pi:\,\bb{R}^{n}\rightarrow\bb{R}^{k}$ la proyecci\'{o}n en
+	las primeras $k$ coordenadas. Sea $p\in S$ y sea $(U,\varphi)$ una
+	carta preferencial para $S$ en $M$ en $p$. Sea $V=S\cap U$ la
+	$k$-feta propio, sea $\widehat{V}=\pi\circ\varphi(V)$ lo que
+	deber\'{\i}a ser la imaen de la carta para $S$ cuando \'{e}sta sea
+	definida y sea $\psi=\pi\circ\varphi|_{V}:\,V\rightarrow\widehat{V}$
+	la funci\'{o}n que ser\'{a} la carta. Por definici\'{o}n,
+	$\varphi(V)=\varphi(U)\cap A$ para cierta subvariedad lineal
+	$A\subset\bb{R}^{n}$. Supongamos que $A$ est\'{a} dada como
+	el conjunto de ceros de las siguientes ecuaciones:
+	\begin{align*}
+		x^{k+1} \,=\,c^{k+1} \text{ ,}\dots\text{ ,}
+		x^{n} \,=\,c^{n}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\varphi(U)$ es abierto en $\bb{R}^{n}$, la $k$-feta
+	$\varphi(V)$ es abierta en $A$. Como
+	$\pi|_{A}:\,A\rightarrow\bb{R}^{k}$ es un difeomorfismo,
+	$\widehat{V}=\pi(\varphi(V))$ es un subconjunto abierto de
+	$\bb{R}^{k}$. Resta ver que $\psi$ es un homeomorfismo. La
+	funci\'{o}n $\psi$ es continua por ser composici\'{o}n de
+	funciones continuas: $\psi=\pi\circ\varphi\circ\inc[V]$; tiene
+	inversa dada por
+	\begin{align*}
+		\varphi^{-1}\circ j\circ\inc[\widehat{V}]
+			(\lista*{x}{k}) & \,=\,
+		\varphi^{-1}(\lista*{x}{k},\,c^{k+1},\,\dots,\,c^{n})
+		\text{ ,}
+	\end{align*}
+	%
+	que es continua.
+
+	En cuanto a la estructura diferencial en $S$, usamos las cartas
+	reci\'{e}n definidas: dadas $(U,\varphi)$ y $(U',\varphi')$ cartas
+	para $M$ tales que $V=S\cap U$ y $V'=U'\cap S$ son $k$-fetas
+	de $U$ y de $U'$, respectivamente, tenemos cartas
+	$(v,\psi)$ y $(V',\psi')$ en $S$ que verifican
+	\begin{align*}
+		\psi'\circ\psi^{-1} & \,=\, (\pi\circ\varphi'\circ\inc[V'])
+			\circ (\pi\circ\varphi\circ\inc[V])^{-1} \\
+		& \,=\, \pi\circ\varphi'\circ\inc[V']\circ\varphi^{-1}
+			\circ j\circ\inc[\widehat{V}](\lista*{x}{k}) \\
+		& \,=\,\pi\circ (\varphi'\circ\varphi^{-1})\circ
+			j(\lista*{x}{k})
+		\text{ .}
+	\end{align*}
+	%
+	Pero $j$ y $\pi$ son suaves y $\varphi'$ y $\varphi$ son suavemente
+	compatibles. Entonces $(V,\psi)$ y $(V',\psi')$ son compatibles.
+	Con respecto a la estructura determinada por estas cartas en $S$,
+	$\widehat{\inc[S]}(\lista*{x}{k})=%
+	(\lista*{x}{k},\,c^{k+1},\,\dots,\,c^{n})$ localmente, que resulta
+	pues una inmersi\'{o}n suave. Como $\inc[S]$ es, por definici\'{o}n
+	de la topolog\'{\i}a de $S$, subespacio, la transformaci\'{o}n
+	$\inc[S]$ es embedding suave.
+\end{proof}
+
+Demostraremos luego que esta estructura en $S$ es la \'{u}nica posible que
+hace que $S$ sea una subvariedad de $M$. Con lo cual, si imponemos que
+$S$ sea subespacio, admite una \'{u}nica estructura de subvariedad
+(necesariamente regular). Pero $S$ podr\'{\i}a admitir otras topolog\'{\i}as
+respecto a las cuales resulte variedad topol\'{o}gica y, por lo tanto,
+podr\'{\i}a ser subvariedad (aunque no subvariedad regular). Para que
+esto quede claro, habr\'{a} que introducir una noci\'{o}n m\'{a}s general
+de subvariedad.
+
+El borde de una variedad con borde es una subvariedad regular.
+
+\subsection{Conjuntos de nivel}
+Las subvariedades regulares se pueden expresar localmente como el
+gr\'{a}fico de una funci\'{o}n, como tambi\'{e}n como el conjunto de ceros
+de una funci\'{o}n (cartas preferenciales). Dada una transformaci\'{o}n
+$\Phi:\,M\rightarrow N$ y un punto $c\in N$, decimos que
+$\Phi^{-1}(c)\subset M$ es un \emph{conjunto de nivel de $\Phi$}. Todo
+subconjunto cerrado de una variedad $M$ es el conjunto de ceros
+($N=\bb{R}$, $c=0$) de alguna funci\'{o}n (suave). Para poder relacionar
+los conceptos de conjunto de nivel y de subvariedad es necesario imponer
+alguna condici\'{o}n adicional.
+
+\begin{teoDeLosConjuntosDeNivel}
+	[el conjunto de nivel de una funci\'{o}n de %
+	rango constante]\label{thm:denivel}
+	Sean $M$ y $N$ variedades diferenciales. Sea $\Phi:\,M\rightarrow N$
+	una transformaci\'{o}n suave de rango constante $r$. Cada conjunto
+	de nivel $\Phi^{-1}(c)\subset M$ es una subvariedad propia de
+	codimensi\'{o}n $r$ en $M$.
+\end{teoDeLosConjuntosDeNivel}
+
+\begin{proof}
+	Sea $m=\dim\,M$ y sea $n=\dim\,N$. Por el teorema del rango constante,
+	para cada punto $p\in M$ existe una carta $(U,\varphi)$ para $M$
+	en $p$ y existe una carta $(V,\psi)$ para $N$ en $\Phi(p)=c$ tales
+	que $\Phi(U)\subset V$ y
+	\begin{align*}
+		\widehat{\Phi}(\lista*{x}{m}) & \,=\,
+			(\lista*{x}{r},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, el \emph{conjunto} $S=\Phi^{-1}(c)$ verifica la
+	condici\'{o}n de ser localmente un $k$-feta con $k=m-r$, es
+	decir, una feta de codimensi\'{o}n $r$. Por el teorema
+	\ref{thm:delasfetas}, $S$ tiene estructura de subvariedad regular
+	de $M$. Como $\Phi$ es continua, $S$ es cerrada en $M$ y, por lo
+	tanto, subvariedad regular propia.
+\end{proof}
+
+Un caso particular de esto se da cuando $\Phi$ es una submersi\'{o}n.
+En concordancia con el hecho de que las transformaciones de rango constante
+son localmente como transformaciones lineales, el resultado anterior es
+an\'{a}logo al resultado de \'{A}lgebra lineal que dice que, dada una
+transformaci\'{o}n lineal $L:\,\bb{R}^{m}\rightarrow\bb{R}^{r}$ sobreyectiva
+(o $\bb{R}^{m}\rightarrow\bb{R}^{n}$ de rango $r$), el n\'{u}cleo $\ker(L)$
+es un subespacio de codimensi\'{o}n $r$, determinado por un sistema de $r$
+ecuaciones lineales independientes igualadas a cero. En el caso de
+variedades, si $\Phi:\,M\rightarrow N$ es una submersi\'{o}n, entonces
+$\Phi^{-1}(c)$ --el an\'{a}logo del n\'{u}cleo de una t.l.-- es una
+subvariedad de codimensi\'{o}n $n=\dim\,N$.
+
+\subsection{Puntos y valores regulares}
+Dada una transformaci\'{o}n suave $\Phi:\,M\rightarrow N$, decimos que
+$p\in M$ es un \emph{punto regular}, si la transformaci\'{o}n lineal
+$\diferencial[p]{\Phi}:\,\tangente[p]{M}\rightarrow\tangente[\Phi(p)]{N}$
+es sobreyectiva. En otro caso, decimos que $p$ es un \emph{punto cr\'{\i}tico}.
+El subconjunto de $M$ de puntos regulares es igual al subconjunto en donde
+$\Phi$ tiene rango m\'{a}ximo. Este subconjunto es abierto en $M$ y, por lo
+tanto, una subvariedad regular. Un punto $c\in N$ se dice \emph{valor %
+regular} de $\Phi$, si todo punto perteneciente a $\Phi^{-1}(c)$ es un punto
+regular. Si al menos un punto de la preimagen es punto cr\'{\i}tico, entonces
+decimos que $c$ es un valor cr\'{\i}tico de $\Phi$. Un \emph{conjunto de %
+nivel regular} de $\Phi$ es el conjunto de nivel correspondiente a un valor
+regular de $\Phi$.
+
+\begin{coroDelValorRegular}[teorema del valor regular]%
+	\label{thm:delvalorregular}
+	Sea $\Phi:\,M\rightarrow N$ una transformaci\'{o}n suave entre
+	variedades diferenciales \emph{sin} borde. Todo conjunto de nivel
+	regular de $\Phi$ es una subavariedad regular propia de $M$.
+	Su codimensi\'{o}n es igual a la dimensi\'{o}n del codominio $N$.
+\end{coroDelValorRegular}
+
+\begin{proof}
+	Si $c\in N$ es un valor regular y $S=\Phi^{-1}(c)$ es el conjunto de
+	nivel correspondiente, entonces $S\subset M'$, donde
+	$M'\subset M$ es la subvariedad regular abierta comformada por los
+	puntos $p$ en los que $\diferencial[p]{\Phi}$ es sobreyectivo.
+	La restricci\'{o}n $\Phi|_{M'}:\,M'\rightarrow N$ es una
+	submersi\'{o}n, con lo cual, por el teorema \ref{thm:denivel},
+	$\Phi^{-1}(c)\subset M'$ es una subvariedad regular. Pero
+	$\inc[S]:\,\Phi^{-1}(c)\rightarrow M$ es igual a la composici\'{o}n
+	$\inc[M']\circ\inc[S]':\,S\rightarrow M'\rightarrow M$. Tanto
+	$\inc[S]'$ como $\inc[M']$ son embeddings. Entonces la inclusi\'{o}n
+	de $S$ en $M$ lo es, tambi\'{e}n. Como $\Phi^{-1}(c)\subset M$ es
+	cerrada, por continuidad, $S=\Phi^{-1}(c)$ es una subvariedad regular
+	propia de $M$. Como $\codim(S,M')=\codim(S,M)$, porque
+	$M'\subset M$ es abierto, se deduce que $\codim(S,M)=\dim(N)$.
+\end{proof}
+
+\begin{propoRegularEsLocalmenteDeNivel}\label{thm:regulardenivel}
+	Sea $S\subset M$ un subconjunto de una variedad diferencial $M$ de
+	dimensi\'{o}n $m$. Entonces $S$ es una subvariedad regular de
+	dimensi\'{o}n $k$, si y s\'{o}lo si, para cada punto $p\in S$,
+	es posible hallar una submersi\'{o}n $\Phi:\,U\rightarrow\bb{R}^{m-k}$
+	definida en un abierto $U$ \emph{de $M$} tal que
+	$\Phi^{-1}(c)=S\cap U$ para alg\'{u}n valor $c\in\bb{R}^{m-k}$.
+\end{propoRegularEsLocalmenteDeNivel}
+
+Esto es casi una reformulaci\'{o}n del criterio local de las fetas.
+
+\begin{proof}
+	Si $S\subset M$ es una subvariedad regular de dimensi\'{o}n $k$ de $M$
+	y $p\in S$, podemos hallar una carta $(U,\varphi)$ para $M$ tal que
+	$S\cap U$ es una feta de dimensi\'{o}n $k$ en $U$. Si
+	$\varphi=(\lista*{x}{m})$, entonces $S\cap U=%
+	\{x^{k+1}=\,\cdots\,=x^{n}=0\}$. Si definimos
+	$\Phi:\,U\rightarrow\bb{R}^{m-k}$ por
+	\begin{align*}
+		\Phi(\lista*{x}{m}) & \,=\,(x^{k+1},\,\dots,\,x^{m})
+		\text{ ,}
+	\end{align*}
+	%
+	la proyecci\'{o}n en las \emph{\'{u}ltiimas} coordenadas, entonces
+	$S\cap U=\Phi^{-1}(0)$. Rec\'{\i}procamente, si $S\subset M$ es un
+	subconjunto de $M$ que verifica que, para cada punto, existe una
+	funci\'{o}n $\Phi$ como en el enunciado y $p\in S$, entonces
+	podemos elegir un abierto $U\subset M$ y una submersi\'{o}n
+	$\Phi:\,U\rightarrow\bb{R}^{m-k}$, de manera que
+	$S\cap U=\Phi^{-1}(c)$ para cierto valor $c\in \bb{R}^{m-k}$.
+	Hay dos maneras de concluir: o bien usamos esto para definir una
+	carta preferencial para $S$ en $M$ en $p$, o bien, por el teorema
+	\ref{thm:delasfetas}, concluimos que $S\cap U$ es una subvariedad
+	regular de $U$. En cualquier caso, $S\cap U$ es localmente en $U$
+ 	una feta de codimensi\'{o}n $m-k$. Como $U\subset M$ es abierto,
+	concluimos que $S$ es localmente en $M$ una feta de codimensi\'{o}n
+	$m-k$ (pues $\codim(U,M)=0$), o sea que $S$ es una subvariedad
+	regular de dimensi\'{o}n $k$ en $M$.
+\end{proof}
+
+No sabemos, \textit{a priori}, que existan cartas preferenciales para $S$ en
+$M$, pero, por el teorema del conjunto de nivel de una submersi\'{o}n, sabemos
+que, para cada punto $p\in S$, existe un abierto $U$ de $M$ tal que
+$p\in U$ y que $S\cap U$ es subvariedad regular de $U$. Por lo tanto,
+existen cartas preferenciales para $S\cap U$ en $U$. Como $U$ es abierto
+en $M$, podemos concluir que existen cartas preferenciales para $S$ en $M$
+cerca de cada punto $p\in S$ y que, por lo tanto, $S$ es una subvariedad
+regular de $M$.
+
+\subsection{Subvariedades inmersas}
+Una \emph{subvariedad inmersa} de una variedad (diferencial, topol\'{o}gica)
+$M$ es un subconjunto $S$ con una topolog\'{\i}a con respecto a la cual
+resulta una variedad topol\'{o}gica y una estructura diferencial con respecto
+a la cual $\inc[S]:\,S\rightarrow M$ es una inmersi\'{o}n (suave, continua).
+
+\begin{propoInmersaEsInmersa}\label{thm:inmersaesinmersa}
+	Sea $M$ una variedad diferencial y sea $N$ una variedad diferencial
+	sin borde. Sea $F:\,N\rightarrow M$ una inmersi\'{o}n suave e
+	inyectiva y sea $S=F(N)\subset M$. Existen una \'{u}nica
+	topolog\'{\i}a y una \'{u}nica estructura diferencial en $S$ con
+	respecto a las cuales $S\subset M$ es una subvariedad inmersa y
+	$F|:\,N\rightarrow S$ es un difeomorfismo.
+\end{propoInmersaEsInmersa}
+
+\begin{proof}
+	Como queremos que $F$ sea un difeorfismo entre $N$ y $S$, en
+	particular, la topolog\'{\i}a en $S$ deber\'{a} ser tal que
+	$N$ y $S$ sean homeomorfos v\'{\i}a $F$. Definimos una topolog\'{\i}a
+	en $S$ trasladando la topolog\'{\i}a de $N$: un subconjunto
+	$U\subset S$ es abierto, si y s\'{o}lo si $F^{-1}(U)$ es abierto
+	en $N$. Esto determina una topolog\'{\i}a en $S$ y es la \'{u}nica
+	con respecto a la cual $F$ puede ser un homeomorfismo. De la misma
+	manera, con respecto a la estructura diferencial, cubrimos a $S$
+	con los pares $(F(U),\varphi\circ F^{-1})$, donde $(U,\varphi)$
+	es una carta compatible con la estructura de $N$. Si queremos que $F$
+	sea un difeomorfismo, todas estas cartas deben pertenecer a la
+	estructura de $S$. Estas cartas en $N$ forman un atlas compatible y,
+	por lo tanto, determinan una estructura diferencial en $S$. Finalmente,
+	resta ver que, con esta topolog\'{\i}a y esta estructura suave,
+	$\inc[S]:\,S\rightarrow M$ es una inmersi\'{o}n. Pero
+	$\inc[S]=F\circ (F|^{-1})$, $F|$ es un difeomorfismo y $F$ es una
+	inmersi\'{o}n. En particular, la inclusi\'{o}n es composici\'{o}n
+	de inmersiones suaves y, en consecuencia, inmersi\'{o}n suave,
+	tambi\'{e}n.
+\end{proof}
+
+\begin{obsCuandoInmersaEsRegular}\label{obs:cuandoinmersionesembedding}
+	De la proposici\'{o}n \ref{thm:cuandoinmersionesembedding} podemos
+	deducir los siguientes criterios para determinar si una subvariedad
+	inmersa es regular: \emph{(a)} $\codim(S,M)=0$; \emph{(b)}
+	$\inc[S]:\,S\hookrightarrow M$ es propia; \emph{(c)} $S$ es compacta.
+	En cualquiera de estos casos, $S$ es una subvariedad regular.
+	Adem\'{a}s, usando el teorema \ref{thm:embeddinglocal},
+	que dice que las inmersiones son localmente embeddings, deducimos que
+	toda subvariedad inmersa es localmente regular. Precisamente,
+	si $M$ es una variedad diferencial y $S\subset M$ es una subvariedad
+	inmersa, entonces, para cada punto $p\in S$, existe un abierto
+	$V$ \emph{de $S$}, tal que $p\in V$ y $V\subset M$ es una subvariedad
+	regular.
+\end{obsCuandoInmersaEsRegular}
+
+Terminamos esta secci\'{o}n definiendo el concepto de
+\emph{parametrizaci\'{o}n} de una subvariedad. Sea $M$ una variedad
+diferencial. Sea $S\subset M$ una subvariedad inmersa de dimensi\'{o}n $k$.
+Una funci\'{o}n
+\begin{align*}
+	X & \,:\,U\subset\bb{R}^{k}\,\rightarrow M
+\end{align*}
+%
+se dice \emph{parametrizaci\'{o}n (local)} de $S$, si $X:\,U\rightarrow M$
+es continua en $M$, $U\subset\bb{R}^{k}$ es abierto, la imagen $X(U)\subset S$
+es abierta en $S$ y $X|:\,U\rightarrow X(U)$ es un homeomorfismo
+($X|:\,U\rightarrow S$ es subespacio abierta). Si $X|$ es difeomorfismo,
+decimos que $X$ es \emph{parametrizaci\'{o}n local suave}.
+
+Todo punto de una subvariedad inmersa est\'{a} en la imagen de una
+parametrizaci\'{o}n local suave y toda parametrizaci\'{o}n da lugar a una
+carta.
+
+\begin{propoDeLasParametrizaciones}\label{thm:delasparametrizaciones}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una
+	subvariedad inmersa de dimensi\'{o}n $k$. Sea $U\subset\bb{R}^{k}$
+	un subconjunto abierto. Entonces una funci\'{o}n $X:\,U\rightarrow M$
+	es una parametrizaci\'{o}n local suave de $S$, si y s\'{o}lo si
+	existe una carta $(V,\psi)$ para $S$ tal que $X=\inc[S]\circ\psi^{-1}$.
+\end{propoDeLasParametrizaciones}
+

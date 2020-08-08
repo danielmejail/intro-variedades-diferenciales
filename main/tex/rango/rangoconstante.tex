@@ -1,0 +1,445 @@
+\theoremstyle{plain}
+\newtheorem{teoDelRango}{Teorema}[section]
+\newtheorem{coroDelRangoLineal}[teoDelRango]{Corolario}
+\newtheorem{coroDelRangoGlobal}[teoDelRango]{Corolario}
+\newtheorem{teoInmersionConBorde}[teoDelRango]{Teorema}
+
+\theoremstyle{remark}
+\newtheorem{obsInmersionConBorde}{Observaci\'{o}n}[section]
+
+%-------------
+
+Empezamos enunciando y demostrando el resultado principal de esta secci\'{o}n.
+
+\begin{teoDelRango}[del rango]\label{thm:delrango}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave entre variedades
+	\emph{sin} borde. Si $F$ tiene rango constante $r$, entonces, para
+	cada punto $p\in M$, existen una carta $(U,\varphi)$ para $M$
+	centrada en $p$ y otra carta $(V,\psi)$ para $N$ centrada en $F(p)$
+	tales que $F(U)\subset V$ y $\widehat{F}=%
+	\psi\circ F\circ\varphi^{-1}$ es de la forma
+	\begin{align*}
+		\widehat{F}(x^{1},\,\dots,\,x^{r},\,x^{r+1},\,\dots,\,x^{m}) &
+			\,=\,(x^{1},\,\dots,\,x^{r},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+\end{teoDelRango}
+
+\begin{proof}
+	Sea $p\in M$ y sean $U$ y $V$ dominios de cartas en $p$ y en $F(p)$,
+	respectivamente, tales que $F(U)\subset V$. Tomando coordenadas, si
+	el teorema se demuestra reemplazando $M$ por $U$, $N$ por $V$ y
+	$F$ por $\widehat{F}$, componiendo las cartas obtenidas con las
+	anteriores, quedar\'{a} demostrado el caso general. Supongamos,
+	entonces, sin p\'{e}rdida de generalidad, que $M=U\subset\bb{R}^{m}$
+	y que $N=V\subset\bb{R}^{n}$ son abiertos, $p=0\in U$ y
+	$F(p)=0\in V$. como $\rango{\jacobiana[p]{F}}=r$, alg\'{u}n menor
+	de la matriz jacobiana de tama\~{n}o $r\times r$ es no nulo.
+	Reordenando las coordenadas de $U$, podemos asumir que es el menor
+	correspondiente a la submatriz
+	\begin{math}
+		\left[\begin{smallmatrix}
+			\derivada{F^{i}}{x^{j}}
+		\end{smallmatrix}\right]_{i,j\in[\![1,r]\!]}
+	\end{math}.
+	Sean $(\lista*{x}{r},\,\lista*{y}{m-r})$ las coordenadas en $U$ y
+	sean $(\lista*{v}{r},\,\lista*{w}{n-r})$ las coordenadas en $V$. Con
+	respecto a estas coordenadas,
+	\begin{align*}
+		F(x,y) & \,=\, (Q(x,y),R(x,y))
+	\end{align*}
+	%
+	para ciertas funciones suaves $Q:\,U\rightarrow\bb{R}^{r}$ y
+	$R:\,U\rightarrow\bb{R}^{n-r}$. Por hip\'{o}tesis, la matriz
+	\begin{math}
+		\left[\begin{smallmatrix}
+			\derivada{Q^{i}}{x^{j}}
+		\end{smallmatrix}\right]_{i,j\in[\![1,r]\!]}
+	\end{math}
+	es no singular. Extendemos $Q$ como en el teorema de la funci\'{o}n
+	impl\'{\i}cita: sea $\Phi:\,U\rightarrow\bb{R}^{m}$ dada por
+	$\Phi(x,y)=(Q(x,y),y)$. La matriz jacobiana de $\Phi$ en $(x,y)$ es
+	igual a
+	\begin{align*}
+		\jacobiana[(x,y)]{\Phi} & \,=\,
+		\sbox0{$
+		\id[m-r]
+		$}
+		\sbox1{$
+		\derivada{Q^{i}}{y^{j}}
+		$}
+		\left[
+		\begin{array}{c|c}
+			\makebox[\wd0]{$\derivada{Q^{i}}{x^{j}}$} &
+				\usebox{1} \\
+			\hline
+			\vphantom{\usebox{1}}\makebox[\wd0]{$0$} &
+				\usebox{0}
+		\end{array}
+		\right]
+		\text{ .}
+	\end{align*}
+	%
+	Por hip\'{o}tesis, $\left|\jacobiana[(0,0)]{\Phi}\right|\not =0$,
+	con lo cual, por el teorema de la funci\'{o}n inversa, existen
+	entornos (conexos) $U_{0}$ de $(0,0)$ y $\widehat{U}_{0}$ de
+	$\Phi(0,0)=(0,0)$ tales que $\Phi|_{U_{0}}:\,%
+	U_{0}\rightarrow\widehat{U}_{0}$ es difeomorfismo. Cambiamos
+	$\widehat{U}_{0}$ por un cubo de la forma
+	$\cubo{\epsilon}{0,0}\subset\widehat{U}_{0}$ y $U_{0}$ por
+	$\Phi|_{U_{0}}^{-1}\big(\cubo{\epsilon}{0,0}\big)$. Sea
+	$\varphi=\Phi|_{U_{0}}$.
+
+	Ahora bien, la inversa $\varphi^{-1}:\,%
+	\widehat{U}_{0}\rightarrow U_{0}$ tambi\'{e}n es de la forma
+	\begin{align*}
+		\varphi^{-1}(\xi,\upsilon) & \,=\,
+			(A(\xi,\upsilon),B(\xi,\upsilon))
+	\end{align*}
+	%
+	para ciertas funciones suaves $A,B$. Entonces
+	\begin{align*}
+		(\xi,\upsilon) & \,=\,\varphi\circ\varphi^{-1}(\xi,\upsilon)
+			\,=\,(Q(A,B),B) \quad\text{y} \\
+		B(\xi,\upsilon) & \,=\,\upsilon\quad\text{y} \\
+		\xi & \,=\,Q(A(\xi,\upsilon),\upsilon)
+		\text{ .}
+	\end{align*}
+	%
+	Componiendo con $F$,
+	\begin{align*}
+		F\circ\varphi^{-1}(\xi,\upsilon) & \,=\,(Q(A,B),R(A,B))
+			\,=\,(\xi,R(A(\xi,\upsilon),\upsilon))
+		\text{ .}
+	\end{align*}
+	%
+	Sea $\tilde{R}(\xi,\upsilon)=R(A(\xi,\upsilon),\upsilon)$. La matriz
+	jaconiana de la composici\'{o}n en un punto $(\xi,\upsilon)$ est\'{a}
+	dada por
+	\begin{align*}
+		\jacobiana[(0,0)]{(F\circ\varphi^{-1})} & \,=\,
+		\sbox0{$\id[r]$}
+		\sbox1{$\derivada{\tilde{R}^{i}}{\xi^{j}}$}
+		\left[
+		\begin{array}{c|c}
+			\vphantom{\usebox{1}}\usebox{0} &
+			\makebox[\wd0]{$0$} \\
+			\hline
+			\usebox{1} &
+			\makebox{$\derivada{\tilde{R}^{i}}{\upsilon^{j}}$}
+		\end{array}
+		\right]
+		\text{ .}
+	\end{align*}
+	%
+	Como $F$ tiene rango exactamente $r$ en todo $U$ y $\varphi$ es
+	difeomorfismo, $\jacobiana[(\xi,\upsilon)]{(F\circ\varphi^{-1})}$
+	tiene rango $r$ en todo par $(\xi,\upsilon)$. Entonces debe valer
+	que
+	\begin{math}
+		\left[\begin{smallmatrix}
+			\derivada{\tilde{R}^{i}}{\upsilon^{j}}
+		\end{smallmatrix}\right]
+	\end{math}
+	es la matriz nula, es decir,
+	$\derivada{\tilde{R}^{i}}{\upsilon^{j}}(\xi,\upsilon)=0$ para todo
+	$(\xi,\upsilon)\in\widehat{U}_{0}=\cubo{\epsilon}{0,0}$. En otras
+	palabras, $\tilde{R}$ no depende de $\upsilon$. Sea
+	$S(\xi)=\tilde{R}(\xi,0)$. Entonces
+	\begin{align*}
+		F\circ\varphi^{-1}(\xi,\upsilon) & \,=\,
+			(\xi,\tilde{R}(\xi,\upsilon)) \,=\,
+			(\xi,S(\xi))
+		\text{ .}
+	\end{align*}
+	%
+	Esto es casi lo que buscamos, pues $F\circ\varphi^{-1}$ es la
+	identidad en las primeras $r$ coordenadas.
+
+	Sea $V_{0}$ el subconjunto definido por
+	\begin{align*}
+		V_{0} & \,=\,\left\lbrace (v,w)\in V\,:\,
+			(v,0)\in\widehat{U}_{0}=\cubo{\epsilon}{0,0}
+			\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, $V_{0}$ es la preimagen por
+	\begin{align*}
+		\lambda v.\lambda w.(v,0) & \,:\,
+			V\,\rightarrow\,\widehat{U}_{0}
+		\text{ ,}
+	\end{align*}
+	%
+	que es continua. Entonces $V_{0}$ es abierto y contiene al
+	punto $(0,0)$. Ahora bien, si $(\xi,\upsilon)\in\widehat{U}_{0}$,
+	entonces
+	\begin{align*}
+		F\circ\varphi^{-1}(\xi,\upsilon) & \,=\,
+			(\xi,S(\xi))
+		\text{ .}
+	\end{align*}
+	%
+	Como $(\xi,0)\in\widehat{U}_{0}$ (porque es un cubo), vale que
+	$F\circ\varphi^{-1}(\xi,\upsilon)\in V_{0}$. As\'{\i},
+	$F\circ\varphi^{-1}(\widehat{U}_{0})\subset V_{0}$ y
+	$F(U_{0})\subset V_{0}$. Ahora hay que definir un cambio de
+	coordenadas, un difeomorfismo, en $V_{0}$ de manera que, al ser
+	restringido a la imagen $F(U_{0})$, coincida con la proyecci\'{o}n
+	en las primeras $r$ coordenadas. Sea
+	$\psi:\,V_{0}\rightarrow\bb{R}^{n}$ dada por
+	$\psi(v,w)=(v,w-S(v))$. Esta funci\'{o}n es invertible, con inversa
+	dada por $\psi^{-1}(t,u)=(t,u+S(t))$. En particular,
+	$\psi$ y $\psi^{-1}$ son suaves y $\psi$ es un difeomorfismo en la
+	imagen. Componiendo,
+	\begin{align*}
+		\psi\circ F\circ\varphi^{-1}(\xi,\upsilon) & \,=\,
+			\psi(\xi,S(\xi)) \,=\,(\xi,0)
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{coroDelRangoLineal}\label{thm:localmentelineal}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o} suave entre variedades
+	sin borde. Supongamos que $M$ es conexa. Entonces $F$ es de rango
+	constante, si y s\'{o}lo si, para cada $p\in M$, existen entornos
+	coordenados de $p$ y de $F(p)$ con respecto a los cuales la
+	representaci\'{o}n de $F$ en coordenadas es lineal.
+\end{coroDelRangoLineal}
+
+\begin{proof}
+	Si $F$ tiene rango constante, por el teorema \ref{thm:delrango},
+	$F$ tiene una expresi\'{o}n lineal en coordenadas (m\'{a}s
+	precisamente, es una proyecci\'{o}n). Rec\'{\i}procamente, si
+	$F$ tiene una expresi\'{o}n lineal en coordenadas cerca de cada
+	punto, entonces, como el rango de una transformaci\'{o}n lineal
+	es constante, $\rango{F}$ es localmente constante.
+	Como $M$ es conexa, $\rango{F}$ debe ser constante.
+\end{proof}
+
+\begin{coroDelRangoGlobal}\label{thm:delrangoglobal}
+	Sean $M$ y $N$ variedades sin borde y sea $F:\,M\rightarrow N$ de
+	rango constante $r$. si $F$ es sobreyectiva, entonces es
+	submersi\'{o}n ($r=\dim\,N$); si $F$ es inyectiva, entonces
+	es inmersi\'{o}n ($r=\dim\,M$); si $F$ es biyectiva, entonces es
+	un difeomorfismo.
+\end{coroDelRangoGlobal}
+
+\begin{proof}
+	Si $r<\dim\,N$, para cada punto $p\in M$, existen entorns coordenados
+	$U_{p}$ de $p$ y $V_{p}$ de $F(p)$ tales que
+	$\widehat{F}(x)=(\lista*{x}{r},\,0,\,\dots,\,0)$. Sea
+	$U_{p}'\subset U_{p}$ un entorno de $p$ con clausura compacta
+	contenida en $U_{p}$. Entonces $F(\clos{U_{p}'})$ es compacto y
+	est\'{a} contenido en $V\cap\{y^{r+1}=\,\cdots\,=y^{n}=0\}$. Los
+	conjuntos $U_{p}'$ cubren $M$. Sea $\{U_{i}\}_{i}$ un subcubrimiento
+	numerable. Como los conjuntos $F(\clos{U_{i}})$ son cerrados
+	nunca densos y
+	\begin{align*}
+		F(M) & \,=\,F\Big(\bigcup_{i\geq 1}\,\clos{U_{i}}\Big)
+			\,=\,\bigcup_{i\geq 1}\,F(\clos{U_{i}})
+		\text{ ,}
+	\end{align*}
+	%
+	no puede ser que $F(M)=N$, pues $N$ es localmente compacto
+	Hausdorff.
+
+	Si $F$ no es una inmersi\'{o}n ($r<\dim\,M$), entonces, dado
+	un punto $p\in M$, en un entorno suficientemente peque\~{n}o,
+	\begin{align*}
+		\widehat{F}(x^{1},\,\dots,\,x^{r},\,x^{r+1},\,\dots,\,x^{m})
+			& \,=\,(\lista*{x}{r},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $\widehat{F}(0,\,dots,\,0,\,x^{r+1},\,\dots,\,x^{m})=%
+	\widehat{F}(0,\,\dots,\,0,\,0,\,\dots,\,0)$ para $|x^{i}|<\epsilon$ y
+	$F$ no es inyectiva.
+
+	So $F$ es biyectiva, entonces debe ser inmersi\'{o}n y submersi\'{o}n.
+	Por el teorema de la funci\'{o}n inversa, es difeomorfismo local.
+	Como es biyectiva, su inversa coincide localmente con una funci\'{o}n
+	suave. En definitiva, $F$ es difeomorfismo.
+\end{proof}
+
+Consideremos la inclusi\'{o}n del semiespacio $\hemi[n]$ en $\bb{R}^{n}$.
+Esta funci\'{o}n es suave y su diferencial es un isomorfismo en todos los
+puntos. Pero, por invarianza de dominio, no pueden ser localmente
+difeomorfos. Espec\'{\i}ficamente, no hay ning\'{u}n entorno de un punto
+$x\in\borde[{\hemi[n]}]$ que sea difeomorfo a un abierto de $\bb{R}^{n}$.
+En otras palabras, no hay un teorema general de la funci\'{o}n inversa como
+\ref{thm:funinvvar} para transformaciones $F:\,M\rightarrow N$ en donde
+$\borde[M]\not =\varnothing$. Aun as\'{\i}, como vimos al definir la
+estructura diferencial natural en el borde de una variedad con borde, es
+posible obtener un resultado similar al teorema del rango constante en
+algunos casos particulares. En el caso del borde de una variedad,
+$\borde[M]\hookrightarrow M$, sabemos que, dada una carta $(U,\varphi)$
+para $M$ en $p\in\borde[M]$, la composici\'{o}n
+\begin{align*}
+	\varphi\circ\inc[{\borde[M]}]\circ\overline{\varphi}^{-1}
+		(\lista*{u}{n-1}) & \,=\,(\lista*{u}{n-1},\,0)
+	\text{ ,}
+\end{align*}
+%
+donde $\overline{\varphi}=\pi\circ\varphi\circ\inc[{\borde[M]}]:\,%
+\borde[M]\cap U\rightarrow\pi(\varphi(U))$.
+
+Sea $M$ una variedad \emph{con} borde $\borde[M]\not =\varnothing$ y sea
+$F:\,M\rightarrow N$ una transformaci\'{o}n suave. Como la inclusi\'{o}n
+$\inc[\interior{M}]:\,\interior{M}\hookrightarrow M$ es suave y tiene rango
+m\'{a}ximo, en los puntos del interior de $M$, podemos aplicar el teorema
+del rango constante, de cumplir $F$ con las condiciones del mismo, para
+obtener una representaci\'{o}n de $F$ alrededor de cada punto del interior
+como una proyecci\'{o}n. Pero, en un punto $p\in\borde[M]$ del borde de
+$M$, esto no es cierto \emph{a priori}.
+
+\begin{teoInmersionConBorde}[Inmersi\'{o}n de variedades con borde]%
+	\label{thm:inmersionconborde}
+	Sea $M$ una variedad con borde $\borde[M]\not =\varnothing$ y sea
+	$m=\dim\,M$. Sea $N$ una variedad \emph{sin} borde de dimensi\'{o}n
+	$n$ y sea $F:\,M\rightarrow N$ una inmersi\'{o}n suave. Si
+	$p\in\borde[M]$, existe una carta $(U,\varphi)$ para $M$ en $p$
+	y existe una carta $(V,\psi)$ para $N$ en $F(p)$ tales que
+	$F(U)\subset V$ y
+	\begin{align*}
+		\widehat{F}(\lista*{x}{m}) & \,=\,
+			(\lista*{x}{m},\,0,\,\dots,\,0)
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\widehat{F}=\psi\circ F\circ\varphi^{-1}$.
+\end{teoInmersionConBorde}
+
+\begin{proof}
+	Podemos suponer que $N=V\subset\bb{R}^{n}$ y que
+	$M=U\subset\hemi[n]$ son abiertos y que $p=0$ y que $F(p)=0$.
+	Por definici\'{o}n, existe $\widetilde{F}:\,W\rightarrow V$ definida
+	en un abierto de $\bb{R}^{m}$ con $p\in W$ y
+	$\widetilde{F}|_{W\cap U}=F$. En particular,
+	\begin{align*}
+		\diferencial[0]{\widetilde{F}} & \,=\,\diferencial[0]{F}
+		\text{ .}
+	\end{align*}
+	%
+	Como $F$ tiene rango m\'{a}ximo en $0$, la extensi\'{o}n
+	$\widetilde{F}$ debe tener rango m\'{a}ximo en $0$. Achicando $W$,
+	podemos suponer que $\widetilde{F}$ tiene rango m\'{a}ximo en
+	todo el abierto $W$. Por el teorema del rango, existen cartas
+	$(W_{0},\gamma_{0})$ para $\bb{R}^{m}$ centrada en $0$ y
+	$(V_{0},\psi_{0})$ para $\bb{R}^{n}$ centrada en $0$ tales que
+	\begin{align*}
+		\psi_{0}\circ\widetilde{F}\circ\gamma_{0}^{-1}
+			(\lista*{x}{m}) & \,=\,
+			(\lista*{x}{m},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	Pero, al elegir estas cartas, no hay control sobre lo que pasa con
+	el borde de $M$: la imagen $\gamma_{0}(\borde[M]\cap W_{0})$
+	podr\'{\i}a ser cualquier cosa --casi. Como
+	$\gamma_{0}:\,W_{0}\rightarrow\widehat{W}_{0}=\gamma_{0}(W_{0})%
+	\subset\bb{R}^{m}$ es un difeomorfismo, el producto
+	$\gamma_{0}\times\id[\bb{R}^{n-m}]:\,W_{0}\times\bb{R}^{n-m}%
+	\rightarrow\widehat{W}_{0}\times\bb{R}^{n-m}$ es un difeomorfismo,
+	tambi\'{e}n. La composici\'{o}n
+	$\psi=(\gamma_{0}^{-1}\times\id[\bb{R}^{n-m}])\circ\psi_{0}$ es un
+	difeomorfismo definido en un entorno $V_{1}\subset V_{0}$ de $0$.
+	% $V_{0}\cap(\widehat{W}_{0}\times\bb{R}^{n-m})$ de $0\in\bb{R}^{n}$.
+	As\'{\i}, $(V_{1},\psi)$ es una carta para $V$ centrada en $0$ y
+	\begin{align*}
+		\psi\circ F (x) & \,=\,
+			(\gamma_{0}^{-1}\times\id[\bb{R}^{n-m}])\circ
+			(\psi_{0}\circ F\circ\gamma_{0}^{-1})\circ
+			\gamma_{0}(x) \\
+		& \,=\,(\gamma_{0}^{-1}\times\id[\bb{R}^{n-m}])
+			(\gamma_{0}^{1}(x),\,\dots,\,\gamma_{0}^{m}(x),\,0,\,
+				\dots,\,0) \,=\,(x,0)
+		\text{ .}
+	\end{align*}
+	%
+	En definitiva, usando las coordenadas originales de $M$ y $\psi$
+	se obtiene una erpresentaci\'{o}n de $F$ de la forma deseada.
+\end{proof}
+
+\begin{obsInmersionConBorde}\label{obs:inmersionconborde}
+	Supongamos que $F$ es submersi\'{o}n y $\borde[M]\not =\varnothing$
+	como en el teorema \ref{thm:inmersionconborde}. Entonces argumentando
+	de manera similar, podemos hallar cartas tales que
+	\begin{align*}
+		& F\circ (\gamma_{0}^{-1}\circ
+			(\psi_{0}\times\id[\bb{R}^{m-n}]))(x) \\
+		& \qquad\qquad
+			\,=\,\psi_{0}^{-1}(\psi_{0}\circ F\circ\gamma_{0}^{-1})
+				(\psi_{0}(\lista*{x}{n}),\,x^{n+1},\,\dots,\,
+					x^{m}) \\
+		& \qquad\qquad
+			\,=\, (\lista*{x}{n})
+		\text{ .}
+	\end{align*}
+	%
+	Pero ?` es $(\psi_{0}^{-1}\times\id[\bb{R}^{m-n}])\circ\gamma_{0}$
+	una carta de borde? En general, no, pues ser\'{a} de borde, si
+	y s\'{o}lo si $\gamma_{0}$ lo es\dots
+
+	?`Qu\'{e} pasa en el caso en que $\borde[N]\not=\varnothing$ y
+	$\borde[M]=\varnothing$ y $F:\,M\rightarrow N$ sea submersi\'{o}n?
+	En vez de considerar una extensi\'{o}n $\widetilde{F}$, habr\'{a}
+	que considerar la composici\'{o}n $F_{0}=\inc[{\hemi[n]}]\circ F$.
+	Como $N$ tiene borde, no est\'{a} garantizado que existan secciones
+	locales suaves para $F$ y que, por lo tanto, $F$ sea abierta. Pero
+	$F_{0}$ es submersi\'{o}n (una cuesti\'{o}n de n\'{u}meros y regla
+	de la cadena) entre variedades \emph{sin} borde. Sea $U$ un entorno
+	coordenado en $M$ centrado en $p$ y sea $V$ un entorno coordenado
+	en $N$ centrado en $F(p)$. Entonces, el problema queda reducido
+	al caso en que $M$ es un abierto de $\bb{R}^{m}$ y $N$ es un
+	abierto de $\hemi[n]$ ($n\leq m$), $p=0$ y $F(p)=0$. Componiendo
+	con la inclusi\'{o}n de $\hemi[n]$ en $\bb{R}^{n}$, la funci\'{o}n
+	$F_{0}$ es submersi\'{o}n (su rango es igual al rango de $F$).
+	Por el teorema del rango, existen cartas $(U_{0},\varphi_{0})$ para
+	$\bb{R}^{m}$ centrada en $p=0$ y $(V_{0},\psi_{0})$ para
+	$\bb{R}^{n}$ centrada en $F(p)=0$ de manera que
+	\begin{align*}
+		\psi_{0}\circ (\inc[{\hemi[n]}]\circ F)\circ\varphi_{0}^{-1}
+			(x^{1},\,\dots,\,x^{n},\,x^{n+1},\,\dots,\,x^{m}) &
+			\,=\,(\lista*{x}{n})
+		\text{ .}
+	\end{align*}
+	%
+	Completamos $\psi_{0}$ a un difeo definido en un abierto de
+	$\bb{R}^{m}$: concretamente, $\psi_{0}\times\id[\bb{R}^{m-n}]$ es
+	un difeomorfismo de $V_{0}\times\bb{R}^{m-n}$ en
+	$\widehat{V}_{0}\times\bb{R}^{m-n}$, digamos, que es un entorno de
+	$0\in\bb{R}^{m}$. Entonces la composici\'{o}n
+	$(\psi_{0}^{-1}\times\id[\bb{R}^{m-n}])\circ\varphi_{0}^{-1}$ es un
+	difeomorfismo definido en alg\'{u}n entorno de $0$ y vale que
+	\begin{align*}
+		& \inc[{\hemi[n]}]\circ F\circ
+			(\varphi_{0}^{-1}\circ
+				(\psi_{0}\times\id[\bb{R}^{m-n}]))
+			(x^{1},\,\dots,\,x^{n},\,x^{n+1},\,\dots,\,x^{m}) \\
+		&\qquad\qquad
+			\,=\,\psi_{0}^{-1}\circ
+				(\psi_{0}\circ F_{0}\circ\varphi_{0}^{-1})
+				(\psi_{0}(x^{1},\,\dots,\,x^{n}),\,x^{n+1},\,
+				\dots,\,x^{m}) \\
+		& \qquad\qquad
+			\,=\,\psi_{0}^{-1}(\psi_{0}^{1}(x),\,
+				\dots,\,\psi_{0}^{n}(x)) \\
+		& \qquad\qquad
+			\,=\,(\lista*{x}{n})
+		\text{ .}
+	\end{align*}
+	%
+
+	Del hecho de que $F_{0}$ es submersi\'{o}n, podemos deducir que
+	$F_{0}:\,U\rightarrow \widetilde{V}$ es abierta (porque existen
+	secciones locales suaves), donde $\widetilde{V}\subset\bb{R}^{n}$ es
+	abierto tal que $V=\hemi[n]\cap\widetilde{V}$ (podemos tomar una
+	semibola y la bola correspondiente). Pero, como su imagen est\'{a}
+	contenida en $\hemi[n]$, los puntos de $F_{0}(U)$ deben pertenecer al
+	interior de $V$, a $\interior{\hemi[n]}\cap V$. Sabiendo que
+	$F$ se correstringe a una submersi\'{o}n entre variedades sin borde,
+	podemos aplicar el teorema del rango sin problema.
+\end{obsInmersionConBorde}

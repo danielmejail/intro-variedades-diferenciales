@@ -1,0 +1,422 @@
+\theoremstyle{plain}
+\newtheorem{lemaLocFin}{Lema}[section]
+\newtheorem{propoParticionesLCH}[lemaLocFin]{Proposici\'{o}n}
+\newtheorem{propoParticionesSigmaCompLCH}[lemaLocFin]{Proposici\'{o}n}
+
+\newtheorem{lemaParticionesEnRI}[lemaLocFin]{Lema}
+\newtheorem{lemaParticionesEnRII}[lemaLocFin]{Lema}
+\newtheorem{lemaParticionesEnRIII}[lemaLocFin]{Lema}
+
+\newtheorem{coroParticionesVarTop}[lemaLocFin]{Corolario}
+\newtheorem{propoParticionesVarDif}[lemaLocFin]{Proposici\'{o}n}
+
+\newtheorem{propoHayChichones}[lemaLocFin]{Proposici\'{o}n}
+\newtheorem{propoExtenderFuncionesSuaves}[lemaLocFin]{Proposici\'{o}n}
+\newtheorem{coroExhaustiva}[lemaLocFin]{Corolario}
+
+\theoremstyle{remark}
+
+%-------------
+
+El objetivo de esta secci\'{o}n es demostrar que las variedades diferenciales
+adminten particiones de la unidad subordinadas a cualquier cubrimiento por
+abiertos. Comenzamos por el siguiente lema.
+
+\begin{lemaLocFin}\label{thm:locfin}
+	Sea $X$ un espacio topol\'{o}gico y sea $\{X_{\alpha}\}_{\alpha}$
+	una colecci\'{o}n de subconjuntos. Entonces, si
+	$\{X_{\alpha}\}_{\alpha}$ es localmente finito en $X$, la colecci\'{o}n
+	$\{\clos{X_{\alpha}}\}_{\alpha}$ tambi\'{e}n lo es y, adem\'{a}s,
+	\begin{align*}
+		\clos{\bigcup_{\alpha}\,X_{\alpha}} & \,=\,
+			\bigcup_{\alpha}\,\clos{X_{\alpha}}
+		\text{ .}
+	\end{align*}
+	%
+\end{lemaLocFin}
+
+\begin{proof}
+	Sea $p\in X$. Si $\{X_{\alpha}\}_{\alpha}$ es localmente finito,
+	existe un abierto $U\subset X$ tal que $p\in U$ y
+	$U\cap X_{\alpha}=\varnothing$ para todo $\alpha$ salvo finitos.
+	Si $x\in U\cap\clos{X_{\alpha}}$, entonces existe un abierto
+	$V$ tal que $x\in V$ y $V\subset U$. Como $x\in\clos{X_{\alpha}}$,
+	la intersecci\'{o}n $V\cap X_{\alpha}$ es no vac\'{\i}a. Pero entonces
+	$U\cap X_{\alpha}\not=\varnothing$. En definitiva, el abierto $U$
+	interseca a lo sumo finitos subconjuntos $\clos{X_{\alpha}}$.
+
+	En cuanto a la \'{u}ltima afirmaci\'{o}n, como
+	$X_{\beta}\subset\bigcup_{\alpha}\,X_{\alpha}$ para todo $\beta$,
+	$\clos{X_{\beta}}\subset\clos{\bigcup_{\alpha}\,X_{\alpha}}$ para
+	todo $\beta$. Rec\'{\i}procamente, si $\{X_{\alpha}\}_{\alpha}$
+	es localmente finita y $x\in\clos{\bigcup_{\alpha}\,X_{\alpha}}$,
+	entonces existe un abierto $U$ tal que $x\in U$ y
+	$U\cap\clos{X_{\alpha}}=\varnothing$ para todos salvo finitos
+	$\alpha$. Por otro lado, como $x$ pertenece a la clausura de
+	$\bigcup_{\alpha}\,X_{\alpha}$,
+	\begin{align*}
+		U\cap\bigcup_{\alpha}\,X_{\alpha} & \,=\,
+		\bigcup_{\alpha}\,(U\cap X_{\alpha})
+		\,=\, \big(U\cap X_{\alpha_{1}}\big)\cup\,\cdots\,\cup
+			\big(U\cap X_{\alpha_{k}}\big) \\
+		& \,=\, U\cap\big(X_{\alpha_{1}}\cup\,\cdots\,
+			\cup X_{\alpha_{k}}\big)
+	\end{align*}
+	%
+	es no vac\'{\i}a. Dicho de otra manera, si $\alpha\not =\alpha_{i}$
+	para alg\'{u}n $i$, entonces $U\cap X_{\alpha}=\varnothing$ y, al
+	menos para un valor de $i$, $U\cap X_{\alpha_{i}}\not=\varnothing$.
+	Adem\'{a}s, lo mismo es cierto si se reemplaza $U$ por alg\'{u}n otro
+	abierto $U'\subset U$ tal que $p\in U'$. En definitiva,
+	\begin{align*}
+		x & \,\in\,\clos{X_{\alpha_{1}}\cup\,\cdots\,
+			\cup X_{\alpha_{k}}} \,=\,
+			\clos{X_{\alpha_{1}}}\cup\,\cdots\,
+			\cup\clos{X_{\alpha_{k}}}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+Sea $X$ un espacio topol\'{o}gico y sea $\cal{U}=\{U_{\alpha}\}_{\alpha}$
+un cubrimiento por abiertos de $X$. Una \emph{partici\'{o}n de la unidad %
+para $X$ subordinada al cubrimiento $\cal{U}$} es una familia
+$\{\psi_{\alpha}\}_{\alpha}$ de funciones $\psi_{\alpha}:\, X\rightarrow\bb{R}$
+que cumplen:
+\begin{itemize}
+	\item[\i] $0\leq \psi_{\alpha}\leq 1$ en $X$ para todo $\alpha$;
+	\item[\i\i] $\soporte{\psi_{\alpha}}\subset U_{\alpha}$;
+	\item[\i\i\i] la colecci\'{o}n $\{\soporte{\psi_{\alpha}}\}_{\alpha}$
+		es localmente finita; y
+	\item[\i v] $\sum_{\alpha}\,\psi_{\alpha} =1$ en $X$.
+\end{itemize}
+%
+La suma en \textit{(iv)} est\'{a} bien definida pues, siendo los soportes
+localente finitos, para todo $x\in X$, $\psi_{\alpha}(x)=0$ para todo
+$\alpha$ salvo finitos. Una partici\'{o}n de la unidad se dir\'{a}
+\emph{suave}, si las funciones $\psi_{\alpha}$ son todas suaves.
+
+\subsection{Particiones en variedades topol\'{o}gicas}
+Empecemos recordando algunos resultados para espacios localmente compactos.
+
+\begin{propoParticionesLCH}\label{thm:particioneslch}
+	Sea $X$ un espacio topol\'{o}gico localmente compacto Hausdorff y sea
+	$K\subset X$ un compacto. Sea $\cal{U}=\{\lista{U}{k}\}$ un
+	cubrimiento de $K$ por abiertos de $X$. Entonces existe una
+	partici\'{o}n de la unidad para $K$ subordinada a $\cal{U}$.
+\end{propoParticionesLCH}
+
+\begin{proof}
+	Por el lema \ref{thm:entornodeunpuntolch}, existen, para cada
+	$x\in K$, abiertos $V_{x}$ tales que $x\in V_{x}$,
+	$\clos{V_{x}}\subset U_{j}$ para alg\'{u}n $j$ y $\clos{V_{x}}$ sea
+	compacto. Como $K$ es compacto, existen $\lista{x}{m}$ tales que
+	$K\subset\bigcup_{i=1}^{m}\,\interior{N_{x_{i}}}$. Para cada
+	$j\in[\![1,k]\!]$, definimos
+	\begin{align*}
+		F_{j} & \,=\,
+			\bigcup\,\left\lbrace N_{x_{i}}\,:\,
+			i\in[\![1,m]\!],\,N_{x_{i}}\subset U_{j}\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Entonces cada $F_{j}$ est\'{a} contenido en $U_{j}$ y es compacto.
+	Por \ref{thm:urysohnlch}, existen funciones continuas
+	$\lista{g}{k}$ de soporte compacto en $X$ tales que
+	$0\leq g_{j}\leq 1$, $g_{j}=1$ en $F_{j}$ y
+	$\soporte{g_{j}}\subset U_{j}$. En particular, en $K$,
+	$\sum_{j}\,g_{j}\geq 1$ y $K\subset\{\sum_{j}\,g_{j} >0\}=:U$.
+	Aplicando \ref{thm:urysohnlch} nuevamente, se obtiene una funci\'{o}n
+	$f$ de soporte compacto contenido en el abierto $U$, que toma valores
+	entre $0$ y $1$, que restringida a $K$ es constantemente $1$.
+
+	Sea $g_{k+1}:=1-f$. Entonces $\sum_{j=1}^{k+1}\,g_{j}>0$ en todo el
+	espacio $X$. Para $j\leq k$, sea $h_{j}$ la funci\'{o}n
+	\begin{align*}
+		h_{j} & \,=\,\frac{g_{j}}{\sum_{t=1}^{k+1}\,g_{t}}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\soporte{h_{j}}=\soporte{g_{j}}\subset U_{j}$ y
+	$\sum_{j=1}^{k}\,h_{j}=1$ en $K$.
+\end{proof}
+
+\begin{propoParticionesSigmaCompLCH}\label{thm:particionessigmacomplch}
+	Si $X$ es un espacio localmente compacto Hausdorff y $\sigma$-compacto,
+	entonces, dado un cubrimiento por abiertos $\cal{U}$ de $X$,
+	existe una partici\'{o}n de la unidad para $X$ subordinada a
+	$\cal{U}$ que consiste en funciones de soporte comapcto.
+\end{propoParticionesSigmaCompLCH}
+
+Como corolario del resultado anterior, deducimos la existencia de particiones
+de la unidad para variedades topol\'{o}gicas.
+
+\begin{coroParticionesVarTop}\label{thm:particionesvartop}
+	Sea $M$ una variedad topol\'{o}gica y sea $\cal{U}$ un cubrimiento
+	por abiertos de $M$. Existe una partici\'{o}n de la unidad
+	para $M$ subordinada a $\cal{U}$.
+\end{coroParticionesVarTop}
+
+\begin{proof}
+	Las variedades topol\'{o}gicas son espacios localmente compactos
+	Hausdorff y $\sigma$-compactos. Una dmostraci'{o}n un poco
+	m\'{a}s \emph{expl\'{\i}cita} podr\'{\i}a ir por el lado de
+	la exitencia de bolas coordenadas regulares y de poder refinar
+	cualquier cubrimiento por uncubrimiento que est\'{e} conformado
+	por tales abiertos.
+\end{proof}
+
+\subsection{Particiones en variedades diferenciales}
+Para establecer la existencia de particiones suaves de la unidad, primero
+es necesario demostrar los resultados espec\'{\i}ficos para los espacios
+euclideos.
+
+\begin{lemaParticionesEnRI}\label{thm:particionesenri}
+	La funci\'{o}n $f:\,\bb{R}\rightarrow\bb{R}$ dada por
+	$f(t)=\indica{\bb{R}_{>0}}(t)e^{-\frac{1}{t}}$ es suave.
+\end{lemaParticionesEnRI}
+
+\begin{lemaParticionesEnRII}\label{thm:particionesenrii}
+	Dados $r_{1}<r_{2}$ n\'{u}meros reales, existe una funci\'{o}n
+	suave $h:\,\bb{R}\rightarrow\bb{R}$ tal que $h(t)=0$ si
+	$t\geq r_{2}$, $h(t)=1$ si $t\leq r_{1}$ y $0 <h< 1$ en
+	otro caso.
+\end{lemaParticionesEnRII}
+
+\begin{proof}
+	Una funci\'{o}n con estas propiedades es aquella dada por
+	\begin{align*}
+		h(t) & \,=\,\frac{f(r_{2}-t)}{f(t-r_{1})+f(r_{2}-t)}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $f$ es la funci\'{o}n del lema \ref{thm:particionesenri}.
+\end{proof}
+
+\begin{lemaParticionesEnRIII}\label{thm:particionesenriii}
+	Dados n\'{u}meros reales $0<r_{1}< r_{2}$, existe una funci\'{o}n
+	suave $H:\,\bb{R}^{d}\rightarrow\bb{R}$ tal que $H(x)=0$ si
+	$x\not\in\bola{r_{2}}{0}$, $H(x)=1$ si $x\in\clos{\bola{r_{1}}{0}}$
+	y $0<H<1$ en otro caso.
+\end{lemaParticionesEnRIII}
+
+\begin{proof}
+	Una funci\'{o}n con estas propiedades es $H(x)=h(|x|)$.
+\end{proof}
+
+\begin{propoParticionesVarDif}\label{thm:particionesvardif}
+	Sea $M$ una variedad diferencial y sea
+	$\cal{U}=\{U_{\alpha}\}_{\alpha}$ un cubrimiento por abiertos. Existe
+	una partici\'{o}n suave de la unidad para $M$ subordinada a $\cal{U}$.
+\end{propoParticionesVarDif}
+
+\begin{proof}
+	Los abiertos $U_{\alpha}$ son subvariedades abiertas de $M$.
+	En particular, cada uno de ellos admite una base $\cal{B}_{\alpha}$
+	de bolas coordenadas regulares. La uni\'{o}n de dichas bases,
+	$\cal{B}=\bigcup_{\alpha}\,\cal{B}_{\alpha}$ es una base para $M$.
+	Por lo tanto, existe un refinamiento $\cal{V}$ numerable y
+	localmente finito de $\cal{U}$ compuesto por bolas coordenadas
+	regulares de $\cal{B}$. Sea 
+	\begin{align*}
+		\cal{V}_{\alpha} & \,=\,\left\lbrace
+			B\in\cal{B}\,:\,B\subset \cal{B}_{\alpha}
+			\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Cada bola de $\cal{V}_{\alpha}$ es una bola coordenada regular en
+	$U_{\alpha}$ y, por lo tanto, existen una bola coordenada
+	$(B',\varphi)$ (compatible con la estructura diferncial de
+	$U_{\alpha}$) tal que $\clos{B}\subset B'\subset U_{\alpha}$,
+	$\varphi(B)=\bola{r_{1}}{0}$ y $\varphi(B')=\bola{r_{2}}{0}$
+	para ciertos n\'{u}meros reales $r_{2}>r_{1}>0$. Definimos
+	entonces una funci\'{o}n $f_{B}:\,M\rightarrow\bb{R}$ por
+	\begin{align*}
+		f_{B} & \,=\,
+			\begin{cases}
+				H\circ\varphi & \text{ en }B' \\
+				0 & \text{ en }M\setmin\clos{B}\text{ .}
+			\end{cases}
+	\end{align*}
+	%
+	La funci\'{o}n $H$ que aparece en la definici\'{o}n de $f_{B}$ es
+	la funci\'{o}n suave dada por el lema \ref{thm:particionesenriii}
+	para los valores de $r_{2}$ y $r_{1}$ correspondientes (es decir, la
+	definici\'{o}n de $H$ depende de $B$). Cada $f_{B}$ es suave en $M$ y
+	$\soporte{f_{B}}=\clos{B}$.
+
+	Como $\cal{V}$ es localmente finito, $\{\clos{B}\,:\,B\in\cal{V}\}$
+	es localmente finito por \ref{thm:locfin}. Sea
+	$f=\sum_{B\in\cal{V}}\,f_{B}$. Esta funci\'{o}n est\'{a} bien
+	definida y es suave en $M$. Adem\'{a}s, como $f_{B}\geq 0$ para todo
+	en $M$ y es estrictamente positiva en $B$ para todo $B\in\cal{V}$,
+	la suma $f$ es estrictamente positiva en $M$. EN particular,
+	si definimos $g_{B}=f_{B}/f$, esta funci\'{o}n es suave en $M$,
+	$0\leq g_{B}\leq 1$ y $\sum_{B\in\cal{V}}\,g_{B}=1$.
+
+	Para obtener una partici\'{o}n de la unidad subordinada al cubrimiento
+	$\cal{U}$ es necesario reinexar y agrupar la funciones $g_{B}$.
+	Para cada $B\in\cal{V}$, sea $a(B)$ alg\'{u}n \'{\i}ndice tal que
+	$B'\subset U_{a(B)}$ (por ejemplo, si $B\in\cal{V}_{\alpha}$, podemos
+	tomar $a(B)=\alpha$ ya que $B$ es una bola coordenada regular de
+	$U_{\alpha}$ y $B'\subset U_{\alpha}$). Para cada $\alpha$ se define
+	\begin{align*}
+		\psi_{\alpha} & \,=\,\sum_{B\in\cal{V}\,:\,a(B)=\alpha}\,g_{B}
+		\text{ .}
+	\end{align*}
+	%
+	Si la suma es vac\'{\i}a la funci\'{o}n se define como la funci\'{o}n
+	$0$ en $M$. En particular, las funciones $\psi_{\alpha}$ son
+	suaves en $M$, $0\leq\psi_{\alpha}\leq 1$,
+	\begin{align*}
+		\soporte{\psi_{\alpha}} & \,=\,
+			\clos{\bigcup_{B\,:\,a(B)=\alpha}\,B}
+			\,=\,\bigcup_{B\,:\,a(B)=\alpha}\,\clos{B}
+			\,\subset\, U_{\alpha}
+		\text{ .}
+	\end{align*}
+	%
+	Adem\'{a}s, $\{\soporte{\psi_{\alpha}}\}$ es una familia localmente
+	finita y $\sum_{\alpha}\,\psi_{\alpha}=\sum_{B}\,g_{B}=1$ en $M$.
+
+	Si $M$ es una variedad con borde, las bolas regulares $B$ pueden
+	ser, en realidad, semibolas regulares. Aun as\'{\i}, esto quiere
+	decir que para cada $B$ semibola regular de $U_{\alpha}$,
+	existen $B'\subset U_{\alpha}$, $\varphi:\,B'\rightarrow\bb{R}^{d}$
+	de manera que $(B',\varphi)$ es una carta comatible para $U_{\alpha}$,
+	$\clos{B}\subset B'$ y
+	\begin{align*}
+		\varphi(B) & \,=\,\bola{r_{1}}{0}\cap\{x^{d}\geq 0\}
+		\quad\text{y} \\
+		\varphi(B') & \,=\,\bola{r_{2}}{0}\cap\{x^{d}\geq 0\}
+	\end{align*}
+	%
+	con $r_{2}>r_{1}>0$. En particular, podemos tomar la funci\'{o}n
+	suave $H$ correspondiente a las bolas de radios $r_{1}$ y $r_{2}$
+	y definir $f_{B}$ como antes. Estas funciones $f_{B}$ siguen siendo
+	suaves porque, donde no es cero,
+	$f_{B}\circ\varphi^{-1}=H|_{\varphi(B')}$, que es suave en la semibola
+	$\varphi(B')$, porque $H$ es una extensi\'{o}n suave a $\bb{R}^{d}$.
+	El resto de la demostraci\'{o}n contin\'{u}a de la misma manera.
+\end{proof}
+
+\subsection{Algunos corolarios}
+Sea $M$ una variedad diferencial. Como en el lema de Tietze para funciones
+continuas, queremos ver si es posible extender funciones definidas en un
+subconjunto de $M$ de manera suave.
+
+\begin{propoHayChichones}\label{thm:haychichones}
+	Sea $M$ una variedad diferencial, sea $A\subset M$ un subconjunto
+	cerrado y sea $U\supset A$ un abierto que lo contiene. Entonces
+	existe una funci\'{o}n suave $\psi:\,M\rightarrow\bb{R}$
+	tal que $\soporte{\psi}\subset U$, $\psi=1$ en $A$ y $0\leq\psi\leq 1$
+	en $M$.
+\end{propoHayChichones}
+
+\begin{proof}
+	Sea $U_{0}=U$ y sea $U_{1}=M\setmin A$. Sea $\{\psi_{0},\psi_{1}\}$
+	una partici\'{o}n suave de la unidad subordinada al cubrimiento
+	$\{U_{0},U_{1}\}$. Como $\psi_{1}=0$ en $A$ y $\psi_{0}+\psi_{1}=1$
+	en $M$, debe ser $\psi_{0}=1$ en $A$.
+\end{proof}
+
+Sea $M$ una variedad y sea $f:\,A\rightarrow N$ una funci\'{o}n definida
+en un subconjunto arbitrario $A\subset M$. La noci\'{o}n de suavidad de
+la funci\'{o}n $f$ requiere que el dominio de la misma sea, o bien toda
+la variedad $M$, o bien un abierto $U\subset M$. No hemos definido aun
+lo que significa que $f$ sea suave si su dominio de definici\'{o}n es
+un subconjunto arbitrario de $M$. Decimos que $f:\,A\rightarrow N$ es
+suave, si, dado $p\in A$, existe un abierto $W\subset M$ tal que $p\in W$
+y una extensi\'{o}n suave $\tilde{f}:\,W\rightarrow N$, es decir,
+$\tilde{f}$ es suave de $W$ en $N$ y $\tilde{f}=f$ en $W\cap A$.
+
+\begin{propoExtenderFuncionesSuaves}\label{thm:extenderfuncionessuaves}
+	Sea $M$ una variedad diferencial y sea $A\subset M$ un subconjunto
+	cerrado. Si $f:\,A\rightarrow\bb{R}^{l}$ es suave, para todo abierto
+	$U\supset A$ existe una funci\'{o}n suave
+	$\tilde{f}:\,M\rightarrow\bb{R}^{l}$ tal que
+	$\tilde{f}|_{A}=f$ y $\soporte{\tilde{f}}\subset U$.
+\end{propoExtenderFuncionesSuaves}
+
+\begin{proof}
+	Para cada punto $p\in A$, existe un entorno $W_{p}$ de $p$
+	y una funci\'{o}n suave $\tilde{f}_{p}:\,W_{p}\rightarrow\bb{R}^{l}$
+	tales que $\tilde{f}_{p}$ coincide con $f$ en $W_{p}\cap A$. Podemos
+	asumir que $W_{p}\subset U$, reemplazando $W_{p}$ por $W_{p}\cap U$.
+	La familia de abiertos $\{W_{p}\,:\,p\in A\}$, junto con $M\setmin A$,
+	es un cubrimiento por abiertos de $M$. Sea
+	$\{\psi_{p}\,:\,p\in A\}\cup\{\psi_{0}\}$ una partici\'{o}n de a
+	unidad subordinada a la cubrimiento, con $\soporte{\psi_{p}}%
+	\subset W_{p}$ y $\soporte{\psi_{0}}\subset M\setmin A$.
+
+	Para cada $p\in A$, el producto $\psi_{p}\tilde{f}_{p}$ coincide
+	con $\tilde{f}_{p}$ en (la clausura de) alg\'{u}n entorno de $p$
+	dentro de $W_{p}$. Adem\'{a}s, como $\soporte{\psi_{p}}\subset W_{p}$,
+	podemos extender $\psi_{p}\tilde{f}_{p}$ a una funci\'{o}n
+	definida en $M$, por cero fuera de $W_{p}$ (se define por cero
+	fuera del soporte de $\psi_{p}$ y, donde los abiertos $W_{p}$ y
+	$M\setmin\soporte{\psi_{p}}$ se intersecan, las definiciones
+	coinciden). Esta extensi\'{o}n es suave por \ref{thm:delpegado}.
+	Porque los soportes de las funciones $\psi_{p}$ forman una
+	colecci\'{o}n localmente finita, la funci\'{o}n definida por la
+	expresi\'{o}n
+	\begin{align*}
+		\tilde{f}(x) & \,=\,\sum_{p\in A}\,\psi_{p}(x)\tilde{f}_{p}(x)
+	\end{align*}
+	%
+	est\'{a} bien definida y es suave. Si tomamos $x\in A$, entonces
+	$\psi_{0}(x)=0$ y $\tilde{f}_{p}(x)=f(x)$ para todo $p\in A$.
+	Entonces $\tilde{f}(x)=f(x)$ porque $\sum_{p\in A}\,\psi_{p}(x)=1$.
+
+	En cuanto al soporte de $\tilde{f}$,
+	\begin{align*}
+		\soporte{\tilde{f}} & \,\subset\,
+			\clos{\bigcup_{p\in A}\,\soporte{\psi_{p}}}
+			\,=\,\bigcup_{p\in A}\,\soporte{\psi_{p}}
+			\,\subset\, U
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{coroExhaustiva}\label{thm:exhaustiva}
+	Toda variedad (diferencial) admite una funci\'{o}n exhaustiva (suave).
+\end{coroExhaustiva}
+
+Una \emph{funci\'{o}n exhaustiva} para una variedad $M$ es una funci\'{o}n
+(continua) $f:\,M\rightarrow\bb{R}$ tal que los conjuntos
+$\{f\leq c\}=f^{-1}(\left(-\infty,c\right])$ sean compactos para todo
+$c\in\bb{R}$.
+
+\begin{proof}
+	Sea $M$ una variedad diferencial. Sabemos que existe una familia
+	numerable de subconjuntos abiertos con clausura compacta
+	$\{V_{j}\}_{j\geq 1}$ que cubren a $M$. Tambi\'{e}n sabemos que,
+	por ser cubrimiento de $M$, admite una partici\'{o}n (suave) de la
+	unidad $\{\psi_{j}\}_{j\geq 1}$ subordinada al mismo.
+
+	Definimos $f:\,M\rightarrow\bb{R}$ por
+	\begin{align*}
+		f(x) & \,=\,\sum_{j\geq 1}\,j\psi_{j}(x)
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n est\'{a} bien definida porque los soportes de
+	las funciones $\psi_{j}$ son una colecci\'{o}n localmente finita
+	(y es suave). Adem\'{a}s, $f\geq\sum_{j}\,\psi_{j}=1$ en $M$.
+
+	Para ver que $f$ es una funci\'{o}n exhaustiva, sea $c\in\bb{R}$.
+	Veamos que $\{f\leq c\}$ est\'{a} contenida en una uni\'{o}n finita
+	de compactos $\clos{V_{j}}$. Si $N>c$ es un entero cualquiera
+	mayor que $c$ y si $x\not\in\bigcup_{j=1}^{N}\,\clos{V_{j}}$, entonces
+	\begin{align*}
+		f(x) & \,=\,\sum_{j\geq N+1}\,j\psi_{j}(x) \,\geq\,
+			N\sum_{j\geq N+1}\,\psi_{j}(x) \,\geq\,N>c
+		\text{ .}
+	\end{align*}
+	%
+	Dicho de otra manera, si $f(x)\leq c$, entonces
+	$x\in\bigcup_{j=1}^{N}\,\clos{V_{j}}$. Como $\{f\leq c\}$ es cerrado
+	y est\'{a} contenido en un compacto, resulta ser compacto.
+\end{proof}

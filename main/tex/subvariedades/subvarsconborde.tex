@@ -1,0 +1,73 @@
+\theoremstyle{plain}
+
+\theoremstyle{remark}
+
+%-------------
+
+Completamos esta introducci\'{o}n a subvariedades considerando la posibilidad
+de la existencia de borde. En primer lugar, ampliamos la definici\'{o}n
+dada en la secci\'{o}n \ref{sec:subvars}. Sea $M$ una variedad diferencial
+(topol\'{o}gica). Una \emph{subvariedad con borde} de $M$ es un subconjunto
+$S\subset M$ con una topolog\'{\i}a y una estructura diferencial de manera
+que $S$ sea una variedad diferencial y que la inclusi\'{o}n
+$\inc[S]:\,S\rightarrow M$ sea una inmersi\'{o}n (suave, topol\'{o}gica).
+Si la inclusi\'{o}n es un embedding, decimos que $S$ es una \emph{subvariedad %
+regular}.
+
+\subsection{Dominios regulares}
+Un \emph{dominio} o \emph{dominio regular} en $M$ es una subvariedad regular
+propia de codimensi\'{o}n $0$ (por lo tanto, cerrada, a diferencia de un
+``dominio'' en Ecuaciones diferenciales). Los dominios tienen la propiedad de
+que su interior y borde en tanto subespacio topol\'{o}gico de la variedad
+ambiente coinciden con su interior y borde, respectivamente, en tanto
+variedad.
+
+Si $f\in C^{\infty}(M)$, entonces los conjuntos $\{f\leq b\}$ y
+$\{a\leq f\leq b\}$ son dominios regulares en $M$, siempre que $a$ y $b$ sean
+valores regulares de $f$. Si $D$ es un dominio regular en $M$, existen una
+funci\'{o}n suave $f\in C^{\infty}(M)$ y valores regulares $a,b$ tales que
+$D=\{a\leq f\leq b\}$, o bien $D=\{f\leq b\}$. Una funci\'{o}n con esta
+propiedad se dice \emph{funci\'{o}n de definici\'{o}n} para el dominio $D$.
+
+\subsection{Algunas propiedades de las subvariedades con borde}
+Enunciamos versiones an\'{a}logas de algunas de las propiedades estudiadas
+anteriormente en el caso de subvariedades sin borde. Muchas de aquellas
+propiedades siguen siendo v\'{a}lidas en este contexto, pero no todas.
+
+Sea $M$ una variedad diferencial. Todo abierto de $M$ es una subvariedad
+regular de codimensi\'{o}n $0$ en $M$, pero no toda subvariedad de
+codimensi\'{o}n $0$ es un subespacio abierto de $M$.
+
+La imagen de un embedding $F:\,N\rightarrow M$ es una subvariedad regular
+con borde.
+
+Una subvariedad regular se dice \emph{propia}, si la inclusi\'{o}n es propia.
+Una subvariedad regular es propia, si y s\'{o}lo si es subespacio cerrado.
+
+Toda subvariedad con borde es localmente regular, es decir, para todo
+punto de la subvariedad, existe un entorno del punto que tiene estructura
+de subvariedad regular.
+
+\subsection{Fetas de borde}
+Sea $M$ una variedad diferencial sin borde. Sea $(U,\varphi)$ una carta
+de $M$. Una \emph{media $k$-feta de $U$} es un subconjunto de la forma
+\begin{align*}
+	\left\lbrace (\lista*{x}{n})\in U\,:\,
+		x^{k+1}=c^{k+1},\,\dots,\,x^{n}=c^{n}\text{ y }
+		x^{k}\geq 0\right\rbrace
+	\text{ .}
+\end{align*}
+%
+De un subconjunto $S\subset M$ se dice que \emph{verifica localmente la %
+condici\'{o}n de ser $k$-feta}, si para todo punto $p\in S$ existe una
+carta $(U,\varphi)$ para $M$ tal que $p\in U$ y que $S\cap U$ sea, o bien
+una $k$-feta de $U$, o bien una media $k$-feta de $U$. Dependiendo del caso,
+decimos que $(U,\varphi)$ es una \emph{carta preferencial} para $S$ en $M$,
+o que es una \emph{carta preferencial de borde} para $S$ en $M$.
+
+Toda subvariedad regular con borde (de una variedad diferencial sin borde)
+verifica localmente la condici\'{o}n de ser $k$-feta. Rec\'{\i}procamente,
+si un subconjunto $S\subset M$ verifica la condici\'{o}n, entonces, con
+la topolog\'{\i}a de subespacio es una variedad topol\'{o}gica con borde
+de dimensi\'{o}n $k$ y admite una estructura diferencial de manera que sea
+subvariedad regular de $M$.

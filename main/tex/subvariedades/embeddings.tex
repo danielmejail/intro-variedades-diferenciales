@@ -1,0 +1,107 @@
+\theoremstyle{plain}
+\newtheorem{teoEmbeddingLocal}{Teorema}[section]
+\newtheorem{propoCuandoInmersionEsEmbedding}[teoEmbeddingLocal]%
+	{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsEmbeddingLocal}{Observaci\'{o}n}[section]
+
+%-------------
+
+Un \emph{embedding (suave)} es una inmersi\'{o}n (suave) $F:\,M\rightarrow N$
+que es, adem\'{a}s, un \emph{embedding topol\'{o}gico}, es decir, un
+subespacio. Un embedding suave es un subespacio (embedding topol\'{o}gico)
+que es suave \emph{y que, adem\'{a}s,} tiene diferencial inyectivo,
+de rango m\'{a}ximo en toda $M$.
+
+\begin{propoCuandoInmersionEsEmbedding}\label{thm:cuandoinmersionesembedding}
+	Sean $M$ y $N$ variedades diferenciales y $F:\,M\rightarrow N$
+	una inmersi\'{o}n suave. Si $F$ es inyectiva y cumple con
+	cualquiera de las siguientess propiedades, entonces $F$ es
+	(subespacio y, por lo tanto,) embedding: \emph{(a)} $F$ es abierta
+	o cerrada; \emph{(b)} $F$ es propia; \emph{(c)} $M$ es compacta;
+	\emph{(d)} $\borde[M]=\varnothing$ y $\dim\,M=\dim\,N$.
+\end{propoCuandoInmersionEsEmbedding}
+
+\begin{proof}
+	Si $F$ es abierta o cerrada, entonces es subespacio. Si $F$ es
+	propia, entonces es cerrada. Si $M$ es compacta, como $F$ es
+	continua, todo cerrado de $M$ es compacto y todo compacto de $N$
+	es cerrado, entonces $F$ es propia y cerrada. Si
+	$\borde[M]=\varnothing$ y $\dim\,M=\dim\,N$, sabemos que
+	$F=\inc[\interior{N}]\circ F|$, donde
+	$F|:\,M\rightarrow\interior{N}$ es la correstricci\'{o}n de $F$.
+	Como $F|$ es difeomorfismo local (por dimensi\'{o}n), resulta ser
+	abierta. La inclusi\'{o}n $\inc[\interior{N}]$ tambi\'{e}n es
+	abierta. Entonces $F$ es abierta y luego embedding.
+\end{proof}
+
+Hay embeddings que no son ni abiertos ni cerrados: por ejemplo,
+$\hemi[n]=\{x^{n}\geq 0\}\hookrightarrow\bb{R}^{n}$ no es abierta,
+$\{x^{n}<1\}\hookrightarrow\bb{R}^{n}$ no es cerrada y
+$\{x^{n}\geq 0\}\cap\{x^{n}<1\}\hookrightarrow\bb{R}^{n}$ no es ni
+abierta, ni cerrada, pero todas son embeddings.
+
+Toda inmersi\'{o}n es localmente un embedding.
+
+\begin{teoEmbeddingLocal}\label{thm:embeddinglocal}
+	Sean $M$ y $N$ variedades diferenciales. Sea $F:\,M\rightarrow N$
+	una transformaci\'{o}n suave. Entonces $F$ es una inmersi\'{o}n,
+	si y s\'{o}lo si, para todo punto $p\in M$, existe un entorno
+	$p\in U\subset M$ tal que $F|_{U}:\,U\rightarrow N$ es embedding.
+\end{teoEmbeddingLocal}
+
+\begin{proof}
+	Supongamos que $F$ tiene rango completo. Si $F(p)\not\in\borde[N]$,
+	entonces $F$ no toma valores en $\borde[N]$ en un entorno de $p$.
+	Podemos aplicar, o bien el teorema del rango constante, o el
+	teorema de inmersi\'{o}n de una variedad con borde (dependiendo de
+	$M$) para concluir que
+	$\widehat{F}(\lista*{x}{m})=(\lista*{x}{m},\,0,\,\dots,\,0)$
+	en un entorno de $p$. En particular, $F$ es inyectiva en dicho
+	entorno. Sabiendo que $F$ es inyectiva en un entorno
+	$U_{1}\subset M$ de $p$, podemos elegir $U\subset M$ abierto,
+	con $p\in U$ y $\clos{U}$ compacta y contenida en $U_{1}$.
+	Entonces $F|_{\clos{U}}:\,\clos{U}\rightarrow N$ es continua
+	e inyectiva con dominio compacto y codominio Hausdorff. La
+	restricci\'{o}n $F|_{\clos{U}}$ es subespacio. En particular,
+	$F|_{U}:\,U\rightarrow N$ es subespacio, es suave y es inmersi\'{o}n,
+	es decir, $F|_{U}$ es embedding.
+
+	Si $F(p)\in\borde[N]$, podemos hallar un entorno de $p$ en donde $F$
+	es inyectiva y, con el mismo argumente que en el caso anterior,
+	probar que $F$ es un embedding restringida a un entorno de $p$.
+	Si $(W,\psi)$ es una carta para $N$ centrada en $F(p)$, una
+	carta de borde, como $F:\,M\rightarrow N$ es continua, la preimagen
+	$U=F^{-1}(W)$ es abierta y contiene a $p$. La composici\'{o}n
+	\begin{align*}
+		\inc[{\hemi[n]}]\circ\psi\circ F & \,:\,
+			U\,\rightarrow\,\psi(V)\subset\bb{R}^{n}
+	\end{align*}
+	%
+	es suave y su diferencial,
+	$\diferencial[p]{(\inc[{\hemi[n]}]\circ\psi\circ F)}$, es inyectivo.
+	En definitiva, $\inc[{\hemi[n]}]\circ\psi\circ F$ es una
+	inmersi\'{o}n de $U$ en $\bb{R}^{n}$, por lo que, aplicando el
+	teorema del rango \ref{thm:} (si $p\not\in\borde[M]$) o el teorema
+	de la inmersi\'{o}n \ref{thm:}, existe un entorno $U_{1}$ de $p$
+	contenido en $U$ tal que $\inc[{\hemi[n]}]\circ\psi\circ F|_{U_{1}}$
+	es inyectiva. Pero entonces $F|_{U_{1}}$ es inyectiva.
+
+	Rec\'{\i}procamente, si $F$ es localmente embeddingm entonces
+	en todo punto $p\in M$ el difernecial $\diferencial[p]{F}$ es
+	inyectivo.
+\end{proof}
+
+\begin{obsEmbeddingLocal}\label{obs:embeddinglocal}
+	Notemos que este argumento es bastante similar al usado en la
+	demostraci\'{o}n de la proposici\'{o}n \ref{thm:}.
+\end{obsEmbeddingLocal}
+
+Podemos definir una \emph{inmersi\'{o}n topol\'{o}gica} como una
+funci\'{o}n $f:\,X\rightarrow Y$ tal que, para todo punto $p\in X$,
+existe un entorno $U\subset X$ tal que $f|_{U}:\,U\rightarrow Y$ es
+un \emph{embedding topol\'{o}gico}, es decir, un subespacio. Una inmersi\'{o}n
+suave es una inmersi\'{o}n topol\'{o}gica que es suave y que, adem\'{a}s,
+tiene rango m\'{a}ximo.
+

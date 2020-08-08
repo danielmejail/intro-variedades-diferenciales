@@ -1,0 +1,391 @@
+\theoremstyle{plain}
+\newtheorem{teoClasTop}{Teorema}[subsection]
+\newtheorem{propoExisteUnAbiertoMaximalmenteHomeo}[teoClasTop]{Proposici\'{o}n}
+\newtheorem{propoALoSumoDosComponentes}[teoClasTop]{Proposici\'{o}n}
+\newtheorem{lemaEsSubintervaloExterno}[teoClasTop]{Lema}
+\newtheorem{propoExtenderHomeoConIntervalo}[teoClasTop]{Proposici\'{o}n}
+\newtheorem{teoClasTopConBorde}[teoClasTop]{Teorema}
+
+\theoremstyle{remark}
+
+%-------------
+
+
+En esta secci\'{o}n presentamos algunas demostraciones de la clasificaci\'{o}n
+de variedades de dimensi\'{o}n uno. Presentamos la clasificaci\'{o}n
+en el contexto de variedades topol\'{o}gicas y de variedades diferenciales.
+En el primer caso damos dos demostraciones, una elemental y otra usando
+resultados de triangulaci\'{o}n de variedades.
+
+\subsection{Variedades topol\'{o}gicas de dimensi\'{o}n $1$}
+El teorema que pretendemos demostrar es el siguiente.
+
+\begin{teoClasTop}\label{thm:clastop}
+	Si $M$ es una variedad sin borde, conexa y de dimensi\'{o}n $1$,
+	entonces $M=\esfera{1}$ o $M=\bb{R}$.
+\end{teoClasTop}
+
+Empezamos con una observaci\'{o}n general acerca de $M$ que nos va a
+permitir demostrar algunas cosas y orientar la demostraci\'{o}n del
+teorema.
+
+La variedad $M$ se puede cubrir por abiertos homeomorfos a abiertos de
+$\bb{R}$. Dejando de lado el caso trivial en que $M=\varnothing$,
+hay abiertos de $M$ homeomorfos a intervalos abiertos de $\bb{R}$ o,
+lo que es lo mismo, a $\bb{R}$. Veamos que existen abiertos maximales con
+respecto a esta propiedad, es decir, existen abiertos de $M$ homeomorfos
+a $\bb{R}$ que no est\'{a}n propiamente contenidos en otro abierto homeomorfo
+a $\bb{R}$.
+
+\begin{propoExisteUnAbiertoMaximalmenteHomeo}%
+	\label{thm:existeunabiertomaximalmentehomeo}
+	Existe un abierto conexo de $M$ homeomorfo a $\bb{R}$ que
+	no est\'{a} propiamente incluido en otro abierto con estas
+	propiedades.
+\end{propoExisteUnAbiertoMaximalmenteHomeo}
+
+Esto es una consecuencia del lema de Zorn, pero la hip\'{o}tesis
+de que $M$ es $N_{2}$, en particular, de que es \emph{Lindel\"{o}f} y todo
+subespacio de $M$ es Lindel\"{o}f. Sea $\cal{O}$ el poset formado por
+la colecci\'{o}n de todos los abiertos de $M$ homeomorfos a $\bb{R}$
+ordenados por la inclusi\'{o}n. Sea $\cal{C}$ una cadena $\cal{O}$,
+queremos considerar la uni\'{o}n $X=\bigcup\,\cal{C}$. En general, no es
+cierto que una uni\'{o}n arbitraria de subespacios homeomorfos a la recta
+real sea homeomorfa a la recta, incluso en el caso en que los subconjuntos
+est\'{e}n encajados. Pero $M$ es $N_{2}$. Esto implica que $X$ es $N_{2}$
+y que el cubrimiento $\cal{C}$ admite un subcubrimiento \emph{numerable}.
+Es decir, existe una subfamilia $\{U_{n}\}_{n\geq 1}$ tal que
+$X=\bigcup_{n\geq 1}\,U_{n}$. Sea $V_{m}=U_{1}\cup\,\cdots\,\cup U_{m}$.
+Entonces $\{V_{m}\}_{m\geq 1}$ es una sucesi\'{o}n de abiertos encajados.
+Para cada $m\geq 1$, $V_{m}=U_{i}$ para alg\'{u}n $i\leq m$ y, entonces
+$V_{m}$ es homeomorfo a $\bb{R}$. En definitiva, como
+\begin{align*}
+	X & \,=\,\bigcup\,\cal{C} \,=\,\bigcup_{n\geq 1}\,U_{n}
+	\,=\,\bigcup_{m\geq 1}\,V_{m}
+\end{align*}
+%
+es una uni\'{o}n numerable creciente de conjuntos homeomorfos a $\bb{R}$,
+$X$ es homeomorfo a $\bb{R}$ con lo que pertenece a $\cal{O}$ y es
+cota superior para $\cal{C}$. Por Zorn, existe un abierto conexo de $M$
+homeomorfo a $\bb{R}$ y maximal con esta propiedad.
+
+Sea $U\subset M$ un elemento maximal en $\cal{O}$ y sea
+$\varphi:\,U\rightarrow\bb{R}$ un homeomorfismo. Si es el caso que
+$U=M$, entonces $M=\bb{R}$ v\'{\i}a $\varphi$. Si no es as\'{\i},
+supongamos primero que $M=U\cup\{\infty\}$, es decir que $M\setmin U$
+consta de un \'{u}nico punto. Sea $(V,\psi)$ una casrta en $\infty$
+con dominio conexo, supongamos que $\psi(V)=(a,b)$ es un intervalo abierto
+de $\bb{R}$ y que $\psi(\infty)=x\in (a,b)$. Sea
+$W=\psi^{-1}((a',b'))\subset V$ con $a<a'<x<b'<b$, de manera que
+\begin{align*}
+	\infty & \,\in\, W\,\subsetneq\,\clos{W}\,\subsetneq\,V
+	\text{ .}
+\end{align*}
+%
+Como $M$ es Hausdorff, la clausura de $W$ en $V$ coincide con la clausura
+de $W$ en $M$. Intersecando con $U$ y tomando coordenadas con $\psi$,
+obtenemos que, como $M\setmin U=\{\infty\}$,
+\begin{align*}
+	\psi(U\cap V) & \,=\,\psi(V\setmin\{\infty\}) \,=\,(a,x)\cup (x,b)
+		\text{ ,} \\
+	\psi(U\cap\clos{W}) & \,=\,[a',x)\cup (x,b']
+		\quad\text{y} \\
+	\psi(U\cap W) & \,=\,(a',x)\cup (x,b')
+	\text{ .}
+\end{align*}
+%
+En particular, $U\cap\clos{W}$ es homeomorfo (v\'{\i}a $\varphi$)
+a una uni\'{o}n disjunta de dos intervalos abiertos y cerrados, pero una
+uni\'{o}n que debe ser, tambi\'{e}n, cerrada en $\bb{R}$. Entonces
+$\varphi(U\cap\clos{W})=\bb{R}\setmin (r,s)$, donde $r<s$ son n\'{u}meros
+reales (finitos), es decir, $\varphi(U\cap\clos{W})$ debe ser una uni\'{o}n
+disjunta de dos semiractas de extremo cerrado en $\bb{R}$. Pero
+entonces $\varphi(U\cap W)=\bb{R}\setmin [r,s]$ de lo que se deduce que
+$\infty$ contiene una base de entornos que son complementos de compactos
+en $M$. Dicho de otra manera, $M=U\cup\{\infty\}$ es la compactificaci\'{o}n
+de Alexandroff de $U=\bb{R}$, es decir, $M=\esfera{1}$.
+
+Si $M\setmin U$ contiene m\'{a}s de un punto, ya no parece muy evidente
+qu\'{e} hacer con los puntos que est\'{a}n por fuera del abierto. Podemos
+ver qu\'{e} pasa con los puntos en la clausura y tomar entornos coordenados
+de dichos puntos. Pero entonces tendr\'{\i}amos que saber c\'{o}mo se
+relacionan estos entornos con el abierto $U$. Dejemos, por un momento, de
+lado este argumento y veamos algunas otras propiedades de la variedad $M$.
+
+Supongamos, ahora, que $(U,\varphi)$ y que $(V,\psi)$ son cartas en $M$.
+Supongamos, adem\'{a}s, que $U$ y $V$ son conexos, es decir, homeomorfos
+v\'{\i}a $\varphi$ y $\psi$, respectivamente, a intervalos abiertos en
+$\bb{R}$. Sin p\'{e}rdida de generalidad, podemos asumir que
+$\varphi(U)=(a,b)$ y $\psi(V)=(c,d)$ para ciertos n\'{u}meros reales
+$a<b$ y $c<d$. La intersecci\'{o}n de estos abiertos es una uni\'{o}n
+de sus componentes conexas, las cuales son a lo sumo numerables.
+
+\begin{propoALoSumoDosComponentes}\label{thm:alosumodoscomponentes}
+	La intersecci\'{o}n $U\cap V$ tiene cero, una o dos componentes
+	conexas.
+\end{propoALoSumoDosComponentes}
+
+La cantidad de componentes es cero, si y s\'{o}lo si $U\cap V=\varnothing$.
+Si $U\subset V$ o $V\subset U$, entonces la intersecci\'{o}n consiste en una
+\'{u}nica componente. Supongamos que no estamos en ninguno de estos casos,
+es decir, tanto $U\cap V$, como $U\setmin V$, como $V\setmin U$ son no
+vac\'{\i}os y sea $W$ alguna de todas las componentes. El conjunto $W$ es
+abierto dentro de $U\cap V$ porque $V$ y $U$ son abiertos y $M$ es localmente
+conexa. En particular, $W$ es abierto en $M$.
+
+\begin{lemaEsSubintervaloExterno}\label{thm:essubintervaloexterno}
+	La imagen de $W$ por $\varphi$ es $\varphi(W)=(a,r)$, o bien
+	$\varphi(W)=(s,b)$ para cierto $r>a$ o $s<b$. Por simetr\'{\i}a
+	en los roles de $U$ y $V$, debe valer que $\psi(W)=(c,t)$, o bien
+	$\psi(W)=(u,d)$ para cierto $t>c$ o $u<d$.
+\end{lemaEsSubintervaloExterno}
+
+Supongamos, para llegar a una contradicci\'{o}n, que no es este el caso,
+es decir, como $W$ (y tambi\'{e}n $\varphi(W)$) es conexo, existe
+$\epsilon>0$ tal que
+\begin{align*}
+	\sup\left\lbrace\varphi(x)\,:\,x\in W\right\rbrace\leq b-\epsilon
+	& \quad\text{e}\quad
+	\inf\left\lbrace\varphi(x)\,:\,x\in W\right\rbrace \geq a+\epsilon
+	\text{ .}
+\end{align*}
+%
+En ese caso, $\varphi(W)$ se un subintervalo propio de $(a,b)$ contenido
+en $[a+\epsilon,b-\epsilon]$. Entonces $\varphi(W)=(\xi,\upsilon)$ para
+ciertos $\xi,\upsilon$ pertenecientes a $[a+\epsilon,b-\epsilon]$. Sean
+$x=\varphi^{-1}(\xi)$ e $y=\varphi^{-1}(\upsilon)$ los puntos
+correspondientes en $I_{\epsilon}=\varphi^{-1}([a+\epsilon,b-\epsilon])%
+\subset U$. Como todos estos conjuntos est\'{a}n contenidos dentro del
+dominio de la carta $\varphi$ e $I_{\epsilon}$ es compacto y, por lo
+tanto, cerrado en $M$, se deduce que
+\begin{align*}
+	I_{\epsilon} & \,\supset\, \clos{W}^{M}\,=\,\clos{W}^{U}
+		\,=\,\varphi^{-1}([\xi,\upsilon])
+	\text{ .}
+\end{align*}
+%
+
+Veamos que los puntos $x$ e $y$ no pertenecen a $V$. Si $x\in V$, entonces
+$W\cup\{x\}$ es conexo (porque $x\in\clos{W}$) y est\'{a} incluida en
+$U\cap V$. Pero las componentes de $U\cap V$ son abiertas y, por lo tanto,
+abiertas en $U$. Lo mismo podemos decir de los conjuntos
+$W\cup\{y\}$ y $W\cup\{x,y\}$, si $y$ o ambos puntos pertenecen a $V$.
+Pero ninguno de ellos es abierto en $U$, pues son, v\'{\i}a $\varphi$, o
+bien intervalos cerrados y abiertos (si se agrega uno s\'{o}lo de $x$ e $y$),
+o bien un intervalo cerrado (si se agregan ambos). En definitiva, en
+cualquiera de estos tres casos, se deduce que $W$ no es una componente
+conexa, un subconjunto conexo maximal en $U\cap V$. Concluimos, as\'{\i},
+que $x\not\in V$ e $y\not\in V$.
+
+Manteniendo las hip\'{o}tesis sobre $W$, entonces, sabemos que $W$ es
+conexo, que $\psi(W)$ es conexo y, en particular, un intervalo abierto en
+$\psi(V)=(c,d)$, y que $\clos{W}\not\subset V$. Pero, por el mismo
+argumento que antes, si $W$ es un subintervalo propio de $V$,
+$\clos{W}^{V}\setmin W$ es un conjunto no vac\'{\i}o. Ahora bien, como
+la clausura en $V$, $\clos{W}^{V}$ est\'{a} contenida en la clausura en
+$M$, $\clos{W}^{M}=W\cup\{x,y\}$, debe ser cierto que $x\in V$ o que
+$y\in V$, lo cual contradice la conclusi\'{o}n del p\'{a}rrafo anterior.
+En definitiva, llegamos a una contradicci\'{o}n suponiendo que
+$\varphi(W)$ estaba contenido en un subintervalo compacto de $(a,b)$.
+Entonces, $\varphi(W)$ debe tener puntos arbitrariamente cerca de alguno
+(o ambos) de los extremos $a$ y $b$. Como $\varphi(W)$ es un intervalo,
+porque $W$ es conexo, concluimos que $\varphi(W)$ debe ser igual a un
+subintervalo externo, es decir que $\varphi(W)=(a,r)$ con $a<r\leq b$
+o que $\varphi(W)=(s,b)$ con $a\leq s <b$.
+
+Esto concluye la demostraci\'{o}n del lema \ref{thm:essubintervaloexterno}
+y se deduce que, como hay s\'{o}lo dos subintervalos externos en cada
+intervalo, que $\varphi(W)$ (e, igualmente, $\psi(W)$) es uno de dos
+subintervalos. En definitiva, $W$ es una de a lo sumo dos posibiles
+componentes $U\cap V$. Concluimos, de esta manera, la demostraci\'{o}n
+de \ref{thm:alosumodoscomponentes}.
+
+Supongamos ahora que $(U,\varphi)$ y $(V,\psi)$ son cartas en $M$ tales
+que $\varphi(U)=(a,b)$ y $\psi(V)=(c,d)$ con $a<b$ y $c<d$ n\'{u}meros
+reales. Supongamos que la intersecci\'{o}n $U\cap V$ es no vac\'{\i}a y
+tiene exactamente una componente conexa. Entonces, sin p\'{e}rdida de
+generalidad, podemos asumir que $\varphi(U\cap V)=(c',b)$ y que
+$\psi(U\cap V)=(c,b')$. En otro caso, como s\'{o}lo hay dos maneras de
+orientar un intervalo, componiendo alguna de las dos cartas con una
+inversi\'{o}n de los extremos (por ejemplo, la funci\'{o}n lineal
+$(a,b)\rightarrow(a,b)$ tal que $a\mapsto b$ y $b\mapsto a$) y,
+posiblemente, intercambiando los roles de $U$ y de $V$, volvemos a la
+situaci\'{o}n del primer caso. Las funciones coordenadas $\varphi$ y
+$\psi$ son homeomorfismos de $U$ y de $V$, respectivamente, con
+intervalos reales.
+
+\begin{propoExtenderHomeoConIntervalo}\label{thm:extenderhomeoconintervalo}
+	Bajo las hip\'{o}tesis y con la notaci\'{o}n del p\'{a}rrafo
+	anterior, existe un homeomorfismo $f:\,U\cup V\rightarrow (a,d')$
+	con $d'>b$ tal que $f=\varphi$ en $U$. An\'{a}logamente,
+	existe un homeomorfismo $g:\,U\cup V\rightarrow (a',d)$
+	con $a'<c$ tal que $g=\psi$ en $V$.
+\end{propoExtenderHomeoConIntervalo}
+
+Es decir, dados dos homeomorfismos de abiertos de $M$ con intervalos reales,
+si la intersecci\'{o}n de losabiertos es conexa y no vac\'{\i}a,
+es decir, posee exactamente una componente conexa, entonces podemos extender
+cualquiera de los dos homeomorfismos a un homeomorfismo en la uni\'{o}n.
+En t\'{e}rminos de cartas, dadas dos cartas coordenadas para $M$ cuya
+intersecci\'{o}n consiste en una \'{u}nica componente, se puede extender a
+una carta en la uni\'{o}n de los dominios coordenados extendiende
+efectivamente alguno de las dos funciones coordenadas.
+
+Notemos que los cambios de cartas $\varphi\circ\psi^{-1}$ y
+$\psi\circ\varphi^{-1}$ son homeomorfismos entre intervalos (abiertos)
+de $\bb{R}$. En particular, $\varphi\circ\psi^{-1}:\,(c,b')\rightarrow (c',b)$
+es mon\'{o}tona creciente (esto se debe a la hip\'{o}tesis acerca de la
+forma en que se intersecan los intervalos) y tambi\'{e}n lo es su inversa
+$\psi\circ\varphi^{-1}:\,(c',b)\rightarrow (c,b')$. Sea
+$f:\,U\cup V\rightarrow\bb{R}$ la funci\'{o}n partida
+\begin{align*}
+	f(x) & \,=\,
+		\begin{cases}
+			\varphi(x) & \quad\text{si }x\in U \\
+			\psi(x) - (b'-b) & \quad\text{si }x\in V\setmin U
+		\end{cases}
+	\text{ .}
+\end{align*}
+%
+La imagen de $f$ es igual a
+\begin{align*}
+	f(U\cup V) & \,=\,f(U)\cup f(V\setmin U) \\
+	& \,=\,(a,b)\cup \left[\psi(\psi^{-1}(b'))-(b'-b),d-(b'-b)\right)
+		\,=\,(a,d')
+\end{align*}
+%
+con $d'=d-(b'-b)$. Como $f|_{U}=\varphi$, la restricci\'{o}n de $f$ a $U$
+es un homeomorfismo con su imagen.
+Por otro lado, para ver que $f|_{V}$ tambi\'{e}n es un homeomorfismo
+con su imagen, es suficiente mostrar que $f|_{V}\circ\psi^{-1}$ lo es.
+Pero esta composici\'{o}n es continua, pues
+\begin{align*}
+	f|_{V}\circ\psi^{-}(u) & \,=\,
+		\begin{cases}
+			\varphi\circ\psi^{-1}(u) & \quad\text{si }
+				u\in\psi(U\cap V)=(c,b') \\
+			u-(b'-b) & \quad\text{si no}
+		\end{cases} \\
+	& \,=\,
+		\begin{cases}
+			\varphi\circ\psi^{-1}(u) & \quad\text{si } u<b' \\
+			b & \quad\text{si } u=b' \\
+			u-(b'-b) & \quad\text{si } u>b'
+		\end{cases}
+	\text{ .}
+\end{align*}
+%
+El \'{u}nico problema de continuidad de esta funci\'{o}n est\'{a} en
+$u=b'$, pero, por un lado,
+$(\varphi\circ\psi^{-1})^{-1}((b-\epsilon,b))=(\text{algo},b)$, con lo
+que la funci\'{o}n es continua inferiormente en $u=b'$ (por ejemplo, usando
+sucesiones), y, por otro lado, $u-(b'-b)$ tiende a $b$, si $u\to b'$. Con
+lo cual, la funci\'{o}n $f|_{V}\circ\psi^{-1}$ es continua. Adem\'{a}s,
+esta funci\'{o}n es invertible: su inversa est\'{a} dada por
+\begin{align*}
+	v & \,\mapsto\,
+		\begin{cases}
+			\psi\circ\varphi^{-1}(v) & \quad\text{si } v<b \\
+			b' & \quad\text{si } v=b \\
+			v-(b-b') & \quad\text{si } v>b
+		\end{cases}
+	\text{ .}
+\end{align*}
+%
+Vemos, entonces, que la inversa tiene la misma forma que
+$f|_{V}\circ\psi^{-1}$. Argumentando de manera similar, se deduce que la
+inversa tambi\'{e}n es continua y que, por lo tanto, $f|_{V}$ es
+homeomorfismo con su imagen. En consecuencia, $f:\,U\cup V\rightarrow (a,d')$
+es un homeomorfismo que coincide con $\varphi$ en $U$. La demostraci\'{o}n
+de que existe una extensi\'{o}n $g:\,U\cup V\rightarrow (a',d)$ de $\psi$ es
+an\'{a}loga.
+
+Pasemos finalemente a la demostraci\'{o}n del teorema \ref{thm:clastop}.
+Sea $U$ un elemento maximal de la familia $\cal{O}$. Recordemos
+que esto quiere decir que $U$ es abierto y conexo en $M$ homeomorfo a
+$\bb{R}$ y que no est\'{a} contenido propiamente en otro abierto as\'{\i}.
+Supongamos que $U\not =M$. Como $M$ es una variedad conexa, debe valer
+que $U\not =\clos{U}$. Si tomamos un punto $x\in\clos{U}\setmin U$ y un
+entorno conexo $V$ de $x$, entonces $U\cap V$ es no vac\'{\i}a y, por
+\ref{thm:alosumodoscomponentes}, tiene una o dos componentes. Si la
+intersecci\'{o}n $U\cap V$ tiene una \'{u}nica componente, entonces,
+la uni\'{o}n $U\cup V$ es abierta, conexa y, por
+\ref{thm:extenderhomeoconintervalo}, admite un homeomorfismo con $\bb{R}$.
+Pero esto est\'{a} en contradicci\'{o}n con la maximalidad de $U$.
+Concluimos que si $x\in\clos{U}\setmin U$, todo entorno conexo de $x$
+intersecado con $U$ posee dos componentes. Sea $(V,\psi)$ una carta en
+$x$ con $V$ conexo. Sea $\{V_{n}\}_{n\geq 1}$ una base de entornos conexos
+de $x$ contenida en $V$ y que decrece a $x$, es decir, $V_{n}\supset V_{m}$,
+si $m\geq n$. Tomando coordenadas,
+\begin{align*}
+	\psi(V_{n}) & \,=\,(a_{n},b_{n})
+\end{align*}
+%
+con $a_{n}$ una sucesi\'{o}n que crece a $x$ y $b_{n}$ una sucesi\'{o}n
+que decrece a $x$. Como $U\cap V$ tiene dos componentes,
+\begin{align*}
+	\psi(U\cap V) & \,=\,(a,r)\cup (s,b)
+\end{align*}
+%
+para ciertos reales $r,s$. Pero $U\cap V_{n}$ tambi\'{e}n tiene dos
+componentes, con lo que $U\cap V_{n}$ debe, en particular, contener un
+punto en $(a_{n},x)$ y un punto en $(x,b_{n})$. Pero como est es cierto
+para todo $n$, las componentes conexas de $U\cap V$ deben ser iguales
+exactamente a $(a,x)$ y a $(x,b)$.
+
+Concluimos que, si $M\not =\bb{R}$, entonces $M\not =U$ y $\clos{U}\not =U$.
+Repitiendo el argumento expuesto al comienzo tratando el caso
+$M\setmin U=\{\infty\}$, se deduce que, para cada $x\in\clos{U}$, el
+subconjunto $U\cup\{x\}$ es un subespacio homeomorfo a $\esfera{1}$.
+En particular, $U\cup\{x\}$ es compacto y, por lo tanto, cerrado en $M$.
+Pero entonces $\esfera{1}=U\cup\{x\}=\clos{U}$.
+
+Resta verificar que $\clos{U}=M$. Si no fuese cierto e
+$y\in M\setmin\clos{U}$, podemos, porque $M$ es arcoconexa, tomar un camino
+de un punto $x\in U$ a $y$. Sea $\gamma:\,[0,1]\rightarrow M$ un camino
+continuo con $\gamma(0)=x$ y $\gamma(1)=y$. Si $t\in (0,1)$ es tal que
+$\gamma(t')\in U$ para todo $t'<t$, entonces $\gamma(t)\in\clos{U}$. Si
+$\gamma(t)\not\in U$, entonces $\gamma(t'')\not\in U$ para $t''>t$, pues
+$U$ y $\gamma([0,1])$ son conexos. En particular, tomando un entorno conexo
+$V$ de $\gamma(t)$, $U\cap V$ tiene una o dos componentes. En el segundo
+caso se deduce que $\gamma$ debe ser constante a partir de $t$ y que,
+entonces $y=\gamma(t)\in\clos{U}$, lo cual es absurdo. En el primer caso,
+podemos definir un homeomorfismo de $U\cup V$ en $\bb{R}$, contradiciendo
+la maximalidad de $U$. Estas contradicciones provienen de asumir que
+$\gamma(t)$ no pertenece a $U$. Consideremos, ahora, el supremo
+\begin{align*}
+	\sigma & \,=\,\sup\left\lbrace
+		t\in[0,1]\,:\,\gamma(t')\in U\text{ para todo }t'<t
+		\right\rbrace
+	\text{ .}
+\end{align*}
+%
+Como $U$ es abierto, $\sigma >0$ estrictamente. Por el argumento de
+reci\'{e}n, debe valer $\sigma=1$. En definitva $y\in\clos{U}$,
+lo cual es, nuevamente, una contradicci\'{o}n, proveniente de
+suponer que $\clos{U}\not =M$. Esto concluye la demostraci\'{o}n de
+\ref{thm:clastop}.
+
+Habiendo clasificado las variedades sin borde conexas de dimensi\'{o}n uno,
+pasamos a dar la clasificiaci\'{o}n para variedades con borde. Si $M$
+es una variedad conexa con borde de dimensi\'{o}n uno, entonces
+el interior (en tanto variedad) $\interior{M}$ es una variedad sin borde,
+conexa y de dimensi\'{o}n uno. Por el teorema \ref{thm:clastop},
+$\interior{M}=\esfera{1}$ o $\interior{M}=\bb{R}$. Por otro lado,
+$\clos{\interior{M}}=M$. En el primer caso, $\interior{M}$ resulta ser una
+variedad compacta y, en particular, un conjunto cerrado de $M$, pero
+entonces $M=\interior{M}=\esfera{1}$. En el segundo caso, si suponemos que
+$\interior{M}=(a,b)$, entonces las \'{u}nicas opciones para variedades
+con borde cuyo interior es $(a,b)$ son $(a,b)$, $[a,b)$, $(a,b]$ y $[a,b]$.
+En definitiva, hemos demostrado el siguiente resultado.
+
+\begin{teoClasTopConBorde}\label{thm:clastopconborde}
+	Sea $M$ una variedad topol\'{o}gica, posiblemente con borde. Si
+	$M$ es conexa, entonces $M$ es homeomorfa a $\esfera{1}$ o a
+	$\bb{R}$, si $\borde[M]=\varnothing$, a un intervalo abierto y
+	cerrado o a un intervalo cerrado propio (compacto) de $\bb{R}$,
+	si el borde es no vac\'{\i}o. En particular,
+	$\#\borde[M]=0,1,2$. Si $M$ es compacta,
+	$M$ es homeomorfa a $\esfera{1}$ o a un intervalo compacto. En
+	tal caso $\#\borde[M]=0,2$.
+\end{teoClasTopConBorde}

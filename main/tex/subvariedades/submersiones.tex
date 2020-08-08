@@ -1,0 +1,199 @@
+\theoremstyle{plain}
+\newtheorem{teoSeccionesLocales}{Teorema}[section]
+\newtheorem{propoSubmersionEsAbierta}[teoSeccionesLocales]{Proposici\'{o}n}
+\newtheorem{coroSubmersionSobreEsCociente}[teoSeccionesLocales]{Corolario}
+\newtheorem{propoSubmersionesExtra}[teoSeccionesLocales]{Proposici\'{o}n}
+\newtheorem{coroUnicidadDelCociente}[teoSeccionesLocales]{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsCaracterizaSubmersionesSobre}{Observaci\'{o}n}[section]
+
+%-------------
+
+Empecemos con la siguiente definici\'{o}n: una \emph{secci\'{o}n} de un
+morfismo $\pi:\,M\rightarrow N$ es un morfismo $\sigma:\,N\rightarrow M$
+tal que $\pi\circ\sigma =\id[N]$, El siguiente diagrama es ilustrativo
+en este sentido:
+\begin{center}
+\begin{tikzcd}
+	M\arrow[d,"\pi"'] \\
+	N\arrow[u, bend right=50, "\sigma"']
+\end{tikzcd}
+\end{center}
+
+Si $\pi$ es una funci\'{o}n continua, una secci\'{o}n $\sigma$ de $\pi$ es
+una funci\'{o}n \emph{continua} tal que $\pi\circ\sigma=\id[N]$; si
+$\pi$ es suave, una secci\'{o}n $\sigma$ de $\pi$ es una funci\'{o}n
+\emph{suave} tal que $\pi\circ\sigma=\id[N]$. En general, usaremos los
+t\'{e}rminos \emph{secci\'{o}n continua} o, respectivamente,
+\emph{secci\'{o}n suave} para evitar ambig\"{u}edades. una
+\emph{secci\'{o}n local} de una funci\'{o}n (\emph{continua}) $\pi$ es
+una funci\'{o}n (continua) $\sigma:\,U\rightarrow M$ definida en un abierto
+$U\subset N$ y tal que $\pi\circ\sigma=\id[U]$.
+
+\begin{teoSeccionesLocales}\label{thm:seccioneslocales}
+	Sean $M$ y $N$ variedades diferenciales (\emph{sin} borde) y sea
+	$\pi:\,M\rightarrow N$ una transformaci\'{o}n suave. Entonces
+	$\pi$ es una submersi\'{o}n, si y s\'{o}lo si, para cada punto
+	$p\in M$, existe una seccci\'{o}n (suave) local
+	$\sigma:\,U\rightarrow M$ de $\pi$ tal que $p\in\sigma(U)$.
+\end{teoSeccionesLocales}
+
+Es decir, $\pi$ es una submersi\'{o}n, si todo punto del dominio pertenece
+a la imagen de una secci\'{o}n local.
+
+\begin{proof}
+	Supongamos que $\pi:\,M\rightarrow N$  es una submersi\'{o}n y sea
+	$p\in M$. Por el teorema del rango \ref{thm:delrango}, como estamos
+	suponiendo que las variedades no tienen borde, existen coordenadas
+	$(U,\varphi)$ en $p$ y $(V,\psi)$ en $\pi(p)=:q$ tales que
+	$\pi(U)\subset V$ y
+	\begin{align*}
+		\widehat{\pi}(\lista*{x}{m}) & \,=\,
+			\psi\circ\pi\circ\varphi^{-1}(\lista*{x}{n},\,
+				x^{n+1},\,\dots,\,x^{m})
+			\,=\,(\lista*{x}{n})
+		\text{ .}
+	\end{align*}
+	%
+	Achicando $U$ de ser necesario, podemos asumir que
+	$\varphi(U)=\cubo[m]{\epsilon}{0}$. La imagen por $\widehat{\pi}$
+	de este cubo es exactamente el cubo $\cubo[n]{\epsilon}{0}=%
+	\{(\lista*{y}{n})\,:\,|y^{j}|<\epsilon\}$. Definimos entonces
+	\begin{align*}
+		\widehat{\sigma} & \,:\,\cubo[n]{\epsilon}{0}\,\rightarrow\,
+			\cubo[m]{\epsilon}{0}\text{ ,}\quad
+			\widehat{\sigma}(\lista*{y}{n})\,=\,
+			(\lista*{y}{n},\,0,\,\dots,\,0)
+			\quad\text{y}\\
+		\sigma & \,:\,\psi^{-1}(\cubo[n]{\epsilon}{0}) \,\rightarrow\,
+			\varphi^{-1}(\cubo[m]{\epsilon}{0})
+				\text{ ,}\quad
+			\sigma\,=\,\varphi^{-1}\circ\widehat{\sigma}\circ\psi
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\pi\circ\sigma=\id[\psi^{-1}({\cubo[n]{\epsilon}{0}})]$ y
+	$\sigma$ es una secci\'{o}n suave de $\pi$ defininida en el
+	abierto $\psi^{-1}(\cubo[n]{\epsilon}{0})\subset V$ y
+	$\sigma(\pi(p))=p$.
+
+	Rec\'{\i}procamente, si $p\in M$ y existe una transformaci\'{o}n
+	suave $\sigma:\,U\rightarrow M$ definida en un abierto $U\subset N$
+	tal que $p\in\sigma(U)$ y tal que $\pi\circ\sigma=\id[U]$, entonces,
+	tomando diferencial en $q\in U$ tal que $\sigma(q)=p$ y aplicando
+	la regla de la cadena,
+	\begin{align*}
+		\id[T_{q}N] & \,=\,\diferencial[q]{(\pi\circ\sigma)} \,=\,
+			\diferencial[p]{\pi}\cdot\diferencial[q]{\sigma}
+		\text{ ,}
+	\end{align*}
+	%
+	de lo que se deduce que $\diferencial[p]{\pi}$ es sobreyectivo
+	(y que $\diferencial[q]{\sigma}$ es inyectivo).
+\end{proof}
+
+Como en el caso de las inmersiones, podemos usar esta equivalencia para
+definir una submersi\'{o}n topol\'{o}gica. Una funci\'{o}n continua
+$\pi:\,X\rightarrow Y$ se dice \emph{submersi\'{o}n}, si admite una
+cantidad suficiente de secciones locales, es decir, es tal que cada punto
+$p\in X$ pertenece a la imagen de alguna secci\'{o}n local de $\pi$.
+
+\begin{propoSubmersionEsAbierta}\label{thm:submersionesabierta}
+	Una submersi\'{o}n $\pi:\,M\rightarrow N$ con $M$ y $N$ \emph{sin}
+	borde, es abierta.
+\end{propoSubmersionEsAbierta}
+
+\begin{proof}
+	Sea $U\subset M$ un subconjunto abierto y sea $q\in \pi(U)$. Sea
+	$p\in U$ tal que $\pi(p)=q$ cualquier punto en la preimagen. Por
+	el teorema \ref{thm:seccioneslocales}, existe una secci\'{o}n
+	local suave $\sigma:\,W\rightarrow M$ de $\pi$ tal que $\sigma(q)=p$.
+	El conjunto $\sigma^{-1}(U)$ es abierto, est\'{a} contenido en $W$
+	y contiene a $q$. Pero, adem\'{a}s, si $y\in\sigma^{-1}(U)$, vale
+	que $y=\pi(\sigma(y))\in\pi(U)$. Entonces $q$ pertenece a
+	$\sigma^{-1}(U)$ que est\'{a} contenido en $\pi(U)$, de lo que se
+	deduce que $\pi(U)$ es abierto.
+\end{proof}
+
+\begin{coroSubmersionSobreEsCociente}\label{thm:submersionsobreescociente}
+	Si $\pi:\,M\rightarrow N$ es una submersi\'{o}n sobreyectiva
+	($M$ y $N$ sin borde), entonces es cociente.
+\end{coroSubmersionSobreEsCociente}
+
+\begin{proof}
+	Por \ref{thm:submersionesabierta}, $\pi:\,M\rightarrow N$ es
+	sobreyectiva y abierta. En particular, es cociente.
+\end{proof}
+
+Las submersiones presentan algunas propiedades similares a las de los
+difeomorfismos locales (c.~f. \ref{thm:propisextradifeoslocales}).
+
+\begin{propoSubmersionesExtra}\label{thm:propisextrasubmersiones}
+	Sean $M$ y $N$ variedades sin borde y sea $\pi:\,M\rightarrow N$ una
+	submersi\'{o}n suave y sobreyectiva. Si $P$ es una variedad
+	(con o sin borde) entonces \emph{(a)} una transformaci\'{o}n
+	(no necesariamente continua) $F:\,N\rightarrow P$ es suave, si y
+	s\'{o}lo si $F\circ\pi:\,M\rightarrow P$ lo es; \emph{(b)} si
+	$G:\,M\rightarrow P$ es una funci\'{o}n constante en las fibras de
+	$\pi$, existe una \'{u}nica funci\'{o}n $\tilde{G}:\,N\rightarrow P$
+	tal que $G=\tilde{G}\circ\pi$ y $G$ es suave, si y s\'{o}lo si
+	$\tilde{G}$ lo es.
+\end{propoSubmersionesExtra}
+
+Estas propiedades caracterizan a las submersiones sobreyectivas. Las
+submersiones sobreyectivas son la versi\'{o}n an\'{a}loga a las
+funciones cociente en espacios topol\'{o}gicos. M\'{a}s adelante veremos
+qu\'{e}clase de transformaciones suaves cumplen un rol similar al de
+los subespacios.
+
+\begin{obsCaracterizaSubmersionesSobre}\label{obs:caracterizasubmersionessobre}
+	Sea $\pi:\,M\rightarrow N$ como en \ref{thm:propisextrasubmersiones}.
+	Si $\tilde{N}$ representa al mismo conjunto subyacente a $N$ con
+	una topolog\'{\i}a posiblemente distinta (con respecto a la cual
+	es una variedad topol\'{o}gica) y una estructura diferencial
+	(posiblemente) distinta, pero de manera que el \'{\i}tem
+	\emph{(a)} siga siendo v\'{a}lido reemplazando $N$ por $\tilde{N}$,
+	entonces $\id:\,N\rightarrow\tilde{N}$ es difeomorfismo.
+
+	Para demostrar esta afirmaci\'{o}n, consideramos los siguientes
+	diagramas:
+	\begin{center}
+		\begin{tikzcd}
+			M \arrow[r,equal] \arrow[d,"\tilde{\pi}"'] &
+				M \arrow[d,"\pi"] \\
+			\tilde{N} \arrow[r,"\id", shift left] &
+			N \arrow[l, shift left]
+		\end{tikzcd}
+		%
+		\begin{tikzcd}
+			M \arrow[dr,dashed,"\tilde{\pi}"]
+				\arrow[d,"\tilde{\pi}"'] & \\
+			\tilde{N} \arrow[r,"{\id[\tilde{N}]}"'] & \tilde{N}
+		\end{tikzcd}
+	\end{center}
+
+	Por hip\'{o}tesis, $\pi=\id[\rightarrow]\circ\tilde{\pi}$ es suave, si
+	y s\'{o}lo si $\id[\rightarrow]$ es suave. Pero, tambi\'{e}n sabemos
+	que $\pi$ es suave. Entonces $\id[\rightarrow]$ es suave. Por otro
+	lado, por \emph{(a)}, $\tilde{\pi}=\id[\leftarrow]\circ\pi$ es suave,
+	si y s\'{o}lo si $\id[\leftarrow]$ es suave. Pero $\tilde{\pi}$ es
+	suave, pues: $\tilde{\pi}$ es suave, si y s\'{o}lo si $\id[\tilde{N}]$
+	lo es, e $\id[\tilde{N}]$ siempre es suave. En definitiva,
+	$\id[\leftarrow]$ tambi\'{e}n es suave, con lo que la identidad $\id$
+	en el conjunto subyacente a $N$ determina un difeomorfismo entre las
+	estructuras diferenciales de $N$ y de $\tilde{N}$. La conclusi\'{o}n
+	es igual en el contexto de variedades topol\'{o}gicas.
+\end{obsCaracterizaSubmersionesSobre}
+
+\begin{coroUnicidadDelCociente}\label{thm:unicidaddelcociente}
+	Sean $M$, $N_{1}$ y $N_{2}$ variedades \emph{sin} borde y sean
+	$\pi_{1}:\,M\rightarrow N_{1}$ y $\pi_{2}:\,M\rightarrow N_{2}$
+	submersiones suaves y sobreyectivas. Supongamos, adem\'{a}s, que
+	$\pi_{1}(q)=\pi_{1}(q')\Leftrightarrow\pi_{2}(q)=\pi(q')$, es decir,
+	cada una de las submersiones es constante en las fibras de la otra
+	--dicho de otra manera, realizan las mismas identificaciones. Entonces
+	existe un \'{u}nico difeomorfismo $F:\,N_{1}\rightarrow N_{2}$
+	tal que $F\circ\pi_{1}=\pi_{2}$.
+\end{coroUnicidadDelCociente}
+

@@ -1,0 +1,750 @@
+
+
+
+
+\begin{ejemplo}%{ejemGrafs}
+Sea $U\subset\bb{R}^{n}$ un subconjunto abierto y sea
+$f:\,U\rightarrow\bb{R}^{k}$ una funci\'{o}n \emph{continua}. El
+\emph{gr\'{a}fico de $f$} es el subconjunto de $\bb{R}^{n}\times\bb{R}^{k}$
+definido por
+\begin{align*}
+	\graf{f} & \,=\,\big\lbrace (x,y)\in\bb{R}^{n}\times\bb{R}^{k}
+				\,:\,x\in U,\,y=f(x)\big\rbrace
+	\text{ .}
+\end{align*}
+%
+A este subconjunto se le da la topolog\'{\i}a de subespacio del producto.
+Sea $\pi_{1}:\,\bb{R}^{n}\times\bb{R}^{k}\rightarrow\bb{R}^{n}$ la
+proyecci\'{o}n en el primer factor y sea
+$\varphi:\,\graf{f}\rightarrow U$ la restricci\'{o}n de $\pi_{1}$ al
+gr\'{a}fico de $f$. La aplicaci\'{o}n $\varphi$ es continua, siendo
+la restricci\'{o}n de una funci\'{o}n continua a un subespacio; su imagen
+es el abierto $U$ de $\bb{R}^{n}$ y $\varphi^{-1}(x)=(x,f(x))$ es una inversa
+para $\varphi$ definida en $U$. En definitiva, $\graf{f}$ es homeomorfo
+a $U$ v\'{\i}a $\varphi$ y el par $(\graf{f},\varphi)$ es una carta global
+para $\graf{f}$ que hace del mismo un espacio localmente euclideo de
+dimensi\'{o}n $n$. Como $\graf{f}$ es $T_{2}$ y $N_{2}$, por ser
+subespacio de $\bb{R}^{n}\times\bb{R}^{k}$, resulta ser una variedad
+topol\'{o}gica de dimensi\'{o}n $n$, tambi\'{e}n.
+\end{ejemplo}
+
+\begin{ejemplo}%{ejemEsfera}
+Sea $n\geq 0$ y sea $\esfera{n}$ la esfera de dimensi\'{o}n $n$ en
+$\bb{R}^{n+1}$. Por ser subespacio de$\bb{R}^{n+1}$, es un espacio
+$T_{2}$ y $N_{2}$. Para cada $i\in[\![1,n+1]\!]$ sea $U_{i}^{+}$ el
+subconjunto de $\bb{R}^{n+1}$ definido por
+\begin{align*}
+	U_{i}^{+} & \,=\,\big\lbrace (\lista*{x}{n+1})\,:\,x^{i}>0
+				\big\rbrace
+	\text{ .}
+\end{align*}
+%
+De manera an\'{a}loga, se define $U_{i}^{-}$ como el subconjunto en donde
+la coordenada $x^{i}$ es negativa (estrictamente). Si se define una
+funci\'{o}n $f:\,\bola{1}{0}\rightarrow\bb{R}$ por
+\begin{align*}
+	f(u) & \,=\,\sqrt{1-|u|^{2}}\text{ ,}
+\end{align*}
+%
+entonces $f$ es continua y, para cada $i$, el subconjunto
+$U_{i}^{+}\cap\esfera{n}$ de la esfera es igual al gr\'{a}fico de la
+funci\'{o}n
+\begin{align*}
+	x^{i} & \,=\,f(x^{1},\,\dots,\,\widehat{x^{i}},\,\dots,\,x^{n+1})
+\end{align*}
+%
+Similarmente, $U_{i}^{-}\cap\esfera{n}$ es el gr\'{a}fico de
+$x^{i}=-f(x^{1},\,\dots,\,\widehat{x^{i}},\,\dots,\,x^{n+1})$. De esta
+manera, se ve cada abierto $U_{i}^{\pm}\cap\esfera{n}$ de la esfera es
+localmente euclideo de dimensi\'{o}n $n$, por ser gr\'{a}ficos de funciones
+continuas, y que las coordenadas
+$\varphi_{i}^{\pm}:\,U_{i}^{\pm}\cap\esfera\rightarrow\bola{1}{0}$ dadas por
+\begin{align*}
+	\varphi_{i}^{\pm}(\lista*{x}{n+1}) & \,=\,
+		(x^{1},\,\dots,\,\widehat{x^{i}},\,\dots,\,x^{n+1})
+\end{align*}
+%
+son las coordenadas correspondientes. Dado que los dominios de estas cartas
+$(U_{i}^{\pm}\cap\esfera{n},\varphi_{i}^{\pm})$ cubren a $\esfera{n}$, se
+deduce que $\esfera{n}$ es una variedad topol\'{o}gica de dimensi\'{o}n
+$n$.
+
+	Otro juego de cartas que tambi\'{e}n aparece con $\esfera{n}$ es
+	el formado por las proyecciones estereogr\'{a}ficas. Sea $N$ el
+	punto $(0,\,\dots,\,0,\,1)\in\esfera{n}\subset\bb{R}^{n+1}$ y
+	sea $S=(0,\,\dots,\,0,\,-1)$ su ant\'{\i}poda. Sea
+	$\sigma:\,\esfera{n}\setmin\{N\}\rightarrow\bb{R}^{n}$ la
+	funci\'{o}n definida por
+	\begin{align*}
+		\sigma(\lista*{x}{n+1}) & \,=\,
+			\frac{(\lista*{x}{n})}{1-x^{n+1}}
+	\end{align*}
+	%
+	y sea $\tilde{\sigma}:\,\esfera{n}\setmin\{S\}\rightarrow\bb{R}^{n}$
+	la funci\'{o}n
+	\begin{align*}
+		\tilde{\sigma}(x) & \,=\,-\sigma(-x) \,=\,
+			\frac{(\lista*{x}{n})}{1+x^{n+1}}
+		\text{ .}
+	\end{align*}
+	%
+	Llamemos $H=\{x^{n+1}=0\}$. Entonces $\sigma(x)=u$, donde
+	$(u,0)$ es el punto en que la recta que pasa por $N$ y por $x$
+	interseca a $H$. De manera an\'{a}loga, $\tilde{\sigma}(x)=u$, donde
+	$(u,0)$ es el punto en donde la recta que pasa por $S$ y por $x$
+	interseca a $H$. La funci\'{o}n $\sigma$ es invertible con inversa
+	\begin{align*}
+		\sigma^{-1}(\lista*{u}{n}) & \,=\,
+			\frac{(\lista*{2u}{n},\,|u|^{2}-1)}{|u|^{2}+1}
+		\text{ .}
+	\end{align*}
+	%
+	La composici\'{o}n $\tilde{\sigma}\circ\sigma^{-1}$ en un punto
+	$u=(\lista*{u}{n})$ es igual a
+	\begin{align*}
+		\tilde{\sigma}(\sigma^{-1}(u)) & \,=\,
+			-\sigma(-\sigma^{-1}(u)) \\
+		&\,=\,\frac{(\lista*{2u}{n})}{|u|^{2}+1}\cdot
+			\frac{1}{1+(\frac{|u|^{2}-1}{|u|^{2}+1})} \\
+		& \,=\, \frac{1}{|u|^{2}}u
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemplo}
+
+\begin{ejemplo}%{ejemProyectivos}
+El espacio proyectivo real $\proyectivo{\bb{R}}{n}$ es una variedad de
+dimensi\'{o}n $n$. Una realizaci\'{o}n posible de este espacio es en tanto
+el conjunto de subespacios vectoriales de dimensi\'{o}n $1$
+(subvariedades lineales de dimensi\'{o}n $1$) en $\bb{R}^{n+1}$. La
+topolog\'{\i}a de este espacio es la topolog\'{\i}a cociente determinada
+por la aplicaci\'{o}n sobreyectiva
+$\pi:\,\bb{R}^{n+1}\setmin\{0\}\rightarrow\proyectivo{\bb{R}}{n}$ que a un
+punto $x\not =0$ le asigna el subespacio que genera, denotado $[x]$.
+
+Para cada $i\in[\![1,n+1]\!]$, sea $\widetilde{U}_{i}$ el subconjunto de
+$\bb{R}^{n+1}\setmin\{0\}$ donde la coordenada $x^{i}$ es no nula. Sea
+$U_{i}=\pi(\widetilde{U}_{i})$ la proyecci\'{o}n correspondiente en el
+espacio proyectivo. Como $\widetilde{U}_{i}$ es un abierto saturado, el
+subconjunto $U_{i}$ es abierto y la restricci\'{o}n de $\pi$ a
+$\widetilde{U}_{i}$ es una aplicaci\'{o}n cociente sobre $U_{i}$.
+Sea $\varphi_{i}:\,U_{i}\rightarrow\bb{R}^{n}$ la aplicaci\'{o}n
+dada por
+\begin{align*}
+	\varphi_{i}[x^{1}\,:\cdots:\,x^{n+1}] & \,=\,
+		\Big(\frac{x^{1}}{x^{i}},\,\dots,\,\frac{x^{i-1}}{x^{i}},\,
+			\frac{x^{i+1}}{x^{i}},\,\dots,\,\frac{x^{n+1}}{x^{i}}
+			\Big)
+	\text{ .}
+\end{align*}
+%
+Dado que la composici\'{o}n $\varphi\circ\pi$ es continua (de hecho podemos
+ir adelantando que es suave entre un abierto de $\bb{R}^{n+1}$ y un abierto
+de $\bb{R}^{n}$), la funci\'{o}n $\varphi_{i}$ es continua, por la propiedad
+caracter\'{\i}stica del cociente (de $\pi|_{\widetilde{U}_{i}}$). Esta
+funci\'{o}n tiene una inversa dada por
+\begin{align*}
+	\varphi_{i}^{-1}(\lista*{u}{n}) & \,=\,
+		[u^{1}\,:\dots:\,u^{i-1}\,:\,1\,:\,u^{i}\,:\dots:\,u^{n}]
+	\text{ .}
+\end{align*}
+%
+Esta inversa tambi\'{e}n es continua y $\varphi$ es un homeomorfismo.
+La interpretaci\'{o}n geom\'{e}trica de $\varphi[x]=u$ es que el punto
+$(u,1)$ es aquel por donde $[x]$ cruza al hiperplano $x^{i}=1$. Dado
+que los abiertos $U_{1},\,\dots,\,U_{n+1}$ cubre al espacio proyectivo,
+$\proyectivo{\bb{R}}{n}$ es localmente euclideo de dimensi\'{o}n $n$.
+
+Para ver que los espacios proyectivos reales son espacios Hausdorff,
+dados dos subespacios lineales de dimensi\'{o}n $1$ distintos, $\xi,\upsilon$,
+en $\bb{R}^{n+1}$, existen abiertos \emph{c\'{o}nicos} disjuntos (el punto
+$\{0\}$ se omite) cada uno de los cuales contiene a uno de ellos, es decir,
+a las l\'{\i}neas. Estos abiertos son saturados respecto de la suryecci\'{o}n
+natural $\pi$ y por lo tanto sus im\'{a}genes son abiertos disjuntos de
+$\proyectivo{\bb{R}}{n}$ que contienen a cada uno de las clases $\xi$ y
+$\upsilon$. Para que quede un poco m\'{a}s claro, podemos restringir $\pi$ a
+la esferera $\esfera{n}\subset\bb{R}^{n+1}\setmin\{0\}$. La restricci\'{o}n
+sigue siendo sobreyectiva y cociente. Dada una clase
+$\xi\in\proyectivo{\bb{R}}{n}$, podemos tomar como representante a cualquiera
+de los dos puntos de norma $1$ en $\xi\cap\esfera{n}$. Llamemos $x$ a dicho
+punto. De manera similar podr\'{\i}amos tomar el punto $-x$. Si
+$y\in\esfera{n}$ es un punto distinto de $x$ y de $-x$, existen abiertos
+disjuntos $\widetilde{U}$ y $\widetilde{V}$ que contienen a $x$ y a $y$.
+Los abiertos $-\widetilde{U}$ y $-\widetilde{V}$ contienen a los puntos
+$-x$ y $-y$ y, tomando abiertos m\'{a}s peque\~{n}os de ser necesario, podemos
+suponera que los cuatro abiertos son disjuntos de a pares. De esta manera,
+se obtienen abiertos saturados $\widetilde{U}\cup\big(-\widetilde{U}\big)$
+y $\widetilde{V}\cup\big(-\widetilde{V}\big)$ que contienen a $x$ y a $y$ y
+que, adem\'{a}s, son disjuntos. Proyectando, se obtienen abiertos disjuntos
+$U$ y $V$ de $\proyectivo{\bb{R}}{n}$ que contienen a $x$ y a $y$,
+respectivamente.
+
+Siendo imagen por una funci\'{o}n continua de un espacio compacto
+$\pi(\esfera{n})=\proyectivo{\bb{R}}{n}$, el espacio proyectivo
+es compacto para todo $n\geq 0$. Para ver que $\proyectivo{\bb{R}}{n}$ es
+$N_{2}$, alcanza con notar que se puede cubrir el espacio con numerables
+(finitas) cartas. En definitiva, los espacios $\proyectivo{\bb{R}}{n}$ son
+variedades topol\'{o}gicas compactas.
+
+Otra descripci\'{o}n --aunque esencialmente la misma-- del espacio
+proyectivo est\'{a} dada por dejar actuar al grupo $\bb{R}^{\times}$
+de reales distintos de cero sobre $\bb{R}^{n+1}\setmin\{0\}$ por
+multiplicaci\'{o}n por escalares. Las \'{o}rbitas de esta acci\'{o}n son,
+precisamente, los subespacios reales de dimensi\'{o}n $1$. Dado que el
+cociente $\bb{R}^{\times}\backslash(\bb{R}^{n+1}\setmin\{0\})$ es homeomorfo
+a $\{\pm1\}\backslash\esfera{n}$ podemos describir a $\proyectivo{\bb{R}}{n}$
+como el cociente de un espacio topol\'{o}gico (de una variedad compacta) por
+la acci\'{o}n de un grupo discreto (en particular actuando de manera
+propiamente discontinua). Es esto lo que nos permite deducir que los
+espacios proyectivos son variedades topol\'{o}gicas y, adem\'{a}s, compactas.
+\end{ejemplo}
+
+\begin{ejemplo}%{ejemEspaciosEuclideos}
+Para cada entero $n\geq 0$, $\bb{R}^{n}$ es una variedad diferencial de
+dimensi\'{o}n $n$. Su estructura suave est\'{a} determinada por el atlas
+trivial $\{(\bb{R}^{n},\id[\bb{R}^{n}])\}$ que consta de una \'{u}nica carta.
+Esta estructura diferencial en $\bb{R}^{n}$ se denominar\'{a}
+\emph{estructura usual} de $\bb{R}^{n}$ o \emph{coordenadas usuales}.
+Vale la pena observar que las cartas compatibles con esta estructura
+son, precisamente, los pares $(U,\varphi)$ con $U$ es abierto (en la
+topolog\'{\i}a usual) y $\varphi:\,U\rightarrow\bb{R}^{n}$ es difrenciable
+en el sentido usual, tambi\'{e}n.
+\end{ejemplo}
+
+\begin{ejemplo}%{ejemEspaciosVectoriales}
+Sea $E$ un espacio vectorial topol\'{o}gico real. Si $E$ es de dimensi\'{o}n
+finita $n$, equivalentemente, si $E$ es localmente comacto, entonces $E$ es
+isomorfo a $\bb{R}^{n}$ y todo isomorfismo \emph{lineal} de $E$ en
+$\bb{R}^{n}$ es un homeomorfismo. Es decir, $E$ tiene una \'{u}nica estructura
+de espacio topol\'{o}gico que hace que las operaciones en tanto espacio
+vectorial real sean continuas. Todo ismorfismo $E\rightarrow\bb{R}^{n}$
+est\'{a} dado por elegir una base: dada una base
+$\{\lista{\varepsilon}{n}\}$ de $E$, sea $\varepsilon:\,\bb{R}^{n}\rightarrow E$
+la aplicaci\'{o}n
+\begin{align*}
+	\varepsilon(x) & \,=\,\sum_{i=1}^{n}\,x^{i}\varepsilon_{i}
+			\,\equiv\,x^{i}\varepsilon_{i}
+	\text{ .}
+\end{align*}
+%
+Seg\'{u}n lo mencionado anteriormente, $\varepsilon$ es un homeomorfismo
+y, entonces, el par $(E,\varepsilon^{-1})$ es una carta (continua) para $E$.
+Si ahora $\tilde{\varepsilon}$ denota el isomorfismo correspondiente a
+otra base $\{\lista{\tilde{\varepsilon}}{n}\}$, entonces existe una matriz
+invertible $\left[A_{i}^{j}\right]^{i}_{j}$ tal que
+\begin{align*}
+	\varepsilon_{i} & \,=\,A_{i}^{j}\tilde{\varepsilon}_{j}
+\end{align*}
+%
+para cada $i$. El cambio de cartas (cambio de coordenadas) correspondiente
+est\'{a} dado por $\tilde{\varepsilon}^{-1}\circ\varepsilon(x)=\tilde{x}$,
+donde $\tilde{x}=(\lista*{\tilde{x}}{n})$ es el punto de $\bb{R}^{n}$ dado por
+\begin{align*}
+	\tilde{x}^{j}\tilde{\varepsilon}_{j} & \,=\,x^{i}\varepsilon_{i}
+		\,=\,x^{i}A_{i}^{j}\tilde{\varepsilon}_{j}
+	\text{ .}
+\end{align*}
+%
+Es decir, para cada $j$, $\tilde{x}^{j}=A_{i}^{j}x^{i}$. En particular,
+la aplicaci\'{o}n $x\mapsto\tilde{x}$, el cambio de coordenadas
+(definido globalmente), es lineal e invertible y, en particular, un
+difeomorfismo. En definitiva, las cartas de la forma $(E,\varepsilon^{-1})$,
+donde $\varepsilon:\,\bb{R}^{n}\rightarrow E$ es el isomorfismo determinado
+por la base $\{\lista{\varepsilon}{n}\}$ de $E$, son todas (suavemente)
+compatibles. La estructura que estas cartas determinan en $E$ se
+denominar\'{a} la \emph{estructura usual} en $E$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	El espacio de matrices $\MM{m\times n,\bb{R}}$ de tama\~{n}o
+	$m\times n$ con coeficientes reales es un espacio vectorial de
+	dimensi\'{o}n $mn$ y, por lo tanto, una variedad diferencial con
+	su estructura usual. El espacio de matrices $\MM{m\times n,\bb{C}}$
+	complejas constituye una variedad diferencial de dimensi\'{o}n $2mn$,
+	pues su dimensi\'{o}n como espacio vectorial sobre $\bb{R}$ es $2mn$.
+	En el caso de matrices cuadradas de tama\~{n}o $n\times n$ usaremos
+	la notaci\'{o}n $\MM{n,\cdot}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	Sea $U$ un subconjunto abierto de $\bb{R}^{n}$. Entonces $U$ es una
+	variedad topol\'{o}gica de dimensi\'{o}n $n$ y la carta
+	$(U,\id[U])$ define una estructura suave en $U$. En general, sea
+	$M$ es una variedad diferencial y sea $U$ un abierto de $M$.
+	Sea $\cal{A}$ la colecci\'{o}n de todas las cartas suaves para
+	$M$, es decir, el atlas maximal que define la estructura de $M$
+	como variedad diferencial. La colecci\'{o}n
+	\begin{align*}
+		\cal{A}_{U} & \,=\,\left\lbrace
+			(V,\varphi)\in\cal{A}\,:\,V\subset U\right\rbrace
+	\end{align*}
+	%
+	es un atlas de $U$ que es, adem\'{a}s, suavemente compatible.
+	Este atlas determina naturalmente una estructura diferencial
+	sobre $U$. Los subconjuntos abiertos de una variedad $M$ son
+	de manera natural variedades diferenciales que denominaremos
+	\emph{subvariedades abierta} de $M$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	El \emph{grupo general lineal (real)}, denotado $\GL{n,\bb{R}}$
+	es el conjunto de matrices invertibles con coeficientes reales.
+	Dado que la funci\'{o}n $\det:\,\MM{n,\bb{R}}\rightarrow\bb{R}$
+	es continua y que $\GL{n,\bb{R}}$ es el subconjunto de matrices
+	con determinante no nulo, $\GL{n,\bb{R}}\subset\MM{n,\bb{R}}$ es
+	un subconjunto abierto y, por lo tanto, una variedad diferencial
+	de dimensi\'{o}n $\dim(\MM{n,\bb{R}})=n^{2}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	Sea $k\geq 0$. De manera an\'{a}loga al ejemplo anterior, en
+	$\MM{m\times n,\bb{R}}$, las matrices de rango mayor o igual a $k$
+	forman un subconjunto abierto: una matriz tiene rango al menos $k$,
+	si el determinante de alguna submatriz es distinto de cero. Por
+	continuidad del determinante, existe un entorno de una tal matriz
+	que verifica que, para todas las matrices de dicho abierto, el
+	determinante de la misma submatriz no se anula. En definitiva, todas
+	las matrices del abierto tienen rango al menos $k$. Un caso particular
+	de esto es cuando $k$ es m\'{a}ximo, es decir, $k=\min\{m,n\}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	Sean $E$ y $F$ dos espacios vectoriales de dimensi\'{o}n finita
+	y sea $\lineal{E,F}$ el conjunto de transformaciones lineales
+	de $E$ en $F$. Si a $E$ y $F$ se los considera espacios vectoriales
+	topol\'{o}gicos reales, entonces $\lineal{E,F}$ coincide con
+	el conjunto de transformaciones lineales y continuas. En general,
+	como $\lineal{E,F}$ es un espacio vectorial (real) de dimensi\'{o}n
+	finita, es una variedad diferencial. Eligiendo bases de $E$ y de $F$,
+	se puede representar un elemento $T\in\lineal{E,F}$ como una matriz,
+	lo cual determina un isomorfismo
+	$\lineal{E,F}\simeq\MM{m\times n,\bb{R}}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+	Sea $U\subset\bb{R}^{n}$ un abierto y sea $f:\,U\rightarrow\bb{R}^{k}$
+	una funci\'{o}n diferenciable. El gr\'{a}fico de $f$ es una variedad
+	topol\'{o}gica, dado que $f$ es continua. Dado que, adem\'{a}s, el
+	gr\'{a}fico de $f$, $\graf{f}$, se puede cubrir con una \'{u}nica
+	carta, $(\graf{f},\varphi)$, donde $\varphi:\,\graf{f}\rightarrow U$
+	es la restricci\'{o}n de la proyecci\'{o}n en la primer coordenada,
+	el gr\'{a}fico de una funci\'{o}n suave tiene una estructura suave
+	de manera can\'{o}nica.
+\end{ejemplo}
+
+\begin{ejemplo}
+	Las esferas son variedades diferenciales. Usando las cartas
+	$(U_{i}^{\pm},\varphi_{i}^{\pm})$ se obtiene un atlas compatible.
+	S\'{o}lo hay que verificar que las composiciones
+	$\varphi_{i}^{\pm}\circ(\varphi_{j}^{\pm})^{-1}$ sean diferenciables.
+	Esta estructura en $\esfera{n}$ se denominar\'{a} la
+	\emph{estructura usual} en $\esfera{n}$.
+
+	Las cartas correspondientes a las proyecciones esterogr\'{a}ficas
+	son compatibles entre s\'{\i} y, adem\'{a}s, son compatibles
+	con la estructura usual de $\esfera{n}$. Veamos primero la
+	compatibilidad de $\sigma$ con $\varphi_{i}^{\epsilon}$
+	para $i\not =n+1$ y $\epsilon=+\,(>)\text{ o }-\,(<)$. Por un lado,
+	en este	caso,
+	\begin{align*}
+		\big(U_{i}^{\epsilon}\cap\esfera{n}\big)\cap
+			\big(\esfera{n}\setmin\{N\}\big) & \,=\,
+			U_{i}^{\epsilon}\cap\esfera{n}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, dado que
+	\begin{align*}
+		\varphi_{i}^{\epsilon}(U_{i}^{\epsilon}\cap\esfera{n}) &
+			\,=\,\bola{1}{0}\quad\text{y} \\
+		\sigma(U_{i}^{\epsilon}\cap\esfera{n}) & \,=\,
+			\left\lbrace u\in\bb{R}^{n}\,:\,u^{i}\epsilon 0
+				\right\rbrace
+		\text{ ,}
+	\end{align*}
+	%
+	la composici\'{o}n $\varphi_{i}^{\epsilon}\circ\sigma^{-1}:\,%
+	\{u^{i}\epsilon 0\}\rightarrow\bola{1}{0}$, dada por
+	\begin{align*}
+		\varphi_{i}^{\epsilon}\circ\sigma^{-1}(u) & \,=\,
+			\frac{(2u^{1},\,\dots,\,\widehat{2u^{i}},\,2u^{n},\,%
+				|u|^{2}-1)}{|u|^{2}+1}
+		\text{ ,}
+	\end{align*}
+	%
+	es suave (, inyectiva) y su matriz de derivadas parciales es
+	no singular en todo punto, como se puede verificar, derivando la
+	expresi\'{o}n anterior respecto de cada una de las variables
+	$u^{k}$. Esto es suficiente para concluir que la composici\'{o}n
+	en el sentido inverso tambi\'{e}n es suave. En todo caso, se
+	puede verificar directamente que es suave: como $i\not =n+1$,
+	vale que
+	\begin{align*}
+		\sigma\circ(\varphi_{i}^{\epsilon})^{-1}(v) & \,=\,
+			\frac{(v^{1},\,\dots,\,\sqrt{1-|v|^{2}},%
+				\,\dots,\,v^{n-1})}{1-v^{n}}
+		\text{ .}
+	\end{align*}
+	%
+	Como $|v|<1$, en particular $|v^{n}|<1$ y la composici\'{o}n es
+	suave de $B_{1}(0)$ en $\{u^{i}\epsilon 0\}$.
+
+	Si $i=n+1$, $U_{n+1}^{+}\cap\esfera{n}$ contiene a $N$ pero
+	$U_{n+1}^{-}\cap\esfera{n}$ no lo contiene. Veamos primero que
+	$\varphi_{n+1}^{-}$ es compatible con $\sigma$: la composici\'{o}n
+	\begin{align*}
+		\varphi_{n+1}^{-}\circ\sigma^{-1}(u) & \,=\,
+			\frac{(\lista*{2u}{n})}{|u|^{2}+1}
+	\end{align*}
+	%
+	es suave de $\sigma(U_{n+1}^{-}\cap\esfera{n})=\bola{1}{0}$ en
+	$\varphi_{n+1}^{-}(U_{n+1}^{-}\cap\esfera{n})=\bola{1}{0}$ y, en el
+	sentido contrario,
+	\begin{align*}
+		\sigma\circ(\varphi_{n+1}^{-})^{-1}(v) & \,=\,
+			\frac{(\lista*{v}{n})}{1+\sqrt{1-|v|^{2}}}
+	\end{align*}
+	%
+	que es suave tambi\'{e}n. De manera similar, se puede comprobar que
+	la \emph{otra} proyecci\'{o}n estereogr\'{a}fica $\tilde{\sigma}$
+	es compatible con $\varphi_{n+1}^{+}$ y, como $\sigma$ y
+	$\tilde{\sigma}$ son compatibles, por tansitividad de la relaci\'{o}n
+	de compatibilidad suave, $\sigma$ es compactible con
+	$\varphi_{n+1}^{+}$, tambi\'{e}n. Tambi\'{e}n se puede verificar
+	directamente: si llamamos $U^{+}$ al abierto
+	\begin{align*}
+		U^{+} & \,=\,\big(U_{n+1}^{+}\cap\esfera{n}\big)\cap
+			\big(\esfera{n}\setmin\{N\}\big)
+			\text{ ,}\quad\text{entonces} \\
+		\sigma(U^{+}) & \,=\,\left\lbrace u\in\bb{R}^{n}\,:\,
+					|u|>1\right\rbrace
+			\quad\text{y} \\
+		\varphi_{n+1}^{+}(U^{+}) & \,=\,\bola{1}{0}\setmin\{0\}
+		\text{ .}
+	\end{align*}
+	%
+	Ahora bien,
+	\begin{math}
+		\varphi_{n+1}^{+}\circ\sigma^{-1}(u) \,=\,
+			\frac{(\lista*{2u}{n})}{|u|^{2}+1}
+	\end{math}
+	%
+	que es suave y
+	\begin{math}
+		\sigma\circ(\varphi_{n+1}^{+})^{-1}(v) \,=\,
+			\frac{(\lista*{v}{n})}{1-\sqrt{1-|v|^{2}}}
+	\end{math}
+	%
+	que tambi\'{e}n es suave en su dominio de definici\'{o}n.
+\end{ejemplo}
+
+\begin{ejemplo}
+	El espacio proyectivo $\proyectivo{n}{\bb{R}}$ tambi\'{e}n tiene
+	estructura de variedad diferencial. Los cambios de coordenadas
+	son diferenciables, pues, si $i>j$,
+	\begin{align*}
+		\varphi_{j}\circ\varphi_{i}^{-1}(\lista*{u}{n}) & \,=\,
+		\Big(\frac{u^{1}}{u^{j}},\,\dots,\,\frac{u^{j-1}}{u^{j}},\,
+			\frac{u^{j+1}}{u^{j}},\,\dots,\,\frac{u^{i-1}}{u^{j}},\,
+			\frac{1}{u^{j}},\,\frac{u^{i}}{u^{j}},\,\dots,\,
+				\frac{u^{n}}{u^{j}}\Big) \\
+		\varphi_{i}\circ\varphi_{j}^{-1}(\lista*{u}{n}) & \,=\,
+		\Big(\frac{u^{1}}{u^{i-1}},\,\dots,\,\frac{u^{j-1}}{u^{i-1}},\,
+			\frac{1}{u^{i-1}},\,\frac{u^{j}}{u^{i-1}},\,\dots,\,
+			\frac{u^{i-2}}{u^{i-1}},\,\frac{u^{i}}{u^{i-1}},\,
+			\dots,\,\frac{u^{n}}{u^{i-1}}\Big)
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemplo}
+
+\begin{ejemplo}
+	De la misma manera en que se defini\'{o} el espacio proyectivo real,
+	se puede definir el espacio proyectivo sobre el cuerpo de n\'{u}meros
+	complejos, denotado $\proyectivo{\bb{C}}{n}$, como el conjunto de
+	subespacios vectoriales \emph{complejos} de dimensi\'{o}n $1$ en
+	$\bb{C}^{n+1}$. Es decir, $\proyectivo{\bb{C}}{n}$ es el
+	cociente $(\bb{C}^{n+1}\setmin\{0\})/\sim$ donde dos puntos
+	$z=(\lista*{z}{n+1})$ y $w=(\lista*{w}{n+1})$ est\'{a}n relacionados,
+	si generan el mismo espacio \emph{sobre $\bb{C}$}, dicho de otra
+	manera, si existe un n\'{u}mero complejo no nulo
+	$\alpha\in\bb{C}^{\times}$ tal que $z\cdot\alpha=w$.
+
+	En primer lugar, para ver que $\proyectivo{\bb{C}}{n}$ es una variedad
+	topol\'{o}gica y para luego ver que se le puede dar una estructura
+	diferencial, definimos una correspondencia. Sea
+	$\Phi:\,\bb{C}^{n+1}\rightarrow\bb{R}^{2n+2}$ la funci\'{o}n dada por
+	\begin{align*}
+		\Phi(\lista*{z}{n+1}) & \,=\,
+			(x^{1},\,y^{1},\,\dots,\,x^{n},\,y^{n})
+		\text{ ,}
+	\end{align*}
+	%
+	donde, para cada $i$, $z^{i}=x^{i}+\sqrt{-1}y^{i}$. Si $w$ es un
+	punto de la forma $z\cdot\alpha$ con $\alpha=a+\sqrt{-1}b$ y
+	$a,b\in\bb{R}$,
+	\begin{align*}
+		\Phi(w) & \,=\, \Phi(z^{1}\cdot\alpha,\,\dots,\,
+					z^{n+1}\cdot\alpha) \\
+		& \,=\,(x^{1}a-y^{1}b,\,x^{1}b+y^{1}a,\,\dots,\,
+			x^{n+1}a-y^{n+1}b,\,x^{n+1}b+y^{n+1}a)
+		\text{ .}
+	\end{align*}
+	%
+	La acci\'{o}n de multiplicar (a derecha) por un n\'{u}mero complejo
+	no nulo $\alpha$ se traduce v\'{\i}a $\Phi$ como el producto a derecha
+	por una matriz:
+	\begin{align*}
+		\Phi(z\cdot\alpha) & \,=\,\Phi(z)\cdot m_{\alpha}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $m_{\alpha}$ es la matriz \emph{real} dada por
+	\begin{align*}
+		m_{\alpha} & \,=\,
+			\begin{bmatrix}
+				\widehat{\alpha} & & \\
+				& \ddots & \\
+				& & \widehat{\alpha}
+			\end{bmatrix}
+		\quad\text{donde}\quad
+		\widehat{\alpha} \,=\,
+			\begin{bmatrix}
+				a & b \\
+				-b & a
+			\end{bmatrix}
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, para $\alpha\in\bb{C}^{\times}$,
+	$\widehat{\alpha}\in\MM{2,\bb{R}}$ y $m_{\alpha}\in\MM{2n+2,\bb{R}}$.
+	De hecho, como $\det(\widehat{\alpha})=a^{2}+b^{2}>0$,
+	$\widehat{\alpha}\in\GL{2,\bb{R}}$ y $m_{\alpha}\in\GL{2n+2,\bb{R}}$.
+
+	Dado $\alpha\in\bb{C}^{\times}$, sea
+	$f_{\alpha}:\,\bb{R}^{2n+2}\setmin\{0\}\rightarrow%
+		\bb{R}^{2n+2}\setmin\{0\}$ la funci\'{o}n correspondiente a
+	multiplicar a derecha por la matriz $m_{\alpha}$.
+
+	V\'{\i}a la correspondencia $\Phi$, la acci\'{o}n de
+	$\bb{C}^{\times}$ en $\bb{C}^{n+1}$ est\'{a} dada por la acci\'{o}n
+	diagonal del grupo de matrices
+	\begin{align*}
+		G & \,=\,\left\lbrace
+			\begin{bmatrix}a & b\\ -b & a\end{bmatrix}\,:\,
+			a^{2}+b^{2}>0\right\rbrace
+		\,\simeq\,\bb{R}_{>0}\times\SO{2}
+	\end{align*}
+	%
+	en el producto de $n+1$ copias de $\bb{R}^{2}$. Es decir,
+	\begin{align*}
+		\Phi((\lista*{z}{n+1})\cdot\alpha) & \,=\,
+			((x^{1},y^{1})\cdot\widehat{\alpha},\,\dots,\,
+			(x^{n+1},y^{n+1})\cdot\widehat{\alpha}) \\
+		& \,=\,\Phi(z)\cdot m_{\alpha}
+		\text{ .}
+	\end{align*}
+	%
+	El espacio proyectivo complejo se obtiene como el espacio de
+	\'{o}rbitas de $\bb{C}^{\times}$ actuando en $\bb{C}^{n+1}\setmin\{0\}$
+	por multiplicaci\'{o}n por escalares, es decir, por homotecias.
+	Si llamamos $M$ al conjunto de \'{o}rbitas de la acci\'{o}n
+	correspondiente de $G$ en $\bb{R}^{2n+2}\setmin\{0\}$, entonces
+	$\Phi$ induce una correspondencia entre $\proyectivo{\bb{C}}{n}$ y
+	$M$. En definitiva, tenemos un diagrama conmutativo, en principio, de
+	conjuntos:
+	\begin{center}
+	\begin{tikzcd}
+		\bb{C}^{n+1}\setmin\{0\} \arrow[r,"\Phi"] \arrow[d,"\pi"] &
+			\bb{R}^{2n+2}\setmin\{0\} \arrow[d,"q"] \\
+		\proyectivo{\bb{C}}{n} \arrow[r,"F"] & M
+	\end{tikzcd} .
+	\end{center}
+
+	En cuanto a la topolog\'{\i}a, $\bb{R}^{2n+2}\setmin\{0\}$
+	tiene la estructura de variedad topol\'{o}gica heredada de
+	$\bb{R}^{2n+2}$ en tanto subespacio abierto y a $M$ se le da la
+	topolog\'{\i}a cociente. Usando las correspondencias $\Phi$ y $F$,
+	damos a $\bb{C}^{n+1}$ y a $\proyectivo{\bb{C}}{n}$ las
+	topolog\'{\i}as correspondientes de manera que $\Phi$ y $F$ sean
+	homeomorfismos. As\'{\i}, el diagrama anterior pasa a ser un diagrama
+	conmutativo de espacios topol\'{o}gicos y funciones continuas.
+
+	El espacio topol\'{o}gico $M$ es una variedad topol\'{o}gica. Para
+	mostrar esto busquemos primero cartas para $M$. Dado que las
+	funciones $f_{\alpha}:\,\bb{R}^{2n+2}\setmin\{0\}%
+		\rightarrow\bb{R}^{2n+2}\setmin\{0\}$ son restricciones de
+	transformaciones lineales $m_{\alpha}$, son, en particular,
+	continuas. Adem\'{a}s, como dichas transformaciones son invertibles,
+	\begin{align*}
+		f_{\alpha}\circ f_{\alpha^{-1}} & \,=\,
+			f_{\alpha^{-1}}\circ f_{\alpha} \,=\,
+			\id[\bb{R}^{2n+2}\setmin\{0\}]
+		\text{ ,}
+	\end{align*}
+	%
+	de lo que se deduce que el grupo $G$ act\'{u}a en
+	$\bb{R}^{2n+2}\setmin\{0\}$ v\'{\i}a homeomorfismos. Una consecuencia
+	de esto es que la funci\'{o}n cociente $q$ es abierta: si
+	$V\subset\bb{R}^{2n+2}\setmin\{0\}$ es abierto, entonces
+	\begin{align*}
+		q^{-1}\big(q(V)\big) & \,=\,V\cdot G \\
+		& \,=\,\bigcup_{m_{\alpha}\in G}\,V\cdot m_{\alpha}
+			\,=\,\bigcup_{\alpha\in\bb{C}^{\times}}\,
+				f_{\alpha}(V)
+	\end{align*}
+	%
+	que es una uni\'{o}n de abiertos. Como $M$ tiene la topolog\'{\i}a
+	cociente inducida por $q$, el conjunto $q(V)$ es abierto.
+	Ahora bien, definimos, para cada $i$,
+	\begin{align*}
+		\widetilde{U}_{i} & \,=\,
+			\left\lbrace((x^{1},y^{1}),\,\dots,\,
+			(x^{n+1},y^{n+1}))\in\bb{R}^{2n+2}\,:\,
+			(x^{i},y^{i})\not = 0\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Como las matrices $\widehat{\alpha}$ son invertibles, se ve que
+	$q^{-1}(q(\widetilde{U}_{i}))=\widetilde{U}_{i}$ para todo $i$. En
+	particular, $\widetilde{U}_{i}$ es un abierto saturado respecto de
+	$q$ y, si llamamos $U_{i}=q(\widetilde{U}_{i})$, entonces la
+	restricci\'{o}n de $q|_{i}:\,\widetilde{U}_{i}\rightarrow U_{i}$ es
+	cociente.
+
+	Para definir cartas en $M$, definimos funciones en
+	$\proyectivo{\bb{C}}{n}$ an\'{a}logas a las cartas para los espacios
+	proyectivos reales y las trasladamos, v\'{\i}a $F$ a $M$.
+	Notemos que $\Phi^{-1}(\widetilde{U}_{i})$ es el subconjunto de
+	$\bb{C}^{n+1}\setmin\{0\}$ conformado por los puntos cuya coordenada
+	$i$ es distinta de cero. Si $z\in\bb{C}^{n+1}\setmin\{0\}$,
+	denotaremos
+	\begin{align*}
+		\pi(z) & \,=\,\pi(\lista*{z}{n+1}) \,=\,
+			\left[z^{1}:\,\cdots\,:z^{n+1}\right]
+	\end{align*}
+	%
+	al punto correpondiente en el espacio proyectivo. De manera
+	an\'{a}loga los puntos de $M$ los denotaremos de la siguiente manera:
+	\begin{align*}
+		q((x^{1},y^{1}),\,\dots,\,(x^{n+1},y^{n+1})) & \,=\,
+			\left[(x^{1},y^{1}):\,\cdots\,:(x^{n+1},y^{n+1})\right]
+		\text{ .}
+	\end{align*}
+	%
+	Sea, entonces, $\varphi_{i}:\,F^{-1}(U_{i})\rightarrow\bb{C}^{n}$
+	la funci\'{o}n dada por
+	\begin{align*}
+		\varphi_{i}\big(\left[z^{1}:\,\cdots\,:z^{n+1}\right]\big) &
+			\,=\,\left(\frac{z^{1}}{z^{i}},\,\dots,\,
+			\frac{z^{i-1}}{z^{i}},\,\frac{z^{i+1}}{z^{i}},
+			\,\dots,\,\frac{z^{n+1}}{z^{i}}\right) \\
+		& \,=\,(z^{1},\,\dots,\,z^{i-1},\,z^{i+1},\,\dots,\,z^{n+1})
+			\cdot\frac{1}{z^{i}}
+		\text{ .}
+	\end{align*}
+	%
+	De la expresi\'{o}n anterior, se deduce que las funciones
+	$\varphi_{i}$ son biyectivas. Veamos que son continuas. Para eso
+	usamos las correspondencias $\Phi$ y $F$. En
+	$\widetilde{U}_{i}\subset M$, entonces, definimos
+	$\tilde{\varphi}_{i}=\Phi\circ\varphi_{i}\circ F^{-1}$. Donde
+	$\Phi:\,\bb{C}^{n}\rightarrow\bb{R}^{2n}$ es an\'{a}loga a la
+	funci\'{o}n $\Phi$ definida anteriormente. Cuando
+	$i=n+1$, por ejemplo, si $z^{n+1}=x^{n+1}+\sqrt{-1}y^{n+1}$ y
+	$\alpha=\frac{1}{z^{n+1}}$,
+	\begin{align*}
+		\tilde{\varphi}_{n+1}\big(\left[(x^{1},y^{1}):\,\cdots\,:
+					(x^{n+1},y^{n+1})\right]\big) & \,=\,
+			((x^{1},y^{1})\cdot\widehat{\alpha},\,\dots,\,
+			(x^{n},y^{n})\cdot\widehat{\alpha})
+		\text{ .}
+	\end{align*}
+	%
+	Un poco m\'{a}s expl\'{\i}citamente, en el caso $i=n+1$ (para
+	simplificar),
+	\begin{align*}
+		\tilde{\varphi}_{n+1}\big(\left[(x^{1},y^{1}):\,\cdots\,:
+					(x^{n+1},y^{n+1})\right]\big) & \,=\,
+		\left(ax^{1}-by^{1},\,bx^{1}+ay^{1},\right. \\
+		& \left.\qquad\,\dots,\,ax^{n}-by^{n},\,bx^{n}+ay^{n}\right)
+		\text{ ,}
+	\end{align*}
+	%
+	donde $a=\frac{x^{n+1}}{(x^{n+1})^{2}+(y^{n+1})^{2}}$ y
+	$b=\frac{y^{n+1}}{(x^{n+1})^{2}+(y^{n+1})^{2}}$.
+	Llamamos, para simplificar, $\varphi_{i}$ a $\tilde{\varphi}_{i}$,
+	tambi\'{e}n. De la expresi\'{o}n anterior, para cada $i$, la
+	composici\'{o}n $\varphi_{i}\circ q$ es continua. Porque $q|_{i}$
+	es cociente, $\varphi_{i}:\,U_{i}\rightarrow\bb{R}^{2n}$ es
+	continua. 
+
+	La inversa de $\varphi_{i}$ est\'{a} dada por
+	$\varphi_{i}^{-1}:\,\bb{C}^{n}\rightarrow F^{-1}(U_{i})$ donde
+	\begin{align*}
+		\varphi_{i}^{-1}(\lista*{u}{n}) & \,=\,
+			\left[u^{1}:\,\cdots\,:u^{i-1}:1:u^{i}:
+				\,\cdots\,:u^{n}\right]
+		\text{ .}
+	\end{align*}
+	%
+	El elemento $1$ en la expresi\'{o}n anterior es el $1$ de $\bb{C}$.
+	V\'{\i}a $\Phi$ y $F$, en t\'{e}rminos de puntos de $M$ y de
+	$\bb{R}^{2n}$,
+	\begin{align*}
+		\varphi_{i}(\xi^{1},\upsilon^{1},\,\dots,\,
+			\xi^{n},\,\upsilon^{n}) & \,=\,
+			\left[(\xi^{1},\upsilon^{1}):\,\cdots\,:
+			(\xi^{i-1},\upsilon^{i-1}):(1,0):
+			(\xi^{i},\upsilon^{i}):\,\cdots\,
+			(\xi^{n},\upsilon^{n})\right]
+		\text{ .}
+	\end{align*}
+	%
+	Notemos que $(1,0)$ es la representaci\'{o}n de $1\in\bb{C}$ en
+	coordenadas reales. La funci\'{o}n $\varphi_{i}^{-1}$ es continua
+	porque se puede escribir como composici\'{o}n de funciones continuas
+	seg\'{u}n el siguiente diagrama:
+	\begin{center}
+	\begin{tikzcd}
+		\bb{R}^{2n+2}\setmin\{0\}\supset\widetilde{U}_{i}
+			\arrow[d,"q"'] & \\
+		M\supset U_{i} & \bb{R}^{2n}\arrow[l,"\varphi_{i}^{-1}"]
+					\arrow[ul,"\psi_{i}"']
+
+	\end{tikzcd}
+	\end{center}
+	La funci\'{o}n $\psi_{i}$ es \'{u}nica tal que el diagrama
+	conmuta y debe cumplir que
+	\begin{align*}
+		\psi_{i}(\xi^{1},\upsilon^{1},\,\dots,\,
+			\xi^{n},\,\upsilon^{n}) & \,=\,
+			(\xi^{1},\,\upsilon^{1},\,\dots,\,
+			\xi^{i-1},\,\upsilon^{i-1},\,1,\,0,\,
+			\xi^{i},\,\upsilon^{i},\,\dots,\,
+			\xi^{n},\,\upsilon^{n})
+		\text{ .}
+	\end{align*}
+	%
+	De esta expresi\'{o}n, es inmediato que $\psi_{i}$ es continua y que
+	$\varphi_{i}^{-1}=q\circ\psi_{i}$. En definitiva, las funciones
+	$\varphi_{i}:\,U_{i}\rightarrow\bb{R}^{2n}$ son homeomorfismos
+	y las correspondientes
+	$\varphi_{i}:\,F^{-1}(U_{i})\rightarrow\bb{C}^{n}$ tambi\'{e}n, donde
+	$\bb{C}^{n}$ tiene la topolog\'{\i}a inducida por la biyecci\'{o}n
+	$\Phi:\,\bb{C}^{n}\rightarrow\bb{R}^{2n}$.
+
+	% Una observaci\'{o}n importante es que las operaciones de espacio
+	% vectorial complejo en $\bb{C}^{n}$ son continuas si se le da
+	% la topolog\'{\i}a inducida por el homeomorfismo
+	% $\Phi:\,\bb{C}^{n}\rightarrow\bb{R}^{2n}$ para todo $n\geq 0$.
+
+	Hemos demostrado que $\proyectivo{\bb{C}}{n}$ con la topolg\'{\i}a
+	cociente que se obtiene de considerar $\bb{C}^{n+1}$ como
+	$\bb{R}^{2n+2}$ y a $\bb{C}^{n+1}\setmin\{0\}$ como subconjunto
+	abierto es localmente euclidea de dimensi\'{o}n $2n$. De hecho,
+	demostramos que $\proyectivo{\bb{C}}{n}$ es homeomorfo al
+	cociente de $\bb{R}^{2n+2}\setmin\{0\}$ por la acci\'{o}n
+	diagonal del grupo $\bb{R}_{>0}\times\SO{2}$.
+\end{ejemplo}
+

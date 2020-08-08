@@ -1,0 +1,155 @@
+\theoremstyle{plain}
+\newtheorem{propoFibradoTangente}{Proposici\'{o}n}[section]
+\newtheorem{propoElDiferencialFuntorial}[propoFibradoTangente]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+
+%-------------
+
+
+El \emph{fibrado tangente} es la construcci\'{o}n que permite estudiar de
+manera coherente los espacios tangentes a una variedad. Si $M$ es una
+variedad diferencial, como conjunto, el fibrado tangente a/de $M$ es la
+uni\'{o}n disjunta de todos los espacios tangentes:
+\begin{align*}
+	TM & \,=\,\sqcup_{p\in M}\,T_{p}M
+	\text{ .}
+\end{align*}
+%
+A los elementos de $TM$ los denotamos $(p,v)$, donde $p\in M$ y $v\in T_{p}M$.
+El fibrado tangente tiene asociada una proyecci\'{o}n
+$\pi:\,TM\rightarrow M$ que a un par $(p,v)$ le asigna $\pi(p,v)=p$. La
+coherencia a la que se hizo alusi\'{o}n se refiere a la posibilidad de dar a
+$TM$ una estructura natural de variedad diferencial.
+
+\begin{propoFibradoTangente}\label{thm:fibradotangente}
+	Si $M$ es una variedad diferencial de dimensi\'{o}n $n$, el fibrado
+	tangente $TM$ tiene una topolog\'{\i}a y una estructura diferencial
+	naturales de manera que, con ellas, $TM$ sea una variedad diferencial
+	de dimensi\'{o}n $2\cdot n$ y respecto a las cuales
+	$\pi:\,TM\rightarrow M$ sea diferenciable.
+\end{propoFibradoTangente}
+
+\begin{proof}
+	Para demostrar esta proposici\'{o}n, haremos uso del lema de las
+	cartas (lema \ref{thm:delascartas}). Sea $(U,\varphi)$ una carta
+	para $M$. Su preimagen v\'{\i}a $\pi$ es el conjunto
+	$\pi^{-1}(U)$ de pares $(p,v_{p})$ con $p\in U$ y $v_{p}\in T_{p}M$.
+	Es decir, $\pi^{-1}(U)$ consiste en los vectores tangentes a $M$ en
+	puntos de $U$. En $\pi^{-1}(U)$, definimos una aplicaci\'{o}n
+	$\widetilde{\varphi}:\,\pi^{-1}(U)\rightarrow\bb{R}^{2n}$ por
+	\begin{align*}
+		\widetilde{\varphi}(p,v_{p}) & \,=\,
+			(\lista*{x}{n},\,\lista*{v}{n})
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\varphi(p)=(\lista*{x}{n})\in\varphi(U)\subset\bb{R}^{n}$ y
+	$v_{p}=v^{i}\gancho[p]{x^{i}}\in T_{p}M$ es la escritura de $v_{p}$
+	en la base can\'{o}nica $\gancho[p]{x^{1}},\,\dots,\,\gancho[p]{x^{n}}$
+	(o, expl\'{\i}citamente, $\gancho[p]{\varphi^{i}}$) del espacio
+	tangente a $M$ en $p$. La imagen $\widetilde{\varphi}(\pi^{-1}(U))=%
+	\varphi(U)\times\bb{R}^{n}$ es un abierto de
+	$\bb{R}^{n}\times\bb{R}^{n}$ en biyecci\'{o}n con $\pi^{-1}(U)$
+	v\'{\i}a $\widetilde{\varphi}$: su inversa est\'{a} dada por
+	\begin{align*}
+		\widetilde{\varphi}^{-1}(\lista*{x}{n},\,\lista*{v}{n}) &
+		\,=\,\Big(
+		\varphi^{-1}(x),\,v^{i}\gancho[\varphi^{-1}(x)]{x^{i}}\Big)
+		\text{ .}
+	\end{align*}
+	%
+	Dadas dos cartas $(U,\varphi)$ y $(V,\psi)$ con intersecci\'{o}n
+	no vac\'{\i}a, se cumple que $\pi^{-1}(U)\cap\pi^{-1}(V)\not =%
+	\varnothing$ y
+	\begin{align*}
+		\widetilde{\varphi}(\pi^{-1}(U)\cap\pi^{-1}(V)) & \,=\,
+			\varphi(U\cap V)\times\bb{R}^{n}\quad\text{y} \\
+		\widetilde{\psi}(\pi^{-1}(U)\cap\pi^{-1}(V)) & \,=\,
+			\psi(U\cap V)\times\bb{R}^{n}
+		\text{ .}
+	\end{align*}
+	%
+	Estos conjuntos son abiertos en $\bb{R}^{2n}$ y las funciones de
+	transici\'{o}n $\widetilde{\varphi}\circ\widetilde{\psi}^{-1}$ y
+	$\widetilde{\psi}\circ\widetilde{\varphi}^{-1}$ son suaves, pues:
+	\begin{align*}
+		\widetilde{\psi}\circ\widetilde{\varphi}^{-1}
+			(\lista*{x}{n},\,\lista*{v}{n}) & \,=\,
+			\Big(
+			\widetilde{x}^{1}(x),\,\dots,\,\widetilde{x}^{n}(x),\,
+			\derivada{\widetilde{x}^{1}}{x^{i}}(x)v^{i},\,\dots,\,
+			\derivada{\widetilde{x}^{n}}{x^{i}}(x)v^{i}
+			\Big)
+		\text{ .}
+	\end{align*}
+	%
+	(Notemos que, si $M$ es $C^{1}$, entonces $TM$ no llegar\'{a} a ser
+	una variedad $C^{1}$, pues las funciones
+	$\derivada{\widetilde{x}^{j}}{x^{i}}$ son meramente continuas).
+	Por otro lado, si $\{U_{i}\}_{i}$ es un cubrimiento (numerable) de $M$
+	por cartas compatibles, entonces $\{\pi^{-1}(U_{i})\}_{i}$ ser\'{a}
+	un cubrimiento (numerable) de $TM$. Finalmente, para verificar la
+	hip\'{o}tesis de separabilidad ($T_{2}$) del lema, si $(p,v_{p})$ y
+	$(q,w_{q})$ son dos puntos distintos en $TM$ con $p\not =q$,
+	entonces, eligiendo cartas con dominios disjuntos que separen a
+	$p$ y a $q$ obtenemos, tomando preimagen por $\pi$, conjuntos
+	disjuntos en $TM$ de la forma $\pi^{-1}(U)$, donde $U$ es el dominio
+	de una carta, que separan a $(p,v_{p})$ y a $(q,w_{q})$. Si, por
+	otro lado, $p=q$, entonces, tomando cualquier carta $U$ que
+	contenga a $p$, el conjunto $pi^{-1}(U)$ contiene a ambos puntos
+	del fibrado. Con esto se terminan de verificar las hip\'{o}tesis
+	del lema \ref{thm:delascartas}.
+
+	Para ver que $\pi:\,TM\rightarrow M$ es suave, basta tomar una
+	carta $(U,\varphi)$ para $M$ y la carta correspondiente
+	$(\pi^{-1}(U),\widetilde{\varphi})$ para $TM$. Con respecto a estas
+	coordenadas,
+	\begin{align*}
+		\varphi\circ\pi\widetilde{\varphi}^{-1}
+			(\lista*{x}{n},\,\lista*{v}{n}) & \,=\,(\lista*{x}{n})
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, $\widehat{\pi}$ es, tambi\'{e}n, la proyecci\'{o}n en las
+	primeras coordenadas. En el caso de variedades con borde, podemos
+	tomar la expresi\'{o}n $(v,p)$ para que, al tomar coordenadas,
+	$\widetilde{\varphi}(v_{p},p)=(\lista*{v}{n},\,\lista*{x}{n})\in %
+	\bb{R}^{n}\times\hemi[n]=\hemi[2n]$.
+\end{proof}
+
+Una funci\'{o}n suave $F:\,M\rightarrow N$ determina una funci\'{o}n suave a
+nivel de los fibrados tangentes. Esta funci\'{o}n es el \emph{diferencial}
+(o \emph{diferencial global} o \emph{diferencial total}) de $F$,
+$\diferencial{F}:\,TM\rightarrow TN$, dado por
+\begin{align*}
+	\diferencial{F}(v_{p},p) & \,=\,\diferencial[p]{F}(v_{p})\,\in\,
+		T_{F(p)}N\quad\text{, o bien} \\
+	\diferencial{F}(v_{p},p) & \,=\,(\diferencial[p]{F}(v_{p}),F(p))
+\end{align*}
+%
+En coordenadas,
+\begin{align*}
+	\widehat{\diferencial{F}}(\lista*{v}{n},\,\lista*{x}{n}) & \,=\,
+		\Big(
+		\derivada{\widehat{F}^{1}}{x^{i}}(x)v^{i},\,\dots,\,
+		\derivada{\widehat{F}^{m}}{x^{i}}(x)v^{i},\,
+		\widehat{F}^{1}(x),\,\dots,\,\widehat{F}^{m}(x)
+		\Big)
+		\text{ .}
+\end{align*}
+%
+Al igual que en el caso de la diferencial en un punto, $\diferencial{F}$
+posee las siguientes propiedades funtoriales:
+
+\begin{propoElDiferencialFuntorial}\label{thm:eldiferencialfuntorial}
+	\emph{(a)} Si $F:\,M\rightarrow N$ y $G:\,N\rightarrow\tilde{N}$ son
+	transformaciones suaves, la composici\'{o}n
+	$G\circ F:\,M\rightarrow\tilde{N}$ es suave y
+	$\diferencial{(G\circ F)}=\diferencial{G}\cdots\diferencial{F}$;
+	\emph{(b)} la identidad $\id[M]:\,M\rightarrow M$ es suave y su
+	diferencial est\'{a} dado por $\diferencial{\id[M]}=\id[TM]$;
+	\emph{(c)} si $F:\,M\rightarrow N$ es un difeomorfismo, entonces
+	$\diferencial{F}:\,TM\rightarrow TN$ es un difeomorfismo y
+	$(\diferencial{F})^{-1}=\diferencial{(F^{-1})}$.
+\end{propoElDiferencialFuntorial}

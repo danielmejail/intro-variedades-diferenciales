@@ -1,0 +1,927 @@
+\theoremstyle{plain}
+\newtheorem{propoUnoFormasSuaves}{Proposici\'{o}n}[section]
+\newtheorem{lemaElPullbackEnUnoFormas}[propoUnoFormasSuaves]{Lema}
+\newtheorem{propoElPullbackDeUnaSuave}[propoUnoFormasSuaves]{Proposici\'{o}n}
+\newtheorem{teoUnoFormasSuavesComoMorfismos}[propoUnoFormasSuaves]{Teorema}
+\newtheorem{propoIntegrarElPullDeUnaCurva}%
+	[propoUnoFormasSuaves]{Proposici\'{o}n}
+\newtheorem{propoIntegrarConcretamenteSobreUnaCurva}%
+	[propoUnoFormasSuaves]{Proposici\'{o}n}
+\newtheorem{teoUnoFormaConservativaSiiExacta}[propoUnoFormasSuaves]{Teorema}
+
+\theoremstyle{remark}
+\newtheorem{obsDiferencialDerivacion}{Observaci\'{o}n}[section]
+\newtheorem{obsUnoFormasYCampos}[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsVariedadSuaveATrozosConexa}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsIntegralEsLinealEnFormas}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsIntegralEnCaminoInverso}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsIntegralEsLinealEnCaminos}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsIntegrarFormasExactas}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsDiferencialCeroConstante}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsIntegrarExactasEnCaminosCerrados}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+\newtheorem{obsConservativaSiiIntegralIndependienteDelCamino}%
+	[obsDiferencialDerivacion]{Observaci\'{o}n}
+
+%-------------
+
+Un campo vectorial se define como una secci\'{o}n local del fibrado tangente.
+Las secciones locales del fibrado cotangente reciben el nombre de
+\emph{$1$-formas}.
+
+Sea $(U,\varphi)$ una carta en $M$. Sean $\varphi=(x^{i})$ las funciones
+coordenadas, $\Big\{\gancho[p]{x^{i}}\Big\}_{i}$ la base del espacio tangente
+a $M$ en un punto $p\in U$ y sea $\big\{\de[p]{x^{i}}\big\}_{i}$ la base
+dual en el espacio cotangente, la cual est\'{a} compuesta por los
+diferenciales de las funciones coordenadas $x^{i}$ en $p$. Sea
+$\omega:\,U\rightarrow\tangente*{M}$ una secci\'{o}n de la proyecci\'{o}n
+can\'{o}nica $\pi:\,\tangente*{M}\rightarrow M$ definida, localmente,
+en el abierto $U$. En particular, $\pi\circ\omega=\id[U]$. Si $p\in U$,
+denotamos al elemento en el espacio $\tangente*[p]{M}$ dado por la
+secci\'{o}n $\omega$ en $p$ por $\omega_{p}$, o bien $\omega|_{p}$.
+Es decir, $\omega:\,p\in U\mapsto\omega_{p}\in\tangente*{M}$ es una
+apliaci\'{o}n que a cada elemento $p$ en el abierto coordenado $U$ le
+asigna una funcional en el espacio cotangente $\tangente*[p]{M}$.
+En coordenadas, esta aplicaci\'{o}n est\'{a} dada de la siguiente manera:
+cada covector $\omega_{p}\in\tangente*[p]{M}$ se escribe de manera \'{u}nica
+como combinaci\'{o}n lineal de los elementos de la base
+$\big\{\de[p]{x^{i}}\big\}_{i}$ dada por los diferenciales de las funciones
+coordenadas, es decir, existen n\'{u}meros reales
+$\omega_{i}(p)\in\bb{R}$ \'{u}nicos tales que
+\begin{equation}
+	\label{eq:covectencoordes}
+	\omega_{p} \,=\,\omega_{i}(p)\,\de[p]{x^{i}}
+	\text{ .}
+\end{equation}
+%
+Cada uno de los coeficientes $\omega_{i}(p)$ en la escritura anterior
+se denomina \emph{componente de $\omega$ en $p$} y su valor est\'{a} dado,
+recurriendo a las funciones coordenadas, por
+\begin{align*}
+	\omega_{i}(p) & \,=\,\omega_{p}\Big(\gancho[p]{x^{i}}\Big)
+	\text{ .}
+\end{align*}
+%
+Esto determina un\'{\i}vocamente funciones $\omega_{i}:\,U\rightarrow\bb{R}$
+tales que vale \eqref{eq:covectencoordes} para todo punto $p\in U$. Estas
+funciones se denominan \emph{componentes de $\omega$} con respecto a
+las coordenadas $\varphi=(x^{i})$ en el abierto coordenado $U$.
+
+\subsection{$1$-formas suaves}
+Recordando que todo abierto $U\subset M$ tiene estructura de variedad
+diferencial en tanto subespacio abierto de la variedad $M$ y que a
+$\tangente*{M}$ tambi\'{e}n se le dio una estructura de variedad diferencial,
+diremos que una $1$-forma $\omega:\,U\rightarrow\tangente*{M}$ definida
+en un abierto $U$ de $M$ es \emph{suave}, si es suave en tanto
+transformaci\'{o}n entre las variedades $U$ y $\tangente*{M}$.
+La siguiente proposici\'{o}n da una forma alternativa de caracterizar la
+suavidad de una $1$-forma.
+
+\begin{propoUnoFormasSuaves}\label{thm:unoformassuavescomponentes}
+	Sea $M$ una variedad diferencial y sea $\omega:\,%
+	M\rightarrow\tangente*{M}$ una $1$-forma. Las siguientes afirmaciones
+	son equivalentes.
+	\begin{itemize}
+		\item[(\i)] $\omega$ es suave;
+		\item[(\i\i)] si $(U,\varphi)$ es una carta compatible
+			con la estructura de $M$, entonces las componentes
+			de $\omega$ con respecto a $\varphi$ son funciones
+			suaves en $U$;
+		\item[(\i\i\i)] todo punto $p\in M$ est\'{a} contenido en
+			el dominio de alguna carta compatible
+			$(U,\varphi)$ tal que las componentes de $\omega$
+			en $U$ son funciones suaves.
+	\end{itemize}
+	%
+\end{propoUnoFormasSuaves}
+
+Dada una carta $(U,\varphi)$, los diferenciales $\de[p]{x^{i}}$ dan
+lugar a $1$-formas definidas en el abierto $U$. Dado que
+los covectores $\de[p]{x^{i}}$ constituyen una base de los espacios
+cotangentes en cada punto $p$ de $U$, toda $1$-forma definida en (alg\'{u}n
+lugar de) $U$ se puede escribir como combinaci\'{o}n lineal de las
+$1$-formas $\de{x^{i}}:\,p\mapsto\de[p]{x^{i}}$ por ciertas funciones
+definidas en $U$ a valores reales. Es decir, la igualdad
+\eqref{eq:covectoresencoordes} v\'{a}lida para todo $p\in U$ se puede
+escribir como una igualdad entre $1$-formas: si
+$\omega:\,U\rightarrow\tangente*{M}$ es una $1$-forma, entonces
+existen funciones $\omega_{i}:\,U\rightarrow\bb{R}$ \'{u}nicas tales que
+\begin{align*}
+	\omega & \,=\,\omega_{i}\de{x^{i}}
+	\text{ .}
+\end{align*}
+%
+En particular, si $f:\,U\rightarrow\bb{R}$ es una funci\'{o}n suave,
+su \emph{diferencial (derivada)} es la $1$-forma dada por
+\begin{align*}
+	\derext{f} & \,=\,\derivada{f}{x^{i}}\,\de{x^{i}}
+	\text{ .}
+\end{align*}
+%
+
+Sea $\omega$ una $1$-forma y sea $X$ un campo tangente, es decir, secciones
+localmente definidas de los fibrados cotantegente y tangente, respectivamente.
+Sean o no suaves o continuas, estas aplicaciones determinan, all\'{\i}
+donde ambas est\'{a}n definidas, una funci\'{o}n a valores reales:
+\begin{align*}
+	\big(\omega X\big)(p) & \,=\,\omega_{p}\big(X_{p}\big)
+\end{align*}
+%
+dada por evaluar el covector $\omega_{p}\in\tangente*[p]{M}$ en el vector
+tangente $X_{p}\in\tangente[p]{M}$. En coordenadas, si $(U,\varphi)$ es una
+carta compatible tal que ambos $\omega$ y $X$ est\'{a}n definidos en $U$,
+entonces existen funciones (no necesariamente continuas) $X^{i}$ y
+$\omega_{i}$ definidas en el abierto $U$ tales que
+\begin{align*}
+	X \,=\,X^{i}\gancho{x^{i}} & \quad\text{, }\quad
+	\omega \,=\,\omega_{i}\de{x^{i}}\quad\text{y} \\
+	\omega X & \,=\,\omega_{i}X^{i}
+	\text{ .}
+\end{align*}
+%
+
+\begin{propoUnoFormasSuaves}\label{thm:unoformassuavescampos}
+	Sea $M$ una variedad diferencial y sea $\omega$ una $1$-forma
+	definida en $M$. Entonces que $\omega$ sea suave equivale a que
+	se cumpla cualquiera de las siguientes afirmaciones.
+	\begin{itemize}
+		\item[(\j)] Si $X\in\champs{M}$ es un campo (global) suave,
+			entonces la funci\'{o}n $\omega X:%
+			\,M\rightarrow\bb{R}$ es suave;
+		\item[(\j\j)] si $U\subset M$ es abierto y $X\in\champs{U}$
+			es un campo suave definido en $U$, entonces
+			la funci\'{o}n $\omega X:\,U\rightarrow\bb{R}$ es
+			suave.
+	\end{itemize}
+	%
+\end{propoUnoFormasSuaves}
+
+\begin{proof}
+	Si $p\in M$ es un punto arbitrario de la variedad, entonces,
+	tomando coordenadas $(U,\varphi)$ en $p$, vale que la funci\'{o}n
+	$\omega X$ es igual a $\omega_{i}X^{i}$ en $U$. Si $X$ y $\omega$
+	son suaves, entonces, por el \'{\i}tem \textit{(\i\i)} de
+	la proposici\'{o}n \ref{thm:unoformassuavescomponentes}, las funciones
+	componentes $\omega_{i}$ son suaves y, como las componentes
+	$X^{i}$ tambi\'{e}n son suaves, $\omega_{i}X^{i}$ es suave en $U$
+	y, por lo tanto, $\omega X$ es suave en $U$. Como $p$ es arbitrario,
+	se deduce que $\omega X\in C^{\infty}(M)$.
+
+	Supongamos que vale \textit{(\j)} y que $X:\,U\rightarrow\tangente{M}$
+	es un campo suave definido en un abierto $U\subset M$. Sea $p\in U$
+	un punto arbitrario del abierto. Es necesario definir un campo global
+	suave que coincida con $X$ cerca de $p$. Sea
+	$\psi:\,M\rightarrow\bb{R}$ una funci\'{o}n chich\'{o}n en $p$ y sea
+	$V\subset U$ un entorno de $p$ contenido en $U$ tal que
+	$\clos{V}\subset U$ y $\psi=1$ en $V$ y $\soporte{\psi}\subset U$.
+	Sea $\tilde{X}:\,M\rightarrow\tangente{M}$ el campo global dado
+	por $\psi X$ en $U$ y por $0$ en $M\setmin\soporte{\psi}$. Como
+	$\psi$ es una funci\'{o}n chich\'{o}n suave, $\tilde{X}\in\champs{M}$
+	y $\tilde{X}|_{V}=X|_{V}$. Entonces, por \textit{(\j)}, la funci\'{o}n
+	$\omega\tilde{X}:\,M\rightarrow\bb{R}$ es suave y, adem\'{a}s, por
+	construcci\'{o}n,
+	\begin{align*}
+		\omega\tilde{X}|_{V} & \,=\,\omega X|_{V}
+		\text{ .}
+	\end{align*}
+	%
+	Pero, entonces, $\omega X$ coincide en el abierto $V$ con una
+	funci\'{o}n suave. Como $p\in U$ es arbitrario, se deduce que
+	$\omega X:\,U\rightarrow\bb{R}$ es suave en $U$.
+
+	Supongamos ahora que la afirmaci\'{o}n \textit{(\j\j)} es cierta
+	para $\omega$. Sea $p\in M$ y sea $(U,\varphi)$ una carta compatible
+	en $p$. Los campos locales $\gancho{x^{i}}:\,U\rightarrow\tangente{M}$
+	son suaves (son constantes). Por hip\'{o}tesis, evaluar $\omega$ en
+	cada uno de estos campos define una funci\'{o}n suave
+	$\omega\gancho{x^{i}}$ en $U$. Pero
+	\begin{align*}
+		\omega\gancho{x^{i}} & \,=\,\omega_{i}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\omega_{i}$ es la componente correspondiente a
+	$\de{x^{i}}$. En definitiva, todo punto de la variedad admite una
+	carta en donde la forma $\omega$ tiene componentes suaves.
+	Con lo cual, por \textit{(\i\i\i)}, se concluye que $\omega$ es una
+	$1$-forma suave en $M$.
+\end{proof}
+
+Usaremos la notaci\'{o}n $\formes[1]{M}$ para denotar el conjunto de
+$1$-formas suaves en una variedad diferencial $M$. Definiendo la suma y el
+producto por escalares puntualmente:
+\begin{align*}
+	(a\omega+b\eta)|_{p} & \,=\,a\omega_{p}+b\eta_{p}
+	\text{ ,}
+\end{align*}
+%
+se le da una estructura de espacio vectorial real al conjunto de $1$-formas.
+M\'{a}s aun, al igual que con los campos vectoriales, dada una
+funci\'{o}n $f$ y una $1$-forma $\omega$ (no necesariamente continuas),
+el \emph{producto} de $f$ por $\omega$,
+\begin{align*}
+	\big(f\omega\big)|_{p} & \,=\,f(p)\omega_{p}
+	\text{ ,}
+\end{align*}
+%
+define una nueva $1$-forma en donde ambas aplicaciones est\'{e}n definidas.
+En particular, si $f\in C^{\infty}(M)$ y $\omega\in\formes[1]{M}$, se
+deduce que $f\omega\in\formes[1]{M}$, tambi\'{e}n. Es decir, el espacio
+vectorial $\formes[1]{M}$ tiene estructura de $C^{\infty}(M)$-m\'{o}dulo.
+
+\begin{obsDiferencialDerivacion}\label{obs:diferencialderivacion}
+	Dada una variedad $M$ y funciones suaves $f,g$, la aplicaci\'{o}n
+	$f\mapsto\derext{f}\in\formes[1]{M}$ dada por tomar diferencial
+	es lineal:
+	\begin{align*}
+		\derext{(af+bg)} & \,=\,a\derext{f}+b\derext{g}
+	\end{align*}
+	%
+	y se comporta, tambi\'{e}n, como una derivaci\'{o}n:
+	\begin{align*}
+		\derext{(fg)} & \,=\,f\derext{g} + g\derext{f}
+		\text{ .}
+	\end{align*}
+	%
+\end{obsDiferencialDerivacion}
+
+\begin{obsUnoFormasYCampos}\label{obs:unoformasycampos}
+	Sea $M$ una variedad diferencial y sea
+	$\omega:\,M\rightarrow\tangente*{M}$ una $1$-forma. Como se
+	mencion\'{o} anteriormente, dado un campo tangente
+	$X:\,M\rightarrow\tangente{M}$, se obtiene una funci\'{o}n
+	$\omega X:\,M\rightarrow\bb{R}$ dada por $p\mapsto\omega_{p}X_{p}$.
+	Adem\'{a}s, si $X\in\champs{M}$ y $\omega\in\formes[1]{M}$ son
+	suaves, entonces $\omega X\in C^{\infty}(M)$. Por otro lado,
+	$C^{\infty}(M)$ es una $\bb{R}$-\'{a}lgebra y $\champs{M}$
+	y $\formes[1]{M}$ son $C^{\infty}(M)$-m\'{o}dulos. Cada $1$-forma
+	suave $\omega$ define una aplicaci\'{o}n
+	\begin{align*}
+		\omega & \,:\,\champs{M}\,\rightarrow\,C^{\infty}(M)
+		\text{ .}
+	\end{align*}
+	%
+	Si $f\in C^{\infty}(M)$ es una funci\'{o}n suave,
+	\begin{align*}
+		\omega\big( fX\big) & \,:\,p\,\mapsto\,
+			\omega_{p}\big(f(p)X_{p}\big) \,=\,
+			f(p)\omega_{p}X_{p}
+		\text{ .}
+	\end{align*}
+	%
+	En definitiva, $\omega\big(fX\big)=f\omega X$, es decir, $\omega$
+	respeta la estrctura de $C^{\infty}(M)$-m\'{o}dulos.
+
+	Rec\'{\i}procamente, si $T:\,\champs{M}\rightarrow C^{\infty}(M)$
+	es morfismo de $C^{\infty}(M)$-m\'{o}dulos, entonces se puede
+	definir una $1$-forma que da lugar a morfismo $T$. En primer lugar,
+	la aplicaci\'{o}n $p\mapsto (TX)(p)$, es decir, la
+	funci\'{o}n suave $TX:\,M\rightarrow\bb{R}$ depende de $X$
+	\'{u}nicamente en su valor en cada punto. Dicho de otra manera,
+	entodo punto $p\in M$, el valor $TX(p)$ depende \'{u}nicamente del
+	vector tangente $X_{p}$ y no del campo $X$. Si $Y\in\champs{M}$ es
+	otro campo tal que $Y_{p}=X_{p}$ entonces $TY(p)=TX(p)$. Para
+	demostrar esta afirmaci\'{o}n es suficiente demostrarlo que,
+	si $X_{p}=0$, entonces $TX(p)=0$, pues $TX-TY=T(X-Y)$ para todo
+	par de campos suaves $X$ e $Y$, dado que $T$ es, en particular,
+	$\bb{R}$-lineal. En segundo lugar, una $1$-forma es, puntualmente,
+	un covector y un covector en un punto $p$ es una funcional lineal
+	en el espacio tangente a $M$ en $p$. As\'{\i}, dado que $TX$ depende
+	\emph{puntualmente} de $X$, es posible definir una $1$-forma
+	por $\omega_{p}v=TX(p)$, donde $X$ es cualquier extensi\'{o}n
+	suave a $M$ del vector tangente $v\in\tangente[p]{M}$.
+
+	En cuanto a la primera afirmaci\'{o}n, sea $p\in M$ un punto
+	de la variedad y sea $X\in\champs{M}$ un campo suave tal que $X_{p}$
+	es el vector cero. Si, en coordenadas, $X = X^{i}\gancho{x^{i}}$,
+	cerca de $p$, en $p$ vale que $X_{p}=0$ y que, por independencia,
+	$X^{i}(p)=0$. Sea $U$ el entorno coordenado de $p$ en donde las
+	funciones $X^{i}$ y los campos $\gancho{x^{i}}$ est\'{a}n definidos.
+	Sea $\psi:\,M\rightarrow\bb{R}$ una funci\'{o}n chich\'{o}n en $p$
+	con soporte contenido en $U$. Para demostrar que $TX(p)=0$, ser\'{a}
+	necesario poder realizar una c\'{a}lculo puntual en $p$. Para
+	ello se extender\'{a}n los campos coordenados y las funciones
+	componentes de $X$. Para cada \'{\i}ndice $i$, sea $\tilde{X}^{i}$
+	la funci\'{o}n que toma el valor $\psi\cdot X^{i}$ en $U$ y el valor
+	$0$ fuera del soporte de $\psi$. Sean, tambi\'{e}n $Y_{i}$ los campos
+	dados por $\psi\cdot\gancho{x^{i}}$ en $U$ y por $0$ fuera del
+	soporte de $\psi$. Entonces, en toda $M$,
+	\begin{align*}
+		X & \,=\, \tilde{X}^{i}Y_{i} + (1-(\psi)^{2})X
+		\text{ .}
+	\end{align*}
+	%
+	Aplicando $T$,
+	\begin{align*}
+		TX & \,=\, \tilde{X}^{i}TY_{i} + (1-(\psi)^{2})TX
+		\text{ .}
+	\end{align*}
+	%
+	En el punto $p$, la funci\'{o}n $\psi$ vale $\psi(p)=1$, por lo que
+	\begin{align*}
+		TX(p) & \,=\,\tilde{X}^{i}(p)TY_{i}(p) +
+			(1-\psi(p)^{2})TX(p) \,=\,
+			X^{i}(p)TY_{i}(p)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, asumiendo que $X_{p}=0$, las funciones componentes
+	$X^{i}$ toman el valor $0$ en $p$ y $TX(p)=0$.
+
+	Definir una $1$-forma a partir del morfismo $T$, implica dar, para
+	cada $p\in M$, una funcional $\omega_{p}\in\tangente*[p]{M}$.
+	Sea $p\in M$ y sea $v_{p}\in\tangente[p]{M}$ un vector tangente
+	en $p$. Sea $X\in\champs{M}$ un campo suave tal que $X_{p}=v_{p}$.
+	Un campo con esta propiedad se puede definir usando una funci\'{o}n
+	chich\'{o}n en $p$. Sea $\omega_{p}(v_{p})=TX(p)$. El valor
+	de $\omega_{p}$ en el vector $v_{p}$ est\'{a} bien definido pues
+	el valor de la funci\'{o}n $TX$ en $p$ no depende del campo $X$
+	particular elegido como extensi\'{o}n de $v_{p}$. Adem\'{a}s,
+	$\omega_{p}:\,\tangente[p]{M}\rightarrow\bb{R}$ es lineal, ya que,
+	si $v_{p},v'_{p}\in\tangente[p]{M}$ y $a\in\bb{R}$, y si
+	$X,X'\in\champs{M}$ son campos suaves tales que $X_{p}=v_{p}$ y
+	$X'_{p}=v'_{p}$, entonces $X+aX'\in\champs{M}$ es un campo suave
+	tal que $(X+aX')|_{p}=v_{p}+av'_{p}$. En particular, vale que
+	\begin{align*}
+		\omega_{p}(v_{p}+av'_{p}) & \,=\,T(X+aX')(p) \,=\,
+			TX(p)+aTX'(p) \,=\,
+			\omega_{p}(v_{p})+a\omega_{p}(v'_{p})
+		\text{ .}
+	\end{align*}
+	%
+	As\'{\i}, se deduce que $\omega:\,M\rightarrow\tangente*{M}$ es una
+	$1$-forma. Por otro lado, dado un campo suave $X\in\champs{M}$,
+	\begin{align*}
+		\omega X (p) & \,=\,\omega_{p}X_{p} \,=\, TX(p)
+		\text{ .}
+	\end{align*}
+	%
+	Esta igualdad muestra dos cosas: en primer lugar, muestra que
+	$\omega X=TX$ para todo campo suave $X$ y, en segundo lugar, que
+	$\omega X=TX\in C^{\infty}(M)$ para todo campo suave
+	$X\in\champs{M}$. Por la proposici\'{o}n
+	\ref{thm:unoformassuavescampos}, la forma $\omega$ es suave.
+\end{obsUnoFormasYCampos}
+
+De la misma manera que el teorema \ref{thm:derivacionesycampos} dice que
+los campos suaves en una variedad $M$ se corresponden con las derivaciones de
+$C^{\infty}(M)$, la observaci\'{o}n anterior muestra que las $1$-formas
+suaves se pueden caracterizar de manera similar.
+
+\begin{teoUnoFormasSuavesComoMorfismos}%
+	\label{thm:unoformassuavescomomorfismos}
+	Sea $M$ una variedad diferencial. Toda $1$-forma suave
+	$\omega\in\formes[1]{M}$ define un morfismo de
+	$C^{\infty}(M)$-m\'{o}dulos
+	\begin{align*}
+		\omega & \,:\,\champs{M}\,\rightarrow\,C^{\infty}(M)
+	\end{align*}
+	%
+	por $\omega:\,X\mapsto (\omega X:\,p\mapsto\omega_{p}X_{p})$.
+	Rec\'{\i}procamente, todo morfismo $T:\,%
+	\champs{M}\rightarrow C^{\infty}(M)$ de $C^{\infty}(M)$-m\'{o}dulos
+	determina una \'{u}nica $1$-forma suave $\omega\in\formes[1]{M}$
+	tal que
+	\begin{align*}
+		\omega X & \,=\, TX
+	\end{align*}
+	%
+	para todo campo suave $X\in\champs{M}$.
+\end{teoUnoFormasSuavesComoMorfismos}
+
+\subsection{El \emph{pullback} de una $1$-forma}
+Sean $M$ y $N$ variedades diferenciales y sea $F:\,M\rightarrow N$ una
+transformaci\'{o}n suave. Sea $\omega:\,N\rightarrow\tangente*{N}$ una
+$1$-forma (no necesariamente continua) en $N$. Puntualmente, dado $p\in M$,
+se defin\'{\i}a el pullback de $\omega_{F(p)}$ por $F$ en $p$ como el
+covector en $\tangente*[p]{M}$ dado por
+\begin{align*}
+	\diferencial*[p]{F}(\omega_{F(p)})(v_{p}) & \,=\,
+		\omega_{F(p)}(\diferencial[p]{F}(v_{p}))
+	\text{ .}
+\end{align*}
+%
+Esta construcci\'{o}n da lugar a una $1$-forma $\pull{F}\omega$ definida
+en $M$ (si $\omega$ est\'{a} definida en un abierto $V\subset N$, entonces
+$\pull{F}\omega$ queda definida en el abierto $F^{-1}(V)\subset M$):
+dado un punto $p\in M$, $(\pull{F}\omega)|_{p}\in\tangente*[p]{M}$ es el
+covector dado por
+\begin{align*}
+	(\pull{F}\omega)|_{p}(v_{p}) & \,=\,
+		\omega_{F(p)}(\diferencial[p]{F}(v_{p})) \,=\,
+	\text{ ,}
+\end{align*}
+%
+es decir,
+\begin{align*}
+	(\pull{F}\omega)|_{p} & \,=\,\diferencial*[p]{F}(\omega_{F(p)})
+	\text{ .}
+\end{align*}
+%
+
+En el caso de un campo, no es posible definir el \emph{pushforward} del mismo,
+salvo casos muy particulares. En cuanto a $1$-formas, no hay inconveniente
+en definir el \emph{pullback} de una $1$-forma por una transformaci\'{o}n
+suave. En definitiva, dada una transformaci\'{o}n suave
+$F:\,M\rightarrow N$, queda definida una transformaci\'{o}n
+$\pull{F}$ que toma una $1$-forma en $N$ y devuelve una $1$-forma en $M$
+(en el sentido opuesto). Esta aplicaci\'{o}n es una transformaci\'{o}n lineal
+ya que, bajando a un punto $p\in M$, se ve que
+\begin{align*}
+	(\pull{F}(a\omega+b\eta))|_{p} & \,=\,
+		\diferencial*[p]{F}((a\omega+b\eta)|_{F(p)}) \,=\,
+		a\diferencial*[p]{F}(\omega_{F(p)}) +
+			b\diferencial*[p]{F}(\eta_{F(p)}) \,=\,
+		a(\pull{F}\omega)|_{p} +b(\pull{F}\eta)|_{p}
+	\text{ .}
+\end{align*}
+%
+En definitiva,
+\begin{align*}
+	\pull{F}(a\omega+b\eta)=a\pull{F}\omega+b\pull{F}\eta
+\end{align*}
+%
+para todo par de $1$-formas $\omega$ y $\eta$ y n\'{u}meros reales
+$a$ y $b$.
+
+\begin{lemaElPullbackEnUnoFormas}\label{thm:elpullbackenunoformas}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave.
+	Sea $u:\,N\rightarrow\bb{R}$ una funci\'{o}n y sea
+	$\omega:\,N\rightarrow\tangente*{N}$ una $1$-forma en $N$.
+	Entonces
+	\begin{align*}
+		\pull{F}(u\omega) & \,=\,(u\circ F)\,\pull{F}\omega
+		\text{ .}
+	\end{align*}
+	%
+	Si $u\in C^{\infty}(N)$, entonces
+	\begin{align*}
+		\pull{F}\derext{u} & \,=\,\derext{(u\circ F)}
+		\text{ .}
+	\end{align*}
+	%
+\end{lemaElPullbackEnUnoFormas}
+
+\begin{proof}
+	En las hip\'{o}tesis del enunciado del lema, puntualmente,
+	\begin{align*}
+		\big(\pull{F}(u\omega)\big)|_{p} & \,=\,
+			u(F(p))\diferencial*[p]{F}(\omega_{F(p)}) \,=\,
+			\big((u\circ F)\,\pull{F}\omega\big)|_{p}
+		\text{ .}
+	\end{align*}
+	%
+	Asumiendo que $u$ es suave, su diferencial est\'{a} bien definido y,
+	dado $v\in\tangente[p]{M}$, vale que
+	\begin{align*}
+		(\pull{F}\derext{u})|_{p} & \,=\,
+			\derext[F(p)]{u}\big(\diferencial[p]{F}(v)\big) \,=\
+			\diferencial[p]{F}(v)u \\
+		& \,=\,v(u\circ F) \,=\,\derext[p]{(u\circ F)}(v)
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{propoElPullbackDeUnaSuave}\label{thm:elpullbackdeunasuave}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave y
+	sea $\omega:\,N\rightarrow\tangente*{N}$ una $1$-forma.
+	Entonces, si $\omega$ es continua, $\pull{F}\omega$ es una
+	$1$-forma continua en $M$. Si $\omega$ es suave, entonces
+	$\pull{F}\omega$ es una $1$-forma suave en $M$.
+\end{propoElPullbackDeUnaSuave}
+
+\begin{proof}
+	Sea $p\in M$ un punto arbitrario de la variedad. Sea $(V,\psi)$
+	una carta en $F(p)$ compatible con la estructura de $N$ y sea
+	$U=F^{-1}(V)$. Por continuidad de $F$, la preimagen $U$ es abierta
+	en $M$ y contiene al punto $p$. En coordenadas, y usando
+	el lema \ref{thm:elpullbackenunoformas}, se deduce que
+	\begin{align*}
+		\pull{F}\omega & \,=\,\pull{F}\big(\omega_{j}\de{y^{j}}\big)
+			\,=\,(\omega_{j}\circ F)\,\derext{(y^{j}\circ F)}
+			\text{ .}
+	\end{align*}
+	%
+	Ahora bien, $\omega$ es continua, si y s\'{o}lo si las componentes
+	$\omega_{i}$ son continuas. Por otro lado, las funciones
+	$y^{j}\circ F:\,U\rightarrow\bb{R}$ son suaves, por que la carta
+	$(V,\psi)$ es compatible y $F$ es suave. Esto implica que las
+	$1$-formas $\derext{(y^{j}\circ F)}$ (definidas en $U$) son
+	suaves. En coordenadas,
+	\begin{align*}
+		\derext{(y^{j}\circ F)} & \,=\,
+			\derivada{(y^{j}\circ F)}{x^{i}}\de{x^{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Pero las funciones $\derivada{(y^{j}\circ F)}{x^{i}}$ no son otra
+	cosa que las componentes de la matriz jacobiana de $F$ con respecto
+	a estas coordenadas (donde est\'{e}n definidas) y, por lo tanto,
+	son funciones suaves.
+	
+	En definitiva, si $\omega$ es continua, las componentes $\omega_{i}$
+	son continuas y la $1$-forma en $M$ dada por
+	$\pull{F}\omega$ se expresa localmente como combinaci\'{o}n
+	de formas suaves por funciones continuas, con lo que resulta ser
+	continua. Y si $\omega$ es suave, las componentes son suaves y
+	el pullback resulta ser suave, tambi\'{e}n.
+\end{proof}
+
+Sabiendo que $\pull{F}\omega$ es una $1$-forma continua, si $\omega$ lo
+es y que es suave, si $\omega$ lo es, se deduce que el pullback de $F$
+es una transformaci\'{o}n lineal $\pull{F}:\,%
+\formes[1]{N}\rightarrow\formes[1]{M}$. Adem\'{a}s, por
+\ref{thm:elpullbackenunoformas}, respeta en cierto sentido las estructuras
+de m\'{o}dulos sobre $C^{\infty}(M)$ y sobre $C^{\infty}(N)$, asignando, a
+una funci\'{o}n (suave, continua, nada) $g$ definida en $N$, la funci\'{o}n
+(suave, continua, nada, respectivamente) $f=g\circ F$ en $M$
+(el pullback de $g$ por $F$).
+
+\subsection{Integrar sobre segmentos}
+Sea $[a,b]\subset\bb{R}$ un intervalo real compacto ($a$ y $b$ finitos).
+Sea $\omega\in\formes[1]{[a,b]}$ una $1$-forma suave. Definiremos lo que
+significa integrar la $1$-forma $\omega$ en/sobre el intervalo $[a,b]$ --o,
+mejor dicho, mostraremos que la noci\'{o}n intuitiva tiene sentido.
+
+Antes de pasar a integrar sobre el intervalo, aplicamos los resultados
+generales sobre $1$-formas al caso particular de formas sobre esta
+variedad. El intervalo, como variedad con borde se puede cubrir usando
+dos cartas: $(\left[a,b\right),r:\,x\mapsto x-a)$ y
+$(\left(a,b\right],s:\,x\mapsto -(x-b))$. Estas dos cartas son compatibles.
+El cambio de coordenadas en $(a,b)$ est\'{a}, en uno de los dos sentidos,
+dado por
+\begin{align*}
+	& x\,\mapsto\, x+a\,\mapsto\,-(x+a-b)= (b-a) - x
+	\text{ ,}
+\end{align*}
+%
+es decir, por invertir el intervalo $(0,b-a)$. Sea
+$\omega\in\formes[1]{[a,b]}$. En cada una de estas cartas, $\omega$ se puede
+escribir como un m\'{u}ltiplo, por una funci\'{o}n suave, de los
+diferenciales de las funciones coordenadas respectivas:
+\begin{align*}
+	\omega(r+a) & \,=\, f(r)\,\derext{r}\quad\text{, si }a\leq r<b
+	\quad\text{y} \\
+	\omega(b-s) & \,=\,g(s)\,\derext{s}\quad\text{, si }a<s\leq b
+	\text{ .}
+\end{align*}
+%
+El cambio de coordenadas $s\circ r^{-1}(x)=F(x)=(b-a)-x$ es la
+representaci\'{o}n de la funci\'{o}n identidad en $(a,b)$. El pullback
+de $\omega$ por la identidad expresa la relaci\'{o}n entre las dos
+representaciones de $\omega$. Por un lado,
+\begin{align*}
+	\pull{\id[(a,b)]}(g\,\derext{s}) & \,=\,
+		g\circ\id[(a,b)]\cdot\big(\pull{\id[(a,b)]}\derext{s}\big)
+	\text{ .}
+\end{align*}
+%
+Para expresar $\pull{\id[(a,b)]}\derext{s}$ con respecto a la
+$1$-forma $\derext{r}$, recurrimos a la definici\'{o}n:
+\begin{align*}
+	(\pull{\id}\derext{s})|_{x}\gancho[x]{r} & \,=\,
+		\derext[\id(x)]{s}\cdot
+		\diferencial[x]{\id}\Big(\gancho[x]{r}\Big)\\
+	& \,=\,\derext[\id(x)]{s}\Big(v\cdot\gancho[\id(x)]{s}\Big) \,=\,v
+	\text{ ,}
+\end{align*}
+%
+donde
+\begin{align*}
+	v & \,=\,\diferencial[x]{\id}\Big(\gancho[x]{r}\Big)(s) \,=\,
+		\gancho[x]{r}(s\circ\id)\,=\,(s\circ\id\circ r^{-1})'(r(x)) \\
+	& \,=\,F'(r(x)) \,=\,-1
+	\text{ .}
+\end{align*}
+%
+En definitiva,
+\begin{align*}
+	f\,\derext{r} \,=\,\omega & \,=\,g\,\derext{s} \,=\,
+		\pull{\id[(a,b)]} \big(g\,\derext{s}\big) \\
+	& \,=\,	g\circ\id[(a,b)]\cdot\big(\pull{\id[(a,b)]}\derext{s}\big)
+		\,=\,-g\,\derext{r}
+\end{align*}
+%
+de lo que se deduce que $f=-g$ 
+
+Volviendo a la cuesti\'{o}n de la integral, sea $\omega=f\,\derext{r}$ la
+expresi\'{o}n de una $1$-forma suave en el abierto coordenado $[a,b)$.
+El punto $b$ en el borde del intervalo es un \emph{conjunto de medida nula}.
+Si bien esta noci\'{o}n no fue definida, pero es una propiedad deseable.
+Entonces, para integrar $\omega$ en $[a,b]$, deber\'{\i}a, intuitivamente,
+ser suficiente considerar $\omega$ restringida a $[a,b)$, en donde
+la forma se puede representar como una funci\'{o}n por la forma
+can\'{o}nica $\derext{r}$ proveniente de la carta $([a,b),r)$. Se define
+\emph{la integral de $\omega$ en el inervalo $[a,b]$} como
+\begin{align*}
+	\int_{[a,b]}\,\omega & \,=\,\int_{0}^{b-a}\,f\circ r^{-1}(x)\,dx
+	\text{ .}
+\end{align*}
+%
+La integral as\'{\i} definida viene con un \emph{sentido de integraci\'{o}n},
+se integra sobre $[a,b]$ de $a$ hacia $b$. Tal vez de manera un poco m\'{a}s
+precisa \'{e}sta es la integral sobre un \emph{intervalo orientado}.
+La integral $\int_{[a,b]}\,\omega$ est\'{a} dada por la integral de Riemann
+de la representaci\'{o}n en coordenadas $f\circ r^{-1}$ de la funci\'{o}n
+$f$ que representa a la forma $\omega$ en t\'{e}rminos de la forma
+$\derext{r}$. En particular, $f\circ r^{-1}$ est\'{a} definida en
+el intervalo abierto cerrado $[0,b-a)$.
+
+Una \emph{reparametrizaci\'{o}n de $[a,b]$} es un difeomorfismo
+$\varphi:\,[c,d]\rightarrow [a,b]$. Usando la f\'{o}rmula del pullback,
+\begin{align*}
+	\pull{\varphi}\omega & \,=\,\pull{\varphi}\big(f\,\derext{r}\big)
+		\,=\,(f\circ\varphi)\cdot\pull{\varphi}\derext{r}
+	\text{ .}
+\end{align*}
+%
+Si $\varphi(c)=a$, $\varphi(d)=b$ (es decir, $\varphi$ es creciente, es
+una \emph{reparametrizaci\'{o}n}) y en $[c,d)$ la coordenada est\'{a}
+dada por $s:\,[c,d)\rightarrow [0,d-c)$ con $s(x)=x-c$, entonces
+\begin{align*}
+	\pull{(\varphi\circ s^{-1})}\derext{r} & \,=\,
+		(r\circ\varphi\circ s^{-1})'\cdot\derext{x} \,=\,
+		(\varphi(x+c)-a)'(x)\,\derext{x} \\
+	& \,=\,\varphi'(x+c)\,\derext{x} \,=\,\varphi'\circ s^{-1}\,\derext{x}
+	\text{ .}
+\end{align*}
+%
+Expresado de manera m\'{a}s concisa,
+\begin{align*}
+	\pull{\varphi}\derext{r} & \,=\,\varphi'\,\derext{s}
+	\quad\text{y} \\
+	\pull{\varphi}\omega & \,=\,\pull{\varphi}\big(f\,\derext{r}\big) \,=\,
+		(f\circ\varphi)\cdot\varphi'\,\derext{s}
+	\text{ .}
+\end{align*}
+%
+En particular, en $[c,d)$, la integral del pullback es igual a
+\begin{align*}
+	\int_{[c,d]}\,\pull{\varphi}\omega & \,=\,
+		\int_{[c,d]}\,(f\circ\varphi)\cdot\varphi'\,\derext{s} \,=\,
+		\int_{0}^{d-c}\,(f\circ\varphi\circ s^{-1})(x)\,
+			(\varphi'\circ s^{-1})(x)\,dx
+		\text{ .}
+\end{align*}
+%
+Dado que $\frac{\varphi'\circ s^{-1}}{|\varphi'\circ s^{-1}|}=+1$ en
+$[c,d]$, se deduce que
+\begin{align*}
+	\int_{[c,d]}\,\pull{\varphi}\omega & \,=\,
+		\int_{0}^{b-a}\,(f\circ r^{-1})(y)\,dy \,=\,
+		\int_{[a,b]}\,\omega
+	\text{ .}
+\end{align*}
+%
+Si, en cambio, $\varphi(c)=b$ y $\varphi(d)=a$ ($\varphi$ es decreciente),
+entonces
+\begin{align*}
+	\int_{[c,d]}\,\pull{\varphi}\omega & \,=\,
+		\int_{0}^{d-c}\,(f\circ\varphi\circ s^{-1})(x)\,
+			(\varphi'\circ s^{-1})(x)\,dx \\
+	& \,=\,-\int_{0}^{b-a}\,(f\circ r^{-1})(y)\,dy \,=\,
+		-\int_{[a,b]}\,\omega
+	\text{ ,}
+\end{align*}
+%
+pues $\frac{\varphi'\circ s^{-1}}{|\varphi'\circ s^{-1}|}=-1$ en $[c,d]$,
+en ese caso.
+
+Todo esto es para dar sentido a una identificaci\'{o}n entre
+$1$-formas diferenciables en un intervalo compacto $[a,b]\subset\bb{R}$ y
+funciones de manera de que se pueda hablar de la integral de una forma
+en t\'{e}rminos de la noci\'{o}n conocida de integral de una funci\'{o}n.
+Tal vez haya una manera m\'{a}s obvia de hacer esta identificaci\'{o}n o
+alguna manera natural.
+
+Una vez definida la noci\'{o}n de integral sobre un intervalo, integrar en
+variedades es algo m\'{a}s o menos directo.
+
+\begin{obsVariedadSuaveATrozosConexa}\label{obs:variedadsuaveatrozosconexa}
+	En una variedad conexa, todo par de puntos se puede conectar por
+	una curva $C^{1}$ (suave) a trozos.
+\end{obsVariedadSuaveATrozosConexa}
+
+Sea $M$ una varieda diferencial y sea $\gamma:[a,b]\rightarrow M$ una
+curva suave ($C^{1}$), es decir, una transformaci\'{o}n suave entre
+variedades, o bien una funci\'{o}n que se extiende a un entorno del
+intervalo en $\bb{R}$ de manera que se obtenga una transformaci\'{o}n
+suave. Dada $\omega\in\formes[1]{M}$, la \emph{integral de $\omega$ sobre %
+$\gamma$} se define como
+\begin{align*}
+	\int_{\gamma}\,\omega & \,\equiv\,\int_{[a,b]}\,\pull{\gamma}\omega
+	\text{ .}
+\end{align*}
+%
+Si $\gamma$ es suave a trozos, de manera que $\gamma$ sea suave en ciertos
+subintervalos $[a_{i},a_{i+1}]$, entonces se define
+\begin{align*}
+	\int_{\gamma}\,\omega & \,\equiv\,\sum_{i}\,
+		\int_{[a_{i},a_{i+1}]}\,\pull{\gamma_{i}}\omega
+	\text{ ,}
+\end{align*}
+%
+donde $\gamma_{i}=\gamma|_{[a_{i},a_{i+1}]}$.
+
+\begin{obsIntegralEsLinealEnFormas}\label{obs:integraleslinealenformas}
+	Dada $\gamma:\,[a,b]\rightarrow M$ suave a trozos, la integral
+	sobre $\gamma$ define una funci\'{o}n lineal
+	\begin{align*}
+		\int_{\gamma} & \,:\,\formes[1]{M}\,\rightarrow\,\bb{R}
+	\end{align*}
+	%
+	e $\int_{\gamma}=0$, si $\gamma$ es un camino constante.
+\end{obsIntegralEsLinealEnFormas}
+
+\begin{obsIntegralEnCaminoInverso}\label{obs:integralencaminoinverso}
+	La relaci\'{o}n con reparametrizaciones se mantiene en este
+	contexto, tambi\'{e}n: si $\tilde{\gamma}=\gamma\circ\varphi$
+	es una reparametrizaci\'{o}n de $\gamma$, entonces
+	\begin{align*}
+		\int_{\tilde{\gamma}}\,\omega & \,=\,
+			+\int_{\gamma}\,\omega\quad\text{o}\quad
+			-\int_{\gamma}\,\omega
+		\text{ ,}
+	\end{align*}
+	%
+	de acuerdo a si $\tilde{\gamma}$ es una \emph{reparametrizaci\'{o}n %
+	positiva}, es decir, si $\varphi$ es creciente, o si,
+	respectivamente, $\tilde{\gamma}$ es una \emph{reparametrizaci\'{o}n %
+	negativa}, es decir, $\varphi$ es decreciente.
+\end{obsIntegralEnCaminoInverso}
+
+\begin{obsIntegralEsLinealEnCaminos}\label{obs:integraleslinealencaminos}
+	Extendiendo por linealidad, la aplicaci\'{o}n
+	$\gamma\mapsto\int_{\gamma}\,\omega$ dada en curvas suaves a
+	trozos, fijada la forma $\omega\in\formes[1]{M}$, determina una
+	funcional lineal
+	\begin{align*}
+		\omega & \,:\,\cadenas[1]{M}\,\rightarrow\,\bb{R}
+	\end{align*}
+	%
+	en el espacio de \emph{$1$-cadenas suaves}. M\'{a}s all\'{a} de esta
+	extensi\'{o}n formal, integrar una forma respeta subdivisiones del
+	intervalo: si $\gamma:\,[a,b]\rightarrow M$ y
+	$\gamma_{1}=\gamma|_{[a,c]}$ y $\gamma_{2}=\gamma|_{[c,b]}$, entonces
+	\begin{align*}
+		\int_{\gamma}\,\omega & \,=\,\int_{\gamma_{1}}\,\omega
+			+\int_{\gamma_{2}}\,\omega
+		\text{ .}
+	\end{align*}
+	%
+\end{obsIntegralEsLinealEnCaminos}
+
+\begin{propoIntegrarElPullDeUnaCurva}\label{thm:integrarenelpulldeunacurva}
+	Si $F:\,M\rightarrow N$ es suave y $\eta\in\formes[1]{N}$, dada
+	$\gamma:\,[a,b]\rightarrow M$,
+	\begin{align*}
+		\int_{\gamma}\,\pull{F}\eta & \,=\,\int_{F\circ\gamma}\,\eta
+		\text{ .}
+	\end{align*}
+	%
+\end{propoIntegrarElPullDeUnaCurva}
+
+\begin{proof}
+	\begin{align*}
+		\int_{\gamma}\,\pull{F}\eta & \,=\,
+			\int_{[a,b]}\,\pull{\gamma}(\pull{F}\eta) \,=\,
+			\int_{[a,b]}\,\pull{(F\circ\gamma)}\eta \,=\,
+			\int_{F\circ\gamma}\,\eta
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{propoIntegrarConcretamenteSobreUnaCurva}%
+	\label{thm:integrarconcretamentesobreunacurva}
+	Si $\gamma:\,[a,b]\rightarrow M$ es una curva suave a trozos y
+	$\omega\in\formes[1]{M}$,
+	\begin{align*}
+		\int_{\gamma}\,\omega & \,=\,
+			\int_{a}^{b}\,\omega_{\gamma(t)}
+				\big(\dot{\gamma}(t)\big)\,dt
+	\end{align*}
+	%
+\end{propoIntegrarConcretamenteSobreUnaCurva}
+
+\begin{proof}
+	Por definici\'{o}n,
+	\begin{align*}
+		\int_{\gamma}\,\omega & \,=\,\int_{[a,b]}\,\pull{\gamma}\,=\,
+			\int_{0}^{b-a}\,f\circ r^{-1}(x)\,dx
+		\text{ ,}
+	\end{align*}
+	%
+	donde $r:\,[a,b)\rightarrow\bb{R}$ es la funci\'{o}n coordenada
+	$y\mapsto y-a$ y la integral es la integral de Riemann.
+	Componiendo con la traslaci\'{o}n, $x\mapsto x+a$, se obtiene
+	la igualdad
+	\begin{align*}
+		\int_{0}^{b-a}\,f\circ r^{-1}(x)\,dx & \,=\,
+			\int_{a}^{b}\,f(t)\,dt
+		\text{ .}
+	\end{align*}
+	%
+	Esto corresponde a tomar la ``carta de borde''
+	$\id:\,[a,b)\rightarrow[a,b)$, en lugar de
+	$r:\,[a,b)\rightarrow[0,b-a)$ que, si bien es lo correcto por
+	definici\'{o}n, no es muy intuitivo.
+
+	Ahora bien, como no hay, propiamente, una carta global en
+	$[a,b]$ --aunque $\gamma$ se podr\'{\i}a extender a un intervalo
+	abierto, de forma que s\'{\i} la haya-- no es posible argumentar de
+	la siguiente manera:
+	\begin{align*}
+		(\pull{\gamma}\omega)_{t}\gancho[t]{t} & \,=\,
+			\omega_{\gamma(t)}\Big(\diferencial[t]{\gamma}
+				\gancho[t]{t}\Big) \,=\,
+			\omega_{\gamma(t)}\dot{\gamma}(t)
+		\text{ .}
+	\end{align*}
+	%
+	De todas maneras, tomando coordenadas en $M$,
+	\begin{align*}
+		\pull{\gamma}\omega & \,=\,(\omega_{j}\circ\gamma)\cdot
+			\derext{\gamma^{j}} \,=\,\omega_{j}\circ\gamma\cdot
+			(\gamma^{j})'\,\derext{t} \\
+		& \,=\,\omega_{\gamma(t)}\,\dot{\gamma}(t)\,\derext{t}
+		\text{ .}
+	\end{align*}
+	%
+	Por otro lado, porque $[a,b]$ es compacto, se puede subdividir el
+	intervalo de manera que cada subintervalo de la divisi\'{o}n est\'{e}
+	contenido en la preimagen del dominio de una carta. Aplicando el
+	argumento anterior a cada subintervalo y usando la propiedad
+	de que $\omega$ respeta subdivisiones,
+	\begin{align*}
+		\int_{\gamma}\,\omega & \,=\,\sum_{i}\,
+			\int_{\gamma_{i}}\,\omega \,=\,\sum_{i}\,
+			\int_{a_{i}}^{a_{i+1}}\,\omega_{\gamma_{i}(t)}\,
+				\dot{\gamma_{i}}(t)\,dt
+		\text{ .}
+	\end{align*}
+	%
+	Si $\gamma$ es suave a trozos, se aplica el argumento en cada
+	subintervalo en donde $\gamma$ es suave y se suma como antes.
+\end{proof}
+
+\begin{obsIntegrarFormasExactas}\label{obs:integrarformasexactas}
+	Si $\omega$ es el diferencial de una funci\'{o}n suave,
+	$\omega=\derext{f}$, entonces
+	\begin{align*}
+		\int_{\gamma}\,\derext{f} & \,=\,\int_{[a,b]}\,
+			\pull{\gamma}(\derext{f}) \,=\,
+			\int_{a}^{b}\,\dot{\gamma}(t)\,f\,dt \\
+		& \,=\,\int_{a}^{b}\,(f\circ\gamma)'(t)\,dt \,=\,
+			\sum_{i}\,f(\gamma(a_{i+1}))-f(\gamma(a_{i})) \\
+		& \,=\,f(\gamma(b))-f(\gamma(a))
+		\text{ .}
+	\end{align*}
+	%
+\end{obsIntegrarFormasExactas}
+
+\begin{obsDiferencialCeroConstante}\label{obs:diferencialceroconstante}
+	Si $M$ es una variedad conexa y $f\in C^{\infty}(M)$,
+	entonces $\derext{f}=0$ implica que $f$ es constante.
+\end{obsDiferencialCeroConstante}
+
+Una $1$-forma $\omega\in\formes[1]{M}$ se dice \emph{exacta}, si existe
+$f\in C^{\infty}(M)$ tal que $\omega=\derext{f}$. Si $f,g\in C^{\infty}(M)$
+son funciones tales que $\derext{f}=\derext{g}$, entonces $\derext{(f-g)}=0$,
+por linealidad, y $f-g$ es constante en cada componente conexa de la variedad.
+
+\begin{obsIntegrarExactasEnCaminosCerrados}%
+	\label{obs:integrarexactasencaminoscerrados}
+	Dada una funci\'{o}n suave $f\in C^{\infty}(M)$, la integral
+	$\int_{\gamma}\,\derext{f}$ es cero para toda curva suave a trozos
+	$\gamma$ tal que $\gamma(a)=\gamma(b)$. Tales curvas se denominan
+	\emph{cerradas}.
+\end{obsIntegrarExactasEnCaminosCerrados}
+
+Una $1$-forma se dice \emph{conservativa}, si $\int_{\gamma}\,\omega=0$ para
+todo camino suave a trozos cerrado $\gamma$. Un camino cerrado suave a trozos,
+no necesariamente es un ``loop suave'' (una transformaci\'{o}n suave
+$\esfera[1]\rightarrow M$).
+
+\begin{obsConservativaSiiIntegralIndependienteDelCamino}%
+	\label{obs:conservativasiiintegralindependientedelcamino}
+	Una $1$-forma $\omega\in\formes[1]{M}$ es conservativa, si y
+	s\'{o}lo si $\int_{\gamma}\,\omega=\int_{\delta}\,\omega$ para todo
+	par de curvas suaves a trozos tales que empiecen en el mismo
+	punto y terminen en el mismo punto en $M$.
+\end{obsConservativaSiiIntegralIndependienteDelCamino}
+
+\begin{teoUnoFormaConservativaSiiExacta}%
+	\label{thm:unoformaconservativasiiexacta}
+	Sea $M$ una variedad diferencial. Sea $\omega\in\formes[1]{M}$ una
+	$1$-forma suave. Entonces $\omega$ es conservativa, si y s\'{o}lo
+	si es exacta.
+\end{teoUnoFormaConservativaSiiExacta}
+

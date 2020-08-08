@@ -1,0 +1,330 @@
+\theoremstyle{plain}
+
+\theoremstyle{remark}
+
+%-------------
+
+\subsection{El espacio cotangente}
+Sea $M$ una variedad diferencial. Dado $p\in M$, el
+\emph{espacio cotangente a $M$ en $p$} se define como el espacio vectorial
+dual del espacio tangente a $M$ en $p$. Denotamos este espacio por
+$\tangente*[p]{M}$. Es decir, el espacio cotangente a $M$ en $p$ est\'{a}
+dado por
+\begin{align*}
+	\tangente*[p]{M} & \,=\,\dual{\big(\tangente[p]{M}\big)}
+	\text{ .}
+\end{align*}
+%
+Los elementos del espacio cotangente a una variedad en un punto $p$
+se denominar\'{a}n \emph{covectores tangentes (o vectores cotangentes) en %
+$p$}
+Sea $(U,\varphi)$ una carta en $p$ compatible con la estructura de $M$.
+La base $\Big\{\gancho[p]{x^{i}}\Big\}_{i}$ del espacio tangente en $p$
+determina una base $\{\lambda^{i}|_{p}\}_{i}$ del espacio cotangente,
+la base dual. Dado un vector cotangente $\omega\in\tangente*[p]{M}$,
+este vector se puede escribir de manera \'{u}nica como combinaci\'{o}n
+lineal de los elementos de la base $\lambda^{i}|_{p}$,
+\begin{align*}
+	\omega & \,=\,\omega_{i}\lambda^{i}|_{p}
+	\text{ ,}
+\end{align*}
+%
+donde
+\begin{align*}
+	\omega_{i} & \,=\, \omega\Big(\gancho[p]{x^{i}}\Big)
+	\text{ .}
+\end{align*}
+%
+
+Dada otra carta $(\tilde{U},\tilde{\varphi})$ en $p$, vale que
+$\omega=\tilde{\omega}_{i}\tilde{\lambda}^{i}|_{p}$, de manera
+an\'{a}loga, respecto de la base dual asociada a la base
+$\Big\{\gancho[p]{\tilde{x}^{i}}\Big\}_{i}$ del tangente, correspondiente
+a la nueva carta. Para hacer expl\'{\i}cita la relaci\'{o}n entre las
+dos escrituras, es suficiente escribir los vectores $\gancho[p]{x^{i}}$
+en t\'{e}rminos de los vectores $\gancho[p]{\tilde{x}^{i}}$. Se sabe que
+\begin{align*}
+	\gancho[p]{x^{i}} & \,=\,\derivada{\tilde{x}^{j}}{x^{i}}(p)
+		\gancho[p]{\tilde{x}^{j}}
+	\text{ .}
+\end{align*}
+%
+Entonces se deduce que
+\begin{align*}
+	\omega_{i} & \,=\,\omega\Big(\gancho[p]{x^{i}}\Big)
+		\,=\,\derivada{\tilde{x}^{j}}{x^{i}}(p)\,
+			\omega\Big(\gancho[p]{\tilde{x}^{j}}\Big)
+		\,=\,\derivada{\tilde{x}^{j}}{x^{i}}(p)\,\tilde{\omega}_{j}
+	\text{ .}
+\end{align*}
+%
+
+\subsection{La transpuesta del diferencial}
+Sean $M$ y $N$ variedades diferenciales y sea $F:\,M\rightarrow N$ una
+transformaci\'{o}n suave. Dado $p\in M$, el diferencial de la
+transformaci\'{o}n $F$, la transformaci\'{o}n lineal
+$\diferencial[p]{F}:\,\tangente[p]{M}\rightarrow\tangente[F(p)]{N}$, est\'{a}
+definida en derivaciones por
+\begin{align*}
+	\diferencial[p]{F}(v)g & \,=\,v(g\circ F)
+\end{align*}
+%
+para toda funci\'{o}n suave $g$ definida en un entorno de $F(p)$ y todo
+vector tangente $v\in\tangente[p]{M}$. La transpuesta de esta
+transformaci\'{o}n lineal es la transformaci\'{o}n lineal
+$\diferencial*[p]{F}:\,\tangente*[F(p)]{N}\rightarrow\tangente*[p]{M}$
+dada por
+\begin{align*}
+	\diferencial*[p]{F}(\omega)(v) & \,=\,
+		\omega\big(\diferencial[p]{F}(v)\big)
+	\text{ .}
+\end{align*}
+%
+Usando la notaci\'{o}n de los corchetes esta igualdad se expresa como
+\begin{align*}
+	\langle v|\diferencial*[p]{F}(\omega)\rangle & \,=\,
+		\langle \diferencial[p]{F}(v)|\omega\rangle
+	\text{ .}
+\end{align*}
+%
+Esta transformaci\'{o}n transformaci\'{o}n lineal asociada al diferencial
+de una transformaci\'{o}n suave $F$ por transposici\'{o}n se denomina
+\emph{pullback de $F$ en $p$}.
+
+\subsection{El diferencial de una funci\'{o}n suave}
+Sea $M$ una variedad, sea $p\in M$ un punto arbitrario y sea
+$v\in\tangente[p]{M}$ un vector tangente a $M$ en $p$. En tanto derivaci\'{o}n,
+dada una funci\'{o}n suave $f:\,M\rightarrow\bb{R}$ definida cerca de $p$,
+el vector tangente $v$ act\'{u}a en $f$, tomando un determinado valor
+$vf\in\bb{R}$. Si, en cambio, se fija una funci\'{o}n suave $f$ definida
+en $p$ y se deja variar $v$ entre los vectores tangentes en $p$, se
+obtiene una aplicaci\'{o}n $\derext[p]{f}:\,%
+\tangente[p]{M}\rightarrow\bb{R}$ dada por
+\begin{align*}
+	\derext[p]{f}(v) & \,=\,v(f)
+	\text{ .}
+\end{align*}
+%
+De la definici\'{o}n del espacio de derivaciones, se deduce que
+$\derext[p]{f}$ es una funcional lineal en $\tangente[p]{M}$. Esta
+funcional se denomina \emph{diferencial de $f$ en $p$}. En tanto
+transformaci\'{o}n suave, de la variedad $M$ en la variedad $\bb{R}$,
+el diferencial de $f$ en $p$ hab\'{\i}a sido definido como la
+transformaci\'{o}n lineal $\diferencial[p]{f}:\,%
+\tangente[p]{M}\rightarrow\tangente[f(p)]{\bb{R}}$ que, a un vector
+tangente $v\in\tangente[p]{M}$ le asocia la derivaci\'{o}n que, en
+una funci\'{o}n suave $g$ definida en $\bb{R}$, toma el valor
+\begin{align*}
+	\diferencial[p]{f}(v)g & \,=\,v(g\circ f)
+	\text{ .}
+\end{align*}
+%
+Por el momento, para distinguir estas dos nociones, denominaremos
+\emph{derivada de $f$ en $p$} al diferencial $\derext[p]{f}$ de $f$ en $p$.
+
+El diferencial $\diferencial[p]{f}$ de una funci\'{o}n suave $f$ vista
+como transformaci\'{o}n suave en $M$ se puede interpretar como una
+funcional. En primer lugar, dado un punto $x\in\bb{R}$, en tanto variedad
+diferencial, se puede identificar can\'{o}nicamente el espacio tangente
+$\tangente[x]{\bb{R}}$ con el espacio vectorial $\bb{R}$, asociando a
+un elemento $y\in\bb{R}$ la derivaci\'{o}n en $x$ dada por
+\begin{align*}
+	y\,f & \,=\,\lim_{t\to 0}\,\frac{f(x+ty)-f(x)}{t}
+	\text{ ,}
+\end{align*}
+%
+es decir, tomar derivada direccional en la direcci\'{o}n de $y$. En
+coordenadas, tomando la carta global $(\bb{R},\id[\bb{R}])$, esta
+identificaci\'{o}n est\'{a} dada por $\upsilon =y\gancho[x]{t}%
+\leftrightarrow y$. Es decir, el elemento del espacio vectorial $\bb{R}$
+determinado por la derivaci\'{o}n $\upsilon\in\tangente[x]{\bb{R}}$ est\'{a}
+dado por evaluar la derivaci\'{o}n en la funci\'{o}n $\id[\bb{R}]$:
+\begin{align*}
+	\upsilon\,\id[\bb{R}] & \,=\,y
+	\text{ .}
+\end{align*}
+%
+Si ahora $v\in\tangente[p]{M}$ es un vector tangente a la variedad $M$ en el
+punto $p$, entonces la derivaci\'{o}n $\diferencial[p]{f}(v)\in%
+\tangente[f(p)]{\bb{R}}$ se corresponde con el elemento
+\begin{align*}
+	\diferencial[p]{f}(v)(\id[\bb{R}]) & \,=\,v(\id[\bb{R}]\circ f)
+		\,=\,v(f)
+	\text{ .}
+\end{align*}
+%
+Es decir, identificando el espacio tangente $\tangente[f(p)]{\bb{R}}$
+con el mismo espacio $\bb{R}$, la derivaci\'{o}n $\diferencial[p]{f}(v)$
+se corresponde con
+\begin{align*}
+	\diferencial[p]{f}(v)(\id[\bb{R}]) & \,=\,\derext[p]{f}(v)
+	\text{ .}
+\end{align*}
+%
+De esta manera, se puede interpretar que el diferencial $\diferencial[p]{f}$
+en tanto transformaci\'{o}n suave de $f$ en $p$ se corresponde con la
+funcional lineal dada por la derivada de $f$ en $p$, el diferencial en tanto
+funci\'{o}n $\derext[p]{f}$. Haciendo esta identificaci\'{o}n, nos referiremos
+indistintamente usando el nombre ``diferencial de $f$ en $p$'' a
+cualquiera de estos dos objetos.
+
+Por otro lado, el diferencial de $f$ como funci\'{o}n (la derivada de $f$)
+se puede relacionar con la adjunta del diferencial de $f$ en tanto
+transformaci\'{o}n: si $\gancho[x]{t}$ es el \'{u}nico elemento de la
+base de $\tangente[x]{\bb{R}}$ dado por la carta global usual, entonces,
+tomando la base dual, se obtiene un covector $\omega|_{x}%
+\in\tangente*[x]{\bb{R}}$. Si $x=f(p)$, tomando el pullback de $\omega$ por
+$f$ en $p$, se obtiene un vector cotangente
+$\diferencial*[p]{f}(\omega|_{f(p)})\in\tangente*[p]{M}$. Este covector
+est\'{a} determinado por su valor en los vectores del espacio tangente
+a $M$ en $p$. Si $v\in\tangente[p]{M}$, entonces
+\begin{align*}
+	\diferencial*[p]{f}(\omega|_{f(p)})(v) & \,=\,
+		\omega|_{f(p)}\big(\diferencial[p]{f}(v)\big)
+	\text{ .}
+\end{align*}
+%
+Dado que
+\begin{align*}
+	\diferencial[p]{f}(v) & \,=\,y\gancho[f(p)]{t}
+	\text{ ,}
+\end{align*}
+%
+donde
+\begin{align*}
+	y & \,=\,\diferencial[p]{f}(v)\,(\id[\bb{R}]) \,=\,
+		v(\id[\bb{R}]\circ f) \,=\, v(f)
+	\text{ ,}
+\end{align*}
+%
+se deduce que
+\begin{align*}
+	\omega|_{f(p)}\big(\diferencial[p]{f}(v)\big)
+	& \,=\,v(f) \,=\,\derext[p]{f}(v)
+\end{align*}
+%
+y, por lo tanto, que
+\begin{align*}
+	\diferencial*[p]{f}(\omega|_{f(p)})(v) & \,=\,
+		\derext[p]{f}(v)
+\end{align*}
+%
+para toda derivaci\'{o}n $v\in\tangente[p]{M}$. Es decir, en definitiva,
+el pullback por $f$ del covector de la base $\omega|_{f(p)}$ es igual a
+\begin{align*}
+	\diferencial*[p]{f}(\omega|_{f(p)}) & \,=\,
+		\derext[p]{f}
+	\text{ .}
+\end{align*}
+%
+
+\subsection{Bases coordenadas del espacio cotangente}
+Sea $M$ una variedad diferencial, sea $(U,\varphi)$ una carta compatible
+con la estructura de $M$ y sea $p\in U$. Sea
+$\Big\{\gancho[p]{x^{i}}\Big\}_{i}$ la base del espacio tangente
+$\tangente[p]{M}$ asociada a las funciones coordenadas $\varphi=(x^{i})$ y
+sea $\{\lambda^{i}|_{p}\}_{i}$ la base dual en el espacio cotangente
+$\tangente*[p]{M}$. Hemos visto que es posible asociarle a toda funci\'{o}n
+suave $f$ en la variedad $M$ definida cerca de $p$ una funcional
+$\derext[p]{f}:\,\tangente[p]{M}\rightarrow\bb{R}$, un elemento del
+espacio cotangente a $M$ en $p$, v\'{\i}a
+\begin{align*}
+	\derext[p]{f}(v) & \,=\,v(f)
+\end{align*}
+%
+para todo vector tangente $v\in\tangente[p]{M}$. Con respecto a la base
+$\Big\{\gancho[p]{x^{i}}\Big\}_{i}$ del espacio tangente en $p$,
+\begin{align*}
+	\derext[p]{f}(v) & \,=\,v^{i}\,\gancho[p]{x^{i}}f \,=\,
+		v^{i}\derivada{f}{x^{i}}(p)
+	\text{ ,}
+\end{align*}
+%
+con lo cual, en la base $\{\lambda^{i}|_{p}\}_{i}$ del espacio cotangente
+en $p$,
+\begin{align*}
+	\derext[p]{f} & \,=\,\derivada{f}{x^{i}}(p)\lambda^{i}|_{p}
+	\text{ .}
+\end{align*}
+%
+Vale la pena mencionar que en funci\'{o}n del punto $p$ las componentes
+de $\derext[p]{f}$ en esta base, es decir, sus derivadas respecto de
+las derivaciones $\gancho[p]{x^{i}}$, son funciones suaves.
+
+En el caso particular en que $f=x^{i}$ es igual a alguna de las funciones
+coordenadas asociadas a la carta $(U,\varphi)$, dado que
+$x^{i}:\,U\rightarrow\bb{R}$ es una funci\'{o}n suave para cada \'{\i}ndice
+$i$, es posible determinar el diferencial $\derext[p]{x^{i}}$ en $p$.
+Esta funcional est\'{a} dada, en coordenadas, por
+\begin{align*}
+	\derext[p]{x^{i}} & \,=\, \derivada{x^{i}}{x^{j}}(p)\,\lambda^{j}|_{p}
+		\,=\,\lambda^{i}|_{p}
+	\text{ .}
+\end{align*}
+%
+Es decir, los diferenciales $\{\derext[p]{x^{1}},\,\dots,\,\derext[p]{x^{n}}\}$
+de las funciones coordenadas en $p$ son precisamente los elementos de
+la base dual asociada a la base del espacio tangente en $p$ formada
+por las derivaciones $\gancho[p]{x^{i}}$. Podemos reescribir, entonces,
+dada una funci\'{o}n suave $f$ definida cerca de $p$, la expresi\'{o}n
+de su diferencial en coordenadas:
+\begin{align*}
+	\derext[p]{f} & \,=\,\derivada{f}{x^{i}}(p)\,\derext[p]{x^{i}}
+	\text{ .}
+\end{align*}
+%
+En ocasiones, escribiremos $\de[p]{x^{i}}$ en lugar de $\derext[p]{x^{i}}$,
+para distinguirlos en tanto elementos de la base asociada a una carta
+coordenada, pero ambas expresiones har\'{a}n referencia al mismo objeto.
+
+Para terminar esta secci\'{o}n, introducimos un objeto an\'{a}logo
+al fibrado tangente de una variedad, pero que re\'{u}ne coherentemente los
+espacios cotangentes. Sea $M$ una variedad diferencial y sea
+\begin{align*}
+	\tangente*{M} & \,=\,\bigsqcup_{p\in M}\,\tangente*[p]{M}
+\end{align*}
+%
+la uni\'{o}n disjunta de los espacios cotangentes a $M$ en cada punto $p$.
+Sea $\pi:\,\tangente*{M}\rightarrow M$ la proyecci\'{o}n can\'{o}nica
+$\pi(p,\omega)=p$. Para dar una estructura de variedad diferencial a
+esta uni\'{o}n, partimos, como en el caso del fibrado tangente, de una
+carta compatible $(U,\varphi)$ en $M$. Sean
+\begin{align*}
+	\widetilde{U} & \,=\, \left\lbrace (p,\omega_{p})\in\tangente*{M}
+		\,:\,p\in U,\,\omega_{p}\in\tangente*[p]{M}
+		\right\rbrace
+	\quad\text{y} \\
+	\widetilde{\varphi}\big(p,\omega_{i}\de[p]{x^{i}}\big) & \,=\,\big(
+		x^{1}(p),\,\dots,\,x^{n}(p),\,\omega_{1},\,\dots,\,\omega_{n}
+		\big)
+	\text{ ,}
+\end{align*}
+%
+siempre que $p\in U$. Si $(V,\psi)$ y $\psi=(y^{i})$ es otra carta
+compatible que se solapa con $(U,\varphi)$, entonces
+\begin{align*}
+	\widetilde{\varphi}\circ\widetilde{\psi}^{-1}(
+		\lista*{y}{n},\,\lista{\omega}{n}) & \,=\,
+		\widetilde{\varphi}\big(\psi^{-1}(y),
+		\omega_{i}\de[\psi^{-1}(y)]{y^{i}}\big) \\
+	& \,=\, \Big(x^{1}(y),\,\dots,\,x^{n}(y),\,
+		\derivada{y^{j}}{x^{1}}(y)\,\omega_{j},\,\dots,\,
+		\derivada{y^{j}}{x^{n}}(y)\,\omega_{j}\Big)
+	\text{ .}
+\end{align*}
+%
+Dado que las cartas $(U,\varphi)$ y $(V,\psi)$ son suavemente compatibles,
+la composici\'{o}n 
+\begin{align*}
+	\widetilde{\varphi}\circ\widetilde{\psi}^{-1} & \,:\,
+		\psi(U\cap V)\times\bb{R}^{2n}\,\rightarrow\,
+		\varphi(U\cap V)\times\bb{R}^{2n}
+\end{align*}
+%
+es suave en el sentido usual. Los pares $(\widetilde{U},\widetilde{\varphi})$
+definidos a partir de cartas compatibles $(U,\varphi)$ para $M$ dan lugar a
+un atlas suavemente compatible en $\tangente*{M}$ y determinan una
+estructura diferencial en la uni\'{o}n disjunta de los espacios cotangentes.
+La variedad diferencial determinada a partir de $\tangente*{M}$ de esta
+manera se denomina \emph{fibrado cotangente en/a/de $M$}.
+

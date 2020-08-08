@@ -1,0 +1,803 @@
+\theoremstyle{plain}
+\newtheorem{teoRestringirElDominio}{Teorema}[section]
+\newtheorem{teoCorrestringirElCodominio}[teoRestringirElDominio]{Teorema}
+\newtheorem{teoUnicidadDeLaEstructuraRegular}[teoRestringirElDominio]{Teorema}
+\newtheorem{teoUnicidadDeLaEstructuraInmersa}[teoRestringirElDominio]{Teorema}
+\newtheorem{teoUnicidadDebilmenteRegular}[teoRestringirElDominio]{Teorema}
+\newtheorem{lemaDeExtensiones}[teoRestringirElDominio]{Lema}
+\newtheorem{propoDeNoExtensiones}[teoRestringirElDominio]{Proposici\'{o}n}
+\newtheorem{propoTangenteSubvarCoordenadas}[teoRestringirElDominio]%
+	{Proposici\'{o}n}
+\newtheorem{propoTangenteSubvarRegularI}[teoRestringirElDominio]%
+	{Proposici\'{o}n}
+\newtheorem{propoTangenteSubvarRegularII}[teoRestringirElDominio]%
+	{Proposici\'{o}n}
+\newtheorem{propoTangenteBordeCurvas}[teoRestringirElDominio]{Proposici\'{o}n}
+\newtheorem{propoBordeDeNivel}[teoRestringirElDominio]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsUnicidadDeLaEstructuraRegular}{Observaci\'{o}n}[section]
+\newtheorem{obsTangenteValorRegular}[obsUnicidadDeLaEstructuraRegular]%
+	{Observaci\'{o}n}
+\newtheorem{obsTangenteConjuntoDeNivel}[obsUnicidadDeLaEstructuraRegular]%
+	{Observaci\'{o}n}
+\newtheorem{obsBordeDeNivel}[obsUnicidadDeLaEstructuraRegular]%
+	{Observaci\'{o}n}
+\newtheorem{obsDiferencialComoFuncional}[obsUnicidadDeLaEstructuraRegular]%
+	{Observaci\'{o}n}
+
+%-------------
+
+\subsection{Restricci\'{o}n y correstricci\'{o}n de transformaciones}
+Ha surgido, en algunas ocasiones, la necesidad de restringir o de
+correstringir una transformaci\'{o}n suave. Empecemos, pues, esta secci\'{o}n
+estudiando el comportamiento de una transformaci\'{o}n suave al restringir
+su dominio o su codominio. En particular, veamos algunos casos en los que
+la suavidad de la transformaci\'{o}n se preserva.
+
+\begin{teoRestringirElDominio}[restricci\'{o}n de dominio]%
+	\label{thm:restringireldominio}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave. Sea $S\subset M$
+	una subvariedad (inmersa o regular). Entonces $F|_{S}:\,S\rightarrow N$
+	es suave.
+\end{teoRestringirElDominio}
+
+\begin{proof}
+	La restricci\'{o}n de $F$ a la subvariedad $S$ es una composici\'{o}n
+	de funciones suaves: $F|_{S}=F\circ\inc[S]$.
+\end{proof}
+
+\begin{teoCorrestringirElCodominio}[correstricci\'{o}n del codominio]%
+	\label{thm:correstringirelcodominio}
+	Sea $M$ una variedad diferencial \emph{sin} borde y sea
+	$F:\,N\rightarrow M$ una transformaci\'{o}n suave. Sea $S\subset M$
+	una subvariedad (inmersa o regular) tal que $F(N)\subset S$.
+	Si $F|^{S}:\,N\rightarrow S$ es continua, entonces es suave.
+\end{teoCorrestringirElCodominio}
+
+\begin{proof}
+	Sean $p\in N$ y $q=F(p)\in S$. Sea $V\subset S$ un abierto tal que
+	$q\in V$ y tal que $\inc[V]:\,V\rightarrow M$ sea embedding. Como
+	$V\subset M$ es una subvariedad regular, existe una carta preferencial
+	$(W,\psi)$ para $V$ en $M$ en $q$. A partir de esta carta preferencial,
+	definimos una carta para $V$: sea $V_{0}=V\cap W$ y sea
+	$\psi_{0}=\pi\circ\psi|_{V}=\pi\circ\psi\circ\inc[V]$, donde
+	$\pi:\,\bb{R}^{n}\rightarrow\bb{R}^{k}$ es la proyecci\'{o}n en
+	las primeras $k$ coordenadas. El par $(V_{0},\psi_{0})$ es una
+	carta para $V$ en $q$. Como $\inc[V]$ es continua,
+	$V_{0}=\inc[V]^{-1}(W)$ es abierta en $V$. Como $V$ es abierto en $S$,
+	$V_{0}$ es abierto en $S$. Asumiendo que la correstricci\'{o}n
+	$F|:\,N\rightarrow S$ es continua, la preimagen $U=F^{-1}(V_{0})$ es
+	abierta en $N$. Adem\'{a}s, $p\in U$. Sea $(U_{0},\varphi)$ una
+	carta para $N$ en $p$ con $U_{0}\subset U$. Entonces
+	$\psi_{0}\circ F|\circ\varphi^{-1}:%
+	\,\varphi(U_{0})\rightarrow\psi_{0}(v_{0})$ es igual a
+	\begin{align*}
+		\psi_{0}\circ F|\circ\varphi^{-1} & \,=\,
+			\pi\circ (\psi\circ F\circ\varphi^{-1})
+		\text{ .}
+	\end{align*}
+	%
+	Como $F:\,N\rightarrow M$ es suave, $\psi\circ F\circ\varphi^{-1}$ es
+	suave y, por lo tanto, $\psi_{0}\circ F|\circ\varphi^{-1}$ es suave.
+	En definitiva, la correstricci\'{o}n $F|:\,N\rightarrow S$ es suave.
+\end{proof}
+
+Una subvariedad inmersa $S\subset M$ se dice \emph{d\'{e}bilmente regular}
+(?), si, para toda transformaci\'{o}n suave $F:\,N\rightarrow M$ tal que
+$F(N)\subset S$, la correstricci\'{o}n $F|^{S}:\,N\rightarrow S$ es suave.
+Vale que
+
+\begin{center}
+\begin{tikzcd}
+	\left\lbrace
+		\begin{array}{c}
+			\text{subvariedades} \\
+			\text{regulares}
+		\end{array}
+	\right\rbrace \arrow[r, phantom,"\supsetneq"] &
+	\left\lbrace
+		\begin{array}{c}
+			\text{subvariedades} \\
+			\text{d\'{e}bilmente regulares}
+		\end{array}
+	\right\rbrace \arrow[r, phantom, "\supsetneq"] &
+	\left\lbrace
+		\begin{array}{c}
+			\text{subvariedades} \\
+			\text{inmersas}
+		\end{array}
+	\right\rbrace
+\end{tikzcd}
+\end{center}
+Por ejemplo, la lemniscata es inmersa pero no d\'{e}bilmente regular y
+la curva irracional en el toro es d\'{e}bilmente regular pero no
+regular.
+
+\begin{teoUnicidadDeLaEstructuraRegular}[unicidad de la estructura en una %
+	subvariedad regular]\label{thm:unicidaddelaestructuraregular}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad
+	regular. La topolog\'{\i}a de subespacio y la estructura diferencial
+	dad son las \'{u}nica con respecto a las cuales $S$ es una
+	subvariedad regular de $M$.
+\end{teoUnicidadDeLaEstructuraRegular}
+
+\begin{proof}
+	Sea $\tilde{S}$ una variedad diferencial obtenida a partir del
+	conjunto $S$ imponiendo una topolog\'{\i}a y una estructura diferencial
+	posiblemente distintas. Sean $\iota=\inc[S]:\,S\rightarrow M$ e
+	$\tilde{\iota}=\inc[\tilde{S}]:\,\tilde{S}\rightarrow M$ las
+	respectivas inclusiones. Supongamos, adem\'{a}s, que $\tilde{\iota}$
+	es una inmersi\'{o}n. Como $\iota$ es un embedding e
+	$\tilde{\iota}(\tilde{S})\subset S$, podemos concluir que la
+	correstricci\'{o}n $\tilde{\iota}|:\,\tilde{S}\rightarrow S$ es
+	suave (porque es continua). Entonces,
+	\begin{align*}
+		\iota\circ(\tilde{\iota}|) & \,=\,\tilde{\iota}
+			\quad\text{y} \\
+		\diferencial[p]{\iota}\cdot\diferencial[p]{(\tilde{\iota}|)}
+			& \,=\,\diferencial[p]{\tilde{\iota}}
+			\,:\,\tangente[p]{\tilde{S}}\rightarrow
+				\tangente[p]{S}\rightarrow\tangente[p]{M}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\diferencial[p]{\tilde{\iota}}$ es, por hip\'{o}tesis, inyectivo,
+	el diferencial $\diferencial[p]{(\tilde{\iota}|)}$ debe serlo,
+	tambi\'{e}n. Pero esto es cierto para todo punto $p\in\tilde{S}$,
+	con lo que $\tilde{\iota}|:\,\tilde{S}\rightarrow S$ es de rango
+	constante. Como, adem\'{a}s, $\tilde{\iota}|$ es biyectiva, el
+	teorema global del rango \ref{thm:} implica que $\tilde{\iota}|$
+	es difeomorfismo. Pero $\tilde{\iota}|=\id[S]$ como funci\'{o}n
+	de conjuntos, con lo cual, concluimos que $\tilde{S}$ tiene
+	exactamente \emph{la misma} topolog\'{\i}a y \emph{la misma}
+	estructura diferencial que $S$.
+\end{proof}
+
+\begin{obsUnicidadDeLaEstructuraRegular}%
+	\label{obs:unicidaddelaestructuraregular}
+	Por el teorema \ref{thm:delasfetas} toda subvariedad regular verifica
+	localmente la propiedad de ser $k$-feta para alg\'{u}n entero
+	$k\leq n$. A su vez, esta \emph{estructura de $k$-feta} en el
+	\emph{subconjunto} $S$ determina una estructura de subvariedad
+	regular de $M$. Podemos concluir, por el teorema anterior, que estas
+	dos estructuras coinciden. Adem\'{a}s, si un subconjunto verifica la
+	propiedad de ser $k$-feta localmente, entonces tiene estructura de
+	subvariedad regular y dicha estructura es \'{u}nica.
+\end{obsUnicidadDeLaEstructuraRegular}
+
+\begin{teoUnicidadDeLaEstructuraInmersa}%
+	\label{thm:unicidaddelaestructurainmersa}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una
+	subvariedad (inmersa). Fijada la topolog\'{\i}a de $S$, existe una
+	\'{u}nica estructura diferencial con respecto a la cual
+	$S\subset M$ es subvariedad.
+\end{teoUnicidadDeLaEstructuraInmersa}
+
+\begin{proof}
+	El \'{u}nico obst\'{a}culo en la demostraci\'{o}n en el caso
+	en que $S$ fuere una subvariedad meramente inmersa es que no queda
+	garantizado que la correstricci\'{o}n
+	$\tilde{\iota}|:\,\tilde{S}\rightarrow S$ sea suave. Pero, si
+	asumimos que las topolog\'{\i}as coinciden, como
+	$\tilde{\iota}|=\id[S]$, concluimos que es continua y, por lo tanto,
+	suave.
+\end{proof}
+
+\begin{teoUnicidadDebilmenteRegular}\label{thm:unicidaddebilmenteregular}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una
+	subvariedad d\'{e}bilmente regular. Entonces la topolog\'{\i}a y la
+	estructura suave en $S$ dadas son las \'{u}nicas respecto de las
+	cuales $S\subset M$ es una subvariedad (inmersa).
+\end{teoUnicidadDebilmenteRegular}
+
+\begin{proof}
+	La demostraci\'{o}n de este resultado es an\'{a}loga a la de
+	\ref{thm:unicidaddelaestructuraregular}, la \'{u}nica diferencia
+	est\'{a} en la justificaci\'{o}n de que la correstricci\'{o}n
+	$\tilde{\iota}|:\,\tilde{S}\rightarrow S$ es suave. En aquel caso,
+	esto se deb\'{\i}a a que $S$ era regular e $\tilde{\iota}|$ era la
+	correstricci\'{o}n a $S$, un subespacio, de una transformaci\'{o}n
+	suave que resulta continua y, en consecuencia, suave. En este caso,
+	esto queda garantizado porque $S$ se supone d\'{e}bilmente regular.
+\end{proof}
+
+\subsection{Extensi\'{o}n de funciones}
+Dada una subvariedad $S\subset M$, hemos dado dos definiciones de lo que
+significa que una funci\'{o}n definida en $S$ sea suave: por un lado,
+podemos decir que una funci\'{o}n $f:\,S\rightarrow\bb{R}$ es suave, si es
+suave respecto de la estructura diferencial en $S$, es decir, si es suave en
+sentido usual tomando coordenadas; por otro lado, podemos decir que $f$ es
+suave, si para cada punto $p\in S$ existe un abierto $U$ de $M$ tal que
+$p\in U$ y una extensi\'{o}n suave $\tilde{f}:\,U\rightarrow\bb{R}$, es decir,
+si $f$ es suave en $S$ como subconjunto de $M$. Usaremos la notaci\'{o}n
+$C^{\infty}(S)$ para referirnos a las funciones suaves en $S$ en tanto
+variedad diferencial. En el caso de subvariedades regulares, las dos
+nociones coinciden. Notemos que, en el caso de las subvariedades que son
+meramente inmersas, tambi\'{e}n es posible hacer coincidir ambas nociones,
+si nos restringimos a un entorno \emph{de la subvariedad} suficientemente
+peque\~{n}o alrededor de cada punto.
+
+\begin{lemaDeExtensiones}\label{thm:deextensiones}
+	Sea $M$ una variedad diferencial. Sea $S\subset M$ una subvariedad
+	y sea $f\in C^{\infty}(S)$. \emph{(a)} Si $S$ es subvariedad regular,
+	entonces existen un entorno $S\subset U\subset M$ y una funci\'{o}n
+	suave $\tilde{f}\in C^{\infty}(U)$ tal que $\tilde{f}|_{S}=f$.
+	\emph{(b)} Si, adem\'{a}s, $S$ es cerrada (regular propia), entonces
+	se puede tomar $U=M$.
+\end{lemaDeExtensiones}
+
+\begin{proof}
+	Supongamos que $\dim\,S=k$. Para cada $p\in S$ existe una carta
+	$(U_{p},\varphi_{p})$ para $M$ centrada en $p$ tal que
+	$S\cap U_{p}=\{x^{k+1}=0,\,\dots,\,x^{n}=0\}$. Sea
+	$U=\bigcup_{p}\,U_{p}$. Entonces $S\subset U$ y $U$ es abierto en
+	$M$. Para cada punto $p\in S$, definimos una funci\'{o}n
+	$f_{p}:\,U_{p}\rightarrow\bb{R}$:
+	\begin{align*}
+		f_{p}(\lista*{x}{k},\,x^{k+1},\,\dots,\,x^{n}) & \,=\,
+			f(\lista*{x}{k})
+		\text{ .}
+	\end{align*}
+	%
+	Expl\'{\i}citamente, $f_{p}(q)=f(\varphi^{-1}(\pi\circ\varphi(q)))$,
+	donde $\pi:\,\bb{R}^{n}\rightarrow\bb{R}^{k}$ es la proyecci\'{o}n en
+	las primeras $k$ coordenadas. Cada funci\'{o}n $f_{p}$ es suave y,
+	si $q\in S\cap U_{p}$, entonces $f_{p}(q)=f(q)$.
+	Para pegar estas funciones y as\'{\i} definir una funci\'{o}n
+	en $U$, usamos particiones de la unidad. El abierto $U$ es una
+	variedad (diferencial) y $\{U_{p}\}_{p\in S}$ es un cubrimiento por
+	abiertos. Entonces existe una partici\'{o}n suave de la unidad
+	subordinada al cubrimiento, $\{\psi_{p}\}_{p}$. Para cada punto
+	$p\in S$, el producto $\psi_{p}f_{p}$ est\'{a} definido \'{u}nicamente
+	en $U_{p}$, pero $V_{p}=\{\psi_{p}\not =0\}$ es abierto
+	y $\clos{V_{p}}\subset U_{p}$. No es cierto \emph{a priori} que
+	$\psi_{p}(p)\not =0$, pero podr\'{\i}amos tener un poco m\'{a}s
+	de cuidado en la definici\'{o}n del cubrimiento como para que
+	as\'{\i} sea (por ejemplo, tomando bolas coordenadas regulares
+	dentro de cada $U_{p}$ y una partici\'{o}n subordinada al cubrimiento
+	formado por las bolas coordenadas que contienen a las bolas
+	coordenadas regulares). De todas maneras, podemos extender el
+	producto $\psi_{p}f_{p}$ a todo $U$ por cero fuera de
+	$\soporte{\psi_{p}}$. Esta funci\'{o}n sigue siendo suave. Sea,
+	entonces
+	\begin{align*}
+		\tilde{f} & \,=\,\sum_{p\in S}\,\psi_{p}f_{p}
+		\text{ .}
+	\end{align*}
+	%
+	La funci\'{o}n $\tilde{f}$ est\'{a} definida en todo el abierto
+	$U$ y es suave. Si $q\in S$,
+	\begin{align*}
+		\tilde{f}(q) & \,=\,\sum_{p\in S}\,\psi_{p}(q)f(q) \,=\,f(q)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\tilde{f}\in C^{\infty}(U)$ y $\tilde{f}|_{S}=f$.
+
+	Si asumimos que $S$ es subvariedad regular propia, entonces
+	$U_{0}=S\subset M$ es un subconjunto cerrado y
+	$\{U_{p}\}_{p\in S}\cup\{U_{0}\}$ es un cubrimiento de $M$ por
+	abiertos. Si $\{\psi_{p}\}_{p}\cup\{\psi_{0}\}$ es una partici\'{o}n
+	suave subordinada a este cubrimiento, entonces, definiendo
+	$\tilde{f}=\sum_{p\in S}\psi_{p}f_{p}$, como antes, pero sin
+	incluir la funci\'{o}n $\psi_{0}$, obtenemos una funci\'{o}n
+	suave definida en $U=U_{0}\cup\bigcup_{p\in S}\,U_{p}=M$ que
+	extiende a $f$.
+\end{proof}
+
+En general, si $S$ no es cerrada en $M$, no es posible extender una
+funci\'{o}n arbitraria $f\in C^{\infty}(S)$ a toda la variedad: por ejemplo,
+si $S=(-1,0)\cup (0,1)$ y $M=\bb{R}^{1}$, entonces la funci\'{o}n
+$f$ que toma el valor $-1$ en $(-1,0)$ y el valor $1$ en $(0,1)$, es suave,
+pero no se puede extender de manera suave a $\bb{R}^{1}$. De hecho, no se
+puede extender de manera continua. Si existe una extensi\'{o}n continua,
+?`existe una extensi\'{o}n suave? Por otro lado, si $S$ es una subvariedad
+inmersa, las funciones suaves en $S$, en tanto variedad, no son, en general,
+suaves como funciones definidas en el subconjunto $S\subset M$.
+Si $f\in C^{\infty}(S)$ y $f:\,S\rightarrow\bb{R}$ es continua en $S$ como
+subespacio de $M$, ?`es $f$ suave en $S$ como subconjunto de $M$?
+
+Dejamos de lado estas preguntas. Las propiedades enunciadas en el lema
+\ref{thm:deextensiones} son, en realidad, equivalencias.
+
+\begin{propoDeNoExtensiones}\label{thm:denoextensiones}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	\emph{(a)} Si toda funci\'{o}n $f\in C^{\infty}(S)$ se puede extender
+	a una funci\'{o}n suave definida en alg\'{u}n abierto
+	$U\subset M$ tal que $S\subset U$, entonces $S$ es subvariedad
+	regular. \emph{(b)} Si toda funci\'{o}n $f\in C^{\infty}(S)$ se puede
+	extender de manera suave a toda la variedad $M$, entonces $S$
+	es una subvariedad propia.
+\end{propoDeNoExtensiones}
+
+\begin{proof}
+	Supongamos que $S$ no es regular. Sea $p\in S$ un punto para
+	el cual no existe una carta preferencial en $M$. Aun as\'{\i},
+	existe un abierto $V\subset S$ tal que $V$ es una subvariedad
+	regular de $M$. Como $S$ es una variedad diferencial, existe
+	una partici\'{o}n de la unidad $\{\psi_{0},\psi_{1}\}$ para
+	$S$ subordinada al cubrimiento $\{S\setmin\{p\},V\}$. En particular,
+	$f=\psi_{1}|_{V}$ es suave en $V$ y $f(p)=1$. Como $V$ es una
+	subvariedad regular de $M$, existe un abierto $U\subset M$ tal que
+	$V\subset U$ y existe una funci\'{o}n $\tilde{f}:\,U\rightarrow\bb{R}$
+	suave tal que $\tilde{f}|_{V}=f$. Pero, en $U\cap S$, no es cierto
+	que $\tilde{f}$ coincida con $\psi_{1}$: como $p$ no admite una
+	carta preferencial, si $\{U_{n}\}_{n\geq 1}$ es una sucesi\'{o}n
+	de entornos de $p$ en $M$ con $U_{n+1}\subset U_{n}\subset U$ y
+	$\bigcap_{n}\,U_{n}=\{p\}$, entonces existe
+	\begin{align*}
+		y_{n} & \,\in\, (S\cap U_{n})\setmin V
+		\text{ .}
+	\end{align*}
+	%
+	Evaluando $\tilde{f}$ en estos puntos, por continuidad de $\tilde{f}$
+	en $M$, debe valer $\tilde{f}(y_{n})\to \tilde{f}(p)=f(p)=1$, pero
+	$\psi_{1}(y_{n})=0$ para todo $n\geq 1$. En definitiva, la funci\'{o}n
+	$\psi_{1}$ no se puede extender de manera suave (continua) a un
+	abierto que contenga a $S$, pues, si se pudiese, dicha extensi\'{o}n
+	deber\'{\i}a tomar valor $1$ en $p$ y $0$ en puntos arbitrariamente
+	cerca (en $M$) de $p$.
+
+	Supongamos que $S\subset M$ es una subvariedad (inmersa o regular),
+	pero que no es cerrada como subconjunto de $M$. Entonces existe una
+	sucesi\'{o}n de puntos $y_{n}\in S$ y un punto $y\in M\setmin S$
+	tales que $y_{n}\to y$ en la topolog\'{\i}a de $M$ y tales que
+	$\{y_{n}\}_{n}$ es un subconjunto cerrado en $S$. Para cada
+	entero $n\geq 1$ sea $f(y_{n})=n$. Como $\{y_{n}\}_{n}$ es cerrado
+	en $S$, podemos extender $f$ de manera suave a $S$ (por ejemplo,
+	tomando entornos $V_{n}$ de cada punto $y_{n}$ de manera que
+	$y_{m}\not\in V_{n}$, si $m\not =n$, y una partici\'{o}n
+	de la unidad subordinada a estos conjuntos y a
+	$S\setmin\{y_{n}\}_{n}$). Pero no hay manera de extender $f$ a una
+	funci\'{o}n suave en $y$ (ni siquiera de manera continua).
+\end{proof}
+
+\subsection{El espacio tangente a una subvariedad}
+Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+Dado que la inclusi\'{o}n $\inc[S]:\,S\rightarrow M$ es una inmersi\'{o}n,
+en cada punto $p\in S$, el diferencial $\diferencial[p]{\inc}:%
+\,\tangente[p]{S}\rightarrow\tangente[p]{M}$ es una transformaci\'{o}n
+lineal inyectiva. Ya vimos en alguna ocasi\'{o}n c\'{o}mo el diferencial
+permite identificar el espacio tangente a un abierto en un punto dado.
+Aquella identificaci\'{o}n funciona de manera general en el contexto de
+subvariedades. Sea $v\in\tangente[p]{S}$ un vector tangente a $S$ en $p$ y
+sea $\tilde{v}=\diferencial[p]{\inc}$ su imagen en $\tangente[p]{M}$.
+En tanto derivaci\'{o}n, dada $f\in C^{\infty}(M)$,
+\begin{align*}
+	\tilde{v}\,f & \,=\,\diferencial[p]{\inc}(v)\,f \,=\,
+		v(f\circ\inc) \,=\,v(f|_{S})
+	\text{ .}
+\end{align*}
+%
+
+Una forma alternativa de caracterizar el espacio tangente $\tangente[p]{S}$
+cuando $S$ es una subvariedad arbitraria como subespacio de
+$\tangente[p]{M}$ es en t\'{e}rminos de curvas suaves. Sabemos que
+todo vector tangente a una variedad es igual a la velocidad de alguna curva.
+Supongamos, entonces, en primer lugar, que $\gamma:\,J\rightarrow M$ es una
+curva suave con origen en $p$ tal que $\gamma(J)\subset S$ y
+$\eta=\gamma|:\,J\rightarrow S$ es suave, tambi\'{e}n. Entonces, tomando
+diferenciales,
+\begin{align*}
+	\dot{\gamma}(0) & \,=\,\diferencial[p]{\inc}(\dot{\eta}(0))
+	\text{ ,}
+\end{align*}
+%
+de lo que se deduce que el vector tangente $\dot{\gamma}(0)\in\tangente[p]{M}$
+pertenece a la imagen del diferencial $\diferencial[p]{\inc}$.
+Rec\'{\i}procamente, si $v\in\tangente[p]{S}$ y $\eta:\,J\rightarrow S$ es
+una curva suave con origen en $p$ y velocidad $\dot{\eta}(0)=v$, entonces
+$\gamma=\inc\circ\eta:\,J\rightarrow M$ es suave y
+$\dot{\gamma}(0)=\diferencial[p]{\inc}(v)=\tilde{v}$. En definitiva,
+en t\'{e}rminos de curvas, un vector $v$ tangente a $M$ en $p$
+\emph{es tangente a la subvariedad $S$}, si y s\'{o}lo si existe una curva
+suave en $M$ cuya imagen est\'{e} contenida en $S$, que sea suave como
+curva en $S$ y con velocidad $v$.
+
+\begin{propoTangenteSubvarCoordenadas}\label{thm:tangentesubvarcoordenadas}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	Sea $p\in S$ y sea $V\subset S$ un entorno de $p$ que es subvariedad
+	regular de $M$. Sea $(U,\varphi)$ una carta para $M$ en $p$ tal que
+	$V\cap U=\{x^{k+1}=0,\,\dots,\,x^{n}=0\}$. Entonces
+	\begin{align*}
+		\tangente[p]{S} & \,=\,\tangente[p]{V} \,=\,
+		\generado{\gancho[p]{x^{1}},\,\dots,\,\gancho[p]{x^{k}}}
+		\,\subset\,\tangente[p]{M}
+		\text{ .}
+	\end{align*}
+	%
+\end{propoTangenteSubvarCoordenadas}
+
+\begin{proof}
+	Sea $v\in\tangente[p]{S}$. Entonces
+	\begin{align*}
+		v & \,\equiv\,\diferencial[p]{\inc}(v) \,=\,
+			\diferencial[p]{v}(x^{i})\gancho[p]{x^{i}} \\
+		& \,=\, v(x^{i}|_{V\cap U})\gancho[p]{x^{i}} \,=\,
+			\sum_{i=1}^{k}\,v(x^{i}|_{V\cap U})\gancho[p]{x^{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Con lo cual
+	$\tangente[p]{S}\subset\generado{\gancho[p]{x^{1}},\,\dots,\,%
+	\gancho[p]{x^{k}}}$. Podemos concluir sabiendo que
+	$\dim\,\tangente[p]{S}=k$. Otra manera de concluir que los
+	subespacios coinciden es usando curvas: si $w=w^{i}\gancho[p]{x^{i}}$
+	con $w^{k+1}=\,\cdot\,w^{n}=0$, entonces, tomamos
+	$\gamma:(-\epsilon,\epsilon)\rightarrow M$ tal que
+	$\gamma(0)=p$, $\dot{\gamma}(0)=w$ y $\epsilon>0$ suficientemente
+	peque\~{n}o de manera que $\gamma(J)\subset U$. Precisamente,
+	elegimos
+	$\gamma(t)=\varphi^{-1}(w^{1}t,\,\dots,\,w^{k}t,\,0,\,\dots,\,0)$.
+	En particular, $\gamma$ tiene imagen en $V$ y, como $V$ es una
+	subvariedad regular de $M$, $\gamma$ es suave como curva en $V$.
+	En definitiva, $w\in\tangente[p]{S}$.
+\end{proof}
+
+En el caso en que $S\subset M$ sea una subvariedad regular, el subespacio
+$\tangente[p]{S}\subset\tangente[p]{M}$ est\'{a} caracterizado como el
+conjunto de ceros de ciertas ecuaciones. Hay, al menos, dos maneras de
+interpretar esta afirmaci\'{o}n.
+
+\begin{propoTangenteSubvarRegularI}\label{thm:tangentesubvarregulari}
+	Se $M$ una variedad diferencial (sin borde) y sea $S\subset M$ una
+	subvariedad regular. Sea $p\in S$. En tanto subespacio de
+	$\tangente[p]{M}$,
+	\begin{align*}
+		\tangente[p]{S} & \,=\,\left\lbrace v\in\tangente[p]{M}\,:\,
+			v\,f=0\,\forall f\in C^{\infty}(M),\, f|_{S}=0
+			\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+\end{propoTangenteSubvarRegularI}
+
+\begin{propoTangenteSubvarRegularII}\label{thm:tangentesubvarregularii}
+	Sea $M$ una variedad diferencial (sin borde) y sea $S\subset M$ una
+	subvariedad regular. Si $\Phi:\,U\rightarrow N$ es una
+	transformaci\'{o}n suave definida en un abierto $U$ de $M$ tal que
+	$S\cap U=\Phi^{-1}(c)$, para cierto valor regular $c\in N$, entonces,
+	para todo punto $p\in S\cap U$,
+	\begin{align*}
+		\tangente[p]{S} & \,=\, \ker\,\big(\diferencial[p]{\Phi}:\,
+			\tangente[p]{M}\rightarrow\tangente[\Phi(p)]{N}\big)
+		\text{ .}
+	\end{align*}
+	%
+\end{propoTangenteSubvarRegularII}
+
+\begin{proof}[Demostraci\'{o}n de \ref{thm:tangentesubvarregulari}]
+	Sea $v\in\tangente[p]{S}$. Si $f\in C^{\infty}(M)$ es una funci\'{o}n
+	suave que se anula en $S$, entonces
+	\begin{align*}
+		v\,f & \,\equiv\,v(f|_{S}) \,=\, 0
+		\text{ .}
+	\end{align*}
+	%
+	Rec\'{\i}procamente, dado un vector tangente $w\in\tangente[p]{M}$
+	que verifica $w\,f=0$ para toda funci\'{o}n suave $f\in C^{\infty}(M)$
+	tal que $f|_{S}=0$, entonces podemos demostrar que
+	$w\in\tangente[p]{S}$. Para ver que esto es as\'{\i}, elegimos
+	una carta $(U,\varphi)$ para $M$ en $p$ tal que
+	$S\cap U=\{x^{k+1}=0,\,\dots,\,x^{n}=0\}$. (Aqu\'{i} podr\'{\i}amos
+	tomar, en lugar de $S$, un entorno $V$ de $p$ en $S$ que sea
+	subvariedad regular de $M$ y una carta $(U,\varphi)$ tal que
+	$V\cap U$ sea el conjunto en donde las \'{u}ltimas coordenadas se
+	anulan. Esto es v\'{a}lido incluso en el caso de una subvariedad
+	meramente inmersa, pero m\'{a}s adelante se requerir\'{a} que $S$
+	sea subvariedad regular). Por \ref{thm:tangentesubvarcoordenadas},
+	sabemos que $w\in\tangente[p]{S}$, si y s\'{o}lo si, con
+	respecto a las funciones coordenadas,
+	$w(x^{k+1})=\,\cdots\,=w(x^{n})=0$. Vamos a ver que esta \'{u}ltima
+	condici\'{o}n se cumple. Sea $\psi$ una funci\'{o}n chich\'{o}n
+	con soporte en $U$ y que vale $1$ en un entorno (de $M$) de $p$
+	(por ejemplo, una de las dos funciones de alguna partici\'{o}n
+	suave de la unidad subordinada al cubrimiento
+	$\{U,M\setmin\clos{U'}\}$, donde $U'$ es un entorno de $p$ en $M$
+	cuya clausura est\'{a} contenida en $U$). Para cada $j>k$, la
+	funci\'{o}n $\psi(x)x^{j}\equiv\psi\cdot\varphi^{j}$ es suave en
+	$U$ y tiene soporte contenido en $U$. Si llamamos $f$ a la 
+	extensi\'{o}n de esta funci\'{o}n por cero fuera de $U$, entonces
+	$f\in C^{\infty}(M)$ y $f|_{S}=0$ (esto no es cierto, en general,
+	si $S$ no es regular). As\'{\i},
+	\begin{align*}
+		0 & \,=\, w\,f \,=\,w^{i}\derivada{f}{x^{i}} \,=\, v^{j}
+	\end{align*}
+	%
+	y concluimos que $w\in\tangente[p]{S}$.
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n de \ref{thm:tangentesubvarregularii}]
+	Si $S\cap U=\Phi^{-1}(c)$ para alg\'{u}n punto $c\in N$, entonces
+	$\Phi|_{S\cap U}$ toma constantemente el valor $c$. As\'{\i},
+	\begin{align*}
+		\diferencial[p]{\Phi}\cdot\diferencial[p]{\inc} & \,=\,0
+	\end{align*}
+	%
+	en tanto transformaci\'{o}n lineal de $\tangente[p]{S}$ en
+	$\tangente[\Phi(p)]{N}$. Es decir,
+	\begin{align*}
+		\img\,\diferencial[p]{\inc} & \,\subset\,
+		\ker\,\diferencial[p]{\Phi}
+		\text{ .}
+	\end{align*}
+	%
+	Pero, como $\diferencial[p]{\Phi}$ es suryectivo,
+	\begin{align*}
+		\dim\big(\ker\,\diferencial[p]{\Phi}\big) & \,=\,
+			\dim\,\tangente[p]{M}\,-\,\tangente[\Phi(p)]{N}
+			\,=\,\dim\,M\,-\,\dim\,N \\
+		& \,=\,\dim\,S \,=\, \dim\,\tangente[p]{S}
+		\,=\,\dim\big(\img\,\diferencial[p]{\inc}\big)
+		\text{ .}
+	\end{align*}
+	%
+	En definitiva,
+	$\ker\,\diferencial[p]{\Phi}=\img\,\diferencial[p]{\inc}$.
+\end{proof}
+
+\begin{obsTangenteValorRegular}\label{obs:tangentevalorregular}
+Si la funci\'{o}n que define localmente a $S$ como conjunto de nivel regular
+es de la forma $\Phi=(\lista*{\Phi}{k}):\,U\rightarrow\bb{R}^{k}$, entonces
+$w\in\tangente[p]{M}$ pertenece al n\'{u}cleo $\ker\,\diferencial[p]{\Phi}$,
+si y s\'{o}lo si $w\,\Phi^{j}=0$ para cada una de las funionces que
+componen a $\Phi$: si $\diferencial[p]{\Phi}(w)=0$, entonces
+\begin{align*}
+	w\,\Phi^{j} & \,=\,w(y^{j}\circ\Phi) \,=\,
+		\diferencial[p]{\Phi}(w)\,y^{j} \,=\, 0
+\end{align*}
+%
+para todo $j\in [\![1,k]\!]$ y, si $w$ se anula en las funciones
+$\Phi^{j}=y^{j}\circ\Phi$, entonces
+\begin{align*}
+	\diferencial[p]{\Phi}(w) & \,=\,
+		\diferencial[p]{\Phi}(w)(y^{j})\gancho[\Phi(p)]{y^{j}}
+		\,=\,w(y^{j}\circ\Phi)\gancho[\Phi(p)]{y^{j}}
+		\,=\, 0
+	\text{ .}
+\end{align*}
+%
+\end{obsTangenteValorRegular}
+
+\begin{obsTangenteConjuntoDeNivel}\label{obs:tangeteconjuntodenivel}
+	Supongamos que $S\subset M$ est\'{a} dada como el conjunto de nivel de
+	una transformaci\'{o}n $\Phi:\,M\rightarrow N$ de rango constante,
+	no necesariamente una submersi\'{o}n. Aun as\'{\i}, sabemos, por el
+	teorema del reango \ref{thm:delrango}, que
+	$\codim\,S=\rango{\Phi}$. Pero $\codim(\ker\,\diferencial[p]{\Phi})$
+	es igual al rango de $\diferencial[p]{\Phi}$. Entonces
+	$\tangente[p]{S}$ y $\ker\,\diferencial[p]{\Phi}$ tienen la misma
+	dimensi\'{o}n. Por otro lado, sigue siendo cierto, en este caso
+	tambi\'{e}n, que $\tangente[p]{S}\subset\ker\,\diferencial[p]{\Phi}$.
+	En definitiva, deben coincidir.
+\end{obsTangenteConjuntoDeNivel}
+
+Ya hemos mencionado que el borde de una variedad con borde es una
+subvariedad regular. Sea $M$ una variedad con borde
+$\borde[M]\not=\varnothing$. De acuerdo con las observaciones realizadas al
+comienzo de esta parte, podemos, en esta situaci\'{o}n tambi\'{e}n,
+identificar el tangente a $\borde[M]$ en un punto $p$ con un subespacio
+de $\tangente[p]{M}$ v\'{\i}a el diferencial de la inclusi\'{o}n
+$\inc[{\borde[M]}]:\,\borde[M]\rightarrow M$ o en t\'{e}rminos de curvas
+suaves. Las identificaciones que hacen uso de coordenadas, por otro lado,
+funcionaron porque ten\'{\i}amos a nuestra disposici\'{o}n las cartas
+preferenciales, que, en el caso de una variedad con borde no est\'{a}n
+definidas. En lugar de cartas preferenciales, contamos con las cartas de
+borde. Usando estas cartas, podemos intentar repetir los argumentos
+de las demostraciones de los resultados de esta parte.
+
+Sea $M$ una variedad con borde $\borde[M]\not =\varnothing$ y sea
+$p\in\borde[M]$. Sea $\inc=\inc[{\borde[M]}]$ la includi\'{o}n del borde
+en la variedad. Si $v\in\tangente[p]{\borde[M]}$, entonces, como antes,
+si llamamos $\tilde{v}=\diferencial[p]{\inc}(v)$, vale que
+\begin{align*}
+	\tilde{v}\,f & \,=\,v(f\circ\inc) \,=\,v(f|_{\borde[M]})
+\end{align*}
+%
+para toda funci\'{o}n $f\in C^{\infty}(M)$. En coordenadas,
+\begin{align*}
+	\tilde{v} & \,=\,v^{i}\gancho[p]{x^{i}}
+\end{align*}
+%
+donde $v^{i}=\tilde{v}(x^{i})=v(x^{i}|_{\borde[M]})$. En particular,
+como $x^{n}|_{\borde[M]}=0$, debe valer que $v^{n}=0$. Entonces
+\begin{align*}
+	\tangente[p]{\borde[M]} & \,\subset\,
+		\generado{\gancho[p]{x^{1}},\,\dots,\,\gancho[p]{x^{n-1}}}
+		\,=\,\left\lbrace w=w^{i}\gancho[p]{x^{i}}\in\tangente[p]{M}
+		\,:\,w^{n}=0\right\rbrace
+		\text{ .}
+\end{align*}
+%
+Ahora, como en la demostraci\'{o}n de \ref{thm:tangentesubvarcoordenadas},
+hay varias maneras de concluir que estos subespacios son iguales. Podemos
+usar la dimensi\'{o}n: $\dim(\tangente[p]{\borde[M]})=n-1$; podemos
+usar la curva $\eta(t)=(w^{1}t,\,\dots,\,w^{n-1}t)$ en $\borde[M]$ con
+origen en $p$, que es suave y, al componer con la inclusi\'{o}n,
+$\gamma=\inc\circ\eta$ es suave en $M$, tiene origen en $p$ y velocidad
+$\dot{\gamma}(0)=w$. Tambi\'{e}n podemos recurrir al hecho de que,
+como $\varphi(\borde[M]\cap U)=\borde[{\hemi[n]}]\cap\varphi(U)$, localmente
+contamos con una descripci\'{o}n de $\borde[M]$ como conjunto de nivel
+regular de una funci\'{o}n suave: $x^{n}:\,U\rightarrow\bb{R}$ y
+$\borde[M]\cap U=\{x^{n}=0\}$.
+
+Esta descripci\'{o}n del tangente al borde de una variedad nos permite,
+tambi\'{e}n, descomponer el tangente a la variedad misma. Sea $M$ una
+variedad diferencial con borde $\borde[M]\not=\varnothing$ y sea $p$
+un punto del borde. Sea $(U,\varphi)$ una carta de borde centrada en $p$.
+En coordenadas, $w\in\tangente[p]{M}$ se escribe como
+$w=w^{i}\gancho[p]{x^{i}}$ y $w\in\tangente[p]{\borde[M]}$, si y s\'{o}lo
+si $w^{n}=0$. El resto de los vectores tangentes, aquellos con
+$w^{n}\not =0$, se dividen en dos clases: aquellos con $w^{n}>0$ y
+aquellos con $w^{n}<0$. Para ver que esta divisi\'{o}n no depende de la
+carta de borde elegida, usamos la descripci\'{o}n de los vectores
+tangentes como velocidades de curvas contenidas en la variedad. Supongamos
+que $w\in\tangente[p]{M}$ es tal que $w^{n}<0$, entonces la curva
+$\gamma(t)=(w^{1}t,\,\dots,\,w^{n-1}t,\,w^{n}t)$ definida en $(-\epsilon,0]$
+es una curva suave en $M$, $\gamma(0)=p$ y $\dot{\gamma}(0)=w$.
+Rec\'{\i}procamente, si $w\in\tangente[p]{M}$ es tal que existe una
+curva suave $\gamma:\,(-\epsilon,0]\rightarrow M$ con origen en $p$ y
+velocidad $w$, entonces en las coordenadas dadas, como en cualquier otra
+carta,
+\begin{align*}
+	w^{n} & \,=\,\dot{\gamma}(0)(x^{n}) \,=\,
+		\gancho[0]{t}(x^{n}\circ\gamma) \\
+	& \,=\,\lim_{t\to0,\,t<0}\,\frac{\gamma^{n}(t)-\gamma^{n}(0)}{t}
+		\,<\,0
+	\text{ ,}
+\end{align*}
+%
+pues $\gamma^{n}(0)=0$, $t<0$ y $\gamma^{n}(t)>0$. An\'{a}logamente,
+$w^{n}>0$, si y s\'{o}lo si existe una curva suave
+$\gamma:\,[0,\epsilon)\rightarrow M$ con origen en $p$ y velocidad $w$.
+
+\begin{propoTangenteBordeCurvas}\label{thm:tangentebordecurvas}
+	Sea $M$ una variedad diferencial y sea $p\in\borde[M]$. Sea
+	$(U,\varphi)$ una carta de borde para $M$ centrada en $p$ y
+	sea $w\in\tangente[p]{M}$ un vector tangente a $M$ en $p$.
+	Entonces \emph{(i)} $w$ es la velocidad de una curva suave
+	$\gamma:\,(-\epsilon,0]\rightarrow M$ con origen en $p$, si y
+	s\'{o}lo si, en coordenadas, $w^{n}=w(x^{n})<0$; \emph{(ii)} $w$
+	es la velocidad de una curva suave
+	$\gamma:\,[0,\epsilon)\rightarrow M$ con origen en $p$, si y
+	s\'{o}lo si $w^{n}>0$; \emph{(iii)} $w\in\tangente[p]{\borde[M]}$,
+	si y s\'{o}lo si $w^{n}=0$, si y s\'{o}lo si $w$ es la velocidad
+	de una curva suave con origen en $p$ e imagen contenida en
+	$\borde[M]$.
+\end{propoTangenteBordeCurvas}
+
+Notemos que los tres conjuntos de la proposici\'{o}n anterior son disjuntos
+y que, adem\'{a}s, si $w$ es tal que $w^{n}>0$ para alguna --y, por lo
+tanto, para todas-- carta, entones $-w$ verifica la desigualdad opuesta.
+Aquellos vectores tangentes con $w^{n}<0$ se dice que \emph{apuntan hacia %
+afuera} y aquellos con $w^{n}>0$ que \emph{apuntan hacia adentro}. Si
+$w$ apunta hacia adentro, entonces $-w$ apunta hacia afuera.
+
+Hemos mencionado, m\'{a}s arriba que $\borde[M]$ se puede ver localmente
+como el conjunto de ceros de la funci\'{o}n coordenada $x^{n}$ (dada una
+carta de borde para la variedad). En general, decimos que una funci\'{o}n
+$f:\,M\rightarrow [0,\infty)$ es una \emph{funci\'{o}n de definici\'{o}n %
+del borde}, si $f^{-1}(0)=\borde[M]$ y $\diferencial[p]{f}\not=0$ para
+todo $p\in\borde[M]$. Estas funciones son an\'{a}logas a las funciones de
+definici\'{o}n de un conjunto de nivel.
+
+\begin{propoBordeDeNivel}\label{thm:bordedenivel}
+	Sea $M$ una variedad diferencial con $\borde[M]\not =\varnothing$.
+	Existe una funci\'{o}n de definici\'{o}n del borde de $M$.
+\end{propoBordeDeNivel}
+
+\begin{proof}
+	Sea $\{(U_{\alpha},\varphi_{\alpha})\}_{\alpha}$ un atlas compatible
+	para $M$. Sea $\{\psi_{\alpha}\}_{\alpha}$ una partici\'{o}n
+	de la unidad subordinada al cubrimiento $\{U_{\alpha}\}_{\alpha}$.
+	Para definir la funci\'{o}n de definici\'{o}n de borde, definimos
+	primero funciones en cada abierto $U_{\alpha}$ del cubrimiento.
+	Si $U_{\alpha}$ es el dominio de una carta del interior,
+	es decir, si $U_{\alpha}\cap\borde[M]=\varnothing$, entonces
+	definimos $f_{\alpha}:\,U_{\alpha}\rightarrow\bb{R}$ como la
+	funci\'{o}n suave que toma constantemente el valor $1$. Si, en cambio,
+	$U_{\alpha}\cap\borde[M]\not=\varnothing$, entonces
+	$(U_{\alpha},\varphi_{\alpha})$ es una carta de borde. En este caso,
+	definimos $f_{\alpha}=x^{n}$. En particular,
+	\begin{align*}
+		f_{\alpha}^{-1}(0) & \,=\,\{x^{n}=0\} \,=\,
+		\borde[M]\cap U_{\alpha}
+		\text{ .}
+	\end{align*}
+	%
+	La funci\'{o}n $\psi_{\alpha}$, por otro lado, tiene soporte en
+	un cerrado contenido en $U_{\alpha}$, entonces, si extendemos
+	$f_{\alpha}\psi_{\alpha}$ por cero fuera de $U_{\alpha}$, queda
+	definida una funci\'{o}n suave en $M$ que se anula fuera
+	de $\soporte{\psi_{\alpha}}$. Sea
+	$f=\sum_{\alpha}\,\psi_{\alpha}f_{\alpha}$. Entonces $f$ est\'{a}
+	bien definida y es suave en $M$, porque los sumandos lo son y porque
+	los soportes de los sumandos forman una familia localmente
+	finita.
+
+	Si $p\in\borde[M]$, entonces $\psi_{\alpha}(p)\not=0$ s\'{o}lo si
+	$U_{\alpha}$ interseca el borde, y, en ese caso, $f_{\alpha}(p)=0$.
+	Entonces $f(p)=0$, si $p$ es un punto del borde. Rec\'{\i}procamente,
+	si $p\in\interior{M}$, entonces $f_{\alpha}(p)>0$ para todo $\alpha$.
+	Como $\sum_{\alpha}\,\psi_{\alpha}=1$, existe $\alpha$ tal que
+	$\psi_{\alpha}(p)\not =0$. Entonces $f(p)>0$, si $p$ es un punto
+	del interior.
+
+	Resta verificar que el diferencial $\diferencial[p]{f}$ no es la
+	transformaci\'{o}n lineal (funcional lineal) nula para ning\'{u}n
+	punto $p\in\borde[M]$. Sea $w\in\tangente[p]{M}$ un vector tangente
+	que apunta hacia afuera. Como $p$ es un punto del borde de $M$,
+	si $\alpha$ es tal que $p\in U_{\alpha}$ y
+	$\varphi_{\alpha}=(\lista*{x}{n})$, entonces, por definici\'{o}n,
+	$f_{\alpha}(p)=0$ y
+	\begin{align*}
+		\diferencial[p]{f_{\alpha}}(w) & \,=\,
+			\diferencial[p]{x^{n}}(w) \,=\,w(x^{n})\,<\,0
+		\text{ .}
+	\end{align*}
+	%
+	En particular, como $p$ pertenece a alg\'{u}n $U_{\alpha}$,
+	vale que $\diferencial[p]{f_{\alpha}}(w)\leq 0$ para todo
+	$\alpha$ y que $\diferencial[p]{f_{\alpha}}(W)<0$ estrictamente
+	para, al menos, un $\alpha$. En definitiva,
+	\begin{align*}
+		\diferencial[p]{f}(w) & \,=\,\sum_{\alpha}\,\big(
+			f_{\alpha}(p)\diferencial[p]{\psi_{\alpha}}(w) +
+			\psi_{\alpha}(p)\diferencial[p]{f_{\alpha}}(w)
+			\big)
+			\,<\,0
+		\text{ ,}
+	\end{align*}
+	%
+	de lo que se deduce que $\diferencial[p]{f}$ no es la
+	transformaci\'{o}n cero.
+\end{proof}
+
+\begin{obsBordeDeNivel}\label{obs:bordedenivel}
+	De la \'{u}ltima parte de la demostraci\'{o}n anterior, se ve
+	que, si, en lugar de tomar un vector que apunta hacia afuera,
+	hubi\'{e}semos elegido un vector $w$ que apunta hacia adentro,
+	entonces $\diferencial[p]{f}(w)>0$ estrictamente, y, si
+	$w\in\tangente[p]{\borde[M]}$, entonces $\diferencial[p]{f}(w)=0$.
+	En general, si $f$ es cualquier funci\'{o}n de definici\'{o}n de
+	borde para $M$, entonces estas afirmaciones siguen siendo ciertas.
+	Por ejemplo, si $w\in\tangente[p]{M}$ apunta hacia afuera, entonces,
+	dada una carta de borde $(U,\varphi)$ centrada en $p$,
+	\begin{align*}
+		\diferencial[p]{f}(w) & \,=\,w^{i}\derivada{f}{x^{i}}
+			\,=\, w^{n}\derivada{f}{x^{n}}
+		\text{ ,}
+	\end{align*}
+	%
+	pues $f$ es constantemente $0$ en $\{x^{n}=0\}=\borde[M]\cap U$.
+	Pero $\derivada{f}{x^{n}}>0$ y $w^{n}<0$. El mismo argumento,
+	cambiando $w^{n}<0$ por $w^{n}>0$ o por $w^{n}=0$ sigue valiendo,
+	si, en lugar de tomar un vector que apunta hacia afuera, elegimos
+	$w$ apuntando hacia adentro o tangente al borde de la variedad.
+\end{obsBordeDeNivel}
+
+\begin{obsDiferencialComoFuncional}\label{obs:diferencialcomofuncional}
+	Tanto en la demostraci\'{o}n de \ref{thm:bordedenivel}, como en la
+	observaci\'{o}n \ref{obs:bordedenivel} abusamos de la siguiente
+	identificaci\'{o}n entre elementos de $\bb{R}$ y elementos del
+	tangente $\bb{R}$. Esta identificaci\'{o}n consiste en identificar,
+	paralelamente, el diferencial de una funci\'{o}n
+	$f:\,M\rightarrow\bb{R}$ con un elemento del dual de
+	$\tangente[p]{M}$. Concretamente, si $f:\,M\rightarrow\bb{R}$ es una
+	funci\'{o}n suave y $w\in\tangente[p]{M}$ es un vector tangente,
+	entonces $w\,f\in\bb{R}$ y
+	$\diferencial[p]{f}(w)\in\tangente[f(p)]{\bb{R}}$. La relaci\'{o}n
+	entre ambos est\'{a} dada por evaluar el vector tangente a $\bb{R}$
+	en la funci\'{o}n identidad $\id[\bb{R}]:\,\bb{R}\rightarrow\bb{R}$.
+	Es decir, identificamos el vector $\diferencial[p]{f}(w)$ con el
+	n\'{u}mero real
+	\begin{align*}
+		\diferencial[p]{f}(w)(\id[\bb{R}]) & \,=\,
+			w(\id[\bb{R}]\circ f) \,=\, w\,f
+		\text{ .}
+	\end{align*}
+	%
+	Con esta identificaci\'{o}n, tiene sentido decir que
+	$\diferencial[p]{f}(w)$ es mayor, menor o igual a cero.
+\end{obsDiferencialComoFuncional}

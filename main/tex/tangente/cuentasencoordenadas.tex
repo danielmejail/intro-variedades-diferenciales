@@ -1,0 +1,264 @@
+\theoremstyle{plain}
+
+\theoremstyle{remark}
+\newtheorem{obsSiLasCartasNoSonCompatibles}{Observaci\'{o}n}[section]
+
+%-------------
+
+Dados un punto $p\in M$ y su imagen $F(p)\in N$ por una transformaci\'{o}n
+suave, para estudiar a la funci\'{o}n $F:\,M\rightarrow N$ cerca de $p$,
+tomamos cartas $(U,\varphi)$ en $p$ y $(V,\psi)$ en $F(p)$, de manera que
+$F(U)\subset V$. El hecho de que $F$ sea suave, se reflejar\'{a} en que su
+expresi\'{o}n en coordenadas $\widehat{F}=\psi\circ F\circ\varphi^{-1}:\,%
+\varphi(U)\rightarrow\psi(V)$ sea suave. El espacio tangente en $p$ tiene
+como base a los vectores $\{\gancho{\varphi^{1}}|_{p},\,\dots,\,%
+\gancho{\varphi^{n}}|_{p}\}$ que, en una funci\'{o}n suave
+$f:\,U\rightarrow\bb{R}$ toman los valores
+\begin{align*}
+	\left.\gancho{\varphi^{i}}\right|_{p}f & \,\equiv\,
+		\derivada{(f\circ\varphi^{-1})}{x^{i}}(\varphi(p))
+		\,\equiv\, \diferencial[\varphi(p)]{\varphi^{-1}}
+		\left(\left.\gancho{x^{i}}\right|_{\varphi(p)}\right)\,f
+	\text{ .}
+\end{align*}
+%
+Es decir, $\gancho{\varphi^{i}}|_{p}f$ es igual a la derivada parcial
+$i$-\'{e}sima respecto de la base can\'{o}nica de $\bb{R}^{n}$ de la
+expresi\'{o}n de $f$ en las coordenadas $\varphi=(\lista*{\varphi}{n})$.
+Si queremos saber cu\'{a}l es la imagen de estos vectores v\'{\i}a el
+diferencial de la transformaci\'{o}n $F$, usamos la igualdad
+$\psi^{-1}\circ\widehat{F}=F\circ\varphi^{-1}$. Para simplificar la
+notaci\'{o}n, llamamos $\widehat{p}=\varphi(p)$. Entonces
+\begin{align*}
+	\diferencial[p]{F}\Big(\left.\gancho{\varphi^{i}}\right|_{p}\Big) &
+		\,=\,\diferencial[p]{F}\Big(
+			\diferencial[\widehat{p}]{\varphi^{-1}}\Big(
+			\left.\gancho{x^{i}}\right|_{\widehat{p}}
+			\Big)
+		\Big)
+		\,=\,\diferencial[\widehat{p}]{(F\circ\varphi^{-1})}\Big(
+			\left.\gancho{x^{i}}\right|_{\widehat{p}}
+			\Big) \\
+	& \,=\,\diferencial[\widehat{p}]{(\psi^{-1}\circ F)}\Big(
+			\left.\gancho{x^{i}}\right|_{\widehat{p}}
+			\Big)
+		\,=\,\diferencial[\widehat{F}(\widehat{p})]{\psi^{-1}}\Big(
+		\diferencial[\widehat{p}]{\widehat{F}}\Big(
+			\left.\gancho{x^{i}}\right|_{\widehat{p}}
+			\Big)
+		\Big)
+	\text{ .}
+\end{align*}
+%
+Si llamamos $\lista*{y}{m}$ a las coordenadas en $\bb{R}^{m}$ y
+$\gancho{y^{1}},\,\dots,\,\gancho{y^{m}}$ a las derivadas parciales en las
+direcciones can\'{o}nicas y, si $f:\,\psi(V)\rightarrow\bb{R}$ es suave,
+\begin{align*}
+	\jacobiana[\widehat{p}]{\widehat{F}}\Big(
+		\left.\gancho{x^{i}}\right|_{\widehat{p}}\Big)\,f &
+		\,\equiv\,\left.\gancho{x^{i}}\right|_{\widehat{p}}
+			(f\circ\widehat{F})
+	\text{ ,}
+\end{align*}
+%
+que es igual, por la regla de la cadena, a
+\begin{align*}
+	\derivada{f}{y^{j}}(\widehat{F}(\widehat{p}))\cdot
+		\derivada{\widehat{F}^{j}}{x^{i}}(\widehat{p}) &
+		\,=\,\derivada{\widehat{F}^{j}}{x^{i}}(\widehat{p})\cdot
+		\left.\gancho{y^{j}}\right|_{\widehat{F}(\widehat{p})}\,f
+	\text{ .}
+\end{align*}
+%
+Notemos que $\widehat{F(p)}=\widehat{F}(\widehat{p})$. Entonces, en la base
+$\{\gancho[\widehat{F(p)}]{y^{1}},\,\dots,\,\gancho[\widehat{F(p)}]{y^{n}}\}$,
+\begin{align*}
+	\diferencial[\widehat{p}]{\widehat{F}}\Big(
+		\gancho[\widehat{p}]{x^{i}}\Big) & \,=\,
+		\derivada{\widehat{F}^{j}}{x^{i}}(\widehat{p})\cdot
+			\gancho[\widehat{F(p)}]{y^{j}}
+	\text{ .}
+\end{align*}
+%
+Volviendo a $F$,
+\begin{align*}
+	\diferencial[p]{F}\Big(\gancho[p]{\varphi^{i}}\Big) & \,=\,
+		\derivada{\widehat{F}^{j}}{x^{i}}(\widehat{p})\cdot
+		\diferencial[\widehat{F(p)}]{\psi^{-1}}\Big(
+			\gancho[\widehat{F(p)}]{y^{j}}\Big)
+		\,=\,\derivada{\widehat{F}^{j}}{x^{i}}(\widehat{p})\cdot
+			\gancho[F(p)]{\psi^{j}}
+	\text{ .}
+\end{align*}
+%
+Es decir, la expresi\'{o}n del diferencial  $\diferencial[p]{F}$ en las
+bases $\{\gancho[p]{\varphi^{i}}\}_{i}$ y $\{\gancho[F(p)]{\psi^{j}}\}_{j}$
+es igual a la matriz jacobiana $\jacobiana[\widehat{p}]{\widehat{F}}$.
+
+Un caso importante de todo esto es el de los cambios de carta (cambios de
+coordenada, o funciones de transici\'{o}n): sea $p\in M$ un punto arbitrario
+de la variedad $M$ y sean $(\widehat{U},\widehat{\varphi})$ y
+$(\widetilde{U},\widetilde{\varphi})$ dos cartas en $p$. Primero,
+veamos un tema de notaci\'{o}n. Si
+\begin{align*}
+	\widehat{\varphi} & \,=\,(\lista*{\widehat{\varphi}}{n})
+	\quad\text{y}\quad
+	\widetilde{\varphi}\,=\,(\lista*{\widetilde{\varphi}}{n})
+	\text{ ,}
+\end{align*}
+%
+
+entonces, dado un punto
+$\xi=(\lista*{\xi}{n})\in\widehat{\varphi}(\widehat{U}\cap\widetilde{U})$,
+la funci\'{o}n de transici\'{o}n est\'{a} dada expl\'{\i}citamente por
+\begin{align*}
+	\widetilde{\varphi}\circ\widehat{\varphi}^{-1}(\lista*{\xi}{n}) &
+		\,=\,\big(
+		\widetilde{\varphi}^{1}(\widehat{\varphi}^{-1}(\xi)),\,\dots,\,
+			\widetilde{\varphi}^{n}(\widehat{\varphi}^{-1}(\xi))
+			\big)
+	\text{ .}
+\end{align*}
+%
+Si pensamos en un punto $\widehat{x}\in\widehat{\varphi}(\widehat{U})$
+podemos escribir $\widehat{\varphi}=(\lista*{\widehat{x}}{n})$, pensando
+a las funciones coordenadas de $\widehat{\varphi}$, no como funciones en
+$\bb{R}$, sino como las coordenadas de un punto en un abierto de un
+espacio euclideo. An\'{a}logamente, podemos escribir
+$\widetilde{\varphi}=(\lista*{\widetilde{x}}{n})$. La expresi\'{o}n
+expl\'{\i}cita para las funciones de transici\'{o}n la podemos reemplazar
+por una expresi\'{o}n un poco m\'{a}s clara para el cambio de coordenadas
+correspondiente:
+\begin{align*}
+	\widetilde{\varphi}\circ\widehat{\varphi}^{-1}
+		(\lista*{\widehat{x}}{n}) & \,=\,\big(
+		\widetilde{x}^{1}(\widehat{x}),\,\dots,\,
+		\widetilde{x}^{n}(\widehat{x})
+		\big)
+	\text{ .}
+\end{align*}
+%
+
+Volviendo a las cartas, si las mismas son compatibles, la transformaci\'{o}n
+$\widetilde{\varphi}\circ\widehat{\varphi}^{-1}:\,%
+\widehat{\varphi}(\widehat{U}\cap\widetilde{U})\rightarrow%
+\widetilde{\varphi}(\widehat{U}\cap\widetilde{U})$ y su inversa son
+diferenciables en sentido usual. La matriz jacobiana de esta
+transformaci\'{o}n, o, equivalentemente, su diferencial, est\'{a} dada por:
+\begin{align*}
+	\diferencial[\widehat{x}]%
+		{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})}
+		\Big(\gancho[\widehat{x}]{\widehat{x}^{i}}\Big) & \,=\,
+		\derivada{\widetilde{x}^{j}}{\widehat{x}^{i}}(\widehat{x})
+		\cdot\gancho[\widetilde{x}(\widehat{x})]{\widetilde{x}^{j}}
+	\text{ ,}
+\end{align*}
+%
+o, expl\'{\i}citamente en t\'{e}rminos de $p$,
+\begin{align*}
+	\diferencial[\widehat{\varphi}(p)]%
+		{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})}
+		\Big(\gancho[\widehat{\varphi}(p)]{\widehat{x}^{i}}\Big) &
+	\,=\,\derivada%
+		{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})^{j}}%
+		{\widehat{x}^{i}}(\widehat{\varphi}(p))
+		\cdot\gancho[\widetilde{\varphi}(p)]{\widetilde{x}^{j}}
+	\text{ .}
+\end{align*}
+%
+Por regla de la cadena y definici\'{o}n de los $\gancho{\widehat{\varphi}^{i}}$
+y los $\gancho{\widetilde{\varphi}^{i}}$,
+\begin{align*}
+	\gancho[p]{\widehat{\varphi}^{i}} & \,=\,
+	\diferencial[\widehat{\varphi}(p)]{\widehat{\varphi}^{-1}}
+		\Big(
+		\gancho[\widehat{\varphi}(p)]{\widehat{x}^{i}}
+		\Big)
+	\,=\,\diferencial[\widetilde{\varphi}(p)]{\widetilde{\varphi}^{-1}}
+		\Big(
+		\diferencial[\widehat{\varphi}(p)]%
+			{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})}
+			\Big(
+			\gancho[\widehat{\varphi}(p)]{\widehat{x}^{i}}
+			\Big)
+		\Big) \\
+	& \,=\,\derivada%
+		{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})^{j}}%
+		{\widehat{x}^{i}}(\widehat{\varphi}(p))
+		\cdot
+		\diferencial[\widetilde{\varphi}(p)]{\widetilde{\varphi}^{-1}}
+			\Big(
+			\gancho[\widetilde{\varphi}(p)]{\widetilde{x}^{j}}
+			\Big) \\
+	& \,=\,\derivada%
+		{(\widetilde{\varphi}\circ\widehat{\varphi}^{-1})^{j}}%
+		{\widehat{x}^{i}}(\widehat{\varphi}(p))
+		\cdot
+		\gancho[p]{\widetilde{\varphi}^{j}}
+	\text{ ,}
+\end{align*}
+%
+o, expresado de manera m\'{a}s concisa,
+\begin{equation}
+	\label{eq:cambiodecoordenadas}
+	\gancho[p]{\widehat{\varphi}^{i}} \,=\,
+		\derivada{\widetilde{x}^{j}}{\widehat{x}^{i}}(p)
+		\cdot
+		\gancho[p]{\widetilde{\varphi}^{j}}
+	\text{ .}
+\end{equation}
+%
+Notemos que estamos pensando en $\derivada{\widetilde{x}^{j}}{\widehat{x}^{i}}$
+tanto como una funci\'{o}n en
+$\widehat{\varphi}(\widehat{U}\cap\widetilde{U})$, como una funci\'{o}n
+en $\widehat{U}\cap\widetilde{U}$.
+
+De ahora en adelante, salvo talvez en algunos casos particulares en donde
+sea necesario o conveniente hacer la distinci\'{o}n, denotaremos
+$\gancho[p]{x^{i}}$ tanto a la derivada parcial $i$-\'{e}sima en un abierto
+de un espacio euclideo en un punto $p$ del abierto, como a la derivaci\'{o}n
+--o, mejor dicho, al \emph{campo}-- definida en el dominio de una carta
+$\gancho[p]{\varphi^{i}}$ (dependiendo del punto). Es decir, con esta
+notaci\'{o}n, la relaci\'{o}n entre las derivaciones provenientes de dos
+cartas compatibles con intersecci\'{o}n no vac\'{\i}a, por ejemplo,
+quedar\'{\i}a escrita de la siguiente manera:
+\begin{align*}
+	\gancho[p]{\widehat{x}^{i}} & \,=\,
+		\derivada{\widetilde{x}^{j}}{\widehat{x}^{i}}(p)\cdot
+		\gancho[p]{\widetilde{x}^{j}}
+	\text{ .}
+\end{align*}
+%
+Notemos, adem\'{a}s, que la expresi\'{o}n
+$\derivada{\widetilde{x}^{j}}{\widehat{x}^{i}}(p)$ para cada $j$ e $i$, es,
+en realidad, una funci\'{o}n de $p\in\widehat{U}\cap\widetilde{U}$,
+estando definida en toda la intersecci\'{o}n. Como funci\'{o}n
+$\widehat{U}\cap\widetilde{U}\rightarrow\bb{R}$, es una funci\'{o}n
+continua y, m\'{a}s aun, suave.
+
+\begin{obsSiLasCartasNoSonCompatibles}\label{obs:sinosoncompatibles}
+	?`Qu\'{e} pasa si no asumimos que $\widehat{\varphi}$ y
+	$\widetilde{\varphi}$ son cartas compatibles? De la misma manera
+	que como se hizo antes, podemos, localmente, con cada carta,
+	definir una estructura diferencial \emph{local}, \'{u}nicamente
+	en $\widehat{U}$ y en $\widetilde{U}$, usando las cartas
+	$(\widehat{U},\widehat{\varphi})$ y
+	$(\widetilde{U},\widetilde{\varphi})$, respectivamente. En
+	$\widehat{U}\cap\widetilde{U}$, hay, pues, dos estructuras posibles.
+	Si $p$ pertenece a la intersecci\'{o}n, hay dos espacios
+	tangentes, $T_{p}\widehat{U}$ y $T_{p}\widetilde{U}$, cada uno
+	con su base can\'{o}nica
+	$\{\gancho{\widehat{\varphi}^{i}}\}_{i}$ y
+	$\{\gancho{\widetilde{\varphi}^{j}}\}_{j}$. Si las cartas no
+	son compactibles, no hay una manera natural de relacionar estos
+	espacios tangentes. Es decir, no hay, aunque no sean regulares,
+	funciones $\alpha^{j}_{i}:\,%
+	\widehat{U}\cap\widetilde{U}\rightarrow\bb{R}$ tales que
+	\begin{align*}
+		\gancho{\widehat{\varphi}^{i}} & \,=\,\alpha^{j}_{i}\cdot
+			\gancho{\widetilde{\varphi}^{j}}
+	\end{align*}
+	%
+	bajo alguna identificaci\'{o}n de los tangentes --justamente, porque
+	no hay, en general, una identificaci\'{o}n.
+\end{obsSiLasCartasNoSonCompatibles}

@@ -1,0 +1,180 @@
+\theoremstyle{plain}
+\newtheorem{teoFunInvVar}{Teorema}[section]
+\newtheorem{propoDifeoLocal}[teoFunInvVar]{Proposici\'{o}n}
+\newtheorem{coroDifeoLocal}[teoFunInvVar]{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsDifeoLocal}{Observaci\'{o}n}[section]
+
+%-------------
+
+Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave. Dado un punto $p\in M$,
+el \emph{rango de $F$ en $p$} se define como el rango de la transformaci\'{o}n
+lineal asociada $\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$. Este
+n\'{u}mero es igual al rango de la matriz jacobiana de $F$ en cualquiera de
+sus representaciones en coordenadas $\jacobiana[\widehat{p}]{\widehat{F}}$,
+siendo \'{e}sta la matriz de la transformaci\'{o}n lineal $\diferencial[p]{F}$
+con respecto a las bases determinadas por tomar cartas compatibles en $p$ y en
+$F(p)$, por lo que, equivalentemente, podr\'{\i}amos definir el rango de
+esta manera, sin hacer referencia directamente a los tangentes y al
+diferencial. Denotamos el rango de $F$ en $p$ por $\rango[p]{F}$ y,
+por definici\'{o}n $\rango[p]{F}=\rango{\diferencial[p]{F}}$.
+
+Si existe $r\geq 0$ tal que $\rango{\diferencial[p]{F}}=r$, para todo punto
+$p$, se dice que $F$ \emph{tiene rango constante $r$ en $M$} o que
+\emph{es de rango constante}. En todo caso, el rango de $F$ est\'{a}
+acotado:
+\begin{align*}
+	0 & \,\leq\,\rango{F}\,\leq\,\min\{\dim\,M,\dim\,N\}
+	\text{ .}
+\end{align*}
+%
+Si la cota superior es alcanzada en un punto $p\in M$, se dice que $F$
+\emph{tiene rango m\'{a}ximo en $p$}. Esto se puede deber a cualquiera de
+dos cosas: o bien $\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$ es
+inyectivo ($\rango{\diferencial[p]{F}}=\dim\,M$), o bien es sobreyectivo
+($\rango{\diferencial[p]{F}}=\dim\,N$).
+
+El rango de una transformaci\'{o}n suave $F$ verifica que
+\begin{align*}
+	\{\rango{F}>k\} & \,=\,\{\rango{F}\geq k+1\}
+\end{align*}
+%
+es abierto para todo $k\geq 0$. En particular, si $F$ tiene rango m\'{a}ximo
+en $p$, entonces tendr\'{a} rango m\'{a}ximo en todo un entorno del punto,
+en particular, el rango de $F$ ser\'{a} constante en el entorno. Si
+$\diferencial[p]{F}$ es sobreyectivo para todo punto $p$ en el dominio de
+$F$, decimos que $F$ es una \emph{submersi\'{o}n}; si es inyectivo, decimos
+que es una \emph{inmersi\'{o}n}. Con estas definiciones, podemos afirmar
+que, si $\diferencial[p]{F}$ es inyectivo, entonces la restricci\'{o}n
+$F|_{U}:\,U\rightarrow N$ es una inmersi\'{o}n en alg\'{u}n entorno $U$ de
+$p$. An\'{a}logamente, si $\diferencial[p]{F}$ es sobreyectivo, $F|_{U}$
+es una submersi\'{o}n.
+
+Un ejemplo de esto est\'{a} dado por una funci\'{o} diferenciable
+$f:\,U\rightarrow\bb{R}$ definida en un abierto de $\bb{R}^{n}$. En las
+coordenadas usuales, la matriz jacobiana de $f$ est\'{a} dada por el
+vector de derivadas parciales evaluadas en el punto:
+\begin{align*}
+	\jacobiana[x]{f} & \,=\,
+		\begin{bmatrix}
+			\derivada{f}{x^{1}}(x) & \cdots &
+			\derivada{f}{x^{n}}(x)
+		\end{bmatrix}
+	\text{ .}
+\end{align*}
+%
+La transformaci\'{o}n lineal asociada es sobreyectiva, si y s\'{o}lo si
+alguna derivada es distinta de cero en el punto. Los puntos en donde el
+diferencial de esta funci\'{o}n es sobreyectivo (en este caso esto quiere
+decir distinto de cero) son precisamente los puntos \emph{no singulares}
+de $f$.
+
+Para ver una clase de casos en donde el diferencial es inyectivo, podemos
+tomar una funci\'{o}n en la direcci\'{o}n opuesta. Si
+$f:\,\bb{R}\rightarrow U\subset\bb{R}^{n}$ es diferenciable, entonces la
+matriz jacobiana en este caso tambi\'{e}n est\'{a} dada por el vector de
+derivadas parciales, ahora visto como una matriz de tama\~{n}o
+$n\times 1$. Esta matriz ser\'{a} la matriz de una transformaci\'{o}n
+lineal inyectiva, siempre y cuando, de nuevo, alguna de las derivadas
+parciales no sea nula. La funci\'{o}n $f$ describe una curva --no en
+tanto variedad de dimensi\'{o}n, sino en tanto parametrizaci\'{o}n--
+en el espacio. Que el diferencial de $f$ sea inyectivo en un insante $t$
+significa que la velocidad de la curva en dicho instante, $\dot{f}(t)$ no
+es cero.
+
+Un \emph{difeomorfismo local} es una transformaci\'{o}n suave
+$F:\,M\rightarrow N$ tal que, para todo punto $p\in M$, existe un entorno
+$U\subset M$ de $p$ que verifica que $F(U)\subset N$ es abierta y que
+$F|_{U}:\,U\rightarrow F(U)$ es un difeomorfismo. Como los tangentes
+est\'{a}n definidos localmente, si $F$ es un difeomorfismo local, entonces
+$\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$ es un isomorfismo
+lineal en todo punto. En particular, todo difeomorfismo local es, a la
+vez, una submersi\'{o}n y una inmersi\'{o}n. Aunque s\'{o}lo v\'{a}lido
+para una transformaci\'{o}m entre variedades \emph{sin} borde, el teorema
+de la funci\'{o}n inversa es la afirmaci\'{o}n rec\'{\i}proca:
+
+\begin{teoFunInvVar}\label{thm:funinvvar}
+	Sean $M$ y $N$ variedades \emph{sin} borde y sea $F:\,M\rightarrow N$
+	una transformaci\'{o}n suave. Si $p\in M$ es un punto en donde
+	$\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$ es invertible,
+	existen entonces entornos conexos $U_{0}\subset M$ de $p$ y
+	$V_{0}\subset N$ de $F(p)$ tales que la restricci\'{o}n
+	$F|_{U_{0}}:\,U_{0}\rightarrow V_{0}$ es difeomorfismo.
+\end{teoFunInvVar}
+
+\begin{proof}
+	Aunque parezca trivial, el hecho de que $\diferencial[p]{F}$ es
+	isomorfismo implica que $\dim\,M=\dim\,N$. Tomando coordenadas
+	$(U,\varphi)$ en $p$ y $(V,\psi)$ en $F(p)$ tales que
+	$F(U)\subset V$, como tanto $\varphi$ como $\psi$ son
+	difeomorfismos, la matriz jacobiana
+	$\jacobiana[\widehat{p}]{\widehat{F}}$ es invertible. Por el teorema
+	usual de la funci\'{o}n inversa, existen entornos (conexos)
+	$\widehat{U}_{0}\subset\varphi(U)$ y $\widehat{V}_{0}\subset\psi(V)$
+	tales que $\widehat{F}|_{\widehat{U}_{0}}:\,%
+	\widehat{U}_{0}\rightarrow\widehat{V}_{0}$ es un difeomorfismo. Si
+	$U_{0}=\varphi^{-1}(\widehat{U}_{0})$ y
+	$V_{0}=\psi^{-1}(\widehat{V}_{0})$, entonces $p\in U_{0}$,
+	$F(p)\in V_{0}$, $U_{0}$ y $V_{0}$ son conexos y
+	$F|_{U_{0}}\rightarrow V_{0}$ es difeomorfismo.
+\end{proof}
+
+A continuaci\'{o}n enunciamos algunas propiedades importantes de los
+difeomorfismos locales.
+
+\begin{propoDifeoLocal}\label{thm:propisdifeoslocales}
+	\emph{(a)} La composici\'{o}n de difeomorfismos locales es un
+	difeomorfismo local; \emph{(b)} el producto de dos difeomorfismos
+	locales es un difeomorfismo local, su inversa est\'{a} dada por el
+	producto de las respectivas transformaciones inversas;
+	\emph{(c)} la restricci\'{o}n de un difeomorfismo local a un
+	abierto sigue siendo un difeomorfismo local; \emph{(d)} todo
+	difeomorfismo local biyectivo es un difeomorfismo.
+\end{propoDifeoLocal}
+
+Por ejemplo, para demostrar \emph{(d)}, si $F:\,M\rightarrow N$ es
+biyectiva y difeomorfismo local, entonces, localmente, su inversa
+$F^{-1}$ coincide con una funci\'{o}n suave: si $q\in N$ y $p\in M$
+es el (\'{u}nico) punto tal que $F(p)=q$, existe un entorno $U$ de $p$
+tal que $F(U)$ es abierta y $F|_{U}:\,U\rightarrow F(U)$ es difeomorfismo.
+En particular, $F^{-1}|_{F(U)}=(F|_{U})^{-1}$ que es una funci\'{o}n
+suave.
+
+Para determinar si una transformaci\'{o}n (suave) es un difeomorfismo local,
+alcanza con ver lo que sucede en entornos coordenados.
+
+\begin{obsDifeoLocal}\label{obs:difeoslocaleslocal}
+	Una transformaci\'{o}n suave $F:\,M\rightarrow N$ es un
+	difeomorfismo local, si y s\'{o}lo si ara cada punto $p\in M$
+	existe un entorno $U\subset M$ de $p$ tal que la representaci\'{o}n
+	en coordenadas de $F$ en $U$ es un difeomorfismo local.
+\end{obsDifeoLocal}
+
+\begin{coroDifeoLocal}\label{thm:difeolocalsubmersioneinmersion}
+	Si $F:\,M\rightarrow N$ es una transformaci\'{o}n suave, entonces
+	$F$ es un difeomorismo local, si y s\'{o}lo si es una
+	submersi\'{o}n y una inmersi\'{o}n.
+\end{coroDifeoLocal}
+
+\begin{proof}
+	Ya demostramos que todo difeomorfismo local es submersi\'{o}n
+	e inmersi\'{o}n. Rec\'{\i}procamente, si $F$ es, a la vez, una
+	submersi\'{o}n y una inmersi\'{o}n, entonces
+	$\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$ es un
+	isomorfismo. Por el teorema de la funci\'{o}n inversa, existen
+	entornos de $p$ y de $F(p)$ tales que $F$ restringida a los mismos
+	es un difeomorfismo.
+\end{proof}
+
+\begin{coroDifeoLocal}\label{thm:difeolocalsubmersionoinmersion}
+	Si $F:\,M\rightarrow N$ es una transformaci\'{o}n suave,
+	$\dim\,M=\dim\,N$ y $F$ es una submersi\'{o}n o una inmersi\'{o}n,
+	entonces $F$ es un difeomorfismo local.
+\end{coroDifeoLocal}
+
+\begin{proof}
+	Dado que las dimensiones del dominio y del codominio de $F$ son
+	iguales, $F$ es una inmersi\'{o}n, si y s\'{o}lo si es una
+	submersi\'{o}n.
+\end{proof}

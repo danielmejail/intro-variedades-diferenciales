@@ -1,0 +1,138 @@
+\theoremstyle{plain}
+\newtheorem{propoTodoTangenteEsVelocidad}{Proposici\'{o}n}[section]
+
+\theoremstyle{remark}
+
+%-------------
+
+Dada una variedad $M$, una \emph{curva en $M$} (o \emph{curva parametrizada})
+es una funci\'{o}n $\gamma:\,J\rightarrow M$ definida en un intervalo
+$J\subset\bb{R}$. El intervalo $J$ tiene una estructura de variedad
+diferencial (posiblemente con borde) y podemos preguntarnos si $\gamma$ es
+regular. Si $\gamma$ es de clase $C^{k}$ ($k\geq 1$) o suave, dado
+$t_{0}\in J$, llamamos \emph{velocidad de la curva $\gamma$} en $t=t_{0}$ a
+su derivada en $t_{0}$, es decir, al elemento de $T_{\gamma(t_{0})}M$ dado por
+\begin{align*}
+	\gamma'(t_{0}) & \,\equiv\,\dot{\gamma}(t_{0}) \,\equiv\,
+		\diferencial[t_{0}]{\gamma}\Big(\gancho[t_{0}]{t}\Big)
+	\text{ ,}
+\end{align*}
+%
+donde $\diferencial[t_{0}]{\gamma}$ es el diferencial de $\gamma$, vista
+como funci\'{o}n entre las variedades $J$ y $M$, en el punto $t_{0}\in J$
+y $\gancho[t_{0}]{t}$ es el elemento de la base de $T_{t_{0}}J$.
+
+Dado $p\in M$, decimos que $\gamma$ es una curva con origen en $p$, si
+$0\in J$ y $\gamma(0)=p$, o si, m\'{a}s en general, fijado $t_{0}\in J$,
+$\gamma(t_{0})=p$. Dada una carta $(U,\varphi)$ para $M$ en $p$, sabemos que,
+al ser $\gamma$ suave, su expresi\'{o}n en coordenadas, $\varphi\circ\gamma=%
+(\lista*{\gamma}{n})$ es suave. Si $f:\,U\rightarrow\bb{R}$ es una
+funci\'{o}n suave,
+\begin{align*}
+	\dot{\gamma}(t_{0})\,f & \,\equiv\,\diferencial[t_{0}]{\gamma}
+		\Big(\gancho[t_{0}]{t}\Big)\,f \,=\,
+		(f\circ\gamma)'(t_{0})
+\end{align*}
+%
+y, en coordenadas,
+\begin{align*}
+	\dot{\gamma}(t_{0})\,f & \,=\,
+		\diferencial[\varphi(\gamma(t_{0}))]{\varphi^{-1}}\Big(
+		\diferencial[t_{0}]{(\varphi\circ\gamma)}\Big(
+		\gancho[t_{0}]{t}\Big)\Big)\,f \\
+	& \,=\,\diferencial[\varphi(\gamma(t_{0}))]{\varphi^{-1}}\Big(
+		\derivada{(\varphi\circ\gamma)^{k}}{t}(t_{0})\cdot
+		\gancho[\varphi(\gamma(t_{0}))]{x^{k}}\Big)\,f \\
+	& \,=\,\derivada{\gamma^{k}}{t}(t_{0})\cdot
+		\diferencial[\varphi(\gamma(t_{0}))]{\varphi^{-1}}
+		\Big(\gancho[\varphi(\gamma(t_{0}))]{x^{k}}\Big)\,f \\
+	& \,=\,\derivada{\gamma^{k}}{t}(t_{0})\cdot
+		\gancho[\varphi(\gamma(t_{0}))]{\varphi^{k}}\,f
+	\text{ .}
+\end{align*}
+%
+En definitiva,
+\begin{equation}
+	\label{eq:velocidaddeunacurva}
+	\dot{\gamma}(t_{0}) \,=\,\derivada{\gamma^{k}}{t}(t_{0})\cdot
+		\gancho[\varphi(\gamma(t_{0}))]{\varphi^{k}}
+\end{equation}
+%
+donde $\gamma^{k}=(\varphi\circ\gamma)^{k}=\varphi^{k}\circ\gamma$.
+
+\begin{propoTodoTangenteEsVelocidad}\label{thm:todotangenteesvelocidad}
+	Sea $M$ una variedad diferencial y sea $p\in M$. Si $v\in T_{p}M$
+	es un vector tangente en $p$, existe una curva
+	$\gamma:\,J\rightarrow M$ con origen en $p$ tal que
+	$\dot{\gamma}(t_{0})=v$.
+\end{propoTodoTangenteEsVelocidad}
+
+\begin{proof}
+	Sea $(U,\varphi)$ una carta en $p$. Sea $\widehat{v}\in%
+	T_{\widehat{p}}\varphi(U)\simeq\bb{R}^{n}$ el vector dado por
+	$\widehat{v}=(\lista*{v}{n})=v^{i}\gancho[\widehat{p}]{x^{i}}$,
+	donde $\lista*{v}{n}$ son las coordenadas de $v$ en la base
+	$\gancho[p]{\varphi^{i}}\equiv\gancho[p]{x^{i}}$. Es decir, si
+	$v=v^{i}\gancho[p]{x^{i}}$, definimos
+	$\widehat{v}=v^{i}\gancho[\widehat{p}]{x^{i}}$.
+
+	Supongamos que $p\in\interior{M}$. Sea $\widehat{\gamma}:\,%
+	(-\epsilon,\epsilon)\rightarrow\varphi(U)$ la curva dada por
+	$\widehat{\gamma}(t)=(v^{1}t,\,\dots,\,v^{n}t)+\widehat{p}$ y
+	sea $\gamma=\varphi^{-1}\circ\widehat{\gamma}$. En $t=0$,
+	$\gamma(0)=p$ y
+	\begin{align*}
+		\dot{\gamma}(0) & \,=\,v^{i}\gancho[p]{x^{i}} \,=\,v
+		\text{ .}
+	\end{align*}
+	%
+	Si $U$ es una carta del borde de $M$ y $p\in\borde[M]$, no es cierto
+	que $\widehat{\gamma}(t)\in\hemi[n]$ para todo
+	$t\in(-\epsilon,\epsilon)$, excepto en el caso $v^{n}=0$. En otro
+	caso, si $v^{n}>0$, entonces, la restricci\'{o}n de
+	$\widehat{\gamma}$ a $[0,\epsilon)$ s\'{\i} es una curva
+	contenida en $\varphi(U)$ y si $v^{n}<0$, entonces su
+	restricci\'{o}n a $(-\epsilon,0]$ lo es. Definiendo $\gamma$
+	como la composici\'{o}n de $\varphi^{-1}$ con la restricci\'{o}n
+	correspondiente, se obtiene una curva en $M$ con origen en $p$
+	y velocidad $\dot{\gamma}(0)=v$.
+\end{proof}
+
+Las curvas suaves en una variedad dan una idea local de la estructura de la
+misma. En este sentido, las curvas suaves tienen dos aplicaciones
+principales: por un lado, son \'{u}tiles para el c\'{a}lculo de diferenciales
+de transformaciones suaves, como veremos a continuaci\'{o}n; por otro
+lado, aunque todav\'{\i}a no haya sido definida esta noci\'{o}n, dada
+una subvariedad $S$ de una variedad ambiente $M$, la interpretaci\'{o}n
+de los vectores tangentes como velocidades o clases de equivalencia de
+curvas suaves nos permitir\'{a} identificar el espacio tangente a $S$ en
+un punto $p\in S$ con un subespacio vectorial del espacio tangente a $M$
+en $p$ (ver el cap\'{\i}tulo relacionado con subvariedades).
+
+Si queremos saber c\'{o}mo afecta una transformaci\'{o}n suave
+$F:\,M\rightarrow N$ a una curva $\gamma:\,J\rightarrow M$, s\'{o}lo
+debemos componer: $F\circ\gamma:\,J\rightarrow N$ es una curva suave y
+\begin{equation}
+	\label{eq:diferencialporcurvas}
+	\begin{aligned}
+		(F\circ\gamma)'(t_{0}) & \,\equiv\,
+			\diferencial[t_{0}]{(F\circ\gamma)}
+				\Big(\gancho[t_{0}]{t}\Big) \,=\,
+			\diferencial[\gamma(t_{0})]{F}\cdot
+			\diferencial[t_{0}]{\gamma}
+				\Big(\gancho[t_{0}]{t}\Big) \\
+		& \,=\,\diferencial[\gamma(t_{0})]{F}
+			\big(\dot{\gamma}(t_{0})\big)
+		\text{ .}
+	\end{aligned}
+\end{equation}
+%
+Este resultado se puede usar de dos maneras, o con dos prop\'{o}sitos
+distintos: o bien para determinar la velocidad de la curva
+$F\circ\gamma$, conociendo $\dot{\gamma}(t_{0})$ y
+$\diferencial[\gamma(t_{0})]{F}$, o bien para calcular el diferencial
+$\diferencial[p]{F}$ estudiando el efecto que tiene sobre las curvas
+$\gamma$ con origen en $p$. En esta segunda situaci\'{o}n, dado un
+vector tangente $v_{p}\in T_{p}M$, si tomamos una curva suave
+$\gamma:\,J\rightarrow M$ con origen en $p$ y velocidad $v_{p}$, entonces
+$\diferencial[p]{F}(v_{p})=(F\circ\gamma)'(t_{0})$.

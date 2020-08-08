@@ -1,0 +1,192 @@
+
+Sea $M$ una variedad diferencial de dimensi\'{o}n $n$ y sea
+$\gamma:\,I\rightarrow M$ una curva diferenciable definida en el intervalo
+$I=[0,1]$. Un \emph{campo continuo sobre $\gamma$} es una aplicaci\'{o}n
+continua $X:\,I\rightarrow\tangente{M}$ tal que $X=\pi\circ\gamma$, es decir,
+$X(t)\in\tangente[\gamma(t)]{M}$ es un vector tangente a $M$ en el punto
+$\gamma(t)$ para cada instante $t$. Un \emph{marco continuo sobre $\gamma$}
+es un conjunto ordenado $\{\lista{E}{n}\}$ de campos continuos sobre $\gamma$
+tal que, para cada $t\in I$, el conjunto ordenado
+$\{E_{1}(t),\,\dots,\,E_{n}(t)\}$ es una base del espacio tangente
+$\tangente[\gamma(t)]{M}$. En esta secci\'{o}n se demostrar\'{a} que siempre
+existen marcos continuos sobre curvas diferenciales.
+
+Sea entonces $M$ una variedad diferencial y sea $\gamma:\,I\rightarrow M$
+una curva diferenciable. Dado $p\in\gamma(I)$, se puede elegir una carta
+$(U,\varphi)$ centrada en $p$, compatible con la estructura diferencial
+de $M$. Sea $\cal{U}=\left\lbrace (U_{t},\varphi_{t})\,:\,%
+t\in I\right\rbrace$ la colecci\'{o}n dada por una posible elecci\'{o}n
+de cartas compatibles tales que $(U_{t},\varphi_{t})$ est\'{e} centrada en
+$\gamma(t)$. En particular, $\cal{U}$ es un cubrimiento de la imagen
+$\gamma(I)$ por abiertos de $M$. Dado que $\gamma:\,I\rightarrow M$ es
+continua, las preim\'{a}genes $\gamma^{-1}(U_{t})\subset I$ son abiertas
+y $t\in\gamma^{-1}(U_{t})$ para cada instante $t\in I$. En particlar,
+$\left\lbrace\gamma^{-1}(U_{t})\,:\,t\in I\right\rbrace$ es un cubrimiento
+por abiertos del inervalo $I$. Dado que $I$ es un espacio m\'{e}trico
+compacto, por el \emph{lema del n\'{u}mero de Lebesgue}, existen finitos
+instantes $a_{0}=0<a_{1}<\,\cdots\,<a_{r}=1$ tales que, para
+$i\in[\![0,r-1]\!]$, el subintervalo $[a_{i},a_{i+1}]$ est\'{e} contenido
+en alg\'{u}n abierto $V_{i}=\gamma^{-1}(U_{t_{i}})$ del cubrimiento
+del intervalo.
+
+Sea $\gamma_{i}=\gamma|_{[a_{i},a_{i+1}]}$ la restricci\'{o}n de la curva
+$\gamma$ a alguno de los subintervalos $[a_{i},a_{i+1}]$. Cada una de las
+curvas $\gamma_{i}:\,[a_{i},a_{i+1}]\rightarrow M$ es diferenciable y
+admite un marco continuo: sea $E^{i}_{k}:\,%
+[a_{i},a_{i+1}]\rightarrow\tangente{M}$ la aplicaci\'{o}n
+\begin{align*}
+	E^{i}_{k}(t) & \,=\,\gancho[\gamma(t)]{x_{i}^{k}}
+\end{align*}
+%
+donde $\gancho[\gamma(t)]{x_{i}^{k}}$ denota la derivaci\'{o}n en
+$\tangente[\gamma(t)]{M}$ determinada por las funciones coordenadas
+$\varphi_{t_{i}}=(x_{i}^{l})$ correspondiente a la funci\'{o}n
+$x_{i}^{k}:\,U_{t_{i}}\rightarrow\bb{R}$. La cuesti\'{o}n es c\'{o}mo
+pegar estos marcos de manera obtener un marco continuo sobre $\gamma$.
+Para cada \'{\i}ndice $i\in[\![0,r-1]\!]$, los campos
+$\Big\{\gancho{x_{i+1}^{k}}\Big\}_{k}$ se pueden escribir en t\'{e}rminos
+de los campos $\Big\{\gancho{x_{i}^{k}}\Big\}_{k}$: para cada punto
+$p\in U_{t_{i}}\cap U_{t_{i+1}}$, existen coeficientes
+$A^{i,k}_{l}(p)\in\bb{R}$ tales que
+\begin{align*}
+	\gancho[p]{x_{i+1}^{l}} & \,=\, A^{i,k}_{l}(p)\,
+		\gancho[p]{x_{i}^{k}}
+\end{align*}
+%
+(sin sumar sobre $i$). De esta manera, dado que
+$\Big\{\gancho[p]{x_{i+1}^{k}}\Big\}_{k}$ y que
+$\Big\{\gancho[p]{x_{i}^{k}}\Big\}_{k}$ forman bases del espacio tangente
+en $p$, se obtiene un elemento, una matriz, $A^{i}(p)\in\GL{n,\bb{R}}$,
+cuyo coeficiente $(k,l)$ es $A^{i,k}_{l}(p)$. Dado que las cartas
+$(U_{t_{i}},\varphi_{t_{i}})$ y $(U_{t_{i+1}},\varphi_{t_{i+1}})$ son
+compatibles, las funciones
+\begin{align*}
+	A^{i,k}_{l} & \,:\,U_{t_{i}}\cap U_{t_{i+1}} \,\rightarrow\,\bb{R}
+\end{align*}
+%
+son suaves y la aplicaci\'{o}n $A^{i}:\,%
+U_{t_{i}}\cap U_{t_{i+1}}\rightarrow\GL{n,\bb{R}}$ es suave, tambi\'{e}n.
+En t\'{e}rminos de los campos, vale que
+\begin{align*}
+	\gancho{x_{i+1}^{l}} & \,=\,A^{i,k}_{l}\,\gancho{x_{i}^{k}}
+\end{align*}
+%
+en $U_{t_{i}}\cap U_{t_{i+1}}$. En particular, componiendo con la curva
+$\gamma$, siempre que $\gamma(t)$ pertenezca a la intersecci\'{o}n,
+se cumple que
+\begin{align*}
+	E^{i+1}_{l}(t) & \,=\,A^{i,k}_{l}(\gamma(t))\,E^{i}_{k}(t)
+	\text{ .}
+\end{align*}
+%
+Esta igualdad vale, por ejemplo, cuando $t=a_{i+1}$.
+
+Para cada $i\in[\![0,r-1]\!]$, sea $p_{i}=\gamma(a_{i})$ y sea
+$p_{r}=\gamma(a_{r})=\gamma(1)$. Cada punto de la forma $p_{i+1}$ de la
+variedad pertenece a la intersecci\'{o}n $U_{t_{i}}\cap U_{t_{i+1}}$ de
+abiertos coordenados. Sea $\epsilon_{i}>0$ tal que
+$a_{i}<a_{i+1}-\epsilon_{i}$ y que
+$\gamma([a_{i+1}-\epsilon_{i},a_{i+1}])\subset U_{t_{i}}\cap U_{t_{i+1}}$.
+Sea $B(a_{i+1}-\epsilon)=I_{n}\in\GL{n,\bb{R}}$ la matriz identidad y sea
+$B(a_{i+1})=A^{i}(p_{i+1})=A^{i}(\gamma(a_{i+1}))\in\GL{n,\bb{R}}$ la matriz
+de coeficientes de los campos coordenados en $U_{t_{i+1}}$ en t\'{e}rminos
+de los campos coordenados en $U_{t_{i}}$. Si existiese una curva
+(suave) $B:\,[a_{i+1}-\epsilon_{i},a_{i+1}]\rightarrow\GL{n,\bb{R}}$
+tal que $B(t)=I_{n}$ cerca de $t=a_{i+1}-\epsilon_{i}$ y tal que
+$B(t)=A^{i}(p_{i+1})$ cerca de $t=a_{i+1}$, entonces se podr\'{\i}an definir
+campos $F_{1},\,\dots,\,F_{n}:\,[a_{i+1}-\epsilon_{i},a_{i+1}]\rightarrow%
+\tangente{M}$ dados por
+\begin{align*}
+	F_{l}(t) & \,=\, B(t)^{k}_{l}\,E^{i}_{k}(t) \,=\,
+		B(t)^{k}_{l}\,\gancho[\gamma(t)]{x_{i}^{k}}
+	\text{ .}
+\end{align*}
+%
+Dado que $B(t)\in\GL{n,\bb{R}}$ para todo $t$ y que
+$\{E^{i}_{1}(t),\,\dots,\,E^{i}_{n}(t)\}$ es base de $\tangente[\gamma(t)]{M}$,
+el conjunto ordenado $\{F_{1}(t),\,\dots,\,F_{n}(t)\}$ tambi\'{e}n es base
+del espacio tangente para cada instante $t$ en donde $B$ est\'{e} definida.
+Adem\'{a}s, como cada una de las funciones $t\mapsto B(t)^{k}_{l}$ son
+continuas (suaves), los campos $\lista{F}{n}$ sobre la restricci\'{o}n
+$\gamma|_{[a_{i+1}-\epsilon_{i},a_{i+1}]}$ son continuos (suaves). En
+definitiva, asumiendo que la curva $B$ existe, se obtiene un marco continuo
+$\{\lista{F}{n}\}$ en $[a_{i+1}-\epsilon_{i},a_{i+1}]$ tal que
+\begin{align*}
+	F_{l}(a_{i+1}-\epsilon_{i}) & \,=\,
+		(I_{n})^{k}_{l}\,E^{i}_{k}(a_{i+1}-\epsilon_{i}) \,=\,
+		E^{i}_{l}(a_{i+1}-\epsilon_{i})
+	\quad\text{y} \\
+	F_{l}(a_{i+1}) & \,=\,
+		A^{i,k}_{l}(\gamma(a_{i+1}))\,E^{i}_{k}(a_{i+1}) \,=\,
+		E^{i+1}_{l}(a_{i+1})
+\end{align*}
+%
+para cada $l\in[\![1,n]\!]$ (sin sumar sobre $i$). De esta manera,
+concatenando con el marco $\{E^{i}_{1},\,\dots,\,E^{i}_{n}\}$ en
+$[a_{i},a_{i+1}-\epsilon_{i}]$, se obtiene un marco continuo (?`suave?)
+sobre $\gamma_{i}$. Pero, si $\{F^{i}_{1},\,\dots,\,F^{i}_{n}\}$ denota
+el marco continuo definido en $[a_{i+1}-\epsilon_{i},a_{i+1}]$, entonces,
+para cada $i$, este marco se pega bien con el marco
+$\{E^{i+1}_{1},\,\dots,\,E^{i+1}_{n}\}$ en $[a_{i+1},a_{i+2}-\epsilon_{i+1}]$,
+dando como resultado un marco continuo en
+$[a_{i+1}-\epsilon_{i},a_{i+2}-\epsilon_{i+1}]$. Inductivamente, asumiendo
+que las curvas $B:\,[a_{i+1}-\epsilon_{i},a_{i+1}]\rightarrow\GL{n,\bb{R}}$
+existen para cada $i\in[\![0,r-1]\!]$, se deduce que existe un marco
+continuo sobre $\gamma$.
+
+Para concluir la demostraci\'{o}n de que existe un marco continuo sobrela curva
+(diferenciable) $\gamma$, resta demostrar que existen las curvas continuas
+(suaves) $B:\,[a_{i+1}-\epsilon_{i},a_{i+1}]\rightarrow\GL{n,\bb{R}}$ tales
+que $B(a_{i+1}-\epsilon_{i})=I_{n}$ y $B(a_{i+1})=A^{i}(p_{i+1})$. Pero
+una curva con estas propiedades existe, si y s\'{o}lo si $A^{i}(p_{i+1})$
+pertenece a la componente conexa de la identidad $I_{n}$ en $\GL{n,\bb{R}}$,
+es decir, si y s\'{o}lo si $\det\big(A^{i}(p_{i+1})\big)>0$. Pero esta
+condici\'{o}n no se tiene por qu\'{e} cumplir, \textit{a priori}. Aun
+as\'{\i}, esto se puede corregir progresivamente, a medida que se va
+avanzando sobre la curva. Si $A^{0}(p_{1})$ tiene determinante negativo,
+entonces, cambiando la coordenada
+$\varphi_{t_{1}}=(x_{1}^{1},\,\dots,\,x_{1}^{n})$ por
+$\tilde{\varphi}_{t_{1}}=(-x_{1}^{1},\,x_{1}^{2},\,\dots,\,x_{1}^{n})$,
+los campos coordenados correspondientes en $U_{t_{1}}$ (el dominio no cambia)
+est\'{a}n dados, en relaci\'{o}n con los anteriores, por
+\begin{align*}
+	\gancho{\tilde{x}_{1}^{1}} & \,=\,-\gancho{x_{1}^{1}}
+	\quad\text{y} \\
+	\gancho{\tilde{x}_{1}^{k}} & \,=\,\gancho{x_{1}^{k}}
+	\text{ ,}
+\end{align*}
+%
+si $k\geq 2$. Definiendo $E^{1}_{k}(t)=\gancho[\gamma(t)]{\tilde{x}^{k}_{1}}$
+y $\tilde{A}^{0}:\,U_{t_{0}}\cap U_{t_{1}}\rightarrow\GL{n,\bb{R}}$ como
+la aplicaci\'{o}n que a un punto $p$ le asigna la matriz cuyos coeficientes
+est\'{a}n determinados por
+\begin{align*}
+	\gancho[p]{\tilde{x}^{l}_{1}} & \,=\,
+		\tilde{A}^{0,k}_{l}(p)\,\gancho[p]{x_{0}^{k}}
+	\text{ ,}
+\end{align*}
+%
+se deduce que $\det\big(\tilde{A}^{0}(p_{1})\big)>0$. Si, ahora,
+$\epsilon_{0}>0$ es tal que $a_{0}=0<a_{1}-\epsilon_{0}$ y que
+$\gamma([a_{1}-\epsilon_{0},a_{1}])$, se puede elegir una
+curva (posiblemente componiendo con alguno reparametrizaci\'{o}n)
+$B:\,[a_{1}-\epsilon_{0},a_{1}]\rightarrow\GL{n,\bb{R}}$ tal que
+$B(a_{1}-\epsilon_{0})=I_{n}$ y que $B(a_{1})=\tilde{A}^{0}(\gamma(a_{1}))$.
+La existencia de esta curva permite concatenar el marco continuo
+$\{E^{0}_{1},\,\dots,\,E^{0}_{n}\}$ en $[a_{0},a_{1}-\epsilon_{0}]$ con
+un marco continuo $\{F^{0}_{1},\,\dots,\,F^{0}_{n}\}$ definido en
+$[a_{1}-\epsilon_{0},a_{1}]$ tal que $F^{0}_{l}(a_{1}-\epsilon_{0})=E^{0}_{l}(a_{1}-\epsilon_{0})$ y que $F^{0}_{l}(a_{1})=E^{1}_{l}(a_{1})$. Concatenando
+el marco $\{E^{0}_{l}\}_{l}$ en $[a_{0},a_{1}-\epsilon_{0}]$ con
+$\{F^{0}_{l}\}_{l}$ definido en $[a_{1}-\epsilon_{0},a_{1}]$, seguido luego
+del marco $\{E^{1}_{l}\}_{l}$ en $[a_{1},a_{2}]$, se obtiene un marco
+continuo en $[a_{0},a_{2}]$. Inductivamente, si se tiene definido un
+marco continuo sobre $\gamma$ en el subintervalo $[a_{0},a_{i}]$, para
+extenderlo hasta $a_{i+1}$, se repite el procedimiento anterior, obteniendo
+un marco continuo hasta $a_{i+1}-\epsilon_{i}$ usando el
+marco dado por los campos coordenados $\gancho{x_{i+1}^{l}}$ (o bien por
+los campos $\gancho{\tilde{x}_{i+1}^{l}}$ correspondientes a modificar
+la funci\'{o}n coordenada $x_{i+1}^{1}$ por $\tilde{x}_{i+1}^{1}=-x_{i+1}^{1}$,
+en caso de que $\det\big(A^{i}(p_{i+1})\big)<0$), seguido de un marco
+de transici\'{o}n $\{F^{i+1}_{l}\}_{l}$ hasta $a_{i+2}$, si $i+1<r-1$, o
+sin modificaciones, si $i+1=r-1$.
+

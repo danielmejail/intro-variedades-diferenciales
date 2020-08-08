@@ -1,0 +1,213 @@
+
+
+\begin{ejemplo}\nom{La exponencial}
+	Sea $\varepsilon:\,\bb{R}\rightarrow S^{1}$ la funci\'{o}n
+	\begin{align*}
+		\varepsilon(t) & \,=\,\exp{2\pi i t}
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n es suave. Una opci\'{o}n es pensar que $S^{1}$
+	no es el grupo multiplicativo de los complejos de valor absoluto
+	$1$, sino la esfera de dimensi\'{o}n $1$ contenida en el plano, es
+	decir, como subariedad de $\bb{R}^{2}$.
+	
+	Sea $\inc[\esfera{1}]:\,\esfera{1}\rightarrow\bb{R}^{2}$ la
+	inclusi\'{o}n de la esfera en el plano y sea
+	$\widehat{\varepsilon}=\varepsilon\circ\inc[\esfera{1}]$.
+	La funci\'{o}n $\widehat{\varepsilon}$ se obtiene, tambi\'{e}n,
+	identificando $\bb{C}$ con el plano $\bb{R}^{2}$ --es decir, tomando
+	las coordenadas usuales en $\bb{C}$-- e incluyendo $S^{1}$ en
+	$\bb{C}^{\times}$ como subgrupo y \'{e}ste a su vez en $\bb{C}$ como
+	abierto. Vemos, en todo caso, que
+	\begin{align*}
+		\widehat{\varepsilon}(t) & \,=\,(\cos 2\pi t,\,\sin 2\pi t)
+		\text{ .}
+	\end{align*}
+	%
+	Sean $U_{1}^{\pm}$ y $U_{2}^{\pm}$ los dominios de las cartas
+	usuales para la esfera $\esfera{1}$. Con estas coordenadas en $S^{1}$
+	y las coordenadas usuales en $\bb{R}$, vale, por ejemplo, que
+	\begin{align*}
+		\varphi_{1}^{+}\circ\varepsilon(t) & \,=\,\pi_{1}\big(
+			\widehat{\varepsilon}(t)\big) \,=\,
+			\cos 2\pi t
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\pi_{1}:\,\bb{R}^{2}\rightarrow\bb{R}$ es la proyecci\'{o}n
+	en la primer coordenada. An\'{a}logamente, $\pi_{2}$ es la
+	proyecci\'{o}n en la segunda. Como sabemos que $\cos 2\pi t$
+	y $\sin 2\pi t$ son funciones suaves en el sentido usual,
+	concluimos que $\varepsilon$ es suave.
+
+	Otra opci\'{o}n es usar las coordenadas en $S^{1}$ dadas por tomar
+	\'{a}ngulo. En estas coordenadas, en un abierto suficientemente
+	peque\~{n}o alrededor de $t$, $\widehat{\varepsilon}(t)=t+c$ para
+	alguna constante real $c$. Deducimos entonces que $\varepsilon$ es
+	suave.
+
+	Un poco m\'{a}s en general definimos el \emph{toro de dimensi\'{o}n %
+	$n$} como el producto de $n$ copias de $S^{1}$. Si
+	$\varepsilon:\,\bb{R}^{n}\rightarrow\toro[n]$ es la funci\'{o}n
+	\begin{align*}
+		\varepsilon(\lista*{t}{n}) & \,=\,
+		\big(\exp{2\pi it^{1}},\,\dots,\,\exp{2\pi it^{n}}\big)
+	\end{align*}
+	%
+	es suave, por ser un producto finito de funciones suaves.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{La funci\'{o}n \'{a}ngulo}
+	Dado un abierto $U\subset S^{1}$, una funci\'{o}n
+	\'{a}ngulo en $U$ es una funci\'{o}n continua
+	$\theta:\,U\rightarrow\bb{R}$ tal que $e^{i\theta(z)}=z$ para todo
+	$z\in U$, es decir, es una secci\'{o}n (local) continua de la
+	exponencial $(\tau\mapsto e^{i\tau}):\,\bb{R}\rightarrow S^{1}$.
+	Para ser consistentes con la definici\'{o}n de la exponencial en
+	los otros ejemplos, llamamos \emph{funci\'{o}n \'{a}ngulo} a las
+	secciones locales continuas de $t\mapsto\exp{2\pi it}$.
+
+	Todo punto de $S^{1}$ es de la forma $z=e^{2\pi i\tau}$ para alg\'{u}n
+	$\tau\in\bb{R}$. Si $z=e^{2\pi i\tau}=e^{2\pi i\tau'}$ entonces
+	$\tau-\tau'=2\pi k$ para alg\'{u}n entero $k$.
+	Sea $U\subset S^{1}$ es un subconjunto propio de la forma
+	$U=S^{1}\setmin\{z_{0}\}$ con $z_{0}=e^{2\pi i\tau_{0}}$. En este
+	subconjunto, todo punto se puede representar de manera \'{u}nica
+	como $e^{2\pi i\tau}$ con $\tau\in(\tau_{0}-1,\tau_{0}+1)$.
+	Para cada $n\geq 1$, definimos
+	$K_{n}=[\tau_{0}-1+\frac{1}{n},\tau_{0}+1-\frac{1}{n}]$. Estos
+	subconjuntos del intervalo abierto centrado en $\tau_{0}$ son
+	compactos. Por otro lado, la funci\'{o}n
+	$e:\,\tau\mapsto e^{2\pi i\tau}$ es continua: la noci\'{o}n de
+	cercan\'{\i}a en $U$, como en $S^{1}$ es la determinada por el valor
+	absoluto en $\bb{C}$ en tanto subespacios del plano complejo, entonces
+	\begin{align*}
+		|z-z'|^{2} & \,=\, |\cos(2\pi\tau)-\cos(2\pi\tau')|^{2}
+			\,+\,|\sin(2\pi\tau)-\sin(2\pi\tau')|^{2} \\
+		& \,\leq\, (2\pi)^{2} |\tau-\tau'|^{2}\quad\text{y} \\
+		|z-z'| & \,\leq\, 2\pi |\tau-\tau'|
+		\text{ .}
+	\end{align*}
+	%
+	Como la exponencial $e$ es continua, cada $K_{n}$ es compacto y $U$
+	es $T_{2}$, la funci\'{o}n $e$ restringida a $K_{n}$ es homeomorfismo,
+	pues es una biyecci\'{o}n. Sea $\theta:\,U\rightarrow%
+	(\tau_{0}-1,\tau_{0}+1)$ la inversa de la exponencial, es decir,
+	$\theta(z)=\tau$, donde $\tau$ es el \'{u}nico valor real en el
+	intervalo tal que $z=e(\tau)$. Veamos que $\theta$ es continua.
+	Sea $z\in U$. Entonces existe $n\geq 1$ tal que $z$ pertenece a
+	$U_{n}=e(\interior{K_{n}})$, que es abierto en $U$, por ser la
+	imagen v\'{\i}a el homeomorfismo
+	$e|_{K_{n}}:\,K_{n}\rightarrow e(K_{n})\subset U$ de un abierto
+	contenido en el compacto. En $U_{n}$, la funci\'{o}n $\theta$
+	coincide con $e|_{K_{n}}^{-1}$ que es continua. Entonces, como los
+	abiertos $U_{n}$ cubren $U$, $\theta$ es continua en $U$.
+
+	Si $U\subset S^{1}$ es un subconjunto propio arbitrario, est\'{a}
+	incluido en alg\'{u}n subcojunto de la forma $S^{1}\setmin\{z_{0}\}$
+	y all\'{\i} podemos definir una funci\'{o}n \'{a}ngulo como
+	en el p\'{a}rrafo anterior. Como $U$ es un subespacio, la
+	restricci\'{o}n de esta funci\'{o}n a $U$ es continua.
+	En $S^{1}$ no puede existir una funci\'{o}n \'{a}ngulo global:
+	si $\theta:\,S^{1}\rightarrow\bb{R}$ es continua, entonces, la
+	imagen es conexa, si es una secci\'{o}n de $e$, entonces debe ser
+	inyectiva, y, en particular, debe ser subespacio, con lo que
+	la imagen est\'{a} forzada a ser un intervalo cerrado y $\theta$
+	un homeomorfismo con su imagen, pero los intervalos son simplemente
+	conexos y $S^{1}$ no\dots
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Coordenadas angulares}
+	Las funciones \'{a}ngulo definidas en el ejemplo anterior pueden
+	usarse para definir cartas en $S^{1}$. Dado $U\subset S^{1}$
+	un subconjunto propio, existe una funci\'{o}n \'{a}ngulo
+	$\theta:\,U\rightarrow\bb{R}$ continua definida en $U$. Esta
+	funci\'{o}n determina un homeomorfismo sobre su imagen, su inversa
+	est\'{a} dada por la restricci\'{o}n de la exponencial. En definitiva,
+	si $U\subset S^{1}$ es abierto y $\theta$ es una funci\'{o}n
+	\'{a}ngulo definida en $U$, entonces el par $(U,\theta)$ es una
+	carta para $S^{1}$. Como los dominios de estas cartas cubren a
+	$S^{1}$, deducimos que el c\'{\i}rculo es una variedad topol\'{o}gica
+	de dimensi\'{o}n $1$. Notemos que la topolog\'{\i}a en $S^{1}$
+	como subespacio de $\bb{C}^{\times}$ coincide con la topolog\'{\i}a
+	de la esfera $\esfera{1}$ de dimensi\'{o}n $1$ contenida en
+	$\bb{R}^{2}$. Si bien sab\'{\i}amos que $S^{1}$ tiene una
+	topolog\'{\i}a que la hace una variedad topol\'{o}gica, acabamos
+	de demostrarlo usando \emph{otra} estructura euclidea local, otro
+	cubrimiento por cartas, en principio, distinto del dado por
+	lo que llamamos cartas usuales en la esfera, los abiertos
+	$U_{i}^{\pm}$ y las proyecciones
+	$\varphi_{i}^{\pm}:\,U_{i}^{\pm}\rightarrow\bola{1}{0}$.
+
+	Vamos a demostrar que las coordenadas angulares, $(U,\theta)$ son
+	compatibles entre s\'{\i} y, adem\'{a}s, compatibles con la
+	estructura usual de la esfera $\esfera{1}$. Sean $U$ y $U'$ abiertos
+	propiamente contenidos en $S^{1}$ y sean $\theta$ y $\theta'$
+	funciones \'{a}ngulo, secciones de $\exp{2\pi it}$, definidas en
+	$U$ y en $U'$, respectivamente. Sea $W\subset U\cap U'$ una
+	componente conexa. Como $\theta$ y $\theta'$ son homeomorfismos,
+	$\theta(W)$ es un subintervalo de $(\tau_{0}-1,\tau_{0}+1)=I$ y
+	$\theta'(W)$ es un subintervalo de $(\tau_{0}'-1,\tau_{0}'+1)=I'$ para
+	ciertos n\'{u}meros reales $\tau_{0}$ y $\tau_{0}'$. Si $w\in W$,
+	$\theta(w)=\tau\in I$ y $\theta'(w)=\tau'\in I'$ y
+	\begin{align*}
+		w & \,=\, \exp{2\pi i\tau} \,=\,\exp{2\pi i\tau'}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $\tau=\tau'+ k(w)$ con $k(w)\in\bb{Z}$. Entonces
+	tenemos una funci\'{o}n $k:\,W\rightarrow\bb{Z}$ dada por
+	\begin{align*}
+		k(w) & \,=\,\theta(w)-\theta'(w)
+		\text{ .}
+	\end{align*}
+	%
+	Por ser una diferencia de funciones continuas, $k$ es continua.
+	Pero $k$ tiene imagen en un conjunto discreto, entonces debe
+	ser localmente constante. Como la imagen $k(W)\subset\bb{Z}$ es
+	conexa, debe ser $k(w)=k_{0}$ para todo $w\in W$. En definitiva,
+	hemos demostrado que los cambios de carta $\theta\circ(\theta')^{-1}$
+	est\'{a}n dados, en cada componente conexa de la intersecci\'{o}n
+	de los dominios, por sumar una constante entera, lo cual muestra
+	que los cambios de coordenada angular son tan regulares como
+	pueden serlo.
+
+	Veamos, finalmente, que las cartas $(U,\theta)$ son compatibles
+	con las cartas usuales en $\esfera{1}$. Lo demostraremos
+	en un caso particular, los otros casos son an\'{a}logos.
+	Supongamos que $U$ es $S^{1}\setmin\{-1\}$ y que $V=U_{i}^{\pm}$ es
+	$\{x>0\}$. Sea $\theta:\,U\rightarrow (-1,1)$ la
+	funci\'{o}n \'{a}ngulo definida en $U$ y sea $\psi(x,y)=x$
+	la coordenada correspondiente en $V$. Entonces
+	\begin{align*}
+		\psi\circ\theta^{-1}(\tau) & \,=\,
+			\psi\big(\exp{2\pi i\tau}\big)\,=\,
+			\cos 2\pi\tau\quad\text{y} \\
+		\theta\circ\psi^{-1}(x) & \,=\,
+			\theta\big(x,\sqrt{1-|x|^{2}}\big)\,=\,
+			\frac{1}{2\pi}\mathsf{arc\,cos}\, x
+		\text{ .}
+	\end{align*}
+	%
+	Notemos que
+	\begin{align*}
+		(\mathsf{arc\,cos}\,x)' & \,=\,
+			\frac{-1}{\sin(\mathsf{arc\,cos}\,x)} \,=\,
+			\frac{-1}{\sqrt{1-|x|^{2}}}
+	\end{align*}
+	%
+	que es suave en $|x|<1$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{La exponencial es un difeomorfismo local}
+	Sea $\varepsilon:\,\bb{R}\rightarrow S^{1}$ la funci\'{o}n
+	exponencial $\varepsilon(t)=\exp{2\pi it}$. Esta funci\'{o}n
+	es un difeomorfismo local. En un entorno de cada punto, usando
+	las coordenadas angulares, $\varepsilon$ tiene una expresi\'{o}n
+	en coordenadas de la forma $t\mapsto 2\pi t+c$ para alguna constante
+	$c\in\bb{R}$, que es un difeomorfismo. Lo mismo se puede decir
+	de la exponencial en el toro $\toro[n]$ de dimensi\'{o}n $n$, ya
+	que esta funci\'{o}n es un producto de difeomorfismos locales.
+\end{ejemplo}
+

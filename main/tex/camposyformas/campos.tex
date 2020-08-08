@@ -1,0 +1,1037 @@
+\theoremstyle{plain}
+\newtheorem{teoDerivacionesYCampos}{Teorema}[section]
+\newtheorem{propoCamposEnCoordenadas}[teoDerivacionesYCampos]{Poposici\'{o}n}
+\newtheorem{propoExtenderUnCampo}[teoDerivacionesYCampos]{Proposici\'{o}n}
+\newtheorem{lemaAplicarCamposLocalmenteDeterminado}%
+	[teoDerivacionesYCampos]{Lema}
+\newtheorem{propoEquivCampoSuave}[teoDerivacionesYCampos]{Proposici\'{o}n}
+\newtheorem{propoFRelacionados}[teoDerivacionesYCampos]{Proposici\'{o}n}
+\newtheorem{teoPushforwardDifeo}[teoDerivacionesYCampos]{Teorema}
+\newtheorem{propoCamposTangentes}[teoDerivacionesYCampos]{Proposici\'{o}n}
+\newtheorem{propoTangenteSubvarSubvar}[teoDerivacionesYCampos]{Proposici\'{o}n}
+\newtheorem{propoCamposTangentesSuaves}[teoDerivacionesYCampos]%
+	{Proposici\'{o}n}
+\newtheorem{lemaElCorcheteEsSuave}[teoDerivacionesYCampos]{Lema}
+\newtheorem{propoCorcheteFRelacionados}[teoDerivacionesYCampos]%
+	{Proposici\'{o}n}
+\newtheorem{coroTangentesCorcheteCerrados}[teoDerivacionesYCampos]%
+	{Proposici\'{o}n}
+\newtheorem{lemaExtenderCampos}[teoDerivacionesYCampos]{Lema}
+
+\theoremstyle{remark}
+\newtheorem{obsCamposConstantes}{Observaci\'{o}n}[section]
+\newtheorem{obsDerivacionEsDerivacion}[obsCamposConstantes]{Observaci\'{o}n}
+\newtheorem{obsFRelacionados}[obsCamposConstantes]{Observaci\'{o}n}
+\newtheorem{obsTangenteSubvarReg}[obsCamposConstantes]{Observaci\'{o}n}
+\newtheorem{obsCorcheteEnCoords}[obsCamposConstantes]{Observaci\'{o}n}
+
+%-------------
+
+Empecemos con algunas definiciones generales y poco claras. Dada una
+variedad $M$, un \emph{campo en $M$} es una funci\'{o}n
+$X:\,M\rightarrow\tangente{M}$ tal que $\pi\circ X=\id[M]$, donde
+$\pi:\,\tangente{M}\rightarrow M$ es la proyecci\'{o}n can\'{o}nica.
+Un poco m\'{a}s en general, si $U\subset M$ es un abierto, un campo en
+$U$ es una funci\'{o}n $X:\,U\rightarrow\tangente{M}$ tal que
+$\pi\circ X=\id[U]$. Ser\'{a} \'{u}til poder extender esta noci\'{o}n a
+otros subconjuntos de $M$. Dada una variedad $N$ y una aplicaci\'{o}n
+$\psi:\,Q\rightarrow N$, un \emph{campo sobre/en/a lo largo de $\psi$} es una
+funci\'{o}n $X:\,Q\rightarrow\tangente{N}$ tal que $\pi\circ X=\psi$. De
+particular importancia ser\'{a}n los campos a lo largo de curvas
+$\sigma:\,[a,b]\rightarrow N$. Si $X$ es, adem\'{a}s, una funci\'{o}n
+continua, entonces se dir\'{a} que $X$ es un \emph{campo continuo}.
+
+Los campos en una variedad $M$ son, en otras palabras, secciones del
+fibrado tangente a la variedad. Entre todas las posibles secciones
+del fibrado hay un \emph{elemento distinguido}: como puntualmente,
+arriba de cada punto se levanta un espacio vectorial, el espacio tangente
+a la variedad en el punto, y cada fibra tiene un elemento distinguido,
+el vector cero, al fibrado tangente le corresponde la secci\'{o}n nula
+como elemento distinguido, es decir, $0:\,M\rightarrow\tangente{M}$
+que a cada punto $p\in M$ le asigna el vector $0\in\tangente[p]{M}$.
+Nos interesar\'{a}n particularmente las secciones con alguna propiedad
+extra, como continuidad o suavidad, pero una secci\'{o}n no tiene por qu\'{e}
+tener ninguna de estas propiedades. Es de esperar que la secci\'{o}n
+cero sea suave.
+
+Un campo $X:\,Q\rightarrow\tangente{N}$ se dice \emph{suave}, si $X$
+es una transformaci\'{o}n suave. Esta definici\'{o}n presupone que $Q$ tiene
+estructura de variedad. El caso de mayor inter\'{e}s, por el momento
+ser\'{a} el de un campo en una variedad $M$ o en un abierto $U\subset M$.
+En este caso, $U$ tiene naturalmente estructura de variedad diferencial y
+un campo $X:\,U\rightarrow\tangente{M}$ es, por definici\'{o}n, suave, si
+es una secci\'{o}n local suave del fibrado $\pi:\,\tangente{M}\rightarrow M$,
+o, lo que es lo mismo, una secci\'{o}n suave de $\pi:\,%
+\tangente{U}\rightarrow U$. El \emph{soporte} de un campo
+$X:\,Q\rightarrow\tangente{N}$ se define como la clausura del subconjunto
+$\{q\in Q\,:\,X_{q}\not =0\}$. La igualdad $X_{q}=0$ se entiende en
+$\tangente[p]{N}$, donde $p\in N$ es tal que $p=\pi(X_{q})=\psi(q)$.
+
+\subsection{El espacio $\champs{M}$ de campos suaves en una variedad}
+Sea $M$ una variedad diferencial y sea $X:\,M\rightarrow\tangente{M}$
+un campo no necesariamente continuo. Si $(U,\varphi)$ es una carta
+compatible con la estructura de $M$, entonces, para cualquier punto
+$p\in U$, $X_{p}\in\tangente[p]{M}$ y
+\begin{align*}
+	X_{p} & \,=\,X^{i}(p)\cdot\gancho[p]{x^{i}}
+\end{align*}
+%
+para ciertos coeficientes $X^{i}(p)\in\bb{R}$. Esto determina funciones
+$X^{i}:\,U\rightarrow\bb{R}$ denominadas \emph{las componentes de $X$ en/%
+con respecto a la carta $(U,\varphi)$}. La aplicaci\'{o}n $X$, originalmente
+definida en $M$, se restringe a un campo $X|_{U}:\,%
+U\rightarrow\tangente{M}$ en $U$. Tanto $U$ como $\tangente{M}$
+tienen estructura de variedad diferencial.
+
+\begin{propoCamposEnCoordenadas}\label{thm:camposencoordenadas}
+	Con las definiciones anteriores, $X|_{U}:\,U\rightarrow\tangente{M}$
+	es una transformaci\'{o}n suave, si y s\'{o}lo si
+	las funciones $X^{i}:\,U\rightarrow\bb{R}$ lo son.
+\end{propoCamposEnCoordenadas}
+
+\begin{proof}
+	Si $(\widetilde{U},\widetilde{\varphi})$ denota la carta
+	correspondiente a $(U,\varphi)$ en $\tangente{M}$, entonces, en
+	coordenadas,
+	\begin{align*}
+		\widehat{X}(x) & \,=\,
+			\widetilde{\varphi}\circ X\circ\varphi(x)\,=\,
+			\widetilde{\varphi}
+				(\varphi^{-1}(x),\,X_{\varphi^{-1}(x)}) \\
+		& \,=\,(\lista*{x}{n},\,X^{1}(\varphi^{-1}(x)),\,\dots,\,
+			X^{n}(\varphi^{-1}(x)))
+		\text{ .}
+	\end{align*}
+	%
+	La expresi\'{o}n en coordenadas $\widehat{X}:\,%
+	\varphi(U)\rightarrow\varphi(U)\times\bb{R}^{n}$ es suave, si y
+	s\'{o}lo si $\widehat{X^{i}}=X^{i}\circ\varphi^{-1}$ son suaves,
+	si y s\'{o}lo si las funciones $X^{i}$ son suaves.
+\end{proof}
+
+La demostraci\'{o}n consiste, simplemente, en volver sobre la definici\'{o}n
+de lo que significa que una funci\'{o}n entre variedades sea una
+transformaci\'{o}n suave. Como ya se hab\'{\i}a mencionado, si
+$U\subset M$ es un subconjunto abierto de una variedad diferencial $M$,
+un campo $X$ en $U$ es una \emph{campo suave}, si, en tanto funci\'{o}n
+entre variedades, es una transformaci\'{o}n suave. Un poco m\'{a}s en general,
+dado un subconjunto arbitrario $A\subset M$ de la variedad y un campo
+$X:\,A\rightarrow\tangente{M}$ sobre $A$, se dice que $X$ es \emph{suave},
+si, para cada punto $p\in A$, existe un entorno $V\subset M$ de $p$ y un
+campo suave $\tilde{X}:\,V\rightarrow\tangente{M}$ tal que $X=\tilde{X}$
+en $V\cap A$.
+
+Dada una variedad $M$ denotaremos por $\champs{M}$ al espacio de
+campos suaves definidos en $M$. El conjunto de campos en $M$ constituye un
+espacio vectorial. M\'{a}s aun, $\champs{M}$ es un $C^{\infty}(M)$-m\'{o}dulo.
+Dados campos arbitrarios $X,Y:\,M\rightarrow\tangente{M}$ y funciones
+$f,g:\,M\rightarrow\bb{R}$, para cada punto $p\in M$,
+\begin{align*}
+	\left.\big(f\cdot X+g\cdot Y\big)\right|_{p} & \,=\,
+		f(p)X|_{p}+g(p)Y|_{p}
+	\text{ ,}
+\end{align*}
+%
+que pertenece a la fibra $\tangente[p]{M}$ de $\pi$. Si $X,Y\in\champs{M}$ y
+$f,g\in C^{\infty}(M)$, entonces, en coordenadas,
+\begin{align*}
+	\left.\big(f\cdot X+g\cdot Y\big)\right|_{p} & \,=\,
+		\big(f(p)X^{i}(p)+g(p)Y^{i}(p)\big)\cdot\gancho[p]{x^{i}}
+	\text{ .}
+\end{align*}
+%
+Pero las funciones $fX^{i}+gY^{i}$, en el abierto coordenado donde est\'{e}n
+definidas, son \phantom{continuas} suaves. Dado un campo arbitrario
+$X$, la escritura de $X_{p}$ en la base can\'{o}nica
+$\Big\{\gancho[p]{x^{i}}\Big\}_{i}$ se puede expresar como una igualdad
+en el espacio de todos los campos en $M$ (o, mejor dicho, en el abierto
+coordenado):
+\begin{align*}
+	X|_{U} & \,=\, X^{i}\cdot\gancho{x^{i}}
+	\text{ .}
+\end{align*}
+%
+En particular, si $X$ es suave, la igualdad es en $\champs{U}$. Los
+\emph{campos coordenados} $\gancho{x^{i}}:\,U\rightarrow\tangente{M}$
+son suaves, pues sus componentes con respecto a la carta $(U,\varphi)$ son
+constantes y, en particular, suaves. La imagen de estos campos est\'{a}
+contenida en $\tangente{U}$. La expersi\'{o}n en coordenadas del campo
+$\gancho{x^{i}}$ con respecto a otra carta compatible $(V,\tilde{\varphi})$
+est\'{a} dada por
+\begin{equation}
+	\label{eq:cambiodeganchos}
+	\gancho{x^{i}} \,=\,\derivada{\tilde{x}^{j}}{x^{i}}\cdot
+		\gancho{\tilde{x}^{j}}
+	\text{ .}
+\end{equation}
+%
+
+\subsection{Extensi\'{o}n de campos vectoriales}
+Sea $M$ una variedad diferencial y sea $A\subset M$ un subconjunto
+arbitrario. Por definici\'{o}n, un campo (suave) sobre $A$ es una secci\'{o}n
+$X:\,A\rightarrow\tangente{M}$ que admite, en un entorno de cada punto,
+una extensi\'{o}n suave. Si $A$ es un subconjunto cerrado, es posible
+extender el campo a toda la variedad.
+
+\begin{propoExtenderUnCampo}\label{thm:extenderuncampo}
+	Sea $M$ una variedad diferencial y sea $A\subset M$ un subconjunto
+	cerrado. Si $U\subset M$ es abierto y $U\supset A$ y
+	$X:\,A\rightarrow\tangente{M}$ es un campo suave sobre $A$, existe
+	un campo $\tilde{X}\in\champs{M}$ tal que $\tilde{X}|_{A}=X$ y
+	$\soporte{\tilde{X}}\subset U$.
+\end{propoExtenderUnCampo}
+
+\begin{proof}
+	Dado $p\in A$, existe un abierto $U_{p}\subset M$ tal que
+	$p\in U_{p}$ y un campo $X^{p}:\,U_{p}\rightarrow\tangente{M}$
+	tal que $X^{p}=X$ en $U_{p}\cap A$. Sea
+	$\{\psi_{p}\}_{p\in A}\cup\{\psi_{0}\}$ una partici\'{o}n de la unidad
+	subordinada al cubrimiento $\{U_{p}\}_{p\in A}\cup\{U_{0}\}$, donde
+	$U_{0}=M\setmin A$. En particular, vale que
+	$\sum_{p\in A}\,\psi_{p}(p')=1$ para todo $p'\in A$, pues $\psi_{0}=0$
+	all\'{\i}. Sea $\psi_{p}X^{p}$ el campo dado por
+	\begin{align*}
+		\left.\big(\psi_{p}X^{p}\big)\right|_{q} & \,=\,
+			\begin{cases}
+				\psi_{p}(q)X^{p}|_{q} & \quad\text{si }
+							q\in U_{p} \\
+				0 & \quad\text{si }q\not\in\soporte{\psi_{p}}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Este campo est\'{a} bien definido, pues ambas definiciones
+	coinciden en la intersecci\'{o}n de los abiertos $U_{p}$ y
+	$M\setmin\soporte{\psi_{p}}$, y es suave, pues es suave
+	restringida a $U_{p}$ y restringida a $M\setmin\soporte{\psi_{p}}$.
+	Finalmente, sea $\tilde{X}$ el campo
+	\begin{align*}
+		\tilde{X} & \,=\,\sum_{p}\,\psi_{p}X^{p}
+		\text{ .}
+	\end{align*}
+	%
+	Como cada uno de los sumandos es suave y los soportes forman una
+	familia localmente finita, dado $p'\in M$, existe un abierto
+	$V\subset M$ tal que $p'\in V$ en donde la suma
+	$\sum_{p\in A}\,\psi_{p}X^{p}$ es efectivamente finita y, por lo
+	tanto, $\tilde{X}$ es $C^{\infty}$ en $p'$. Si $p'\in A$,
+	\begin{align*}
+		\tilde{X}|_{p'} & \,=\, \sum_{p\in A}\,\psi_{p}(p')X^{p}|_{p'}
+			\,=\,\sum_{p\in A}\,\psi_{p}(p')X|_{p'}
+			\,=\, X|_{p'}
+		\text{ ,}
+	\end{align*}
+	%
+	ya que $\psi_{p}(p')$ es igual a cero, o bien $X^{p}|_{p'}=X|_{p'}$.
+\end{proof}
+
+Si $A=\{p\}$ consiste en un \'{u}nico punto, un campo $X$ sobre $A$ es
+exactamente un vector del tangente $v_{p}\in\tangente[p]{M}$. Todo campo
+sobre $\{p\}$ es suave, es decir, se extiende a un campo en un entorno de
+$p$, al \emph{campo constante}: si $(U,\varphi)$ es una carta en $p$,
+\begin{align*}
+	v_{p} & \,=\, v^{i}\gancho[p]{x^{i}}
+	\text{ .}
+\end{align*}
+%
+Sea $X:\,U\rightarrow\tangente{M}$ el campo dado por
+\begin{align*}
+	X & \,=\, v^{i}\gancho{x^{i}}
+	\text{ ,}
+\end{align*}
+%
+donde $v^{i}\in\bb{R}$ son \emph{constantes} iguales a los coeficientes
+de $v_{p}$ en la base can\'{o}nica $\Big\{\gancho[p]{x^{i}}\Big\}_{i}$.
+Por la proposici\'{o}n \ref{thm:extenderuncampo}, el vector tangente
+$v_{p}\in\tangente[p]{M}$ se extiende a un campo $C^{\infty}$ en $M$,
+de manera que $X_{p}=v_{p}$. Con un poco m\'{a}s de cuidado, se puede
+tomar $X$ constante en todo un entorno de $p$, usando una funci\'{o}n
+chich\'{o}n en $p$.
+
+\begin{obsCamposConstantes}\label{obs:camposconstantes}
+	De acuerdo con la expresi\'{o}n \eqref{eq:cambiodeganchos} para el
+	cambio de base en t\'{e}rminos de los ganchos un ``campo constante''
+	no es en verdad constante \emph{en s\'{\i}}, sino respecto de una
+	carta en particular; al cambiar de carta, un campo vectorial con
+	coeficientes constantes en una carta pasa (en general, a menos que
+	sea un cambio ``lineal'', una homotecia) a verse como un campo con
+	componentes variables.
+\end{obsCamposConstantes}
+
+\subsection{Propiedades equivalentes a la suavidad de un campo}
+Dado un campo $X:\,M\rightarrow\tangente{M}$ y dada una funci\'{o}n
+\emph{suave} $f\in C^{\infty}(M)$, queda determinada una funci\'{o}n
+$Xf:\,M\rightarrow\bb{R}$ por $(Xf)(p)=X_{p}f$. Llamaremos a esta
+operaci\'{o}n \emph{aplicar el campo $X$ a la funci\'{o}n $f$}. Esta
+nueva funci\'{o}n est\'{a} \emph{localmente determinada}.
+
+\begin{lemaAplicarCamposLocalmenteDeterminado}%
+	\label{thm:aplicarcamposlocalmentedeterminado}
+	Sea $X:\,M\rightarrow\tangente{M}$ un campo arbitrario, no
+	necesariamente suave ni continuo. Sean $f,g\in C^{\infty}(M)$ dos
+	funciones suaves. Si existe un abierto $V\subset M$ tal que
+	$f|_{V}=g|_{V}$, entonces $(Xf)|_{V}=(Xg)|_{V}$.
+\end{lemaAplicarCamposLocalmenteDeterminado}
+
+\begin{proof}
+	Dado $p\in V$, $(Xf)(p)\equiv X_{p}f$ y $(Xg)(p)\equiv X_{p}g$.
+	Pero $f|_{V}=g|_{V}$, es decir, $f$ y $g$ coicinden en un
+	entorno de $p$. Como el vector tangente $X_{p}\in\tangente[p]{M}$
+	est\'{a} determinado localmente, $X_{p}f=X_{p}g$. Como $p$ es
+	un punto arbitrario de $V$, se concluye que $Xf=Xg$ en $V$.
+\end{proof}
+
+\begin{propoEquivCampoSuave}\label{thm:equivalenciascamposuave}
+	Sea $M$ una variedad diferencial. Sea $X:\,M\rightarrow\tangente{M}$
+	un campo no necesariamente continuo. Las siguientes propiedades
+	son equivalentes:
+	\begin{itemize}
+		\item[(\i)] $X\in\champs{M}$;
+		\item[(\i\i)] dada $f\in C^{\infty}(M)$, la funci\'{o}n
+			$Xf:\,p\mapsto X_{p}f$ es suave en $M$;
+		\item[(\i\i\i)] dado un abierto arbitrario $U\subset M$
+			y una funci\'{o}n suave $f\in C^{\infty}(U)$,
+			la funci\'{o}n $Xf\equiv X|_{U}f$ es suave en $U$.
+	\end{itemize}
+	%
+\end{propoEquivCampoSuave}
+
+\begin{proof}
+	Si $X$ es un campo suave y $f\in C^{\infty}(M)$, entonces, tomando
+	coordenadas,
+	\begin{align*}
+		\widehat{Xf}(x) & \,=\,X^{i}(\varphi^{-1}(x))
+			\derivada{(f\circ\varphi^{-1})}{x^{i}}
+				(\varphi(\varphi^{-1}(x))) \\
+		& \,=\, \widehat{X^{i}}(x)\derivada{\widehat{f}}{x^{i}}(x)
+		\text{ .}
+	\end{align*}
+	%
+	Como $X$ es suave, las funciones $X^{i}$ son suaves en $M$, es
+	decir, las expresiones en coordenadas $\widehat{X^{i}}$ son suaves
+	en sentido usual, en el codominio de la carta (cualquiera sea la
+	carta, siempre que sea compatible). Pero tambi\'{e}n $\widehat{f}$
+	es suave en sentido usual, porque $f$ suave en $M$. En particular,
+	las derivadas $\derivada{\widehat{f}}{x^{i}}:\,%
+	\widehat{U}\rightarrow\bb{R}$ son suaves. Entonces $Xf$ es suave
+	en $M$.
+
+	Asumiendo que $Xf\in C^{\infty}(M)$ para toda funci\'{o}n suave
+	$f\in C^{\infty}(M)$, dado $U\subset M$ abierto y
+	$f\in C^{\infty}(U)$, se ver\'{a} que $X|_{U}f$ es diferenciable.
+	Sea $p\in U$ un punto arbitrario del abierto. Sea $V\subset U$
+	abierto tal que $p\in V$ y $\clos{V}\subset U$. Sea
+	$\{\psi_{0},\psi_{1}\}$ una partici\'{o}n de la unidad
+	subordinada al cubrimiento $\{U_{0},U_{1}\}$ de $M$, donde
+	$U_{0}=U$ y $U_{1}=M\setmin\clos{V}$. Sea $\tilde{f}:\,%
+	M\rightarrow\bb{R}$ la funci\'{o}n definida por
+	\begin{align*}
+		\tilde{f} & \,=\,
+			\begin{cases}
+				\psi_{0} f & \quad\text{en } U_{0} \\
+				0 & \quad\text{en } U_{1}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n pertenece a $C^{\infty}(M)$ y $f|_{V}=\tilde{f}|_{V}$.
+	Entonces
+	\begin{align*}
+		\left.\big(X|_{U}f\big)\right|_{V} & \,=\,
+			\left.\big(X\tilde{f}\big)\right|_{V}
+		\text{ .}
+	\end{align*}
+	%
+	Pero $X\tilde{f}:\,M\rightarrow\bb{R}$ es suave. Entonces
+	$X|_{U}f:\,U\rightarrow\bb{R}$ coincide con una funci\'{o}n
+	suave en un entorno de $p$. Como $p$ era arbitrario,
+	$X|_{U}f\in C^{\infty}(U)$.
+
+	Finalmente, si $Xf\in C^{\infty}(U)$ para toda funci\'{o}n
+	suave $f$ definida en alg\'{u}n abierto $U\subset M$, entonces,
+	dado $p\in M$ y una carta $(U,\varphi)$ en $p$,
+	\begin{align*}
+		X|_{U} & \,=\, X^{i}\gancho{x^{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Las funciones coordenadas $x^{i}:\,U\rightarrow\bb{R}$ asociadas
+	a la carta $\varphi$, son funciones suaves para cada
+	$i\in[\![1,n]\!]$. Aplicando $X|_{U}$ a $x^{j}$, se deduce que
+	$X^{j}=X x^{j}\in C^{\infty}(U)$ y que $X\in\champs{M}$,
+	por \ref{thm:camposencoordenadas}.
+\end{proof}
+
+\subsection{Campos como derivaciones}
+Un campo $X\in\champs{M}$ define una derivaci\'{o}n en el \'{a}lgebra
+de funciones $C^{\infty}(M)$: dadas $f,g\in C^{\infty}(M)$, dados
+$a,b\in\bb{R}$ y dado $p\in M$,
+\begin{align*}
+	\big(X(af+bg)\big)(p) & \,=\,X|_{p}(af+bg) \\
+	& aX|_{p}f+bX|_{p}g \,=\,(aXf+bXg)(p)
+		\quad\text{y} \\
+	\big(X(fg)\big)(p) & \,=\,X|_{p}(fg) \\
+	& \,=\,f(p)X|_{p}g + (X|_{p}f)g(p)
+		\,=\,\big(fXg+(Xf)g\big)(p)
+	\text{ .}
+\end{align*}
+%
+Es decir, $X:\,C^{\infty}(M)\rightarrow C^{\infty}(M)$ es $\bb{R}$-lineal
+y cumple con la regla de Leibniz: $X(fg)=fX(g)+X(f)g$. La linealidad
+y la regla de Leibniz vienen de que $X_{p}$ es un vector tangente en $p$
+para cada punto $p$, no de que $X$ es suave. En realidad, lo que no depende
+de que $X$ sea un campo suave es que la regla de Leibniz y la linealidad
+valen puntualmente, bajando a cada punto. Al ser $X$ un campo suave en $M$
+aplicar el campo a una funci\'{o}n, a una combinaci\'{o}n de funciones o
+a un producto de funciones suaves devuelve funciones suaves.
+Rec\'{\i}procamente, toda derivaci\'{o}n en $C^{\infty}(M)$ viene de un
+campo suave.
+
+\begin{obsDerivacionEsDerivacion}\label{obs:derivacionesderivacion}
+	Antes de pasar a demostrar esta afirmaci\'{o}n, es importante
+	notar que toda derivaci\'{o}n \emph{global}, es decir,
+	toda derivaci\'{o}n $D:\,C^{\infty}(M)\rightarrow C^{\infty}(M)$
+	determina, para cada punto $p\in M$, una \emph{derivaci\'{o}n en %
+	en $p$}. Si $X_{p}:\,f\mapsto (Df)(p)$, entonces
+	$X_{p}\in\tangente[p]{M}$, pues, recorriendo las igualdades
+	anteriores en sentido contrario,
+	\begin{align*}
+		X_{p}(af+bg) & \,\equiv\, \big(D(af+bg)\big)(p) \\
+		& \,=\, (aDf+bDg)(p) \,=\,aX_{p}f+bX_{p}g
+		\quad\text{y} \\
+		X_{p}(fg) & \,\equiv\,D(fg)(p) \\
+		& \,=\,\big(fDg+(Df)g\big)(p) \,=\,
+			f(p)X_{p}g +(X_{p}f)g(p)
+		\text{ .}
+	\end{align*}
+	%
+\end{obsDerivacionEsDerivacion}
+
+\begin{teoDerivacionesYCampos}\label{thm:derivacionesycampos}
+	Sea $D:\,C^{\infty}(M)\rightarrow C^{\infty}(M)$ una derivaci\'{o}n.
+	Existe un campo $X\in\champs{M}$ tal que $Df=Xf$ para toda
+	$f\in C^{\infty}(M)$.
+\end{teoDerivacionesYCampos}
+
+\begin{proof}
+	Si existiese un campo (no necesariamente continuo)
+	$X:\,M\rightarrow\tangente{M}$ tal que $Df=Xf$, entonces
+	\begin{align*}
+		X_{p}f & \,\equiv\,(Xf)(p) \,=\,(Df)(p)
+	\end{align*}
+	%
+	para todo punto $p\in M$ y toda funci\'{o}n diferenciable $f$.
+	Sea $X:\,M\rightarrow\tangente{M}$ el campo $p\mapsto X_{p}$,
+	donde $X_{p}\in\tangente[p]{M}$ es la derivaci\'{o}n \emph{en $p$}
+	dada por $X_{p}f=(Df)(p)$ (c.~f. la observaci\'{o}n
+	\ref{obs:derivacionesderivacion}). Para ver que $X\in\champs{M}$,
+	tomamos $f\in C^{\infty}(M)$ y aplicamos $X$ a $f$: puntualmente,
+	\begin{align*}
+		(Xf)(p) & \,\equiv\, X_{p}f\,\equiv\,(Df)(p)
+		\text{ .}
+	\end{align*}
+	%
+	Pero $Df\in C^{\infty}(M)$. Entonces $Xf\in C^{\infty}(M)$ y
+	$X\in\champs{M}$.
+\end{proof}
+
+\subsection{El \emph{pushforward} de un campo}
+Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave. Sabemos que $F$
+determina una transformaci\'{o}n lineal $\diferencial[p]{F}:\,%
+\tangente[p]{M}\rightarrow\tangente[F(p)]{N}$ para cada punto $p\in M$ y
+que tambi\'{e}n determina una transformaci\'{o}n suave $\diferencial{F}$
+entre los fibrados tangentes. Fijado un punto $p\in M$, el diferencial
+asocia a cada vector tangente $v_{p}\in\tangente[p]{M}$ un vector en
+el espacio tangente $\tangente[F(p)]{N}$ que, en t\'{e}rminos de derivaciones,
+est\'{a} determinado por
+\begin{align*}
+	\diferencial[p]{F}(v_{p})(g) & \,=\,v_{p}(g\circ F)
+\end{align*}
+%
+para toda funci\'{o}n suave $g\in C^{\infty}(N)$.
+
+Dado un campo $X:\,M\rightarrow\tangente{M}$, para cada punto $p$ de $M$,
+$X_{p}$ es un vector tangente a $M$ en $p$ y $\diferencial[p]{F}(X_{p})$
+es un vector tangente a $N$ en $F(p)$. Esto determina un campo a lo largo
+de $F$ v\'{\i}a el diferencial global de $F$, pues
+$\diferencial{F}\circ X:\,M\rightarrow\tangente{N}$ y
+$\pi(\diferencial[p]{F}(X_{p}))=F(p)$. Si $X\in\champs{M}$, entonces
+$\diferencial{F}\circ X$ es un campo suave a lo largo de $F$, es decir, es
+una transformaci\'{o}n suave.
+
+Si $Y:\,N\rightarrow\tangente{N}$ es un campo en $N$, entonces tambi\'{e}n
+se obtiene un campo a lo largo de $F$, si se toma la composici\'{o}n
+$Y\circ F:\,p\mapsto Y_{F(p)}\in\tangente[F(p)]{N}$. Este es suave, si
+$Y\in\champs{N}$ y si $F$ es suave.
+
+Pero, en general, $F$ no determina un campo en $N$ a partir de un campo en
+$M$: por ejemplo, si $F$ no es suryectiva, no hay, en principio, una manera
+natural de asignarle un vector tangente a puntos $q\in N$ que no est\'{a}n
+en la imagen de $F$; si, por otra parte, $F$ no es inyectiva, entonces
+dos puntos distintos $p,p'\in M$ pueden dar lugar a vectores tangentes
+distintos en $F(p)=F(p')$ y no habr\'{\i}a manera natural de elegir uno en
+lugar del otro.
+
+Hay, aun as\'{\i}, un caso en que s\'{\i} tiene sentido hablar de un campo
+en $N$ determinado por $F$ y por un campo en $M$. Este es el caso en que
+$F:\,M\rightarrow N$ es un difeomorfismo (c.~f. el teorema
+\ref{thm:pushforwarddifeo}). Es de esperar que, si $M$ y $N$
+son indistinguibles desde el punto de vista de su estructura diferencial,
+entonces los espacios de campos (suaves) sean, tambi\'{e}n, en alg\'{u}n
+sentido, indistinguibles, ya que esta noci\'{o}n fue definida, en \'{u}ltima
+instancia, a partir de la noci\'{o}n de estructura diferencial de una
+variedad.
+
+Sea entonces $F:\,M\rightarrow N$ una transformaci\'{o}n suave entre
+variedades diferenciales con o sin borde y sean $X:\,M\rightarrow\tangente{M}$
+e $Y:\,N\rightarrow\tangente{N}$ campos (no necesariamente continuos).
+Se dice que $X$ e $Y$ \emph{est\'{a}n $F$-relacionados}, si, para cada punto
+$p\in M$, vale que
+\begin{equation}
+	\label{eq:frelacionadosi}
+	\diferencial[p]{F}\big(X_{p}\big) \,=\, Y_{F(p)}
+	\text{ .}
+\end{equation}
+%
+En otras palabras, dado un campo $X$, existe un campo en $N$ que est\'{e}
+$F$-relacionado con $X$, si y s\'{o}lo si existe un campo en $N$ que da
+lugar al campo $p\mapsto \diferencial[p]{F}X_{p}$ a lo largo de $F$. Esta
+noci\'{o}n est\'{a} definida para campos $X$ e $Y$ no necesariamente
+continuos. En particular, aunque $X$ sea continuo, no es necesariamente
+cierto que $Y$, si existiese, sea continuo.
+
+\begin{propoFRelacionados}\label{thm:frelacionados}
+	Sean $M$ y $N$ variedades diferenciales y sea $F:\,M\rightarrow N$
+	una transformaci\'{o}n suave. Sean $X\in\champs{M}$ e $Y\in\champs{N}$
+	campos suaves. Entonces $X$ e $Y$ est\'{a}n $F$-relacionados,
+	si y s\'{o}lo si, para todo abierto $V\subset N$ y toda
+	funci\'{o}n suave $g\in C^{\infty}(V)$, vale que
+	\begin{equation}
+		\label{eq:frelacionadosii}
+		X|_{F^{-1}(V)}(g\circ F) \,=\, (Y|_{V}g)\circ F
+		\text{ .}
+	\end{equation}
+	%
+\end{propoFRelacionados}
+
+\begin{proof}
+	Sea $p\in M$ y sea $g$ una funci\'{o}n suave definida en un entorno
+	de $F(p)$. Por un lado,
+	\begin{align*}
+		X(g\circ F) (p) & \,\equiv\, X_{p}(g\circ F) \,\equiv\,
+			\diferencial[p]{F}\big(X_{p}\big)(g)
+	\end{align*}
+	%
+	y, por otro,
+	\begin{align*}
+		(Yg)\circ F(p) & \,\equiv\, Y_{F(p)}g
+		\text{ .}
+	\end{align*}
+	%
+	Rigurosamente, $X$ e $Y$ est\'{a}n siendo restringidos a los
+	abiertos en donde $g\circ F$ y $g$ est\'{e} definidas,
+	respectivamente. Ahora bien $X(g\circ F)(p)=(Yg)\circ F(p)$
+	para toda $g$ (y todo punto $p$), si y s\'{o}lo si
+	$\diferencial[p]{F}(X_{p})=Y_{F(p)}$ para todo $p\in M$.
+\end{proof}
+
+\begin{obsFRelacionados}\label{obs:frelacionados}
+	Este resultado y \ref{thm:derivacionesycampos} nos permiten deducir
+	propiedades de regularidad de campos, a partir de propiedades
+	algebraicas de los mismos: por un lado, podemos deducir
+	que un campo $X$ en una variedad $M$ es un campo suave, verificando
+	que es derivaci\'{o}n en $C^{\infty}(M)$; por otro lado, dados
+	campos $X$ en $M$ e $Y$ en $N$ y una transformaci\'{o}n suave
+	$F:\,M\rightarrow N$, sabiendo que son campos suaves, podemos
+	concluir que est\'{a}n $F$-relacionados verificando que se
+	cumple la igualdad \eqref{eq:frelacionadosii} para toda
+	funci\'{o}n suave $g$ definida en un abierto de $N$ (usando
+	particiones de la unidad, se deduce que es suficiente verificar la
+	igualdad para funciones $g\in C^{\infty}(N)$ (?)).
+	Denotaremos que $X\in\champs{M}$ e $Y\in\champs{N}$ est\'{a}n
+	$F$-relacionados por $X\sim_{F}Y$.
+\end{obsFRelacionados}
+
+\begin{teoPushforwardDifeo}\label{thm:pushforwarddifeo}
+	Sean $M$ y $N$ variedades diferenciales y sea $F:\,M\rightarrow N$
+	un difeomorfismo. Dado $X\in\champs{M}$, existe un \'{u}nico
+	campo $Y$ en $N$ que est\'{a} $F$-relacionado con $X$. Adem\'{a}s,
+	$Y\in\champs{N}$.
+\end{teoPushforwardDifeo}
+
+\begin{proof}
+	Como $F$ es una biyecci\'{o}n, $Y:\,N\rightarrow\tangente{N}$
+	dado por $q\mapsto \diferencial[F^{-1}(q)]{F}(X_{F^{-1}(q)})$ es
+	un campo en $N$ (no necesariamente continuo) y est\'{a}
+	$F$-relacionado con $X$. Por otra parte, todo campo $Y$ que
+	est\'{e} $F$-relacionado con $X$ debe verificar que
+	$\diferencial[p]{F}(X_{p})=Y_{F(p)}$. Con lo cual $Y$ definido
+	de esta manera es el \'{u}nico campo posible.
+	Dado que, en tanto transformaci\'{o}n,
+	$Y=\diferencial{F}\circ X\circ F^{-1}$, se deduce que $Y$ es
+	suave, por ser composici\'{o}n de transformaciones suaves.
+\end{proof}
+
+El campo $Y\in\champs{X}$ determinado por el difeomorfismo $F$ y el
+campo suave $X\in\champs{M}$, se denomina \emph{pushorward de $X$ por $F$}.
+Denotamos a este campo por $F_{*}X$. Expl\'{\i}citamente, dado $q\in N$,
+\begin{equation}
+	\label{eq:pushforwarddifeo}
+	(F_{*}X)_{q} \,=\,\diferencial[F^{-1}(q)]{F}\big(X_{F^{-1}(q)}\big)
+	\text{ .}
+\end{equation}
+%
+Para que esta expresi\'{o}n tenga sentido, es suficiente que $F$ sea
+diferenciable e invertible, pero para que defina un campo suave, se
+requiere (en general) que $F^{-1}$ tambi\'{e}n sea diferenciable.
+Aunque parezca una construcci\'{o}n trivial, el pushforward $F_{*}$
+ser\'{a} de utilidad en el contexto de grupos de Lie.
+
+\subsection{Campos tangentes a una subvariedad}
+De la misma manera en que es posible identificar el espacio tangente a
+una subvariedad en un punto con un subespacio del espacio tangente a toda
+la variedad, nos podemos preguntar si es posible identificar los
+campos en una subvariedad con campos en la variedad ambiente. En general,
+como se mencion\'{o} m\'{a}s arriba, esto no es posible, pero se pueden
+dar algunos criterios para determinar cu\'{a}ndo es posible o, mejor
+dicho, dar una interpretaci\'{o}n de lo que significa que esto sea posible.
+
+Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+Dado un campo vectorial $X:\,M\rightarrow\tangente{M}$, se puede obtener un
+campo a lo largo de la inclusi\'{o}n $\inc[S]:\,S\rightarrow M$ simplemente
+restringiendo el campo a $S$, es decir,
+$Y|_{S}=Y\circ\inc[S]:\,S\rightarrow\tangente{M}$. Si $Y\in\champs{M}$,
+entonces $Y|_{S}$ es suave, pero no es necesariamente cierto que sea
+un campo en $S$. Si, por otro lado, $X:\,S\rightarrow\tangente{S}$ es un
+campo en $S$, entonces $\diferencial{\inc[S]}\circ X:\,%
+S\rightarrow\tangente{M}$ define un campo a lo largo de $\inc[S]$. Como antes,
+si $X\in\champs{S}$ es suave, entonces $Y=\diferencial{\inc[S]}\circ X$
+tambi\'{e}n lo es, pero, en general, no define un campo en $M$.
+
+Sean $S$ y $M$ como antes y sea $p\in S$ un punto arbitrario. Dado un campo
+$Y:\,M\rightarrow\tangente{M}$, se dice que $Y$ es \emph{tangente a $S$ en %
+$p$}, si $Y_{p}\in\tangente[p]{S}\equiv%
+\diferencial[p]{\inc[S]}(\tangente[p]{S})$. Se dice que $Y$ es
+\emph{tangente a $S$}, si es tangente a $S$ en todo punto de la subvariedad.
+Como $\inc[S]$ es una inmersi\'{o}n, el diferencial
+$\diferencial[p]{\inc[S]}:\,\tangente[p]{S}\rightarrow\tangente[p]{M}$ es
+inyectivo. Si $Y:\,M\rightarrow\tangente{M}$ es un campo tangente a $S$,
+entonces, para cada $p\in S$, existe un \'{u}nico vector tangente
+$X_{p}\in\tangente[p]{S}$ tal que
+$Y_{p}=\diferencial[p]{\inc[S]}\big(X_{p}\big)$. Esto determina un campo
+$X:\,S\rightarrow\tangente{S}$ que, por su definici\'{o}n, est\'{a}
+$\inc[S]$-relacionado con $Y$. Rec\'{\i}procamente, si $X$ es un campo
+en $S$, $Y$ es un campo en $M$ y $X$ est\'{a} $\inc[S]$-relacionado con
+$Y$, entonces, para cada $p\in S$,
+$Y_{p}=\diferencial[p]{\inc[S]}\big(X_{p}\big)$, de lo que se deduce que
+$Y$ es tangente a $S$.
+
+\begin{propoCamposTangentes}\label{thm:campostangentes}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	Sea $Y:\,M\rightarrow\tangente{M}$ un campo (no necesariamente
+	continuo). Entonces $Y$ es tangente a $S$, si y s\'{o}lo si
+	existe un campo $X:\,S\rightarrow\tangente{S}$ que est\'{e}
+	$\inc[S]$-relacionado con $Y$. En tal caso, $X=Y|_{S}$,
+	la restricci\'{o}n de $Y$ a $S$.
+\end{propoCamposTangentes}
+
+Este resultado dice que hay una correspondencia entre campos tangentes
+y campos $\inc[S]$-relacionados. La pregunta es cu\'{a}ndo estos
+campos son suaves: si $Y|_{S}$ cuando $Y$ es suave, o si $Y$ es suave
+cuando $Y|_{S}$ es suave. Antes de pasar a responder estas preguntas hacemos
+un breve comentario con respecto al fibrado tangente de una subvariedad.
+
+La identificaci\'{o}n $X=Y|_{S}$ viene de identificar $\tangente[p]{S}$
+con un subespacio de $\tangente[p]{M}$ para cada punto $p\in S$ v\'{\i}a
+$\diferencial[p]{\inc[S]}$. M\'{a}s aun, como $\inc[S]$ es inyectiva e
+inmersi\'{o}n, el diferencial $\diferencial[p]{\inc[S]}$ es inyectivo y
+el diferencial \emph{global}
+$\diferencial{\inc[S]}:\,\tangente{S}\rightarrow\tangente{M}$ es inyectivo,
+tambi\'{e}n. Entonces $\tangente{S}$ se puede identificar, al menos, con un
+subconjunto de $\tangente{M}$.
+
+\begin{propoTangenteSubvarSubvar}\label{thm:tangentesubvarsubvar}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	Sea $\inc[S]:\,S\rightarrow M$ la inclusi\'{o}n y sea
+	$\diferencial{\inc[S]}:\,\tangente{S}\rightarrow\tangente{M}$ su
+	diferencial. Entonces $\tangente{S}$ es una subvariedad del fibrado
+	$\tangente{M}$ y $\diferencial{\inc[S]}$ es una inmersi\'{o}n.
+\end{propoTangenteSubvarSubvar}
+
+\begin{proof}
+	En un par $(p,v_{p})\in\{p\}\times\tangente[p]{S}\subset\tangente{S}$,
+	el diferencial $\diferencial{\inc[S]}$ est\'{a} dado por
+	\begin{align*}
+		\diferencial{\inc[S]}(p,v_{p}) & \,=\,
+			(\inc[S](p),\diferencial[p]{\inc[S]}(v_{p}))
+		\,=\,(p,v_{p})\,\in\,\{p\}\times\tangente[p]{M}\,\subset\,
+			\tangente{M}
+		\text{ ,}
+	\end{align*}
+	%
+	haciendo las identificaciones usuales. Para ver que es una
+	inmersi\'{o}n usamos su expresi\'{o}n en coordenadas. Sea $q\in S$
+	y sea $V\subset S$ un abierto que es subvariedad regular de $M$
+	y tal que $q\in V$. Sea $(U,\varphi)$ una carta preferencial para
+	$V$ en $M$ centrada en $q$, de manera que,
+	$V\cap U=\{x^{k+1}=0,\,\dots,\,x^{n}=0\}$, donde $n=\dim\,M$ y
+	$k=\dim\,S$ (si $q$ es un punto del borde de $S$, se puede elegir
+	una carta preferencial de borde de manera que tambi\'{e}n se cumpla
+	$x^{k}\geq 0$ en la intersecci\'{o}n). Sea
+	$(\widetilde{U},\widetilde{\varphi})$ la carta correspondiente en
+	$\tangente{M}$. Por definici\'{o}n, esto significa que
+	\begin{align*}
+		\widetilde{U} & \,=\,\tangente{U} \\
+		& \,=\,\left\lbrace (p,v_{p})\in\tangente{M}\,:\,
+			p\in U,\,v_{p}\in\tangente[p]{U}=\tangente[p]{M}
+			\right\rbrace \quad\text{y} \\
+		\widetilde{\varphi}\Big(p,v^{i}\gancho[p]{x^{i}}\Big) &
+			\,=\,(\varphi^{1}(p),\,\dots,\,\varphi^{n}(p),\,
+				v^{1},\,\dots,\,v^{n})
+		\text{ .}
+	\end{align*}
+	%
+	Por otro lado, si $p\in V\cap U$,
+	\begin{align*}
+		\tangente[p]{S} & \,=\,\left\lbrace
+			v^{k+1}=0,\,\dots,\,v^{n}=0\right\rbrace
+			\,=\,\generado{\gancho[p]{x^{1}},\,\dots,\,
+				\gancho[p]{x^{k}}}
+		\text{ .}
+	\end{align*}
+	%
+	Ahora bien, dado que $V\subset S$ es abierto,
+	$\tangente{V}$ es abierto en el fibrado $\tangente{S}$. Adem\'{a}s,
+	\begin{align*}
+		\tangente{V}\cap\tangente{U} & \,=\,
+			\left\lbrace (p,v_{p})\in\tangente{M}\,:\,
+			p\in V\cap U,\,v_{p}\in\tangente[p]{V}=\tangente[p]{S}
+			\right\rbrace \\
+		& \,=\,\left\lbrace x^{k+1}=0,\,\dots,\,x^{n}=0,\,
+			v^{k+1}=0,\,\dots,\,v^{n}=0\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Pero entonces $\tangente{V}$ es un abierto de $\tangente{S}$
+	que es, adem\'{a}s, una subvariedad regular de $\tangente{M}$,
+	pues, para punto $(q,v_{q})$ existe una carta preferencial
+	$\tangente{U}$ para $\tangente{V}$ en $\tangente{M}$.
+	En definitiva $\tangente{S}$ es una subvariedad inmersa de
+	$\tangente{M}$.
+\end{proof}
+
+En particular, se deduce que el rango de $\diferencial{\inc[S]}:\,%
+\tangente{S}\rightarrow\tangente{M}$ es constante e igual a $k^{2}$, donde
+$k=\dim\,S$.
+
+En realidad, el fibrado tangente a una subvariedad es m\'{a}s que una
+subvariedad inmersa del fibrado tangente de $M$. Esto tiene que ver
+con campos tangentes. Sea $S$ una subvariedad de $M$ y sea
+$Y:\,M\rightarrow\tangente{M}$ un campo (no necesariamente continuo).
+Si $q\in S$ y $V\subset S$ es un entorno de $q$ en $S$ que es subvariedad
+regular de $M$, entonces existe una carta preferencial $(U,\varphi)$
+para $V$ en $M$ tal que $V\cap U$ coincide con la feta $k$-dimensional
+$\{x^{k+1}=0,\,\dots,\,x^{n}=0\}$ (agregando la condici\'{o}n $x^{k}\geq 0$
+si $q$ es un punto del borde de $S$). Con respecto a las coordenadas
+asociadas a esta carta,
+\begin{align*}
+	Y & \,=\,Y^{1}\gancho{x^{1}}\,+\,\cdots\,+\,
+		Y^{n}\gancho{x^{n}}
+	\text{ .}
+\end{align*}
+%
+En particular, $Y$ es un campo tangente a $V$, si y s\'{o}lo si
+$Y^{k+1}=0,\,\dots,\,Y^{n}=0$ en $V\cap U$. De esto se deduce que,
+si $Y$ es suave en $U$, entonces las funciones $\lista*{Y}{n}$ son suaves
+en $U$ y, en particular, como $\inc:\,V\cap U\rightarrow U$ es suave, que
+$Y^{1}|_{V\cap U},\,\dots,\,Y^{k}|_{V\cap U}$ son suaves en $V\cap U$.
+Es decir, si $Y$ es tangente a $V$ y es suave en $U$, el campo
+$\inc[V]$-relacionado $Y|_{V\cap U}:\,V\cap U\rightarrow\tangente{V}$
+se expresa en coordenadas como
+\begin{align*}
+	Y|_{V\cap U} & \,=\,Y^{1}\gancho{x^{1}}\,+\,\cdots\,+\,
+		Y^{k}\gancho{x^{k}}
+	\text{ ,}
+\end{align*}
+%
+donde $Y^{1},\,\dots,\,Y^{k}:\,V\cap U\rightarrow\bb{R}$ son funciones
+suaves. En definitiva, si $Y\in\champs{M}$ es tangente a $V$, entonces
+$Y|_{V}\in\champs{V}$. Esto implica que si $Y\in\champs{M}$ es tangente a $S$,
+entonces se restringe a un campo suave $Y|_{V}:\,V\rightarrow\tangente{V}$ y,
+en particular, el campo $\inc[S]$-relacionado $Y|_{S}$ en $S$ es suave
+como campo en $S$. Esto demuestra el siguiente resultado.
+
+\begin{propoCamposTangentesSuaves}\label{thm:campostangentessuaves}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	Sea $Y\in\champs{M}$ (un campo \emph{suave}). Entonces $Y$ es
+	tangente a $S$, si y s\'{o}lo si existe un campo suave
+	$X\in\champs{S}$ que est\'{e} $\inc[S]$-relacionado con $Y$.
+\end{propoCamposTangentesSuaves}
+
+Esto no quiere decir que, si $Y:\,M\rightarrow\tangente{M}$ es un campo
+que est\'{a} $\inc[S]$-relacionado con un campo suave $X=Y|_{S}\in\champs{S}$.
+entonces $Y$ sea suave: un campo $X\in\champs{S}$ define un
+campo en la imagen de $S$ en $M$ v\'{\i}a la inclusi\'{o}n como
+cualquier otra transformaci\'{o}n inyectiva y diferenciable, pero el hecho
+de que sea subvariedad no es lo suficientemente fuerte como para determinar
+que cualquier extensi\'{o}n a $M$ sea suave. Lo que dicen los
+resultados \ref{thm:campostangentes} y \ref{thm:campostangentessuaves} es que
+un campo $Y$ en una variedad $M$ es tangente a una subvariedad $S$, si y
+s\'{o}lo si su restricci\'{o}n $Y|_{S}$ tiene imagen en el fibrado
+$\tangente{S}$ (como $Y$ es una secci\'{o}n de
+$\pi:\,\tangente{M}\rightarrow M$, $Y|_{S}$ es autom\'{a}ticamente una
+secci\'{o}n de $\pi|_{\tangente{S}}$); la restricci\'{o}n de $Y$ a $S$ es
+simplemente el campo $X$ en $S$ que a cada punto $q\in S$ le asigna el
+\'{u}nico elemento de $\tangente[p]{S}$ cuya imagen v\'{\i}a
+$\diferencial[p]{\inc[S]}$ es $Y_{{\inc[S]}(p)}$. Por otro lado, si se
+empieza con un campo suave $Y\in\champs{M}$, entonces el \'{u}nico campo
+$\inc[S]$-relacionado $X:\,S\rightarrow\tangente{S}$ debe ser suave,
+tambi\'{e}n.
+
+\begin{obsTangenteSubvarReg}\label{obs:tangentesubvarreg}
+	En el caso de una subvariedad regular es posible dar otra
+	descripci\'{o}n de los campos tangentes. Sea $M$ una variedad
+	diferencial y sea $S\subset M$ una subvariedad regular. Sea
+	$X\in\champs{M}$. Puntualmente, para cada $p\in S$,
+	por \ref{thm:}
+	\begin{align*}
+		\tangente[p]{S} & \,=\,\left\lbrace
+			v_{p}\in\tangente[p]{M}\,:\,
+			v_{p}f=0\,\forall f\in C^{\infty}(M),\,f|_{S}=0
+			\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	En particular, se deduce de esto que $X$ es tangente a $S$, si
+	y s\'{o}lo si $(Xf)|_{S}$ es la funci\'{o}n cero, para toda
+	funci\'{o}n suave $f\in C^{\infty}(M)$ tal que $f|_{S}=0$.
+\end{obsTangenteSubvarReg}
+
+
+\subsection{El corchete de Lie}
+Sea $M$ una variedad diferencial y sea $X\in\champs{M}$ un campo suave.
+Para cada funci\'{o}n $f\in C^{\infty}(M)$, aplicar $X$ a $f$ define una
+nueva funci\'{o}n $Xf$ y la misma pertenece al espacio $C^{\infty}(M)$ de
+funciones suaves, tambi\'{e}n. Dado otro campo $Y\in\champs{M}$, podemos
+aplicar $Y$ a $Xf$ y obtener, as\'{\i}, una tercera funci\'{o}n
+$YXf\equiv Y(Xf)=\in C^{\infty}$. En general, esto no define un campo, con
+lo que no tiene sentido hablar de la composici\'{o}n $YX$ en t\'{e}rminos
+de campos, aunque, en t\'{e}rminos de derivaciones s\'{\i} tenga sentido
+la composici\'{o}n. La composici\'{o}n $Y\circ X:\,f\mapsto Y(Xf)$ de
+derivaciones de $C^{\infty}(M)$ no define, en general, una nueva
+derivaci\'{o}n. Lo que s\'{\i} define una nueva derivaci\'{o}n es el
+\emph{corchete} de dos derivaciones. Dadas dos derivaciones
+$D_{1},D_{2}:\,C^{\infty}(M)\rightarrow C^{\infty}(M)$, definimos el
+corchete de $D_{1}$ contra $D_{2}$ como la aplicaci\'{o}n dada en
+una funci\'{o}n suave $f\in C^{\infty}(M)$ por
+\begin{align*}
+	[D_{1},D_{2}]f & \,=\,\big(D_{1}\circ D_{2} - D_{2}\circ D_{1}\big)f
+	\text{ .}
+\end{align*}
+%
+En t\'{e}rminos de campos, si $X,Y\in\champs{M}$, el corchete est\'{a}
+dado puntualmenten por
+\begin{align*}
+	[X,Y]_{p}f & \,=\,X_{p}(Yf) -Y_{p}(Xf)
+	\text{ .}
+\end{align*}
+%
+Hay que verificar que esto define un campo y que, este campo es suave.
+
+\begin{lemaElCorcheteEsSuave}\label{thm:elcorcheteessuave}
+	Sean $X,Y\in\champs{M}$ campos suaves en una variedad diferencial
+	$M$. Entonces el corchete de Lie de $X$ contra $Y$ es un
+	campo suave en $M$.
+\end{lemaElCorcheteEsSuave}
+
+\begin{proof}
+	Por \ref{thm:derivacionesycampos}, alcanzar\'{a} con verificar que
+	\begin{align*}
+		[X,Y]f & \,=\,X(Yf)-Y(Xf)
+	\end{align*}
+	%
+	define una derivaci\'{o}n en $C^{\infty}(M)$. Dados $a,b\in\bb{R}$
+	y dadas $f,g\in C^{\infty}(M)$, como $X$ e $Y$ son derivaciones,
+	en particular son transformaciones lineales y
+	\begin{align*}
+		X(Y(af+bg))-Y(X(af+bg)) & \,=\,aX(Yf)+bX(Yg)-aY(Xf)-bY(Xg) \\
+		& \,=\,a[X,Y]f+b[X,Y]g
+		\text{ .}
+	\end{align*}
+	%
+	Usando que aplicar $X$ y aplicar $Y$ son operaciones que cumplen
+	la regla de Leibniz y que $C^{\infty}(M)$ es conmutativa,
+	\begin{align*}
+		X(Y(fg))-Y(X(fg)) & \,=\,X(fYg+(Yf)g)-Y(fXg+(Xf)g) \\
+		& \,=\,fX(Yg)+X(Yf)g-fY(Xg)-Y(Xf)g \\
+		& \,=\,f[X,Y]g + g[X,Y]f
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{propoCorcheteFRelacionados}\label{thm:corchetefrelacionados}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave. Sean
+	$X,Y\in\champs{M}$ y $U,V\in\champs{N}$ campos suaves tales que
+	$X\sim_{F}U$ e $Y\sim_{F}V$. Entonces la composici\'{o}n
+	$XY$ est\'{a} $F$-relacionada con $UV$. En particular,
+	$[X,Y]\sim_{F}[U,V]$.
+\end{propoCorcheteFRelacionados}
+
+\begin{proof}
+	Sea $g\in C^{\infty}(N)$ --una funci\'{o}n suave definida en
+	alg\'{u}n abierto de $N$. Entonces, por hip\'{o}tesis y por
+	\ref{thm:frelacionados},
+	\begin{align*}
+		X(Y(g\circ F)) & \,=\,X((Vg)\circ F) \,=\,
+			U(Vg)\circ F
+		\text{ .}
+	\end{align*}
+	%
+	Esto muestra que $XY$ est\'{a} $F$-relacionada con $UV$, en tanto
+	transformaciones de $C^{\infty}(M)$ y de $C^{\infty}(N)$,
+	respectivamente, aunque no sean necesariamente derivaciones. Por
+	otro lado, como, por el mismo argumento, tambi\'{e}n es cierto que
+	$Y(X(g\circ F))=V(Ug)\circ F$, se deduce que
+	\begin{align*}
+		[X,Y](g\circ F) & \,=\,U(Vg)\circ F - V(Ug)\circ F \,=\,
+			([U,V]g)\circ F
+	\end{align*}
+	%
+	y, por lo tanto, $[X,Y]\sim_{F}[U,V]$.
+\end{proof}
+
+\begin{obsCorcheteEnCoords}\label{obs:corcheteencoords}
+	Sabiendo que todo par de campos suaves $X$ e $Y$ determina un nuevo
+	campo $[X,Y]$ y que el mismo es suave, es importante contar con una
+	manera de calcular el corchete $[X,Y]$ sabiendo c\'{o}mo calcular los
+	campos originales $X$ e $Y$. Como $X$ e $Y$ son suaves, podemos
+	recurrir a sus expresiones en coordenadas. Sea $(U,\varphi)$ una
+	carta compatible con la estructura de $M$ y sea $f\in C^{\infty}(U)$
+	una funci\'{o}n suave. Entonces
+	\begin{align*}
+		[X,Y]f & \,\equiv\,X(Yf)-Y(Xf) \\
+		& \,=\,	X\Big(Y^{i}\gancho{x^{i}}f\Big)-
+			Y\Big(X^{j}\gancho{x^{j}}f\Big)
+		\,=\,X\Big(Y^{i}\derivada{f}{x^{i}}\Big)-
+			Y\Big(X^{j}\derivada{f}{x^{j}}\Big) \\
+		& \,=\,\Big(X^{j}\derivada{Y^{i}}{x^{j}}\derivada{f}{x^{i}}+
+			X^{j}Y^{i}
+			\frac{\partial^{2} f}{\partial x^{j}\partial x^{i}}
+			\Big) - \Big(
+			Y^{i}\derivada{X^{j}}{x^{i}}\derivada{f}{x^{j}}+
+			Y^{i}X^{j}
+			\frac{\partial^{2} f}{\partial x^{i}\partial x^{j}}
+			\Big)
+		\text{ .}
+	\end{align*}
+	%
+	En el caso particular en que $X=\gancho{x^{k}}$ e $Y=\gancho{x^{l}}$,
+	como las componentes de $X$ y de $Y$ son constantes y, m\'{a}s aun,
+	son o iguales a $0$ o iguales a $1$, se obtiene
+	\begin{align*}
+		\left[\gancho{x^{k}},\gancho{x^{l}}\right]f & \,=\,
+			\frac{\partial^{2} f}{\partial x^{k}\partial x^{l}}-
+			\frac{\partial^{2} f}{\partial x^{l}\partial x^{k}}
+		\,=\, 0\text{ .}
+	\end{align*}
+	%
+	En general, entonces,
+	\begin{align*}
+		[X,Y]f & \,=\,\Big(
+			X^{j}\derivada{Y^{i}}{x^{j}}\derivada{f}{x^{i}} -
+			Y^{i}\derivada{X^{j}}{x^{i}}\derivada{f}{x^{j}}\Big)
+			+X^{j}Y^{i}\left[\gancho{x^{j}},\gancho{x^{i}}\right]
+			\\
+		& \,=\,\Big(X^{j}\derivada{Y^{i}}{x^{j}}\gancho{x^{i}}-
+			Y^{i}\derivada{X^{j}}{x^{i}}\gancho{x^{j}}\Big) f
+		\text{ .}
+	\end{align*}
+	%
+	Como esto es cierto para toda $f$ suave en el entorno coordenado $U$,
+	\begin{align*}
+		[X,Y] & \,=\,\Big(X^{j}\derivada{Y^{i}}{x^{j}}\gancho{x^{i}}-
+			Y^{i}\derivada{X^{j}}{x^{i}}\gancho{x^{j}}\Big) \,=\,
+			\Big(XY^{i}\gancho{x^{i}}-YX^{j}\gancho{x^{j}}\Big) \\
+		& \,=\, \Big(X^{i}\derivada{Y^{j}}{x^{i}}-
+				Y^{i}\derivada{X^{j}}{x^{i}}\Big)
+			\gancho{x^{j}} \,=\,
+			\big(XY^{j}-YX^{j}\big)\gancho{x^{j}}
+		\text{ .}
+	\end{align*}
+	%
+	Esta es la expresi\'{o}n del corchete en coordenadas.
+\end{obsCorcheteEnCoords}
+
+\subsection{El corchete como derivaci\'{o}n}
+El espacio $\champs{M}$ de campos vectoriales suaves en una variedad $M$
+se transforma en un \'{a}lgebra de Lie con el corchete de Lie de campos.
+Todo campo $X\in\champs{M}$ se puede ver como una derivaci\'{o}n
+$X:\,C^{\infty}(M)\rightarrow C^{\infty}(M)$. En particular, todo
+campo suave $X$ en $M$ da lugar a un operador lineal
+$X\in\End{C^{\infty}(M)}$. Como fue mencionado, la composici\'{o}n de dos
+campos, si bien no es necesariamente un campo, una derivaci\'{o}n, sigue
+siendo un operador lineal en el \'{a}lgebra $C^{\infty}(M)$ (o anillo de
+funciones en $M$).
+
+El espacio $\End{C^{\infty}(M)}$ es un \'{a}lgebra asociativa junto con la
+composici\'{o}n usual de operadores. Con lo cual existe una manera
+can\'{o}nica de transformarla en un \'{a}lgebra de Lie v\'{\i}a el
+``conmutador'' de dos operadores: $(S,T)\mapsto S\circ T-T\circ S$.
+El hecho de que el corchete de dos campos siga siendo un campo se puede
+expresar diciendo que $\champs{M}\subset\End{C^{\infty}(M)}$, el conjunto
+de derivaciones de $C^{\infty}(M)$, es una sub\'{a}lgebra de Lie del
+\'{a}lgebra de Lie de endomorfismos del anillo de funciones suaves de la
+variedad $M$.
+
+Sean $X$, $Y$ y $Z$ tres campos suaves en $M$. Tomar el corchete contra
+el campo $Z$ define un operador en $\champs{M}$ que es lineal, por
+la bilinealidad del corchete. Por otro lado, por la \emph{identidad de %
+Jacobi},
+\begin{align*}
+	[Z,[X,Y]] & \,=\,[X,[Z,Y]]+[[Z,X],Y]
+	\text{ ,}
+\end{align*}
+%
+es decir, $[Z,\cdot]:\,\champs{M}\rightarrow\champs{M}$ se comporta como
+una derivaci\'{o}n en $\champs{M}$, donde el producto de dos elementos
+se define como el corchete de Lie de los campos correspondientes. Esta
+es una propiedad general de \'{a}lgebras de Lie. Esto no quiere decir que
+toda derivaci\'{o}n de $\champs{M}$ se tomar el corchete contra alg\'{u}n
+campo.
+
+\subsection{M\'{a}s sobre campos tangentes}
+Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+Sean $Y_{1},Y_{2}\in\champs{M}$ campos suaves en $M$ tangentes a la
+subvariedad $S$. Por la proposici\'{o}n \ref{thm:campostangentessuaves}
+existen campos $X_{1},X_{2}\in\champs{S}$ tales que
+$Y_{1}|_{S}=X_{1}$ e $Y_{2}|_{S}=X_{2}$, es decir, tales que $X_{i}$
+est\'{e} $\inc[S]$-relacionado con $Y_{i}$ para cada $i\in\{1,2\}$.
+Por la proposici\'{o}n \ref{thm:corchetefrelacionados},
+\begin{align*}
+	[X_{1},X_{2}] &\,\sim_{\inc[S]}\,[Y_{1},Y_{2}]
+	\text{ .}
+\end{align*}
+%
+En consecuencia, el campo $[Y_{1},Y_{2}]\in\champs{M}$ resulta ser,
+tambi\'{e}n, un campo tangente a $S$.
+
+\begin{coroTangentesCorcheteCerrados}\label{thm:tangentescorchetecerrados}
+	Sea $M$ una variedad diferencial y sea $S$ una subvariedad. Sean
+	$Y_{1}$ e $Y_{2}$ campos suaves en $M$ tangentes a la subvariedad
+	$S$. Entonces el corchete $[Y_{1},Y_{2}]$ es tangente a $S$,
+	tambi\'{e}n.
+\end{coroTangentesCorcheteCerrados}
+
+Finalmente, enunciamos un resultado an\'{a}logo a \ref{thm:deextensiones}
+para campos vectoriales suaves.
+
+\begin{lemaExtenderCampos}\label{thm:extendercampos}
+	Sea $M$ una variedad diferencial y sea $S\subset M$ una subvariedad.
+	Si $S$ es subvariedad regular, entonces, dado $X\in\champs{S}$,
+	existe un campo $Y\in\champs{U}$, donde $U\subset M$ es un
+	subconjunto abierto que contiene a $S$, tal que $Y$ es tangente
+	a $S$ e $Y|_{S}=X$. M\'{a}s aun, si $S$ es subvariedad propia,
+	entonces se puede tomar $U=M$.
+\end{lemaExtenderCampos}
+

@@ -1,0 +1,352 @@
+\theoremstyle{plain}
+\newtheorem{teoFunInversa}{Teorema}[section]
+\newtheorem{coroFunInversa}[teoFunInversa]{Corolario}
+\newtheorem{teoFunImplicita}[teoFunInversa]{Teorema}
+
+\theoremstyle{remark}
+
+%-------------
+
+En esta secci\'{o}n recordamos los teoremas de la funci\'{o}n inversa y
+de la funci\'{o}n impl{\i}cita para funciones definidas en abiertos
+de un espacio euclideo.
+
+\begin{teoFunInversa}[de la funci\'{o}n inversa]\label{thm:funinversa}
+	Sean $U,V\subset\bb{R}^{d}$ abiertos. Sea $F:\,U\rightarrow V$ una
+	funci\'{o}n de clase $C^{k}(U,V)$ ($k\geq 1$). Si la matriz
+	jacobiana de $F$ en un punto $p\in U$,
+	\begin{align*}
+		\jacobiana[p]{F} & \,\equiv\,\jacobiana{F}(p)\,\equiv\,
+			\left.\jacobiana{F}\right|_{p}
+		\,=\,	\begin{bmatrix}
+				\derivada{F^{1}}{x^{1}}(p) & \cdots &
+					\derivada{F^{1}}{x^{d}}(p) \\
+				\vdots & \ddots & \vdots \\
+				\derivada{F^{d}}{x^{1}}(p) & \cdots &
+					\derivada{F^{d}}{x^{d}}(p)
+			\end{bmatrix}
+		\,=\,	\left[
+			\begin{array}{ccc}
+				& \jacobiana[p]{F^{1}} & \\
+				\hline
+				& \vdots & \\
+				\hline
+				& \jacobiana[p]{F^{d}} &
+			\end{array}
+			\right]
+		\text{ ,}
+	\end{align*}
+	%
+	es invertible, existen entornos conexos $U_{0}$ y $V_{0}$ de
+	$p$ y de $F(p)$, respectivamente, tales que
+	$F_{0}\equiv F|_{U_{0}}^{V_{0}}:\,U_{0}\rightarrow V_{0}$
+	es un difeomorfismo.
+\end{teoFunInversa}
+
+\begin{proof}
+	Sin p\'{e}rdida de generalidad, $p=0$ y $F(0)=0$, componiendo con
+	las traslaciones $x\mapsto x+p$ e $y\mapsto y-F(p)$. Tambi\'{e}n
+	podemos asumir que $\jacobiana{F}(0)=\id[\bb{R}^{d}]$, componiendo
+	con el difeomorfismo $y\mapsto \jacobiana{F}(0)^{-1}\cdot y$
+	(esto s\'{o}lo es posible porque el tangente de un abierto de
+	$\bb{R}^{d}$ se identifica con $\bb{R}^{d}$, el espacio ambiente,
+	de manera natural). M\'{a}s aun,
+	$\det\circ\jacobiana{F}:\,U\rightarrow\bb{R}$ es continua y no
+	nula en $p=0$. Se puede suponer que $\jacobiana{F}$ es invertible
+	en $U$, achicando $U$, de ser necesario.
+
+	Sea $H(x)=x-F(x)$. Esta funci\'{o}n es diferenciable y
+	$\jacobiana{H}(0)=0$. Por continuidad de $\jacobiana{H}$, para cierto
+	$\delta>0$, vale que $\|\jacobiana{H}(x)\|\leq 1/2$ en la bola
+	cerrada $\clos{\bola{\delta}{0}}$. Entonces
+	\begin{equation}
+		\label{eq:cotafuninversa}
+		\begin{aligned}
+		|H(x')-H(x)| & \,\leq\,\frac{1}{2}|x'-x|\quad\text{y} \\
+		|x'-x| & \,\leq\,2|F(x')-F(x)|\text{ .}
+		\end{aligned}
+	\end{equation}
+	%
+	Esto muestra que $F$ es inyectiva en $\clos{\bola{\delta}{0}}$.
+
+	Sea ahora $y$ un elemento fijo perteneciente a
+	$\bola{\delta/2}{0}\subset V$. Sea $G(x)=y+H(x)$ definida en $U$.
+	Si $|x|\leq\delta$, entonces, como $H(0)=0$,
+	\begin{align*}
+		|G(x)| & \,\leq\,|y|+|H(x)|\,<\,\frac{\delta}{2}+\frac{1}{2}|x|
+			\,\leq\,\delta
+		\text{ .}
+	\end{align*}
+	%
+	En particular,
+	$G(\clos{\bola{\delta}{0}})\subset\clos{\bola{\delta}{0}}$ y,
+	como $|G(x')-G(x)|\leq 1/2|x'-x|$, se deduce que $G$ es una
+	contracci\'{o}n en un espacio m\'{e}trico completo. Por el teorema
+	del punto fijo, existe un (\'{u}inico) punto
+	$x\in\clos{\bola{\delta}{0}}$ tal que $G(x)=x$. Pero esto significa
+	que $F(x)=y$. Adem\'{a}s, para este punto, $|x|=|G(x)|<\delta$.
+	Como la desigualdad es estricta, se deduce que todo punto
+	$y\in\bola{\delta/2}{0}$ es imagen de un \'{u}nico punto
+	$x\in\bola{\delta}{0}$ v\'{\i}a $F$.
+
+	Sea $V_{0}=\bola{\delta/2}{0}\subset V$ y sea
+	$U_{0}=\bola{\delta}\cap F^{-1}(V_{0})$. Entonces
+	$F_{0}=F|:\,U_{0}\rightarrow V_{0}$ es biyectiva. La inversa
+	$F_{0}^{-1}$ existe y es continua por \eqref{eq:cotafuninversa}.
+	Resta ver que $F_{0}^{-1}$ es suave.
+
+	Sean $y_{0}\in V_{0}$, $x_{0}\in U_{0}$ tales que $F_{0}(x_{0})=y_{0}$
+	y sea $L$ la transformaci\'{o}n lineal dada por
+	$\jacobiana{F_{0}}(x_{0})$. Dados $y\in V_{0}\setmin\{y_{0}\}$ y
+	el punto correspondiente $x\in U_{0}$ tal que $F(x)=y$, el
+	cociente incremental de $F_{0}^{-1}$ en $y_{0}$ verifica:
+	\begin{align*}
+		\frac{F_{0}^{-1}(y)-F_{0}^{-1}(y_{0}) -L^{-1}(y-y_{0})}%
+			{|y-y_{0}|} & \,=\, \\
+		\frac{|x-x_{0}|}{|y-y_{0}|} & \cdot
+			L^{-1}\left(
+			-\frac{F_{0}(x)-F_{0}(x_{0})-L(x-x_{0})}{|x-x_{0}|}
+			\right)
+		\text{ ,}
+	\end{align*}
+	%
+	por la linealidad de $L^{-1}$. Como $L^{-1}$ es lineal entre espacios
+	de dimensi\'{o}n finita y, de nuevo, por \eqref{eq:cotafuninversa},
+	$\|L^{-1}\|<\infty$ y
+	\begin{align*}
+		\frac{F_{0}^{-1}(y)-F_{0}^{-1}(y_{0})-L^{-1}(y-y_{0})}%
+			{|y-y_{0}|} & \,\leq\, \\
+		\frac{1}{2}\|L^{-1}\| & \cdot
+			\left|
+			-\frac{F_{0}(x)-F_{0}(x_{0})-L(x-x_{0})}{|x-x_{0}|}
+			\right|
+		\text{ ,}
+	\end{align*}
+	%
+	que tiende a cero, si $y\to y_{0}$, pues, en ese caso, $x\to x_{0}$.
+	As\'{\i}, $F_{0}^{-1}$ es diferenciable y su diferenciale es igual a
+	\begin{align*}
+		\jacobiana{(F_{0}^{-1})}(y_{0}) & \,=\,L^{-1} \,=\,
+			\big[\jacobiana{F_{0}}(x_{0})\big]^{-1} \,=\,
+			\big[\jacobiana{F_{0}}(F_{0}^{-1}(y_{0}))\big]^{-1}
+		\text{ .}
+	\end{align*}
+	%
+	Esto es cierto para todo punto $y_{0}\in V_{0}$. Por otro lado, la
+	funci\'{o}n $y\mapsto\jacobiana{(F_{0}^{-1})}(y)$ se descompone de
+	la siguiente manera:
+	\begin{align*}
+		y & \,\mapsto\,F_{0}^{-1}(y)\,\mapsto\,
+			(\jacobiana{F_{0}})(F_{0}^{-1}(y)) \,\mapsto\,
+			\big[(\jacobiana{F_{0}})(F_{0}^{-1}(y))\big]^{-1}
+		\text{ ,}
+	\end{align*}
+	%
+	como composici\'{o}n de funciones continuas (porque $F_{0}$ es
+	$C^{1}$, $F_{0}^{-1}$ es continua y a inversi\'{o}n de matrices es
+	continua (suave) en los coeficientes (por Cramer)). Entonces las
+	derivadas parciales de $F_{0}^{-1}$, las componenetes de
+	$\jacobiana{F_{0}^{-1}}$, son continuas y $F_{0}^{-1}$ es de clase
+	$C^{1}$. En general, si $F_{0}^{-1}$ es de clase $C^{t}(V_{0},U_{0})$
+	y $F_{0}$ es de clase $C^{t+1}(U_{0},V_{0})$, el argumento anterior
+	muestra que $F_{0}^{-1}$ es $C^{t+1}(V_{0},U_{0})$, que sus
+	derivadas parciales de orden $t+1$ existen y que son continuas.
+	Inductivamente, $F_{0}^{-1}$ es tan regular como $F_{0}$. En
+	particular, si $F_{0}$ es $C^{\infty}$, $F_{0}^{-1}$ tambi\'{e}n
+	lo es.
+\end{proof}
+
+\begin{coroFunInversa}\label{thm:coroinversa}
+	Sea $U\subset\bb{R}^{d}$ un abierto y sea $F:\,U\rightarrow\bb{R}^{d}$
+	una funci\'{o}n de clase $C^{k}$ ($k\geq 1$) o suave. Si
+	$\det(\jacobiana{F})\not =0$ en $U$, entonces \emph{(a)} $F$ es
+	abierta y \emph{(b)} si $F$ es inyectiva, entonces
+	$F:\,U\rightarrow F(U)$ es invertible con inversa $C^{k}$ (o suave).
+\end{coroFunInversa}
+
+\begin{proof}
+	Sea $p\in U$. Por hip\'{o}tesis, $\jacobiana{F}(p)$ es invertible.
+	Por el Teorema de la funci\'{o}n inversa \ref{thm:funinversa},
+	existen abiertos $U_{p}\subset U$ y $V_{p}\subset\bb{R}^{d}$ tales
+	que $p\in U_{p}$, $F(p)\in V_{p}$ y la restricci\'{o}n
+	$F|:\,U_{p}\rightarrow V_{p}$ es un difeomorfismo. El subconjunto
+	$V_{p}$ es abierto y est\'{a} contenido en $F(U)$. Por lo tanto,
+	si ahora tomamos un punto arbitrario $q\in F(U)$ y un punto $p\in U$
+	talque $F(p)=q$, el abierto correspondiente $V_{p}$ es un entorno
+	de $q$ contenido en $F(U)$. En definitiva, $F(U)$ es un subespacio
+	abierto de la imagen $\bb{R}^{d}$. Si $U_{0}\subset U$ es un
+	subconjunto abierto, reemplazando $U$ por $U_{0}$ en el argumento
+	anterior, se ve que $F(U_{0})$ es abierto en la imagen. Entonces
+	$F$ es una funci\'{o}n abierta.
+
+	En cuanto al \'{\i}tem \emph{(b)}, si $F$ es inyectiva, la
+	correstricci\'{o}n de $F$ a $F(U)$ es invertible. En un punto
+	$p\in U$, si $q=F(p)$ y $U_{p}$ y $V_{p}$ son los abiertos
+	difeomorfos dados por el teorema \ref{thm:funinversa}, la
+	inversa de $F$ restringida a $V_{p}$, $F^{-1}|_{V_{p}}$, conincide
+	con la inversa de la restricci\'{o}n $F|:\,U_{p}\rightarrow V_{p}$.
+	Pero esta funci\'{o}n es $C^{k}$, invertible y con inversa $C^{k}$.
+	As\'{\i}, como $F$ es globalmente invertible y esta inversa coincide
+	localmente con funciones $C^{k}$, debe ser $C^{k}$ tambi\'{e}n.
+\end{proof}
+
+Pasamos ahora al Teorema de la funci\'{o}n impl\'{\i}cita.
+
+\begin{teoFunImplicita}[de la funci\'{o}n impl\'{\i}cita]%
+	\label{thm:funimplicita}
+	Sea $U\subset\bb{R}^{d}\times\bb{R}^{l}$ un abierto. Sea
+	$\Phi:\,U\rightarrow\bb{R}^{l}$ una funci\'{o}n suave (o de clase
+	$C^{k}$) y sean $c\in\bb{R}^{l}$ y $(a,b)\in U$ un punto en la
+	preimagen $\Phi(a,b)=c$. Si la transformaci\'{o}n determinada por
+	la matriz
+	\begin{align*}
+		L & \,=\,
+			\begin{bmatrix}
+				\derivada{\Phi^{1}}{y^{1}} & \cdots &
+					\derivada{\Phi^{1}}{y^{l}} \\
+				& \vdots & \\
+				\derivada{\Phi^{l}}{y^{1}} & \cdots &
+					\derivada{\Phi^{l}}{y^{l}}
+			\end{bmatrix}
+		\,=\,\begin{bmatrix}\derivada{\Phi^{i}}{y^{j}}\end{bmatrix}
+	\end{align*}
+	%
+	de derivadas parciales respecto de las variables $\lista*{y}{l}$ es
+	no singular en $(a,b)$, entonces existen entornos $V_{0}$ de $a$
+	y $W_{0}$ de $b$ y una funci\'{o}n suave $F:\,V_{0}\rightarrow W_{0}$
+	tales que 
+	\begin{align*}
+		\Phi^{-1}(c)\cap\big(V_{0}\times W_{0}\big) & \,=\,\Graf{F}
+			\,=\,\left\lbrace (x,F(x))\,:\,x\in V_{0}\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Dicho de otra manera, en $V_{0}\times W_{0}$, un punto $(x,y)$
+	verifica $\Phi(x,y)=c$, si y s\'{o}lo si $y=F(x)$.
+\end{teoFunImplicita}
+
+\begin{proof}
+	Sea define $\Psi:\,U\rightarrow\bb{R}^{d}\times\bb{R}^{l}$ por
+	$\Psi(x,y)=(x,\Phi(x,y))$. La matriz jacobiana de $\Psi$ es igual a
+	\begin{align*}
+			%
+		\jacobiana{\Psi} & \,=\,
+		\sbox0{$
+		\begin{matrix}
+			\derivada{\Psi^{1}}{x^{1}} & \cdots &
+				\derivada{\Psi^{1}}{x^{d}} \\
+			& \vdots & \\
+			\derivada{\Psi^{d}}{x^{1}} & \cdots &
+				\derivada{\Psi^{d}}{x^{d}}
+		\end{matrix}
+		$}
+		\sbox1{$
+		\begin{matrix}
+			\derivada{\Psi^{1}}{y^{1}} & \cdots &
+				\derivada{\Psi^{1}}{y^{l}} \\
+			& \vdots & \\
+			\derivada{\Psi^{d}}{y^{1}} & \cdots &
+				\derivada{\Psi^{d}}{y^{l}}
+		\end{matrix}
+		$}
+		\sbox2{$
+		\begin{matrix}
+			\derivada{\Psi^{d+1}}{x^{1}} & \cdots &
+				\derivada{\Psi^{d+1}}{x^{d}} \\
+			& \vdots & \\
+			\derivada{\Psi^{d+l}}{x^{1}} & \cdots &
+				\derivada{\Psi^{d+l}}{x^{d}}
+		\end{matrix}
+		$}
+		\sbox3{$
+		\begin{matrix}
+			\derivada{\Psi^{d+1}}{y^{1}} & \cdots &
+				\derivada{\Psi^{d+1}}{y^{l}} \\
+			& \vdots & \\
+			\derivada{\Psi^{d+l}}{y^{1}} & \cdots &
+				\derivada{\Psi^{d+l}}{y^{l}}
+		\end{matrix}
+		$}
+			\left[
+			\begin{array}{c|c}
+				\usebox{0} & \usebox{1} \\
+			\hline
+				\usebox{2} & \usebox{3}
+			\end{array}
+			\right]
+		\,=\,
+		\sbox4{$\derivada{\Phi^{i}}{x^{j}}$}
+		\sbox5{$\derivada{\Phi^{i}}{y^{j}}$}
+		\left[
+		\begin{array}{c|c}
+			\vphantom{\usebox{4}}%
+				\makebox[\wd4]{$\id[\bb{R}^{d}]$} & \\
+			\hline
+			\usebox{4} & \usebox{5}
+		\end{array}
+		\right]
+		% \begin{bmatrix}
+			% \id[\bb{R}^{d}] & \\
+			% \derivada{\Phi^{i}}{x^{j}} &
+				% \derivada{\Phi^{i}}{y^{j}}
+		% \end{bmatrix}
+		\text{ .}
+	\end{align*}
+	%
+	Como la submatriz inferior derecha es invertible, por el teorema
+	\ref{thm:funinversa}, existen entornos $U_{0}\subset U$ de $(a,b)$
+	y $\widehat{U}_{0}\subset\bb{R}^{d}\times\bb{R}^{l}$ de $\Psi(a,b)$
+	ambos conexos y tales que $\Psi|:\,U_{0}\rightarrow\widehat{U}_{0}$
+	es invertible y con inversa $C^{k}$. Podemos tomar $U_{0}$
+	de la forma $V\times W$ achicando, de ser necesario, y
+	$\widehat{U}_{0}=\Psi(U_{0})=\Psi(V\times W)$.
+
+	La inversa de $\Psi$ restringida e $U_{0}$ es de la forma
+	\begin{align*}
+		\Psi^{-1}(\xi,\upsilon) & \,=\,
+			(A(\xi,\upsilon),B(\xi,\upsilon))
+	\end{align*}
+	%
+	para ciertas funciones de clase $C^{k}$ definidas en $\widehat{U}_{0}$.
+	En particular, estas funciones deben verificar
+	\begin{align*}
+		(\xi,\upsilon) & \,=\, \Psi\circ\Psi^{-1}(\xi,\upsilon) \,=\,
+			(A,\Phi(A,B))
+		\text{ .}
+	\end{align*}
+	%
+	As\'{\i}, se ve que $A(\xi,\upsilon)=\xi$ y que
+	$\Psi^{-1}(\xi,\upsilon)=(\xi,B(\xi,\upsilon))$.
+
+	Sea, ahora, $\inc[c]:\,V\rightarrow\bb{R}^{d}\times\bb{R}^{l}$ la
+	funci\'{o}n $\inc[c](x)=(x,c)$. Sea $V_{0}$ el subconjunto
+	\begin{align*}
+		V_{0} & \,=\,\left\lbrace x\in V\,:\,(x,c)\in\widehat{U}_{0}
+			\right\rbrace
+		\,=\,\inc[c]^{-1}(\widehat{U}_{0})
+		\text{ .}
+	\end{align*}
+	%
+	Como $\inc[c]$ es continua (m\'{a}s aun, es un embedding), $V_{0}$
+	es abierto en $V$. Tomamos $W_{0}=W$ y definimos
+	$F:\,V_{0}\rightarrow W_{0}$ por $x\mapsto B(x,c)$. Es decir,
+	$F=\pi_{2}\circ\Psi\circ\inc[c]$, donde $\pi_{2}$ es la
+	proyecci\'{o}n $\bb{R}^{d}\times\bb{R}^{l}\rightarrow\bb{R}^{l}$
+	en el segundo factor. En particular, $F$ es de clase $C^{k}$ (tan
+	regular como $\Psi$). Adem\'{a}s, si $x\in V_{0}$,
+	\begin{align*}
+		(x,c) & \,=\,\Psi\circ\Psi^{-1}(x,c) \,=\,\Psi(x,B(x,c)) \\
+		& \,=\,(x,\Phi(x,F(x)))\quad\text{y} \\
+		c & \,=\,\Phi(x,F(x))
+		\text{ .}
+	\end{align*}
+	%
+	Finalmente, si $(x,y)\in V_{0}\times W_{0}$, es tal que $\Phi(x,y)=c$,
+	\begin{align*}
+		\Psi(x,y) & \,=\,(x,\Phi(x,y)) \,=\, (x,c)\quad\text{y} \\
+		(x,y) & \,=\,\Psi^{-1}(x,c) \,=\, (x,B(x,c)) \\
+		& \,=\,(x,F(x))
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

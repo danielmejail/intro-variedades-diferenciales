@@ -1,0 +1,122 @@
+
+
+
+
+\begin{ejemplo}\nom{Espacios vectoriales}
+	Sea $E$ un espacio vectorial topol\'{o}gico real. Si $E$ es de
+	dimensi\'{o}n finita $n$, equivalentemente, si $E$ es
+	localmente compacto, entonces $E$ es isomorfo a $\bb{R}^{n}$ y
+	todo isomorfismo \emph{lineal} de $E$ en $\bb{R}^{n}$ es un
+	homeomorfismo. Es decir, $E$ tiene una \'{u}nica estructura
+	de espacio topol\'{o}gico que hace que las operaciones en tanto
+	espacio vectorial real sean continuas. Todo isomorfismo
+	$E\rightarrow\bb{R}^{n}$ est\'{a} dado por elegir una base: dada
+	una base $\{\lista{\varepsilon}{n}\}$ de $E$, sea
+	$\varepsilon:\,\bb{R}^{n}\rightarrow E$ la aplicaci\'{o}n
+	\begin{align*}
+		\varepsilon(x) & \,=\,\sum_{i=1}^{n}\,x^{i}\varepsilon_{i}
+			\,\equiv\,x^{i}\varepsilon_{i}
+		\text{ .}
+	\end{align*}
+	%
+	Seg\'{u}n lo mencionado anteriormente, $\varepsilon$ es un
+	homeomorfismo y, entonces, el par $(E,\varepsilon^{-1})$ es una
+	carta (continua) para $E$. Si ahora $\tilde{\varepsilon}$ denota
+	el isomorfismo correspondiente a otra base
+	$\{\lista{\tilde{\varepsilon}}{n}\}$, entonces existe una matriz
+	invertible $\left[A_{i}^{j}\right]^{i}_{j}$ tal que
+	\begin{align*}
+		\varepsilon_{i} & \,=\,A_{i}^{j}\tilde{\varepsilon}_{j}
+	\end{align*}
+	%
+	para cada $i$. El cambio de cartas (cambio de coordenadas)
+	correspondiente est\'{a} dado por
+	$\tilde{\varepsilon}^{-1}\circ\varepsilon(x)=\tilde{x}$,
+	donde $\tilde{x}=(\lista*{\tilde{x}}{n})$ es el punto de
+	$\bb{R}^{n}$ dado por
+	\begin{align*}
+		\tilde{x}^{j}\tilde{\varepsilon}_{j} & \,=\,
+			x^{i}\varepsilon_{i}
+			\,=\,x^{i}A_{i}^{j}\tilde{\varepsilon}_{j}
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, para cada $j$, $\tilde{x}^{j}=A_{i}^{j}x^{i}$. En
+	particular, la aplicaci\'{o}n $x\mapsto\tilde{x}$, el cambio de
+	coordenadas (definido globalmente), es lineal e invertible y,
+	en particular, un difeomorfismo. En definitiva, las cartas de la
+	forma $(E,\varepsilon^{-1})$, donde
+	$\varepsilon:\,\bb{R}^{n}\rightarrow E$ es el isomorfismo
+	determinado por la base $\{\lista{\varepsilon}{n}\}$ de $E$,
+	son todas (suavemente) compatibles. La estructura que estas cartas
+	determinan en $E$ se denominar\'{a} la \emph{estructura usual} en $E$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El espacio de matrices}
+	El espacio de matrices $\MM{m\times n,\bb{R}}$ de tama\~{n}o
+	$m\times n$ con coeficientes reales es un espacio vectorial de
+	dimensi\'{o}n $mn$ y, por lo tanto, una variedad diferencial con
+	su estructura usual. El espacio de matrices $\MM{m\times n,\bb{C}}$
+	complejas constituye una variedad diferencial de dimensi\'{o}n $2mn$,
+	pues su dimensi\'{o}n como espacio vectorial sobre $\bb{R}$ es $2mn$.
+	En el caso de matrices cuadradas de tama\~{n}o $n\times n$ usaremos
+	la notaci\'{o}n $\MM{n,\cdot}$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El grupo general lineal}
+	El \emph{grupo general lineal (real)}, denotado $\GL{n,\bb{R}}$
+	es el conjunto de matrices invertibles con coeficientes reales.
+	Dado que la funci\'{o}n $\det:\,\MM{n,\bb{R}}\rightarrow\bb{R}$
+	es continua y que $\GL{n,\bb{R}}$ es el subconjunto de matrices
+	con determinante no nulo, $\GL{n,\bb{R}}\subset\MM{n,\bb{R}}$ es
+	un subconjunto abierto y, por lo tanto, una variedad diferencial
+	de dimensi\'{o}n $\dim(\MM{n,\bb{R}})=n^{2}$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Matrices de rango $\geq k$}
+	Sea $k\geq 0$. De manera an\'{a}loga al ejemplo anterior, en
+	$\MM{m\times n,\bb{R}}$, las matrices de rango mayor o igual a $k$
+	forman un subconjunto abierto: una matriz tiene rango al menos $k$,
+	si el determinante de alguna submatriz es distinto de cero. Por
+	continuidad del determinante, existe un entorno de una tal matriz
+	que verifica que, para todas las matrices de dicho abierto, el
+	determinante de la misma submatriz no se anula. En definitiva, todas
+	las matrices del abierto tienen rango al menos $k$. Un caso particular
+	de esto es cuando $k$ es m\'{a}ximo, es decir, $k=\min\{m,n\}$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{Transformaciones lineales}
+	Sean $E$ y $F$ dos espacios vectoriales de dimensi\'{o}n finita
+	y sea $\lineal{E,F}$ el conjunto de transformaciones lineales
+	de $E$ en $F$. Si a $E$ y $F$ se los considera espacios vectoriales
+	topol\'{o}gicos reales, entonces $\lineal{E,F}$ coincide con
+	el conjunto de transformaciones lineales y continuas. En general,
+	como $\lineal{E,F}$ es un espacio vectorial (real) de dimensi\'{o}n
+	finita, es una variedad diferencial. Eligiendo bases de $E$ y de $F$,
+	se puede representar un elemento $T\in\lineal{E,F}$ como una matriz,
+	lo cual determina un isomorfismo
+	$\lineal{E,F}\simeq\MM{m\times n,\bb{R}}$.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El grupo lineal especial}
+	El subgrupo $\SL{n,\bb{R}}$ de matrices reales de tama\~{n}o
+	$n\times n$ invertibles de determinante $1$ es una variedad
+	topol\'{o}gica con la topolog\'{\i}a de subespacio de
+	$\GL{n,\bb{R}}$. Su dimensi\'{o}n es $n^{2}-1$. Se le puede
+	dar una estructura de variedad diferencial de manera que
+	la inclusi\'{o}n $\SL{n,\bb{R}}\hookrightarrow\GL{n,\bb{R}}$
+	sea una inmersi\'{o}n. En consecuencia, el grupo lineal especial
+	resulta una subvariedad regular de $\GL{n,\bb{R}}$.
+	De manera an\'{a}loga, $\SL{n,\bb{C}}$ es una variedad topol\'{o}gica,
+	si se le da la topolog\'{\i}a de subespacio de $\GL{n,\bb{C}}$ y
+	se le puede dar una estructura de variedad diferencial de manera
+	que sea una subvariedad regular del grupo general lineal.
+\end{ejemplo}
+
+\begin{ejemplo}\nom{El grupo de matrices ortogonales}
+	El grupo $\ortogonal{n}$ de matrices \emph{ortogonales} en
+	$\MM{n,\bb{R}}$ tambi\'{e}n es una variedad topol\'{o}gica,
+	visto como subespacio de $\MM{n,\bb{R}}$. Se le puede dar una
+	estructura de variedad diferencial de forma que resulte una
+	subvariedad regular.
+\end{ejemplo}

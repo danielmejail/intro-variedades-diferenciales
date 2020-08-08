@@ -1,0 +1,428 @@
+\theoremstyle{plain}
+\newtheorem{coroFunInvVar}{Corolario}[section]
+\newtheorem{propoAbiertoEsSubvariedadRegular}[coroFunInvVar]{Proposici\'{o}n}
+\newtheorem{propoBordeEsSubvariedadRegular}[coroFunInvVar]{Proposici\'{o}n}
+\newtheorem{propoDiferencialInvertibleCaeEnElInterior}[coroFunInvVar]%
+	{Proposici\'{o}n}
+\newtheorem{coroCaeEnElInterior}[coroFunInvVar]{Corolario}
+\newtheorem{propoDifeoLocalExtra}[coroFunInvVar]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+
+%-------------
+
+Bajo ciertas condiciones sobre $F:\,M\rightarrow N$ podemos garantizar
+la validez de las conclusiones del teorema de la funci\'{o}n inversa en
+contextos un poco m\'{a}s generales.
+
+\begin{coroFunInvVar}\label{thm:funinvvarconborde}
+	Sea $F:\,M\rightarrow N$ una transformaci\'{o}n suave, donde
+	$M$ es una variedad \emph{sin} borde y $N$ es arbitraria. Si
+	$F(M)\subset\interior{N}$ y $p\in M$ es tal que $\diferencial[p]{F}$
+	es invertible, entonces existen entornos conexos $p\in U_{0}$
+	y $F(p)\in V_{0}$ tales que $F|_{U_{0}}:\,U_{0}\rightarrow V_{0}$
+	es un difeomorfismo.
+\end{coroFunInvVar}
+
+El contenido de este corolario es un caso particular del caso en que una
+transformaci\'{o}n suave tiene imagen en una \emph{subvariedad regular}.
+Sabemos que, en una variedad $M$, el interior $\interior{M}$ es un
+subconjunto abierto y que --con la topolog\'{\i}a de subespacio y la
+estructura heredada de $M$-- es una variedad diferencial de la misma
+dimensi\'{o}n que $M$. El borde $\borde[M]$ de $M$ es un subconjunto cerrado
+al cual se le puede dar, naturalmente tambi\'{e}n, una estructura de
+variedad diferencial de dimensi\'{o}n $\dim(M)-1$. Como se ver\'{a} luego,
+con dicha estructura, $\borde[M]$ resulta una subvariedad regular de $M$,
+debido a la presencia de \emph{cartas preferenciales} (de hecho, \'{e}stas
+son las cartas utilizadas para definir la estructura a la que se hizo
+alusi\'{o}n).
+
+Repasemos la demostraci\'{o}n de estas afirmaciones. Sea $n=\dim\,M$.
+Por definici\'{o}n, un punto $p\in M$ pertenece al interior $\interior{M}$,
+si existe una \emph{carta de interior} en $p$, es decir, una carta
+$(U,\varphi)$ \emph{para $M$} tal que $p\in U$ y $\varphi(U)$ sea un
+abierto de $\bb{R}^{n}$. En particular, de esto se deduce que $\interior{M}$
+es un subconjunto abierto de $M$, pues, por ejemplo, dados $p$ y $(U,\varphi)$
+como antes, vale que $U\subset\interior{M}$. La colecci\'{o}n de cartas
+\begin{align*}
+	\cal{A}_{0} & \,=\,\{(U,\varphi)\text{ carta para }M\,:\,
+		\varphi(U)\subset\bb{R}^{n}\text{ es abierto}\}
+	\text{ ,}
+\end{align*}
+%
+es un atlas compatible para un subconjunto de $M$, precisamente para
+el interior de $M$. El subconjunto $\interior{M}$ con la topolog\'{\i}a
+de subespacio y la estructura determinada por dicho atlas resulta
+una variedad diferencial. La inclusi\'{o}n
+$\inc[\interior{M}]:\,\interior{M}\hookrightarrow M$ es suave y tiene
+la propiedad de que una funci\'{o}n $F:\,N\rightarrow\interior{M}$ es suave,
+si y s\'{o}lo si $\inc[\interior{M}]\circ F:\,N\rightarrow M$ lo es.
+Esto es cierto, m\'{a}s en general, para cualquier abierto de $M$.
+
+\begin{propoAbiertoEsSubvariedadRegular}\label{thm:abiertosubvarreg}
+	Sea $M$ una variedad diferencial y sea $U\subset M$ un abierto al
+	que se le da la estructura diferencial heredada de $M$, es decir,
+	$U$ tiene la estructura dada por el atlas compatible
+	\begin{align*}
+		\cal{A}_{U} & \,=\,
+		\left\lbrace (V,\psi)\text{ carta para } M\,:\,
+			V\subset U\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Entonces la inclusi\'{o}n $\inc[U]:\,U\hookrightarrow M$ es suave,
+	$\diferencial[p]{\inc[U]}$ es isomorfismo y, adem\'{a}s, una
+	funci\'{o}n $F:\,N\rightarrow U$ es una transformaci\'{o}n suave,
+	si y s\'{o}lo si $\inc[U]\circ F$ lo es.
+\end{propoAbiertoEsSubvariedadRegular}
+
+Aunque demostraremos luego un resultado m\'{a}s general, damos ahora una
+demostraci\'{o}n de esta proposici\'{o}n.
+
+\begin{proof}
+	Sea $p\in U$ y sea $(V,\psi)\in\cal{A}_{U}$ con $p\in V$.
+	Entonces $(V,\psi)$ tambi\'{e}n es una carta en $p$ en tanto
+	punto de $M$ y $\psi\circ\inc[U]\circ\psi^{-1}:\,%
+	\psi(V)\rightarrow\psi(V)$ es igual, como funci\'{o}n, a
+	$\id[\psi(V)]$, que es suave. Que el diferencial
+	$\diferencial[p]{\inc[U]}:\,T_{p}U\rightarrow T_{p}M$ es un
+	isomorfismo, se vio en \ref{thm:derivacionesisomorfasii}.
+
+	Sea ahora $F:\,N\rightarrow U$ una transformaci\'{o}n arbitraria.
+	En primer lugar, como $U$ es un subespacio de $M$,
+	$F:\,N\rightarrow U$ es continua, si y s\'{o}lo si
+	$\inc[U]\circ F:\,N\rightarrow M$ lo es. Si asumimos que $F$ es
+	suave, entonces $\inc[U]\circ F$ es suave por ser composici\'{o}n
+	de funciones suaves. Si, rec\'{\i}procamente, $\inc[U]\circ F$ es
+	suave y $(\widetilde{V},\widetilde{\psi})$ es una carata en
+	$p=F(q)=\inc\circ F(q)$ para $M$ y
+	$(\widetilde{U},\widetilde{\varphi})$ es una carta en $q$ para $N$,
+	sabemos que la composici\'{o}n
+	\begin{align*}
+		\widetilde{\psi}\circ (\inc[U]\circ F)\circ
+			\widetilde{\varphi}^{-1} & \,:\,
+			\widetilde{\varphi}\big(
+			(\inc[U]\circ F)^{-1}(\widetilde{V})\cap\widetilde{U}
+			\big)\,\rightarrow\,\widetilde{\psi}(\widetilde{V})
+	\end{align*}
+	%
+	es suave. Ahora bien, $\widetilde{V}\cap U$ es abierto en $U$ y
+	$(\inc\circ F)^{-1}(\widetilde{V})=F^{-1}(\widetilde{V}\cap U)$ es
+	abierto porque $F$ es continua. La carta $(V,\psi)$, donde
+	$V=\widetilde{V}\cap U$ y $\psi=\widetilde{\psi}|_{V}$, pertenece
+	a $\cal{A}_{U}$ y $\psi\circ F\circ\widetilde{\varphi}^{-1}:\,%
+	\widetilde{\varphi}(F^{-1}(V)\cap\widetilde{U})\rightarrow\psi(V)$
+	es igual a
+	$\widetilde{\psi}\circ\inc\circ F\circ\widetilde{\varphi}^{-1}$
+	que es suave.
+\end{proof}
+
+Pasemos ahora a $\borde[M]$. Por definici\'{o}n, los puntos del borde son
+aquellos puntos $p\in M$ que verifican que existe un abierto $U\subset M$
+tal que $p\in U$ y una funci\'{o}n continua $\varphi$ de $U$ en un
+abierto de $\hemi[n]$ tal que $\varphi(p)\in\borde[{\hemi[n]}]$. Por el teorema
+de invarianza del dominio, sabemos que $\borde[M]=M\setmin\interior{M}$ y
+que, por lo tanto, $\borde[M]$ es cerrado. Pero, adem\'{a}s, si $(U,\varphi)$
+es una carta para $M$,
+\begin{align*}
+	\varphi(U\cap\borde[M]) & \,=\,\borde[{\hemi[n]}]\cap\varphi(U)
+\end{align*}
+%
+exactamente, es decir, si $p'\in U$ y $\varphi(p')\not\in\borde[{\hemi[n]}]$,
+entonces $p'$ debe ser un punto del interior de $M$. Dicho de otra manera,
+a nivel de cartas para $M$, $\interior{M}$ se ve como $\interior{\hemi[n]}$
+y $\borde[M]$ como $\borde[{\hemi[n]}]$. Para cada punto $p\in\borde[M]$
+del borde, existe una carta del borde $(U_{p},\varphi_{p})$ para $M$ en
+$p$. Si $\varphi_{p}=(\lista*{x}{n})$, entonces
+\begin{align*}
+	\borde[M]\cap U_{p} & \,=\,\{x^{n}=0\}\quad\text{e} \\
+	\interior{M}\cap U_{p} & \,=\,\{x^{n}>0\}
+	\text{ .}
+\end{align*}
+%
+Para cada una de estas cartas consideramos la proyecci\'{o}n en las primeras
+$n-1$ coordenadas de la restricci\'{o}n a $\borde[M]$. Es decir, para cada
+$p$ definimos una funci\'{o}n $\overline{\varphi_{p}}:\,%
+\borde[M]\cap U_{p}\rightarrow\bb{R}^{n-1}$ por
+\begin{align*}
+	\overline{\varphi_{p}} & \,=\,\pi\circ\varphi_{p}\circ
+		\inc[{\borde[M]}\cap U_{p}]
+	\text{ .}
+\end{align*}
+%
+La imagen de esta funci\'{o}n es igual a
+\begin{align*}
+	\overline{\varphi_{p}}(\borde[M]\cap U_{p}) & \,=\,\pi(x^{n}=0)]
+	\text{ ,}
+\end{align*}
+%
+que es un abierto de $\bb{R}^{n-1}$. Sea
+$\overline{U_{p}}=\borde[M]\cap U_{p}$ y sea
+\begin{align*}
+	\cal{A}_{\borde[M]} & \,=\,\left\lbrace
+		(\overline{U_{p}},\overline{\varphi_{p}})\,:\,
+		p\in\borde[M]\right\rbrace
+	\text{ .}
+\end{align*}
+%
+La colecci\'{o}n $\cal{A}_{\borde[M]}$ cubre a $\borde[M]$ y las funciones
+$\overline{\varphi_{p}}$ son homeomorfismos con abiertos de $\bb{R}^{n-1}$.
+Dados $p,q\in\borde[M]$ con
+$\overline{U_{p}}\cap\overline{U_{q}}\not=\varnothing$, la composici\'{o}n
+$\overline{\varphi_{p}}\circ\overline{\varphi_{q}}^{-1}:\,%
+\overline{\varphi_{p}}(\overline{U_{p}}\cap\overline{U_{q}})\rightarrow%
+\overline{\varphi_{q}}(\overline{U_{p}}\cap\overline{U_{q}})$ es igual a
+\begin{align*}
+	\overline{\varphi_{p}}\circ\overline{\varphi_{q}}^{-1}
+		(\lista*{u}{n-1}) & \,=\,
+		\pi\circ\varphi_{p}\inc[\overline{U_{p}}](\varphi_{q}^{-1}(
+			\lista*{u}{n-1},\,0)) \\
+	& \,=\,\pi\varphi_{p}\varphi_{q}^{-1}(\lista*{u}{n-1},\,0) \\
+	& \,=\,\pi\circ(\varphi_{p}\circ\varphi_{q}^{-1})\circ j_{0}
+		(\lista*{u}{n-1})
+	\text{ ,}
+\end{align*}
+%
+donde $j_{0}(\lista*{u}{n-1})=(\lista*{u}{n-1},\,0)\in%
+\overline{\varphi_{q}}(\overline{U_{q}})$. Esta composici\'{o}n es suave
+en las coordenadas $\lista*{u}{n-1}$. Vemos, entonces, que $\borde[M]$ tiene
+una estructura de variedad diferencial determinada por el \emph{atlas}
+$\cal{A}_{\borde[M]}$. Este atlas consiste, esencialmente, en las
+restricciones de las cartas compatibles con la estructura de $M$ al borde,
+de maner an\'{a}loga a lo que se hizo con $\interior{M}$ o, en general,
+con un abierto $U$ de $M$.
+
+\begin{propoBordeEsSubvariedadRegular}\label{thm:bordesubvarreg}
+	Sea $M$ una variedad dierencial. La inclusi\'{o}n
+	$\inc[{\borde[M]}]:\,\borde[M]\hookrightarrow M$ es suave. Dada
+	una funci\'{o}n $F:\,N\rightarrow\borde[M]$ arbitraria,
+	$F$ es suave, si y s\'{o}lo si $\inc[{\borde[M]}]\circ F$ lo es.
+\end{propoBordeEsSubvariedadRegular}
+
+\begin{proof}
+	Notemos que, como $\borde[M]$ es un subespacio topol\'{o}gico,
+	$F:\,N\rightarrow\borde[M]$ es continua, si y s\'{o}lo si
+	$\inc\circ F$ es continua. Sea $p\in\borde[M]$ y sea $(U,\varphi)$
+	una carta para $M$ en $p$. Como $p$ es un punto del borde, cualquiera
+	sea la carta $(U,\varphi)$ en $p$, debe valer que
+	$\varphi(p)\in\varphi(U)\cap\borde[{\hemi[n]}]$. Notemos, adem\'{a}s,
+	que, si $\overline{U}=\borde[M]\cap U$ y
+	$\overline{\varphi}=\pi\circ\varphi\circ\inc$, el par
+	$(\overline{U},\overline{\varphi})$ es una carta compatible para
+	$\borde[M]$. Con respecto a las cartas $(U,\varphi)$ en $M$ y
+	$(\overline{U},\overline{\varphi})$ en $\borde[M]$,
+	\begin{align*}
+		\varphi\circ\inc[{\borde[M]}]\circ\overline{\varphi}^{-1}
+			(\lista*{u}{n-1}) & \,=\,(\lista*{u}{n-1},\,0)
+			\,=\,j(\lista*{u}{n-1})
+		\text{ .}
+	\end{align*}
+	%
+	Con lo cual, $\inc[{\borde[M]}]:\,\borde[M]\hookrightarrow M$ es
+	suave. Localmente, $\inc[{\borde[M]}]$ es la inclusi\'{o}n de un
+	abierto de $\bb{R}^{n-1}$ como la tajada con $\{x^{n}=0\}$ en
+	un abierto de $\hemi[n]$ (o de $\bb{R}^{n}$).
+
+	Si $F:\,N\rightarrow\borde[M]$ es suave, entonces
+	$\inc\circ F:\,N\rightarrow M$ es suave por ser composici\'{o}n
+	de funciones suaves. Si, rec\'{\i}procamente, $\inc\circ F$ es suave,
+	entonces debe ser suave en sentido usual con respecto a cualquier
+	par de cartas para $N$ y para $M$. Sea $F(q)=p\in\borde[M]$. Sean
+	$(V,\psi)$ una carta para $M$ en $p$ y $(U,\varphi)$ una carta
+	para $N$ en $q$. Definimos $\overline{V}=V\cap\borde[M]$ y
+	$\overline{\psi}=\pi\circ\psi\circ\inc[{\borde[M]}]$, como antes.
+	En el abierto $\varphi(F^{-1}(V)\cap U)$,
+	\begin{align*}
+		\overline{\psi}\circ F\circ\varphi^{-1} & \,=\,
+			\pi\circ\psi\circ(\inc[{\borde[M]}]\circ F)\circ
+			\varphi^{-1}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\psi\circ\inc\circ F\circ\varphi^{-1}$ es suave y
+	$\pi:\,\hemi[n]\rightarrow\bb{R}^{n-1}$ tambi\'{e}n lo es, la
+	representaci\'{o}n $\overline{\psi}\circ F\circ\varphi^{-1}$ es
+	suave. Notemos que $\varphi(F^{-1}(V)\cap U)$ es abierto
+	porque $F$ es continua como funci\'{o}n en $\borde[M]$.
+\end{proof}
+
+Volvamos, ahora, a la demostraci\'{o}n corolario.
+
+\begin{proof}[Demostraci\'{o}n de \ref{thm:funinvvarconborde}]
+	Si $F:\,M\rightarrow N$ es suave y $F(M)\subset\interior{N}$,
+	entonces $F|:\,M\rightarrow\interior{N}$ es suave e $\interior{N}$
+	es abierto en $N$. Adem\'{a}s, $\borde[\interior{N}]=\varnothing$,
+	con lo cual podemos intentar aplocar el teorema \ref{thm:funinvvar}.
+	Notemos que $F=\inc[\interior{N}]\circ F|$. Por la
+	funtorialidad del diferencial,
+	\begin{align*}
+		\diferencial[p]{F} & \,=\,
+			\diferencial[F(p)]{\inc[\interior{N}]}\circ
+			\diferencial[p]{(F|)}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\diferencial[F(p)]{\inc[\interior{N}]}$ es un isomorfismo,
+	en particular, es inyectivo y
+	\begin{align*}
+		\rango{\diferencial[p]{F}} & \,=\,
+			\rango{\diferencial[p]{(F|)}}
+		\text{ .}
+	\end{align*}
+	%
+	Por hip\'{o}tesis, $\diferencial[p]{F}$ es invertible. Entonces
+	$\diferencial[p]{(F|)}$ lo es, tambi\'{e}n. Por el teorema
+	\ref{thm:funinvvar}, existen abiertos $V_{0}\subset\interior{N}$
+	y $U_{0}\subset M$ tales que $p\in U_{0}$, $F(p)\in V_{0}$ y
+	$(F|)|_{U_{0}}:\,U_{0}\rightarrow V_{0}$ es difeomorfismo. Pero,
+	como $\interior{N}$ es abierto en $N$, el conjunto $V_{0}$ es abieto
+	en $N$. En definitiva, existen entornos conexos $U_{0}$ de $p$ en
+	$M$ y $V_{0}$ de $F(p)$ en $N$ (conexos) tales que
+	$F|_{U_{0}}:\,U_{0}\rightarrow V_{0}$ es difeomorfismo.
+\end{proof}
+
+\begin{propoDiferencialInvertibleCaeEnElInterior}\label{thm:caeenelinterior}
+	Sea $M$ una variedad \emph{sin} borde y sea $N$ una variedad
+	(arbitraria). Sea $F:\,M\rightarrow N$ una transformaci\'{o}n
+	suave. Si $p\in M$ es tal que $\diferencial[p]{F}$ es no
+	singular, entonces $F(p)\in\interior{N}$.
+\end{propoDiferencialInvertibleCaeEnElInterior}
+
+Esta proposici\'{o}n nos permite omitir la hip\'{o}tesis
+$F(M)\subset\interior{N}$ en el enunciado del corolario
+\ref{thm:funinvvarconborde}.
+
+\begin{proof}
+	Sean $m=\dim\,M$ y $n=\dim\,N$.
+	Supongamos que $F(p)\in\borde[N]$. Sea $(U,\varphi)$ una carta
+	para $M$ en $p$, con $\varphi(p)=0$ y $\varphi(U)=\bola[m]{1}{0}$
+	y sea $(V,\psi)$ carta para $N$ en $F(p)$ con $\psi(F(p))=0$
+	y $\psi(V)=\bola[n]{1}{0}\cap\hemi[n]$. Expresado de manera
+	m\'{a}s concisa, $U$ es una bola coordenada centrada en $p$
+	y $V$ es una semibola coordenada centrada en $F(p)$. Supongamos que
+	elegimos los entornos de las cartas de manera que se cumpla
+	que $F(U)\subset V$, para simplificar. Sea
+	$\widehat{F}=\psi\circ F\circ\varphi^{-1}:\,%
+	\varphi(U)\rightarrow\psi(V)$ la representaci\'{o}n
+	de $F$ en estas coordenadas. Por hip\'{o}tesis,
+	$\diferencial[p]{F}:\,T_{p}M\rightarrow T_{F(p)}N$ es un isomorfismo
+	(en $p$), con lo que la matriz jacobiana
+	$\jacobiana{\widehat{F}}:\,\bb{R}^{m}\rightarrow\bb{R}^{n}$
+	tambi\'{e}n lo es. En particular, $m=n$. Pero, adem\'{a}s,
+	como $\inc=\inc[{\hemi[n]}]:\,\hemi[n]\rightarrow\bb{R}^{n}$ es suave,
+	$\inc\circ \widehat{F}:\bola[n]{1}{0}\rightarrow\bola[n]{1}{0}$ es
+	suave y
+	\begin{align*}
+		\jacobiana[\widehat{F}(\widehat{p})]{\inc}\cdot
+			\jacobiana[\widehat{p}]{\widehat{F}} & \,=\,
+			\jacobiana[\widehat{p}]{(\inc\circ \widehat{F})}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\rango{\jacobiana[\widehat{F(p)}]{\inc}}=n$, es decir,
+	$\jacobiana[\widehat{F(p)}]{\inc}$ es invertible,
+	la matriz $\jacobiana[\widehat{p}]{(\inc\circ\widehat{F})}$
+	tambi\'{e}n debe serlo. Por el teorema de la funci\'{o}n inversa,
+	existen abiertos $\widehat{U}_{0}\subset\varphi(U)=\bola{1}{0}$ y
+	$W_{0}\subset\bola{1}{0}$ tales que
+	$\inc\circ\widehat{F}|_{\widehat{U}_{0}}:\,%
+	\widehat{U}_{0}\rightarrow W_{0}$ es difeomorfismo. Pero
+	$W_{0}=\inc\circ\widehat{F}(\widehat{U}_{0})\subset\inc(\hemi[n])$
+	y el punto $0$ pertenece a $\inc\circ\widehat{F}(\widehat{U}_{0})$ y,
+	entonces, $W_{0}$ no puede ser abierto pues todo entorno de $0$ en
+	$\bb{R}^{n}$ contiene puntos que no pertenecen a $\hemi[n]$.
+\end{proof}
+
+\begin{coroCaeEnElInterior}\label{thm:corocaeenelinterior}
+	Si $M$ es una variedad \emph{sin} borde y $N$ es una variedad
+	diferencial posiblemente con borde, entonces
+	\emph{(a)} una transformaci\'{o}n suave $F:\,M\rightarrow N$ es
+	difeomorfismo local, si y s\'{o}lo si es submersi\'{o}n e
+	inmersi\'{o}n; \emph{(b)} si $\dim\,M=\dim\,N$ y $F$ es
+	submersi\'{o}n o inmersi\'{o}n, entonces $F$ es difeomorfismo local.
+\end{coroCaeEnElInterior}
+
+\begin{proof}
+	Si $F$ es difeomorfismo local, entonces $\diferencial[p]{F}$ es
+	isomorfismo lineal. En particular, $\dim\,M=\dim\,N$ y $F$
+	tiene rango m\'{a}ximo en todo punto $p$. Rec\'{\i}procamente, si $F$
+	submersi\'{o}n e inmersi\'{o}n, $\diferencial[p]{F}$ es isomorfismo
+	en todo punto $p$. Por la proposici\'{o}n \ref{thm:caeenelinterior},
+	$F(M)\subset\interior{N}$ y, por el corolario
+	\ref{thm:funinvvarconborde} $F$ es difeomorfismo local. Esto
+	demuestra \emph{(a)}. En cuanto a \emph{(b)}, si $\dim\,M=\dim\,N$,
+	entonces las condiciones para ser submersi\'{o}n y para ser
+	inmersi\'{o}n coinciden. Con lo cual, si se sabe, por ejemplo, que
+	$F$ es submersi\'{o}n, entonces debe ser inmersi\'{o}n y, por
+	\emph{(a)}, debe ser difeomorfismo local.
+\end{proof}
+
+\begin{propoDifeoLocalExtra}\label{thm:propisextradifeoslocales}
+	Sean $M,N,P,P'$ variedades diferenciales con o sin borde. Sea
+	$F:\,M\rightarrow N$ un difeomorfismo local. Entonces
+	\emph{(a)} si $G:\,P\rightarrow M$ es continua, entonces
+	$G$ es suave, si y s\'{o}lo si $F\circ G$ lo es; \emph{(b)} si
+	$F$ es sobreyectiva y $G':\,N\rightarrow P'$ e s una funci\'{o}n
+	arbitraria, entonces $G'$ es (continua y) suave, si y s\'{o}lo si
+	$G'\circ F$ lo es.
+\end{propoDifeoLocalExtra}
+
+\begin{proof}
+	\emph{(a)} Supongamos que $F\circ G$ es suave y que $G$ es continua.
+	Si $p\in P$, como $F$ es un difeomorfismo local, existe un entorno
+	$U_{0}\subset M$ de $G(p)$ y existe un entorno $V_{0}\subset N$ de
+	$F(G(p))$ tales que $F|_{U_{0}}:\,U_{0}\rightarrow V_{0}$ es
+	difeomorfismo. Sea $V\subset V_{0}$ el dominio de una carta $(V,\psi)$
+	para $N$ en $F(G(p))$. Sea $U=F^{-1}(V)$ y sea
+	$\varphi:\,U\rightarrow\bb{R}^{n}$ dada por $\varphi=\psi\circ F|_{U}$.
+	Entonces $(U,\varphi)$ es una carta para $M$ en $G(p)$ contenida en
+	$U_{0}$. Como $G$ es continua, $G^{-1}(U)\subset P$ es abierto y
+	contiene a $p$. Sea $(W,\gamma)$ una carta en $p$ con
+	$W\subset G^{-1}(U)$. Como $F\circ G$ es suave,
+	\begin{align*}
+		\psi\circ(F\circ G)\circ\gamma^{-1} & \,:\,\gamma(W)\,
+			\rightarrow\,\psi(V)
+	\end{align*}
+	%
+	es suave. Pero $\psi\circ(F\circ G)\circ\gamma^{-1}=%
+	(\psi\circ F\circ\varphi^{-1})\circ (\varphi\circ G\circ\gamma^{-1})$
+	y $\psi\circ F\circ\varphi^{-1}$ es difeomorfismo (de hecho,
+	$\psi\circ F\circ\varphi^{-1}=\psi$). Entonces
+	$\varphi\circ G\circ\gamma^{-1}$ es suave, de lo que se deduce que
+	$G$ es suave.
+
+	\emph{(b)}sea $F:\,M\rightarrow N$ un difeomorfismo local
+	sobreyectivo y sea $G':\,N\rightarrow P'$ una funci\'{o}n tal que
+	$G'\circ F:\,M\rightarrow P'$ es suave. Sea $p\in N$. Por
+	sobreyectividad, existe $q\in M$ tal que $F(q)=p$. Como
+	$G'\circ F$ es suave, existen cartas $(U,\varphi)$ para $M$ en
+	$q$ y $(V,\psi)$ para $P'$ en $G'(p)$ tales que
+	$G'\circ F(U)\subset V$ y $\psi\circ (G'\circ F)\circ\varphi^{-1}:\,%
+	\varphi(U)\rightarrow\psi(V)$ es suave. Como $F$ es un difeomorfismo
+	local, $F$ es abierta y $F(U)\subset N$ es un subconjunto abierto
+	que contiene a $p$. Podemos tomar, entonces, una carta $(W,\gamma)$
+	para $N$ en $p$, con dominio $W\subset F(U)$. En particular,
+	\begin{align*}
+		G'(W) & \,\subset\,G'(F(U))\,\subset\, V\quad\text{y} \\
+		\psi\circ(G'\circ F)\circ\varphi^{-1} & \,=\,
+			(\psi\circ G'\circ\gamma^{-1})\circ
+			(\gamma\circ F\circ\varphi^{-1})
+		\text{ .}
+	\end{align*}
+	%
+	Tomando la carta $(U,\varphi)$ de manera que
+	$F|_{U}:\,U\rightarrow F(U)$ sea difeomorfismo --esto se puede hacer
+	si primero fijamos entornos $U_{0}$ de $q$ y $V_{0}$ de $p$ de manera
+	que $F|_{U_{0}}:\,U_{0}\rightarrow V_{0}$ sea difeomorfismo y
+	eligiendo $(U,\varphi)$ con $U\subset U_{0}$--, la composici\'{o}n
+	$\gamma\circ F\circ\varphi^{-1}$ resulta ser un difeomorfismo y,
+	entonces, $\psi\circ G'\circ\gamma^{-1}$ debe ser suave, por ser
+	composici\'{o}n de dos funciones suaves:
+	\begin{align*}
+		\psi\circ G'\circ\gamma^{-1} & \,=\,
+			(\psi\circ (G'\circ F)\circ\varphi^{-1})\circ
+			(\gamma\circ F\circ\varphi^{-1})^{-1}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

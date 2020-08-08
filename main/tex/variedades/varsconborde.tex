@@ -1,0 +1,316 @@
+\theoremstyle{plain}
+\newtheorem{teoInvarianzaDeLasEsquinas}{Teorema}[section]
+
+\theoremstyle{remark}
+\newtheorem{obsElBordeConEsquinasNoEsVariedad}{Observaci\'{o}n}[section]
+
+%--------------------
+
+\subsection{Variedades con bordes}
+Una \emph{variedad con borde}, espec\'{\i}ficamente, una \emph{variedad %
+topol\'{o}gica con borde} se define como un espacio topol\'{o}gico
+Hausdorff y $N_{2}$ tal que todo punto del mismo tiene un entorno homeomorfo
+a un abierto del semiespacio superior $\hemi[d]$ para alg\'{u}n $d\geq 0$.
+El valor de $d$ es la dimensi\'{o}n de la variedad (y, por un corolario del
+teorema de la dimensi\'{o}n \ref{thm:deladim}, est\'{a} bien definida).
+Es decir, en lugar de estar modelado localmente como $\bb{R}^{d}$, una
+variedad con borde es localmente como
+\begin{align*}
+	\hemi[d] & \,=\,\left\lbrace (\lista*{x}{d})\in\bb{R}^{d}\,:\,
+				x^{d}\geq 0\right\rbrace
+	\text{ .}
+\end{align*}
+%
+Si $M$ es una variedad con borde y $p\in M$, existe un abierto $U$ de $M$
+y un homeomorfismo $\varphi:\,U\rightarrow\varphi(U)$ con un abierto de
+$\hemi[d]$ tal que $p\in U$. Como en el caso de una variedad topol\'{o}gica,
+un par $(U,\varphi)$ se denominar\'{a} \emph{carta} para $M$ en $p$.
+
+El \emph{borde} de $\hemi[d]$ en $\bb{R}^{d}$ es el conjunto de puntos
+$(\lista*{x}{d})$ tales que $x^{d}=0$, lo denotaremos $\borde[{\hemi[d]}]$.
+El \emph{interior} de $\hemi[d]$ se define como el conjunto de puntos
+$(\lista*{x}{d})$ tales que $x^{d}>0$ y lo denotamos $\interior{\hemi[d]}$.
+Si $M$ es una variedad con borde, el \emph{borde} de $M$ ser\'{a} el
+conjunto de puntos $p\in M$ para los cuales existe una carta $(U,\varphi)$
+tal que $\varphi(p)\in\borde[{\hemi[d]}]$, es decir, $\pi^{d}(\varphi(p))=0$.
+El \emph{interior} de $M$ se define como el subconjunto formado por aquellos
+puntos $p\in M$ para los cuales existe una carta $(U,\varphi)$ tal que
+$\varphi(p)\in\interior{\hemi[d]}$, es decir, $\pi^{d}(\varphi(p))>0$.
+Los puntos del interior de $M$ admiten entornos homeomorfos a abiertos de
+$\bb{R}^{d}$. Denotamos el borde de $M$ por $\borde[M]$ y su interior por
+$\interior{M}$.
+
+Si bien los conjuntos $\interior{M}$ y $\borde[M]$ est\'{a}n bien definidos
+e, intuitivamente, deber\'{\i}an ser disjuntos, no es claro, \textit{a %
+priori} que as\'{\i} lo sea.
+
+El interior $\interior{M}$ de una variedad $M$ de dimensi\'{o}n $d$ es una
+variedad de dimensi\'{o}n $d$ (sin borde), pues es un subespacio
+abierto de la variedad $M$. El borde $\borde[M]$ tambi\'{e}n es una
+variedad topol\'{o}gica (sin borde). Su dimensi\'{o}n es $d-1$: si $p$
+es un punto del borde y $(U,\varphi)$ es una carta para $M$ en $p$,
+entonces
+\begin{align*}
+	U\cap\borde[M] & \,=\,\left\lbrace q\in U\,:\,\pi^{d}(\varphi(q))=0
+				\right\rbrace
+	\text{ .}
+\end{align*}
+%
+De esto se deduce que $(U\cap\borde[M],\tilde{\varphi})$ es una carta para
+$\borde[M]$ en $p$, donde $\tilde{\varphi}=(\lista*{\varphi}{d-1})$ --es
+decir, proyectar sobre las primeras $d-1$ coordenadas la \emph{coordenada}
+$\varphi$, valga la redundancia. La imagen de esta carta es un abierto de
+$\bb{R}^{d-1}$ dado por intersecar el abierto $\varphi(U)$ de $\bb{R}^{d}$
+con el hiperplano $\{x^{d}=0\}$ (y proyectar sobre las primeras $d-1$
+coordenadas).
+
+Dada una variedad topol\'{o}gica con borde $M$ y  una carta $(U,\varphi)$,
+decimos que esta carta es una \emph{carta del interior}, si
+$\varphi(U)\subset\hemi[d]$ es un abierto contenido en el interior del
+semiespacio, es decir, $\varphi(U)\cap\borde[{\hemi[d]}]=\varnothing$. Si,
+en cambio, $\varphi(U)\cap\borde[{\hemi[d]}]\not=\varnothing$, decimos que
+$(U,\varphi)$ es una \emph{carta de borde}. Dado que los abiertos del interior
+$\interior{\hemi[d]}$ del semiespacio son homeomorfos a abiertos de
+$\bb{R}^{d}$ y \textit{vice versa}, tambi\'{e}n se denominar\'{a}n
+\emph{cartas} para $M$ a los pares $(U,\varphi)$, donde $U\subset M$ es un
+abierto y $\varphi:\,U\rightarrow\bb{R}^{d}$ es un homeomorfismo con un
+abierto euclideo. Espec\'{\i}ficamente, estas cartas ser\'{a}n cartas
+de interior, tambi\'{e}n. Finalmente, decimos que un abierto $U\subset M$
+es una \emph{semibola coordenada}, si es el dominio de una carta
+$(U,\varphi)$ para $M$ tal que $\varphi(U)\cap\borde[{\hemi[d]}]\not=%
+\varnothing$ (es decir, una carta de borde) y $\varphi(U)=%
+\bola{r}{x}\cap\hemi[d]$ para alg\'{u}n n\'{u}mero $r>0$ y alg\'{u}n punto
+$x\in\borde[{\hemi[d]}]$. Un abierto $B\subset M$ se dice
+\emph{semibola regular}, si existe una semibola coordenada $(B',\varphi)$
+tal que $\clos{B}\subset B'$ y
+\begin{align*}
+	\varphi(B) & \,=\,\bola{r}{0}\cap\hemi[d]\text{ ,}\\
+	\varphi(\clos{B}) & \,=\,\clos{\bola{r}{0}}\cap\hemi[d]\quad\text{y} \\
+	\varphi(B') & \,=\,\bola{r'}{0}\cap\hemi[d]
+\end{align*}
+%
+para ciertos n\'{u}meros $r'>r>0$.
+
+\subsection{Estructuras diferenciales en variedades con borde}
+Una \emph{estructura diferencial (o suave) en/de/para $M$} se define como un
+atlas suavemente compatible maximal. Un \emph{atlas} para $M$ es un conjunto
+de cartas que cubre a $M$. Dos cartas se dicen \emph{suavemente compatibles},
+si los cambios de coordenadas en ambas direcciones son suaves. Un
+atlas en $M$ se dice \emph{suavemente compatible}, si todo par de cartas
+del atlas es un par compatible. Resta definir la noci\'{o}n de suavidad o
+regularidad para una funci\'{o}n definida en un abierto de $\hemi[d]$.
+
+Sea $A\subset\bb{R}^{n}$ un subconjunto arbitrario y sea
+$F:\,A\rightarrow\bb{R}^{k}$ una funci\'{o}n. Se dice que $F$ es \emph{suave}
+o \emph{diferenciable} o \emph{regular}, si, dado $x\in A$, existe una
+funci\'{o}n $\widetilde{F}:\,B\rightarrow\bb{R}^{k}$ suave, diferenciable,
+regular, definida en un entorno $B$ de $x$, tal que
+$\widetilde{F}|_{B\cap A}=F|_{B\cap A}$. En particular, si $U\subset\hemi[d]$
+es un subconjunto abierto, una funci\'{o}n $F:\,U\rightarrow\bb{R}^{k}$ es
+suave, si, para cada punto $x\in U$, existe un abierto $\widetilde{U}$ de
+$\bb{R}^{d}$ tal que $x\in\widetilde{U}$ y una funci\'{o}n suave
+$\widetilde{F}:\,\widetilde{U}\rightarrow\bb{R}^{k}$ que coincide con
+$F$ en $\widetilde{U}\cap U$. Notemos que la noci\'{o}n de diferenciabilidad
+depende del dominio de definici\'{o}n de la funci\'{o}n; precisamente,
+depende de cu\'{a}l es el espacio euclideo ambiente del cual $A$ es
+subespacio. Si $(U,\varphi)$ y $(V,\psi)$ son cartas con borde para
+una variedad con borde $M$, entonces las mismas son compatibles, si,
+o bien $U\cap V=\varnothing$, o bien $U\cap V\not=\varnothing$ y
+los cambios de coordenadas
+\begin{align*}
+	\varphi\circ\psi^{-1} & \,:\,\psi(U\cap V)\,\rightarrow\,
+		\varphi(U\cap V)\quad\text{y} \\
+	\psi\circ\varphi^{-1} & \,:\,\varphi(U\cap V)\,\rightarrow\,
+		\psi(U\cap V)
+\end{align*}
+%
+son suaves. Seg\'{u}n la definici\'{o}n anterior, esto quiere decir,
+definiendo $f=\psi\circ\varphi^{-1}$, que, dado $x\in \varphi(U\cap V)$,
+existe un abierto $B\subset\bb{R}^{d}$ tal que $x\in B$ y una
+funci\'{o}n suave $\tilde{f}:\,B\rightarrow\bb{R}^{d}$ tal que
+$\tilde{f}|_{B\cap\varphi(U\cap V)}=f|_{B\cap\varphi(U\cap V)}$ y,
+lo mismo para la inversa $f^{-1}$. El entorno $B$ debe ser un abierto de
+$\bb{R}^{d}$, porque $\varphi(U\cap V)$ es un subespacio de $\bb{R}^{d}$, y
+$\tilde{f}$ tiene que tomar valores en $\bb{R}^{d}$, porque,
+de la misma manera, $\psi(U\cap V)$ es un subespacio de $\bb{R}^{d}$.
+
+Si $F:\,U\subset\hemi[d]\rightarrow\bb{R}^{k}$ es una funci\'{o}n suave,
+entonces $F$ restringida a $U\cap\interior{\hemi[d]}$ es suave en el
+sentido usual y las derivadas parciales de $F$ en puntos del borde quedan
+determinadas por los valores en $\interior{\hemi[d]}$, independientemente
+de la extensi\'{o}n, por la continuidad de las derivadas (de $F$ en el
+interior y de la extensi\'{o}n en el entorno del punto).
+
+Una variedad topol\'{o}gica con borde $M$ junto con una estructura
+diferencial en $M$ se denomina \emph{variedad diferencial con borde}.
+Una carta en $M$ se dice \emph{compatible}, si pertenece al atlas
+maximal correspondiente a la estructura en $M$.
+El lema \ref{thm:delascartas} sigue siendo v\'{a}lido, si se reemplaza
+el espacio euclideo que modela localmente a la variedad por
+un semiespacio. El resultado es que queda determinada una estructura de
+variedad diferencial \emph{con borde}.
+
+\subsection{Variedades con borde}
+Sea $\esquina{d}$ el subconjunto de $\bb{R}^{d}$ de puntos cuyas coordenadas
+son no negativas:
+\begin{align*}
+	\esquina{d} & \,=\,\left\lbrace(\lista*{x}{d})\in\bb{R}^{d}\,:\,
+		x^{1}\geq 0,\,\dots,\,x^{d}\geq 0\right\rbrace
+	\text{ .}
+\end{align*}
+%
+Topol\'{o}gicamente, $\esquina{d}$ y $\hemi[d]$ son homeomorfos, como lo
+son, por ejemplo, un cuadrado y un c\'{\i}rculo. La diferencia desde el
+punto de vista geom\'{e}trico est\'{a} en la estructura diferencial.
+El homeomorfismo entre la esquina y el semiespacio nos permitir\'{\i}a
+trasladar al estructura dferencial de $\hemi[d]$ a $\esquina{d}$ ya
+que $\esquina{d}$ es una variedad topol\'{o}gica con borde. Pero esta
+estrucutura no ser\'{\i}a compatible con la topolog\'{\i}a de
+$\esquina{d}$ como subespacio de $\bb{R}^{d}$.
+
+Sea $M$ una variedad topol\'{o}gica (con borde) de dimensi\'{o}n $d$.
+Una \emph{carta de esquina (o con esquinas)} para $M$ es un par
+$(U,\varphi)$ tal que $U\subset M$ es abierto y
+$\varphi:\,U\rightarrow\widehat{U}\subset\esquina{d}$ es un homeomorfismo
+entre $U$ y un abierto $\widehat{U}$ de $\esquina{d}$. Notemos que,
+componiendo una carta de borde de $M$ con un homeomorfismo, se obtiene
+una carta de esquina de $M$ (esto no quiere decir que estos homeomorfismos
+terminen siendo suaves). Un \emph{atlas (con esquinas)} en $M$ es un
+conjunto de cartas (cartas de interior, cartas de borde \emph{y} cartas
+con esquinas) que cubren a $M$. Dos cartas (posiblemente con esquinas)
+$(U,\varphi)$ y $(V,\psi)$ para $M$ se dicen \emph{suavemente compatibles},
+si $V\cap U=\varnothing$, o $V\cap U\not=\varnothing$ y los cambios de
+coordenadas
+\begin{align*}
+	\varphi\circ\psi^{-1} & \,:\,\psi(V\cap U)\,\rightarrow\,
+		\varphi(V\cap U) \quad\text{y} \\
+	\psi\circ\varphi^{-1} & \,:\,\varphi(V\cap U)\,\rightarrow\,
+		\psi(V\cap U)
+	\text{ ,}
+\end{align*}
+%
+que son homeomorfismos, son suaves. Los dominios y codominios de estas
+composiciones son abiertos de $\esquina{d}$ en este caso. Como en el caso
+de variedades con borde, decimos que una funci\'{o}n
+$A\subset\bb{R}^{n}\rightarrow\bb{R}^{k}$ es suave si se puede extender
+en un entorno de cada punto de su dominio de definici\'{o}n a una funci\'{o}n
+suave. Recordemos que la extensi\'{o}n a considerar depende del espacio
+euclideo ambiente del que $A$ sea subespacio. En el caso de los cambios
+de coordenadas, si $f=\psi\circ\varphi^{-1}$, por ejemplo,
+que $f:\,\varphi(U\cap V)\rightarrow\psi(U\cap V)$ sea suave quiere decir
+que, dado $x\in\varphi(U\cap V)$, existe un abierto $B\subset\bb{R}^{d}$
+tal que $x\in B$ y una extensi\'{o}n $\tilde{f}:\,B\rightarrow\bb{R}^{d}$
+que coincide con $f$ en $\varphi(U\cap V)\cap B$ y que es suave.
+
+Una \emph{estructura diferenial (o suave) con esquinas} en una variedad
+topol\'{o}gica (con borde) $M$ es un atlas (con esquinas) suavemente
+compatible maximal. Una variedad topol\'{o}gica (con borde), junto con una
+estructura diferencial con esquinas, se denomina \emph{variedad diferencial %
+con esquinas}. Dada una variedad diferencial con esquinas $M$, una carta
+\emph{compatible} es una carta perteneciente a la estructura de $M$,
+ya sea de interior, de borde o de esquina.
+
+Vale la pena notar que el borde (de variedad) de una variedad est\'{a}
+definido en t\'{e}rminos de la topolog\'{\i}a de la misma. En particular,
+el borde de una variedad con esquinas es el conjunto de puntos $p$ para los
+cuales existe un homeomorfismo $\varphi$ entre un entorno del punto en la
+variedad y un abierto de $\hemi[d]$, de forma tal que
+$\varphi(p)\in\borde[{\hemi[d]}]$. Por ejemplo,
+\begin{align*}
+	\borde[\esquina{d}] & \,=\,\left\lbrace (\lista*{x}{d})\in
+		\esquina{d} \,:\,x^{1}=0\text{ o}\dots\text{ o }x^{d}=0
+		\right\rbrace
+	\text{ .}
+\end{align*}
+%
+Las \emph{esquinas} de $\esquina{d}$ son los puntos $(\lista*{x}{d})$ tales
+que al menos dos coordenadas se anulan.
+
+\begin{teoInvarianzaDeLasEsquinas}\label{thm:invarianzadelasesquinas}
+	Sea $M$ una variedad diferencial con esquinas de dimensi\'{o}n
+	$d\geq 2$. Sea $p\in M$ y sea $(U,\varphi)$ una carta (compatible)
+	en $p$. Si $\varphi(p)\in\esquina{d}$ pertenece a las esquinas de
+	$\esquina{d}$, entonces, dada cualquier otra carta compatible
+	$(V,\psi)$ en $p$, $\psi(p)$ tambi\'{e}n pertenece a las esquinas.
+\end{teoInvarianzaDeLasEsquinas}
+
+\begin{proof}
+	Supongamos que $\psi(p)$ no pertenece a las esquinas de $\esquina{d}$.
+	Como $\varphi(p)$ si es un punto de las esquinas, podemos suponer,
+	reordenando las coordenadas, que $\varphi(p)=%
+	(\lista*{x}{k},\,0,\,\dots,\,0)$ (en particular, $k\leq d-2$).
+	Como $\psi(V)\subset\esquina{d}$ es abierto y $\psi(p)$ tiene, al
+	menos, $d-1$ coordenadas no nulas, existe un subespacio lineal
+	$S\subset\bb{R}^{d}$ de dimensi\'{o}n $d-1$ tal que
+	$\psi(p)\in\psi(V)\cap A$ y que $S=\psi(V)\cap A$ es abierto en $A$.
+	Esto es cierto, aun si $\psi(p)$ tiene a lo sumo $2$ coodenadas nulas,
+	pero, como estamos suponiendo que $\psi(p)$ tiene a lo sumo una
+	coordenada nula, es decir, que $p$ es un punto del borde pero no de la
+	esquina o un punto del interior, podemos elegir $A$ de la forma
+	$A=\{x^{i}=0\}$ para alg\'{u}n (\'{u}nico) $i$, si
+	$\varphi(p)\in\borde[\esquina{d}]$ o de manera arbitraria,
+	si $\psi(p)\in\interior{\esquina{d}}$.
+	
+	Sea $S'=S\cap\psi(U\cap V)=A\cap\psi(U\cap V)$ y sea
+	$\alpha:\,S'\rightarrow\bb{R}^{d}$ la restricci\'{o}n de
+	$\varphi\circ\psi^{-1}$ a $S'$. Dado que $\varphi\circ\psi^{-1}$
+	es un difeomorfismo (es suave con inversa suave), por la regla de
+	la cadena,
+	\begin{align*}
+		(\psi\circ\varphi^{-1})\circ\alpha & \,=\,\id[S']
+			\quad\text{y} \\
+		\jacobiana[\alpha(x)]{(\psi\circ\varphi^{-1})}\cdot
+			\jacobiana[x]{\alpha} & \,=\,I
+		\text{ .}
+	\end{align*}
+	%
+	donde $I$ es una matriz que es la identidad en los vectores de $A$.
+	Definiendo adecuadamente los tangentes en las esquinas, podr\'{\i}amos
+	hablar del diferencial, en lugar de usar la matriz jacobiana, pero
+	es esencialmente lo mismo: las derivadas parciales en
+	$\borde[\esquina{d}]$ est\'{a}n determinadas por su valor en el
+	interior. En particular, se deduce que $\jacobiana[x]{\alpha}$ es
+	una matriz de rango m\'{a}ximo (es decir, la transformaci\'{o}n
+	lineal asociada es inyectiva). Con tales definiciones, deber\'{\i}amos
+	tener $\id[T_{x}S']$ en lugar de la matriz $I$. Como $\dim\,S=d-1$,
+	vale que $\rango{\jacobiana[x]{\alpha}}=d-1$. Entonces existe un
+	vector $v=(\lista*{v}{d})\in\bb{R}^{d}$ que pertenece al espacio
+	columna de la matriz $\jacobiana[x]{\alpha}$ y tal que
+	$v^{d-1}\not =0$ o $v^{d}\not =0$. Reordenando o multiplicando, de
+	ser necesario, por $-1$, podemos asumir que $v^{d}<0$.
+
+	Sea $\gamma:\,(-\epsilon,\epsilon)\rightarrow S$ una curva suave
+	con origen en $\psi(p)$ y velocidad $\dot{\gamma}(0)$ tal que
+	$\jacobiana[\psi(p)]{\alpha}(\dot{\gamma}(0))=v$. En particular,
+	la \'{u}ltima coordenada de la composici\'{o}n $\alpha\circ\gamma(t)$
+	verifica
+	\begin{align*}
+		(\alpha\circ\gamma(t))^{d} & \,<\,0
+	\end{align*}
+	%
+	para $t\in (-\epsilon,\epsilon)$ suficientemente chico. Esto
+	contradice el hecho de que $\alpha$ tiene imagen en $\esquina{d}$
+	en donde todas las coordenadas son no negativas.
+\end{proof}
+
+Con este teorema, podemos definir sin ambig\"{u}edad la noci\'{o}n
+de \emph{puntos de borde}, es decir puntos tales que, respecto de alguna
+(y por lo tanto toda) carta compatible $(U,\varphi)$, en coordenadas,
+$\varphi(p)$ pertenece a las esquinas de $\esquina{d}$. Un punto del borde,
+como antes, es un punto para el cual debe valer que
+$\varphi(p)\in\borde[\esquina{d}]$, bajo cualquier carta $\varphi$ (con
+codominio un abierto de $\esquina{d}$).
+
+\begin{obsElBordeConEsquinasNoEsVariedad}\label{thm:bordenoesvariedad}
+	A diferencia de las variedades (diferenciales) con borde, el borde
+	de una variedad con esquinas no es una variedad (con ni sin esquinas).
+	Basta considerar $\esquina{d}$ (para $d\geq 2$). En este caso,
+	\begin{align*}
+		\borde[\esquina{d}] & \,=\,H_{1}\cup\,\cdots\,\cup H_{d}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $H_{i}=\{(\lista*{x}{d})\in\esquina{d}\,:\,x^{i}=0\}$. Notemos
+	que los subconjuntos $H_{i}$ s\'{\i} son variedades. Precisamente,
+	$H_{i}$ es una variedad con esquinas de dimensi\'{o}n $d-1$.
+\end{obsElBordeConEsquinasNoEsVariedad}

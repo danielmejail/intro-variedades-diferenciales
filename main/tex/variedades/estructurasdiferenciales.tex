@@ -1,0 +1,248 @@
+\theoremstyle{plain}
+\newtheorem{propoAtlasMax}{Proposici\'{o}n}[section]
+\newtheorem{lemaDeLasBolasRegulares}[propoAtlasMax]{Lema}
+\newtheorem{lemaDeLasCartas}[propoAtlasMax]{Lema}
+
+\theoremstyle{remark}
+\newtheorem{remarkAtlasMax}{Observaci\'{o}n}[section]
+
+%--------------------
+
+\subsection{Atlas suaves y estructuras diferenciales}
+Sea $M$ una variedad topol\'{o}gica y sean $(U,\varphi)$ y $(V,\psi)$ dos
+cartas coordenadas. Si $U\cap V$ es no vac\'{\i}a, las funciones
+$\varphi$ y $\psi$ restringidas a la intersecci\'{o}n $U\cap V$ son
+homeomorfismos
+\begin{align*}
+	\varphi| & \,:\,U\cap V\,\rightarrow\,\varphi(U\cap V)\quad\text{y} \\
+	\psi| & \,:\, U\cap V\,\rightarrow\,\psi(U\cap V)
+\end{align*}
+%
+entre $U\cap V$ y $\varphi(U\cap V)$ y $\psi(U\cap V)$, respectivamente. En
+particular, la composici\'{o}n
+\begin{align*}
+	\varphi\circ\psi^{-1} & \,:\,\psi(U\cap V)\,\rightarrow\,
+		\varphi(U\cap V)
+\end{align*}
+%
+es un homeomorfismo denominado \emph{mapa de transici\'{o}n} o \emph{cambio %
+de coordenadas}. Las cartas $(U,\varphi)$ y $(V,\psi)$ se dicen
+\emph{suavemente compatibles} (o, simplemente, compatibles), si
+$\varphi\circ\psi^{-1}$ es un difeomorfismo, es decir, si
+$\varphi\circ\psi^{-1}$ y $\psi\circ\varphi^{-1}$ son funciones suaves
+entre los correspondientes abiertos de $\bb{R}^{n}$. Un \emph{atlas para $M$}
+es una colecci\'{o}n de cartas que cubren $M$. Un atlas se dice
+\emph{atlas suave} o \emph{atlas (suavemente) compatible}, si todo par
+de cartas del atlas es un par compatible. Un atlas (suave) se dice
+\emph{maximal} o \emph{completo} (respecto de la propiedad de ser suave),
+si no est\'{a} propiamente contenido en otro atlas (suave); equivalentemente,
+si cualquier carta compatible con las cartas del atlas ya formaba parte del
+atlas. Una \emph{estructura suave} en $M$ es un atlas suave maximal. Las
+variedad topol\'{o}gica $M$, junto con una estructura suave se denomina
+\emph{variedad suave} o \emph{variedad diferencial}.
+
+\begin{propoAtlasMax}\label{thm:atlasmax}
+	Todo atlas suave est\'{a} contenido en un \'{u}nico atlas suave
+	maximal. Dos atlas suaves est\'{a}n contenidos en el mismo atlas
+	maximal, si y s\'{o}lo si su uni\'{o}n es un atlas suave.
+
+	Equivalentemente, en t\'{e}rminos de estructura suave, todo
+	atlassuave en $M$ determina una \'{u}nica estructura suave en $M$.
+	Dos atlas suaves determinan la misma estructura suave, si y s\'{o}lo
+	si su uni\'{o}n es un atlas suave.
+\end{propoAtlasMax}
+
+\begin{remarkAtlasMax}\label{rem:atlasmax}
+	Equivalentemente, se define una relaci\'{o}n de equivalencia entre
+	atlas suaves de la siguiente manera: dos atlas suaves se dicen
+	equivalentes, si se uni\'{o}nes un atlas suave. Esto, efectivamente,
+	determina una relaci\'{o}n de equivalencia entre atlas suaves y
+	las clases de equivalencia se corresponden, exactamente, con lo atlas
+	suavves maximales. Una estructura suave en $M$ se puede definir,
+	tambi\'{e}n, como una clase de equivalencia de atlas suaves.
+\end{remarkAtlasMax}
+
+Para determinar si un atlas es suave, hay que verifica que todo cambio de
+coordenadas $\varphi\circ\psi^{-1}$ sea un difeomorfismo. Pero alcanza
+con verificar que cada uno de ellos es una transformaci\'{o}n suave entre
+abiertos euclideos, ya que la inversa de un cambio $\varphi\circ\psi^{-1}$
+es el cambio de coordenadas $\psi\circ\varphi^{-1}$. Por otra parte, para
+determinar si dos cartas $(U,\varphi)$ y $(V,\psi)$ son compatibles, hay
+que verificar que ambos mapas de transici\'{o}n sean suaves. Pero es
+suficiente verificar que uno de ellos, digamos, sea suave, inyectivo y que
+su jacobiano sea no nulo en todo punto de su dominio $\psi(U\cap V)$.
+
+\subsection{Representaciones locales en coordenadas}
+Sea $M$ es una variedad diferencial. Una carta contenida en el atlas maximal,
+es decir, una carta compatible con la estructura diferencial se denomina
+\emph{carta suave} para la variedad $M$. El dominio se denomina \emph{entorno %
+coordenado}. Si $\varphi(U)$ es una bola o un cubo de $\bb{R}^{n}$, se
+dice que $U$ es una \emph{bola, o un cubo coordenado}. Decimos que una bola
+coordenada, o un cubo coordenado, est\'{a} centrada en un punto $p\in M$,
+si $\varphi(p)=0$, donde $\varphi$ es la funci\'{o}n correspondiente de
+la carta.
+
+Sea $B\subset M$ una bola coordenada. Se dice que $B$ es una bola coordenada
+\emph{regular}, si existe otra bola coordenada $B'$ y coordenadas suaves
+$\varphi$ tales que $B'\supset\clos{B}$ y
+\begin{align*}
+	\varphi(B) & \,=\,\bola{r}{0}\text{ ,} \\
+	\varphi(\clos{B}) & \,=\,\clos{\bola{r}{0}}\quad\text{y} \\
+	\varphi(B') & \,=\,\bola{r'}{0}
+	\text{ .}
+\end{align*}
+%
+Esta noci\'{o}n tiene sentido, incluso si $\varphi$ es meramente un
+homeomorfismo, sin tener en cuenta la estructura diferencial en $M$,
+pero nos concentraremos en coordenadas compatibles con dicha estructra.
+
+\begin{lemaDeLasBolasRegulares}\label{thm:delasbolasregulares}
+	Toda variedad diferencial tiene una base numerable de bolas
+	coordenadas regulares.
+\end{lemaDeLasBolasRegulares}
+
+Todo lo anterior sigue cierto reemplazando bolas por cubos.
+
+\subsection{El lema de las cartas}
+El siguiente lema es \'{u}til en la construcci\'{o}n de nuevas variedades,
+al definir nuevos objetos y determinar si son, o no, variedades diferenciales.
+
+\begin{lemaDeLasCartas}[de las cartas]\label{thm:delascartas}
+	Sea $M$ un conjunto y supongamos dados \textit{(a)} una colecci\'{o}n
+	$\{U_{\alpha}\}_{\alpha}$ de subconjuntos de $M$ y \textit{(b)},
+	para cada \'{\i}ndice $\alpha$, una funci\'{o}n
+	$\varphi_{\alpha}:\,U_{\alpha}\rightarrow\bb{R}^{n}$ que cumplen
+	con las siguientes condiciones:
+	\begin{itemize}
+		\item[(i)] por cada $\alpha$, $\varphi_{\alpha}$ determina
+			una biyecci\'{o}n entre $U_{\alpha}$ y un abierto
+			$\varphi_{\alpha}(U_{\alpha})$ de $\bb{R}^{n}$;
+		\item[(ii)] dados $\alpha,\beta$, tanto
+			$\varphi_{\alpha}(U_{\alpha}\cap U_{\beta})$, como
+			$\varphi_{\beta}(U_{\alpha}\cap U_{\beta})$ son
+			abiertos de $\bb{R}^{n}$;
+		\item[(iii)] si, para $\alpha,\beta$,
+			$U_{\alpha}\cap U_{\beta}$ es no vac\'{\i}a, entonces
+			\begin{align*}
+				\varphi_{\alpha}\circ\varphi_{\beta}^{-1} &
+				\,:\,
+				\varphi_{\beta}(U_{\beta}\cap U_{\alpha})
+				\,\rightarrow\,
+				\varphi_{\alpha}(U_{\beta}\cap U_{\alpha})
+			\end{align*}
+			%
+			es suave;
+		\item[(iv)] existe una subcolecci\'{o}n numerable
+			$\{U_{n}\}_{n\geq 1}$ tal que
+			\begin{align*}
+				M & \,=\,\bigcup_{n\geq 1}\,U_{n}
+				\quad\text{y}
+			\end{align*}
+			%
+		\item[(v)] si $p$ y $q$ son puntos distintos de $M$, o bien
+			existe $\alpha$ tal que $p,q\in U_{\alpha}$, o bien
+			existen $\alpha,\beta$ tales que $p\in U_{\alpha}$,
+			$q\in U_{\beta}$ y
+			$U_{\alpha}\cap U_{\beta}=\varnothing$.
+	\end{itemize}
+	%
+	Entonces $M$ admite una \'{u}nica estructura suave tal que
+	$(U_{\alpha},\varphi_{\alpha})$ sea una carta compatible para todo
+	$\alpha$.
+\end{lemaDeLasCartas}
+
+\begin{proof}
+	Si se quiere que cada par $(U_{\alpha},\varphi_{\alpha})$ sea una
+	compatible de $M$ (suponiendo que $M$ es una variedad diferencial),
+	debe ser, en particular, una carta coordenada para la estructura de
+	variedad topol\'{o}gica subyacente. Esto implica que cada
+	$U_{\alpha}$ debe ser abierto y que cada aplicaci\'{o}n
+	$\varphi_{\alpha}$ debe ser un homeomorfismo entre $U_{\alpha}$ y un
+	abierto de $\bb{R}^{n}$. Como $M=\bigcup_{\alpha}\,U_{\alpha}$,
+	dado $p\in M$, existe $\alpha$ tal que $p\in U_{\alpha}$. As\'{\i},
+	tomando una base de entornos para $\varphi_{\alpha}(p)$ en
+	$\bb{R}^{n}$ y tomando preimagen por $\varphi_{\alpha}$, se
+	deber\'{\i}a obtener una base de entornos para $p$ en $U_{\alpha}$
+	y, porque $U_{\alpha}\subset M$ deber\'{\i}a ser abierto, estas bases
+	deber\'{\i}an dar una base para la topolog\'{\i}a de $M$
+	(asumiendo que $M$ es una variedad topol\'{o}gica).
+
+	Se define la siguiente topolog\'{\i}a en $M$. Sea
+	\begin{align*}
+		\cal{B} & \,=\,\bigcup_{\alpha}\,
+			\left\lbrace\varphi_{\alpha}^{-1}(V)\,:\,
+				V\subset\bb{R}^{n}\text{ abierto}\right\rbrace
+		\text{ .}
+	\end{align*}
+	%
+	Esta colecci\'{o}n tiene las propiedades de base para una
+	topolog\'{\i}a en $M$: en primer lugar,
+	\begin{align*}
+		M & \,=\,\bigcup_{\alpha}\,U_{\alpha} \,=\,
+			\bigcup_{\alpha}\,
+			\varphi^{-1}\big(\varphi_{\alpha}(U_{\alpha})\big)
+	\end{align*}
+	%
+	y $\varphi_{\alpha}(U_{\alpha})\in\cal{B}$ para todo $\alpha$; en
+	segundo lugar, dado $p\in M$ y dados $V,W\subset\bb{R}^{n}$
+	abiertos tales que
+	$p\in\varphi_{\alpha}^{-1}(V)\cap\varphi_{\beta}^{-1}(W)$, vale
+	la igualdad
+	\begin{align*}
+		\varphi_{\alpha}^{-1}\big(
+			V\cap\varphi_{\alpha}\circ\varphi_{\beta}^{-1}(W)
+			\big) & \,=\,
+			\varphi_{\alpha}^{-1}(V)\cap\varphi_{\beta}^{-1}(W)
+			\,\ni\,p
+		\text{ .}
+	\end{align*}
+	%
+	Pero tambi\'{e}n
+	\begin{align*}
+		\varphi_{\alpha}\circ\varphi_{\beta}^{-1}(W) & \,=\,
+		(\varphi_{\beta}\circ\varphi_{\alpha})^{-1}(W)
+	\end{align*}
+	%
+	y como $\varphi_{\beta}\circ\varphi_{\alpha}^{-1}:\,%
+		\varphi_{\alpha}(U_{\alpha}\cap U_{\beta})\rightarrow%
+		\varphi_{\beta}(U_{\alpha}\cap U_{\beta})$ es suave, es,
+	en particular, continua y
+	$\varphi_{\alpha}\circ\varphi_{\beta}^{-1}(W)$ es abierto en
+	$\varphi_{\alpha}(U_{\alpha}\cap U_{\beta})$. Como este \'{u}ltimo
+	conjunto es abierto en $\bb{R}^{n}$, el subconjunto
+	$\varphi_{\alpha}\circ\varphi_{\beta}^{-1}(W)$ es abierto en
+	$\bb{R}^{n}$, tambi\'{e}n. En definitiva, la intersecci\'{o}n
+	$\varphi_{\alpha}^{-1}(V)\cap\varphi_{\beta}^{-1}(W)\in\cal{B}$
+	y $\cal{B}$ es base para una topolog\'{\i}a, la topolog\'{\i}a m\'{a}s
+	peque\~{n}a que la contiene. Resta ver que, con esta topolog\'{\i}a
+	$M$ es efectivamente una variedad topol\'{o}gica.
+	
+	Antes de demostrarlo, notemos que esta topolog\'{\i}a en $M$ es la
+	m\'{a}s peque\~{n}a que hace de $M$ una variedad topol\'{o}gica y
+	tal que los pares $(U_{\alpha},\varphi_{\alpha})$ sean cartas
+	coordenadas. Si, por otro lado, $M$ tiene una estructura de
+	variedad topol\'{o}gica tal que estos pares sean cartas coordenadas,
+	entonces, dado un abierto $U\subset M$, podemos descomponerlo
+	intersecando con los dominios coordenados $U_{\alpha}$:
+	$U=\bigcup_{\alpha}\,U_{\alpha}\cap U$. Como las funciones
+	coordenadas $\varphi_{\alpha}$ son homeomorfismos, cada t\'{e}rmino
+	$U_{\alpha}\cap U$ pertenece a la colecci\'{o}n $\cal{B}$. En
+	definitiva, $\cal{B}$ es base para la topolog\'{\i}a de $M$.
+	Por lo tanto, la topolog\'{\i}a determinada por $\cal{B}$ es la
+	\'{u}nica topolog\'{\i}a que hace que $M$ tenga estructura de
+	variedad topol\'{o}gica y que los pares
+	$(U_{\alpha},\varphi_{\alpha})$ sean cartas para $M$. Dado que la
+	colecci\'{o}n de cartas $\{(U_{\alpha},\varphi_{\alpha})\}_{\alpha}$
+	constituye, por hip\'{o}tesis, un atlas compatible para $M$,
+	la estructura diferenciable tambi\'{e}n es \'{u}nica: precisamente,
+	es la (\'{u}nica) estructura detereminada por este atlas.
+
+	Por \textit{(i)}, $M$ es localmente euclidea de dmensi\'{o}n $n$;
+	por \textit{(v)} es $T_{2}$ y por \textit{(iv)} es $N_{2}$.
+	Entonces $M$ tiene estructura de variedad topol\'{o}gica. Finalmente,
+	por \textit{(ii)} y \textit{(iii)}, $\cal{A}=%
+	\{(U_{\alpha},\varphi_{\alpha})\}_{\alpha}$ es un atlas $C^{\infty}$
+	para $M$.
+\end{proof}
+
+

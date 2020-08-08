@@ -1,0 +1,532 @@
+\theoremstyle{plain}
+\newtheorem{propoElDiferencial}{Proposici\'{o}n}[section]
+\newtheorem{lemaDerivacionesSonLocales}[propoElDiferencial]{Lema}
+\newtheorem{propoDerivacionesIsomorfasI}[propoElDiferencial]{Proposici\'{o}n}
+\newtheorem{propoDerivacionesIsomorfasII}[propoElDiferencial]{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsDerivaciones}{Observaci\'{o}n}[section]
+\newtheorem{obsSobreDerivaciones}[obsDerivaciones]{Observaci\'{o}n}
+\newtheorem{obsDerivacionesLocalGlobal}[obsDerivaciones]{Observaci\'{o}n}
+\newtheorem{obsDerivacionesIsomorfas}[obsDerivaciones]{Observaci\'{o}n}
+
+%-------------
+
+\subsection{Vectores tangentes geom\'{e}tricos}
+Sea $a\in\bb{R}^{d}$ un punto en el espacio euclideo de dimensi\'{o}n $d$.
+El \emph{espacio tangente geom\'{e}tricoa $\bb{R}^{d}$ en el punto $a$},
+denotado $\bb{R}^{d}_{a}$ es el conjunto de pares de la forma $(a,v)$,
+con $v\in\bb{R}^{d}$, es decir, $\bb{R}^{d}_{a}\simeq\{a\}\times\bb{R}^{d}$.
+Los elementos de este espacio ser\'{a}n denominados \emph{vectores tangentes %
+geom\'{e}tricos}. Denoteamos al punto correspondiente al par $(a,v)$
+por $v_{a}$ o por $v|_{a}$. El espacio tangente geom\'{e}tico al punto $a$
+es un espacio vectorial de dimensi\'{o}n $d$, si definimos las operaciones
+en $\bb{R}^{d}_{a}$ trasladando los vectores al origen. Es decir, si
+$v_{a},w_{a}\in\bb{R}^{d}_{a}$ y $\lambda\in\bb{R}$, entonces
+\begin{align*}
+	\lambda\cdot v_{a} & \,\equiv\,(\lambda\cdot v)_{a}
+	\quad\text{y} \\
+	v_{a} + w_{a} & \,\equiv\,(v+w)_{a}
+	\text{ .}
+\end{align*}
+%
+
+La base can\'{o}nica en $\bb{R}^{d}$ proporciona una base para el tangente
+en $a$: $\{e_{1}|_{a},\,\dots,\,e_{d}|_{a}\}$. Notemos, adem\'{a}s, que
+$\bb{R}^{d}_{a}\simeq\bb{R}^{d}$ can\'{o}nicamente v\'{\i}a $v_{a}\mapsto v$.
+
+\subsection{Derivaciones}
+Fijemos un punto $a\in\bb{R}^{d}$. Asociada a cada elemento
+$v_{a}\in\bb{R}^{d}_{a}$, est\'{a} la noci\'{o}n de dervada direccional de
+una funci\'{o}n: dada una funci\'{o}n $f:\,U\rightarrow\bb{R}$ definida
+en un entorno $U$ de $a$, siempre que tenga sentido, definimos la
+\emph{derivada direccional de $f$ en $a$ en la direcci\'{o}n del vector $v$}
+como el l\'{\i}mite
+\begin{align*}
+	\left.\gancho{v}\right|_{a}f & \,\equiv\,
+		\frac{\partial f}{\partial v}(a)\,\equiv\,
+		\lim_{t\to 0}\,\frac{f(a+tv)-f(a)}{t} \\
+	& \,\equiv\,\left.\gancho{t}\right|_{t=0}f(a+tv)
+	\text{ .}
+\end{align*}
+%
+Por la linealidad del l\'{\i}mite, la operaci\'{o}n $f\mapsto\gancho{v}|_{a}f$
+es lineal en $f$ (en donde est\'{e} definida la aplicaci\'{o}n). Adem\'{a}s,
+si las derivadas direccionales de $f$ y de $g$ existen, entonces
+\begin{align*}
+	\left.\gancho{v}\right|_{a}(fg) & \,=\,
+		\left.\gancho{v}\right|_{a}f\cdot g(a) +
+		f(a)\cdot\left.\gancho{v}\right|_{a}g
+	\text{ .}
+\end{align*}
+%
+Si $f:\,U\rightarrow\bb{R}$ es diferenciable en $a$, entonces
+$\gancho{v}|_{a}f$ es lineal en $v_{a}$, es decir,
+\begin{align*}
+	\left(\left.\gancho{v}\right|_{a}+\lambda
+		\left.\gancho{w}\right|_{a}\right)f & \,=\,
+		\left.\gancho{(v+\lambda w)}\right|_{a}f
+	\text{ .}
+\end{align*}
+%
+En particular, si $v_{a}=v^{i}e_{i}|_{a}$, entonces, para toda $f$
+diferenciable en $a$, definiendo $\gancho{e_{i}}|_{a}=\gancho{x^{i}}|_{a}$,
+\begin{align*}
+	\left.\gancho{v}\right|_{a}f & \,=\,
+		v^{i}\left.\gancho{x^{i}}\right|_{a}f
+	\text{ .}
+\end{align*}
+%
+
+La existencia de particiones de la unidad en $\bb{R}^{d}$ permite simlificar
+las definiciones, permitiendo asumir que las funciones $f$ diferenciables
+cerca de un punto $a$ est\'{a}n definidas en todo el espacio y no s\'{o}lo
+en un entorno del punto. De todas maneras, supongamos, para mantener
+cierta generalidad, que $\cal{O}_{a}$ es un \emph{anillo de funciones %
+regulares} en $a$. En general, $\cal{O}_{a}$ ser\'{a} uno de los siguientes:
+\textit{(i)} $C^{\infty}(a)$, donde
+\begin{align*}
+	C^{\infty}(a) & \,=\,\left\lbrace (U,f)\,:\, a\in U\subset\bb{R}^{d}
+		\text{ abierto},\,f\in C^{\infty}(U)\right\rbrace
+	\text{ ,}
+\end{align*}
+%
+\textit{(ii)} el espacio de pares $(U,f)$, donde $a\in U$ es un abierto de
+$\bb{R}^{d}$, $f:\,U\rightarrow\bb{R}$ es diferenciable en $U$ y las derivadas
+parciales $\frac{\partial f}{\partial x^{i}}:\,U\rightarrow\bb{R}$ son
+diferenciables en $a$, es decir, el espacio de funciones dos veces
+diferenciables en $a$, \textit{(iii)} el anillo de g\'{e}rmenes de funciones
+\emph{regulares} en $a$ (para alguna interpretaci\'{o}n de ``regular''), o
+bien \textit{(iv)} $C^{\infty}(U)$ o $C^{\infty}(M)$. Una
+\emph{derivaci\'{o}n en $a$} en el anillo $\cal{O}_{a}$ es una
+aplicaci\'{o}n $\bb{R}$-lineal $w:\,\cal{O}_{a}\rightarrow\bb{R}$ que
+verifica la regla de Leibnitz: si $f,g\in\cal{O}_{a}$,
+\begin{align*}
+	w(fg) & \,=\,w(f)\cdot g(a)+f(a)\cdot w(g)
+	\text{ .}
+\end{align*}
+%
+El conjunto de todas las derivaciones en $a$ del anillo ($\bb{R}$-\'{a}lgebra)
+$\cal{O}_{a}$ se denomina \emph{espacio de derivaciones en $a$} y lo
+denotaremos $\derivaciones{\cal{O}_{a}}$, o bien
+$\derivaciones[a]{\cal{O}_{a}}$, cuando sea necesario aclarar el punto,
+particularmente, cuando el \'{a}lgebra $\cal{O}_{a}$ no hace referncia al
+punto $a$ en donde est\'{a}n \emph{basadas} las derivaciones. Este ser\'{a}
+el caso, por ejemplo, de $\cal{O}_{a}=C^{\infty}(U)$, cuando $U$
+es un abierto que contiene al punto $a$.
+
+\begin{obsDerivaciones}\label{obs:derivaciones}
+	Si $w$ es una derivaci\'{o}n en $a$, entonces $w(1)=0$ y
+	$w(fg)=0$, si $f(a)=g(a)=0$. Es decir, las derivaciones se anulan
+	en las funciones constantes y en el cuadrado del ideal
+	$\{f\in\cal{O}_{a}\,:\,f(a)=0\}$.
+\end{obsDerivaciones}
+
+Ya vimos que todo elemento del espacio tangente geom\'{e}trico
+$v_{a}\in\bb{R}^{d}_{a}$ determina una derivaci\'{o}n, $\gancho{v}|_{a}f$.
+Adem\'{a}s, vimos que, si nos restringimos a evaluar derivaciones en el
+espacio de funciones diferenciables en $a$, la aplicaci\'{o}n
+\begin{align*}
+	\Phi & \,:\,v_{a}\mapsto\left(
+		\left.\gancho{v}\right|_{a}:\,f\mapsto
+		\left.\gancho{v}\right|_{a}f\right)
+\end{align*}
+%
+es lineal. En particular, $\gancho{v}|_{a}=v^{i}\gancho{x^{i}}|_{a}$,
+si $v_{a}=v^{i}e_{i}|_{a}$, donde $\gancho{x^{i}}|_{a}$ es la derivaci\'{o}n
+correspondiente al vector can\'{o}nico $e_{i}|_{a}$, es decir, la derivada
+parcial $i$-\'{e}sima.
+
+Ahora bien, las funciones $x^{i}:\,\bb{R}^{d}\rightarrow\bb{R}$ dada por
+$x^{i}(a)=a^{i}$ es diferenciable en todo punto $a$. Entonces tomando
+la derivada direccional respecto de $v_{a}$, se deduce que
+\begin{align*}
+	\left.\gancho{v}\right|_{a}x^{i} & \,=\,
+		v^{j}\left.\gancho{x^{j}}\right|_{a}x^{i} \,=\, v^{i}
+	\text{ .}
+\end{align*}
+%
+De esta igualdad podemos concluir que la aplicaci\'{o}n $\Phi$ es inyectiva.
+
+La inyectividad de $\Phi$ se puede demostrar de otra manera, sin hacer
+referencia a una base can\'{o}nica. Sea $v_{a}\in\bb{R}^{d}_{a}$. Entonces
+$v_{a}$ se corresponde con el par $(a,v)$ para un cierto vector
+$v\in\bb{R}^{d}$. Sea $\varphi:\,\bb{R}^{d}\rightarrow\bb{R}$ una funci\'{o}n
+lineal. Como
+\begin{align*}
+	\varphi(a+v) -\varphi(a)-\varphi(v) & \,=\,0
+\end{align*}
+%
+por linealidad, se deduce que $\varphi$ es diferenciable. La deriada
+direccional de $\varphi$ en $a$ est\'{a} dada por
+\begin{align*}
+	\left.\gancho{v}\right|_{a}\varphi & \,=\,
+		\lim_{t\to 0}\,\frac{\varphi(a+tv)-\varphi(a)}{t} \,=\,
+		\varphi(v)
+	\text{ .}
+\end{align*}
+%
+En particular, si $\gancho{v}|_{a}\varphi=0$ para toda
+$\varphi$ en el dual $\dual{\bb{R}^{d}}$, como $\dual{\bb{R}^{d}}$ separa
+puntos en $\bb{R}^{d}$, debe ser $v=0$. Notemos que toda funci\'{o}n lineal
+es derivable en todas direcciones, pero es derivable, si y s\'{o}lo si
+es continua.
+
+Veamos condiciones suficientes para garantizar la sobreyectividad de $\Phi$.
+Sea $f:\,U\rightarrow\bb{R}$ una funci\'{o}n diferenciable en un abierto
+$U$ que contiene al punto $a$. Entonces las derivadas parciales
+$\frac{\partial f}{\partial x^{i}}:\,U\rightarrow\bb{R}$ est\'{a}n definidas
+en $U$. Sabemos que, si $b\in U$, tomando $v=b-a$, vale que
+\begin{align*}
+	f(a+v) & \,=\,f(a)+\diferencial[a]{f}(v)+r(v)
+\end{align*}
+%
+donde
+\begin{align*}
+	\diferencial[a]{f}(v) & \,v^{i}\left.
+		\frac{\partial f}{\partial x^{i}}\right|_{a}
+\end{align*}
+%
+y $r$ es una funci\'{o}n tal que el cociente $r(w)/|w|$ tiende a cero con
+$|w|$. Equivalentemente, si $v\in\bb{R}^{d}$ y $a+v\in U$, la funci\'{o}n
+\begin{align*}
+	r(v) & \,=\,f(a+v)-f(a)-v^{i}
+		\left.\frac{\partial f}{\partial x^{i}}\right|_{a}
+\end{align*}
+%
+verifica que $r(v)/|v|$ tiende a cero con $v$.
+
+Sea, para cada $i$, $g_{i}=\frac{\partial f}{\partial x^{i}}$. Por el
+Teorema fundamental del c\'{a}lculo, e integrando por partes,
+\begin{align*}
+	f(a+v)-f(a) & \,=\,\int_{0}^{1}\,v^{i}g_{i}(a+tv)\,dt \,=\,
+		v^{i}g_{i}(a+v) -\int_{0}^{1}\,tv^{i}v^{j}
+		\left.\frac{\partial g_{i}}{\partial x^{j}}\right|_{a+tv}\,dt\\
+	& \,=\,v^{i}g_{i}(a) +v^{i}v^{j}\int_{0}^{1}(1-t)
+		\left.\frac{\partial g_{i}}{\partial x^{j}}\right|_{a+tv}\,dt
+	\text{ .}
+\end{align*}
+%
+Para que esto se v\'{a}lido, asumimos que cada $g_{i}$ es diferenciable
+en ((casi todo punto de) un entorno de) $a$. Si $w$ es una derivaci\'{o}n
+en $a$ en $C^{\infty}(a)$, definimos un elemento $v_{a}\in\bb{R}^{d}_{a}$
+evaluando $w$ en las funciones coordenadas: para cada $i$, tomamos
+$v^{i}=w(x^{i})$ y definimos $v_{a}=v^{i}e_{i}|_{a}$. En particular,
+\begin{align*}
+	w(x^{i}) & \,=\,v^{i} \,=\,\left.\gancho{v}\right|_{a}(x^{i})
+	\text{ .}
+\end{align*}
+%
+Sea $f\in C^{\infty}(a)$. En un entorno de $a$,
+\begin{equation}
+	\label{eq:taylorordendos}
+	\begin{aligned}
+		f(x) & \,=\, f(a) + (x^{k}-a^{k})
+			\left.\frac{\partial f}{\partial x^{k}}\right|_{a} \\
+		& \quad + (x^{i}-a^{i})(x^{j}-a^{j})\int_{0}^{1}\,(1-t)\left.
+			\frac{\partial^{2}f}{\partial x^{j}\partial x^{i}}
+			\right|_{a+t(x-a)}\,dt
+	\text{ .}
+	\end{aligned}
+\end{equation}
+%
+Entonces, evaluando $w$ en $f$,
+\begin{align*}
+	w(f) & \,=\,w(x^{k})\left.\frac{\partial f}{\partial x^{k}}\right|_{a}
+		\,=\,v^{k}\left.\frac{\partial f}{\partial x^{k}}\right|_{a}
+		\,=\,\left.\gancho{v}\right|_{a}(f)
+	\text{ .}
+\end{align*}
+%
+As\'{\i}, queda demostrado que $\Phi_{a}:\,\bb{R}^{d}_{a}\rightarrow%
+\derivaciones{C^{\infty}(a)}$ es un isomorfismo $\bb{R}$-lineal. Definimos
+el \emph{espacio tangente a $\bb{R}^{d}$ en $a$ en sentido de derivaciones}
+como el espacio $\derivaciones{C^{\infty}(a)}$. La existencia del
+isomorfismo $\Phi_{a}$ justifica en cierta medida este nombre.
+
+\begin{obsSobreDerivaciones}\label{obs:sobrederivaciones}
+	El argumento anterior usando el desarrollo de Taylor con su
+	expresi\'{o}n integral para el resto sigue siendo v\'{a}lido
+	si asumimos que las funciones $f$ son dos veces diferenciables
+	en $a$ (o $C^{2}$ en un entorno de $a$, o que las $g_{i}$ son
+	diferenciables en casi todo punto de un entorno compacto de $a$\dots).
+	Dicho de otra manera, si asumimos que la derivaci\'{o}n $w$ est\'{a}
+	definida en un anillo m\'{a}s grande, por ejemplo, para toda $f$ dos
+	veces diferenciable en (un entorno de) $a$, entonces la
+	derivaci\'{o}n $\Phi_{a}(v_{a})$ coincide con $w$ al ser evaluadas
+	en cualquier funci\'{o}n para la cual el desarrollo de Taylor
+	\eqref{eq:taylorordendos} sea v\'{a}lido. Es decir, $\Phi_{a}$ sigue
+	siendo sobreyectiva, si su codominio fuese alg\'{u}n otro espacio de
+	derivaciones. Pero es casi inmediato que, si $\cal{O}_{a}\supset%
+	\cal{O}'_{a}$, entonces $\derivaciones{\cal{O}_{a}}\subset%
+	\derivaciones{\cal{O}'_{a}}$, es decir, condiciones menos
+	restrictivas sobre el par\'{a}metro $f$ resulta en condiciones
+	m\'{a}s restrictivas para $w$.
+\end{obsSobreDerivaciones}
+
+De ahora en adelante, denotaremos por $v_{a}$ tanto al elemento en el espacio
+tangente geom\'{e}trico $\bb{R}^{d}_{a}$ como a la derivaci\'{o}n
+correspondiente $f\mapsto\gancho{v}|_{a}f$.
+
+\begin{obsDerivacionesLocalGlobal}\label{obs:derivacioneslocalglobal}
+	El espacio de funciones suaves definidas en alg\'{u}n entorno de
+	un punto $a\in\bb{R}^{d}$, $C^{\infty}(a)$ contiene al espacio de
+	funciones suaves definidas en todo el espacio, es decir,
+	hay una inclusi\'{o}n
+	\begin{align*}
+		C^{\infty}(\bb{R}^{d}) & \,\hookrightarrow C^{\infty}(a)
+	\end{align*}
+	%
+	dada por $f\mapsto (\bb{R}^{d},f)$.
+
+	Rec\'{\i}procamente, a los fines de estudiar derivaciones, podemos
+	pensar que $C^{\infty}(a)$ est\'{a} incluido en
+	$C^{\infty}(\bb{R}^{d})$. Espec\'{\i}ficamente, dada
+	$(U,f)\in C^{\infty}(a)$, existe un entorno $V$ de $a$ tal que
+	$\clos{V}\subset U$. Asociada al cubrimiento
+	$\{U,\setcomp{\clos{V}}\}$ de $\bb{R}^{d}$, existe una partici\'{o}n
+	suave de la unidad $\{\psi_{0},\psi_{1}\}$ tal que
+	$\soporte{\psi_{0}}\subset U$ y $\soporte{\psi_{1}}\subset%
+	\setcomp{\clos{V}}$. Definimos una funci\'{o}n $\tilde{f}$ en
+	$\bb{R}^{d}$ por
+	\begin{align*}
+		\tilde{f}(x) & \,=\,
+			\begin{cases}
+				f(x)\psi(x) & \quad\text{si }x\in U\text{ ,}\\
+				0 & \quad\text{si }x\not\in\clos{V}\text{ .}
+			\end{cases}
+	\end{align*}
+	%
+	Esta funci\'{o}n es suave y definida en todo $\bb{R}^{d}$. Adem\'{a}s,
+	$\tilde{f}(x)=f(x)$ para todo $x\in V$. Elegir de esta manera una
+	partici\'{o}n de la unidad y definir luego una extensi\'{o}n de $f$,
+	\emph{define} una aplicaci\'{o}n $f\mapsto\tilde{f}$ de
+	$C^{\infty}(a)$ en $C^{\infty}(\bb{R}^{d})$. Esta aplicaci\'{o}n
+	est\'{a} lejos de ser inyectiva, con lo cual no da una
+	inclusi\'{o}n de $C^{\infty}(a)$ en $C^{\infty}(\bb{R}^{d})$. De todas
+	maneras, esta observaci\'{o}n muestra que hay, para cada elemento
+	de $C^{\infty}(a)$, al menos una manera de extenderlo a un objeto en
+	$C^{\infty}(\bb{R}^{d})$. Este argumento no es otra cosa que
+	la proposici\'{o}n \ref{thm:extenderfuncionessuaves} en el caso en
+	que el conjunto $A$ es un punto, o, m\'{a}s en general, un compacto
+	en $M=\bb{R}^{d}$.
+\end{obsDerivacionesLocalGlobal}
+
+\subsection{El espacio tangente a una variedad}
+El espacio tangente a $\bb{R}^{d}$ en un punto $a$, ya sea el tangente
+geom\'{e}trico $\bb{R}^{d}_{a}$ o el tangente en sentido de derivaciones
+$\derivaciones{C^{\infty}(a)}$, son nociones locales. Por lo tanto, haciendo
+uso de las cartas compatibles de una variedad diferencial, queda m\'{a}s o
+menos clara una manera de definir el espacio tangente a una variedad.
+Aun as\'{\i}, la noci\'{o}n de derivaci\'{o}n es lo suficientemente abstracta
+como para permitir generalizarla al contexto de variedades y dar una
+definici\'{o}n \emph{intr\'{\i}nseca} del tangente, sin necesidad de un
+argumento del estilo de tomar cartas.
+
+Sea $M$ una variedad diferencial y sea $a\in M$ un punto arbitrario.
+Decimos que una transformaci\'{o}n lineal $v:\,C^{\infty}(M)\rightarrow\bb{R}$
+es una \emph{derivaci\'{o}n en $a$}, si satisface la regla de Leibnitz:
+para todo par $f,g\in C^{\infty}(M)$, se cumple que $v(fg)=v(f)g(a)+f(a)v(g)$.
+Al igual que en $\bb{R}^{d}$, toda derivaci\'{o}n en $a$ de $C^{\infty}(M)$
+se anula en las constantes y, si $f(a)=g(a)=0$, entonces $v(fg)=0$ (c.~f.
+la observaci\'{o}n \ref{obs:derivaciones}). Definimos el \emph{espacio %
+tangente a $M$ en $a$ en sentido de derivaciones} como el espacio de
+derivaciones en $a$ de $C^{\infty}(M)$ y lo denotamos
+$\derivaciones[a]{C^{\infty}(M)}$, o bien $\derivaciones[a]{M}$.
+
+Sea ahora $F:\,M\rightarrow N$ una funci\'{o}n suave. Asociada a $F$ hay una
+transformaci\'{o}n lineal (notar la similitud con la \emph{definici\'{o}n}
+de diferenciabilidad)
+\begin{align*}
+	\diferencial[a]{F} & \,:\,\derivaciones[a]{M}\,\rightarrow\,
+		\derivaciones[F(a)]{N}
+\end{align*}
+%
+dada por $\diferencial[a]{F}(v):\,f\mapsto v(f\circ F)$ para todo elemento
+$f\in C^{\infty}(N)$. La aplicaci\'{o}n $\diferencial[a]{F}(v)$ es,
+efectivamente una derivaci\'{o}n en $N$ en el punto $F(a)$. La
+trasformaci\'{o}n lineal $\diferencial[a]{F}$ se llama el \emph{diferencial %
+de $F$ en $a$}.
+
+\begin{propoElDiferencial}\label{thm:eldiferencial}
+	Si $F:\,M\rightarrow N$ es una transformaci\'{o}n suave, entonces
+	$\diferencial[a]{F}:\,\derivaciones[a]{M}\rightarrow%
+	\derivaciones[F(a)]{N}$ es lineal. Si $G:\,N\rightarrow P$ es
+	otra funci\'{o}n suave, entonces
+	\begin{align*}
+		\diferencial[a]{(G\circ F)} & \,=\,
+			\diferencial[F(a)]{G}\circ\diferencial[a]{F}
+		\text{ .}
+	\end{align*}
+	%
+	Para toda variedad diferencial $M$ y todo punto $a\in M$,
+	\begin{align*}
+		\diferencial[a]{(\id[M])} & \,=\,
+			\id[{\derivaciones[a]{M}}]
+		\text{ .}
+	\end{align*}
+	%
+\end{propoElDiferencial}
+
+El siguiente resultado ser\'{a} fundamental para poder calcular la
+dimensi\'{o}n del espacio tangente a una variedad.
+
+\begin{lemaDerivacionesSonLocales}\label{thm:derivacionessonlocales}
+	Sea $M$ una variedad diferencial, sea $a\in M$ y sean
+	$f,g\in C^{\infty}(M)$ funciones suaves. Si existe un
+	abierto $U\subset M$, entorno de $a$, en donde $f$ y $g$ coinciden,
+	entonces $vf=vg$ para toda $v\in\derivaciones[a]{C^{\infty}(M)}$.
+\end{lemaDerivacionesSonLocales}
+
+\begin{proof}
+	Por linealidad de las derivaciones es suficiente ver que toda
+	funci\'{o}n suave $f\in C^{\infty}(M)$ que se anula en un entorno
+	$U$ de $a$ eval\'{u}a a $0$. Sea entonces $f$ una funci\'{o}n
+	suave tal que $\soporte{f}\subset M\setmin\{a\}$. Sea $\psi$
+	una funci\'{o}n suave tal que $0\leq\psi\leq 1$ en $M$,
+	$\psi=1$ en $\soporte{f}$ y $\soporte{\psi}\subset M\setmin\{a\}$.
+	Tal funci\'{o}n existe por la proposici\'{o}n \ref{thm:haychichones}.
+	Notemos que $\psi(x)f(x)=f(x)$ para todo punto $x\in M$. Es decir,
+	como funciones en $M$, $\psi\cdot f$ y $f$ son iguales. As\'{\i},
+	dada $v:\,C^{\infty}(M)\rightarrow\bb{R}$, vale que
+	$v(f)=v(\psi f)$. Si, adem\'{a}s, $v$ es una derivaci\'{o}n en $a$,
+	$v(\psi f)=v(\psi)f(a)+\psi(a)v(f)=0$, ya que $f(a)=\psi(a)=0$.
+	En definitiva, $v(f)=0$ para toda derivaci\'{o}n
+	$v\in\derivaciones[a]{C^{\infty}(M)}$.
+\end{proof}
+
+\begin{obsDerivacionesIsomorfas}\label{obs:derivacionesisomorfas}
+	Siguiendo con el comentario de la observaci\'{o}n
+	\ref{obs:derivacioneslocalglobal}, demostraremos que los espacios
+	$\derivaciones{C^{\infty}(a)}$ y
+	$\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$ son (naturalmente)
+	isomorfos, es decir que la inclusi\'{o}n natural
+	$C^{\infty}(\bb{R}^{d})\hookrightarrow C^{\infty}(a)$ determina un
+	isomorfismo a nivel de los espacios de derivaciones en $a$, aunque
+	no haya una manera clara o can\'{o}nica de incluir $C^{\infty}(a)$
+	en $C^{\infty}(\bb{R}^{d})$.
+
+	Una manera de ver que $\derivaciones[a]{C^{\infty}(\bb{R}^{d})}\simeq%
+	\derivaciones{C^{\infty}(a)}$, es notar que, al igual que
+	existe un isomorfismo $\Phi_{a}:\,\bb{R}^{d}_{a}\rightarrow%
+	\derivaciones{C^{\infty}(a)}$, existe un isomorfismo an\'{a}logo
+	$\tilde{\Phi}_{a}:\,\bb{R}^{d}_{a}\rightarrow%
+	\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$. Otra manera de demostrar
+	que son espacios isomorfos es usar el lema
+	\ref{thm:derivacionessonlocales}. Este argumento nos muestra c\'{o}mo
+	en muchas ocasiones vamos a poder reemplazar el espacio de funciones
+	regulares en un punto $a$, $C^{\infty}(a)$, por el espacio de
+	funciones regulares en toda la variedad $C^{\infty}(\bb{R}^{d})$.
+	Como este argumento est\'{a} dado exclusivamente en t\'{e}rminos de
+	derivaciones, es igualmente v\'{a}lido reemplazando $\bb{R}^{d}$
+	por una variedad diferencial arbitraria $M$.
+
+	Sea $v\in\derivaciones{C^{\infty}(a)}$ y sea
+	$f\in C^{\infty}(\bb{R}^{d})$ una funci\'{o}n suave. La inclusi\'{o}n
+	$f\mapsto (\bb{R}^{d},f)$ nos permite definir un elemento
+	$\tilde{v}\in\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$ a partir de $v$:
+	\begin{align*}
+		\tilde{v}(f) & \,=\,v((\bb{R}^{d},f)).
+	\end{align*}
+	%
+	Supongamos que $\tilde{v}$ es la derivaci\'{o}n cero y sea
+	$(U,f)\in C^{\infty}(a)$. Sea $\tilde{f}:\,\bb{R}^{d}\rightarrow\bb{R}$
+	una funci\'{o}n suave que coincide con $f$ en (la clausura de)
+	cierto entorno $V$ de $a$ contenido en $U$ (c.~f. la observaci\'{o}n
+	\ref{obs:derivacioneslocalglobal}). Sin importar cu\'{a}l sea
+	esta extensi\'{o}n, como $\tilde{f}$ y $f$ coinciden en un entorno
+	de $a$, por \ref{thm:derivacionessonlocales},
+	\begin{align*}
+		0 & \,=\,\tilde{v}\tilde{f} \,\equiv\,v(\bb{R}^{d},\tilde{f})
+			\,=\,v(U,f)
+		\text{ .}
+	\end{align*}
+	%
+	As\'{\i}, se ve que $v$ ten\'{\i}a que ser la derivaci\'{o}n cero
+	en $C^{\infty}(a)$. Es decir, $v\mapsto\tilde{v}$ es lineal e
+	inyectiva.
+
+	Sea, ahora, $w\in\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$. Sea
+	$v:\,C^{\infty}(a)\rightarrow\bb{R}$ la funci\'{o}n
+	\begin{align*}
+		v(U,f) & \,=\,w(\tilde{f})
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\tilde{f}$ es una (alguna) funci\'{o}n suave, definida
+	globalmente y que coincide con $f$ en un entorno de $a$ contenido en
+	$U$. Nuevamente, por el lema \ref{thm:derivacionessonlocales},
+	no importa cu\'{a}l sea la elecci\'{o}n $\tilde{f}$, el resultado
+	es el mismo. Entonces $v$ est\'{a} bien definida y es una
+	derivaci\'{o}n en $C^{\infty}(a)$. Sea
+	$\tilde{v}\in\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$ la
+	derivaci\'{o}n determinada por $v$ y sea $g\in C^{\infty}(\bb{R}^{d})$.
+	Evaluando,
+	\begin{align*}
+		\tilde{v}(g) & \,\equiv\,v(\bb{R}^{d},g) \,\equiv\,w(g)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\tilde{v}$ y $w$, como funciones $C^{\infty}(\bb{R}^{d})%
+	\rightarrow\bb{R}$, son iguales. En definitiva, $v\mapsto\tilde{v}$
+	es un isomorfismo $\bb{R}$-lineal de $\derivaciones{C^{\infty}(a)}$
+	en $\derivaciones[a]{C^{\infty}(\bb{R}^{d})}$.
+\end{obsDerivacionesIsomorfas}
+
+Sea $M$ una variedad diferencial y sea $a\in M$. Denotemos por $C^{\infty}(a)$
+al espacio de funciones suaves definidas en un entorno de $a$, es decir,
+$C^{infty}(a)$ es el conjunto de pares $(U,f)$ donde $U\subset M$ es
+abierto y contiene a $a$ y $f\in C^{\infty}(U)$.
+
+\begin{propoDerivacionesIsomorfasI}\label{thm:derivacionesisomorfasi}
+	Los espacios de derivaciones $\derivaciones[a]{C^{\infty}(M)}$ y
+	$\derivaciones{C^{\infty}(a)}$ son isomorfos.
+\end{propoDerivacionesIsomorfasI}
+
+De la misma manera en que pudimos identificar el espacio de derivaciones en
+$C^{\infty}(a)$ y el espacio de derivaciones en $a$ en $C^{\infty}(M)$,
+podemos identificar, dado un abierto $U\subset M$ tal que $a\in U$, los
+espacios $\derivaciones[a]{M}$ y $\derivaciones[a]{U}$. La
+identificaci\'{o}n, en este caso, est\'{a} dada por el isomorfismo
+$\diferencial[a]{i}$, donde $i:\,U\hookrightarrow M$ es la inclusi\'{o}n.
+
+\begin{propoDerivacionesIsomorfasII}\label{thm:derivacionesisomorfasii}
+	Sea $M$ una variedad diferencial, sea $U\subset M$ un abierto y
+	sea $i:\,U\hookrightarrow M$ la inclusi\'{o}n. Si $a\in U$,
+	el diferencial $\diferencial[a]{i}:\,\derivaciones[a]{U}\rightarrow%
+	\derivaciones[i(a)]{M}$ es un isomorfismo lineal.
+\end{propoDerivacionesIsomorfasII}
+
+La demostraci\'{o}n es an\'{a}loga al argumento dado en la obsevaci\'{o}n
+\ref{obs:derivacionesisomorfas}. La identificaci\'{o}n
+$v\mapsto\tilde{v}$ definida en las derivaciones $v:\,C^{\infty}(a)%
+\rightarrow\bb{R}$, est\'{a} dada expl\'{\i}citamente en este caso por la
+aplicaci\'{o}n diferencial $\diferencial[a]{i}$.
+
+El isomorfismo $\bb{R}^{d}_{a}\rightarrow\derivaciones[a]{\bb{R}^{d}}$
+dado por $e_{i}|_{a}\mapsto\gancho{x^{i}}|_{a}$, donde
+$\{e_{1}|_{a},\,\dots,\,e_{d}|_{a}\}$ es la base can\'{o}nica de
+$\bb{R}^{d}_{a}$, muestra que $\derivaciones[a]{\bb{R}^{d}}$ es una espacio
+de dimensi\'{o}n finita y que su dimensi\'{o}n es $d$. Por la
+proposici\'{o}n \ref{thm:derivacionesisomorfasii},
+$\derivaciones[a]{U}\simeq\derivaciones[a]{\bb{R}^{d}}$ para todo abierto
+$U\subset\bb{R}^{d}$ que contenga a $a$. En una variedad $M$, dada una
+carta compatible $(U,\varphi)$ en un punto $a$, la funci\'{o}n
+$\varphi:\,U\rightarrow\varphi(U)$ es un difeomorfismo. En particular,
+por \ref{thm:eldiferencial}, el diferencial $\diferencial[a]{\varphi}:\,%
+\derivaciones[a]{U}\rightarrow\derivaciones[\varphi(a)]{\varphi(U)}$ es un
+isomorfismo determinado por la (elecci\'{o}n de) carta $(U,\varphi)$ en $a$.
+Esto permite deducir que
+\begin{align*}
+	\derivaciones[a]{M} & \,\simeq\,\derivaciones[a]{U}\,\simeq\,
+		\derivaciones[\varphi(a)]{\varphi(U)}
+\end{align*}
+%
+de manera can\'{o}nica. En particular, $\dim\,\derivaciones[a]{M}=\dim\,M$.
+
+Esta \'{u}ltima afirmaci\'{o}n no es cierta en el caso de variedades con
+borde, mejor dicho, en puntos del borde de una variedad. Para determinar la
+dimensi\'{o}n de los espacios tangentes a variedades con borde en puntos
+del borde ser\'{a} suficiente, por el mismo argumento del p\'{a}rrafo anterior,
+determinar la dimensi\'{o}n del tangente al semiespacio $\hemi[d]$ en
+un punto del borde $\borde{\hemi[d]}=\{x^{d}=0\}$.

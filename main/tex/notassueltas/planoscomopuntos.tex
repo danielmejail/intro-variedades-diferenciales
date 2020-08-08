@@ -1,0 +1,358 @@
+\theoremstyle{plain}
+\newtheorem{teoEquivalenciasTensoresElementalesRCuatro}{Teorema}[section]
+\newtheorem{coroTensoresElementalesRTres}%
+	[teoEquivalenciasTensoresElementalesRCuatro]{Corolario}
+
+\theoremstyle{remark}
+
+%-------------
+
+Un tensor elemental en $\exterior[2]{\bb{R}^{4}}$ es, simplemente, un
+elemento de la forma $f_{1}\wedge f_{2}$, donde $f_{1}$ y $f_{2}$ son
+vectores en $\bb{R}^{4}$. Todo tensor elemental no nulo determina
+un\'{\i}vocamente un plano en $\bb{R}^{4}$: si $f_{1}\wedge f_{2}\not =0$
+entonces $\{f_{1},f_{2}\}$ es un conjunto linealmente independiente y
+consituye una base de un subespacio de dimensi\'{o}n $2$ en $\bb{R}^{4}$,
+es decir, un plano por el origen. Esto permitir\'{a} pensar al conjunto
+de tales planos como una variedad y a cada plano por el origen como
+un punto de dicha variedad. Pero para poder establecer esta correspondencia
+entre planos y puntos es necesario, en primera instancia, dar una
+caracterizaci\'{o}n de los tensores elementales en $\exterior[2]{\bb{R}^{4}}$.
+
+\subsection{Tensores elementales en el producto exterior %
+	$\exterior[2]{\bb{R}^{4}}$}
+Sea $\phi\in\dual{(\bb{R}^{4})}$. Se define una transformaci\'{o}n
+$\exterior[2]{\bb{R}^{4}}\rightarrow\exterior[1]{\bb{R}^{4}}$ que en
+tensores elementales est\'{a} dada por
+\begin{align*}
+	\phi\convol (f_{1}\wedge f_{2}) & \,=\,
+		\phi(f_{1})\,f_{2}-\phi(f_{2})\,f_{1}
+\end{align*}
+%
+denominada \emph{convoluci\'{o}n por $\phi$}. Dados vectores $f_{1}$ y
+$f_{2}$ en $\bb{R}^{4}$, o bien $\phi|_{\generado{f_{1},f_{2}}}=0$, o bien
+$\phi(f_{1})\not =0$ o $\phi(f_{2})\not=0$. En todo caso,
+\begin{align*}
+	\big(\phi\convol(f_{1}\wedge f_{2})\big)\wedge (f_{1}\wedge f_{2}) &
+		\,=\,\big(\phi(f_{1})\,f_{2}-\phi(f_{2})\,f_{1}\big)\wedge
+			(f_{1}\wedge f_{2}) \,=\,0
+\end{align*}
+%
+en $\exterior[2]{\bb{R}^{4}}$. Dicho de otra manera, el vector de $\bb{R}^{4}$
+dado por $\phi\convol(f_{1}\wedge f_{2})$ pertenece al subespacio generado
+por $f_{1}$ y por $f_{2}$.
+
+Sea $x\in\exterior[2]{\bb{R}^{4}}$ un elemento arbitrario del producto
+exterior. Si $\{e_{1},\,e_{2},\,e_{3},\,e_{4}\}$ es una base de
+$\bb{R}^{4}$, entonces $\{e_{i}\wedge e_{j}\,:\,i<j\}$ es una base de
+$\exterior[2]{\bb{R}^{4}}$. En t\'{e}rminos de esta base,
+\begin{align*}
+	x & \,=\,\sum_{i<j}\,a^{ij}\,e_{i}\wedge e_{j}
+\end{align*}
+%
+para ciertos coeficientes $a^{ij}\in\bb{R}$. Si $\phi\in\dual{(\bb{R}^{4})}$,
+entonces, en t\'{e}rminos de esta descomposici\'{o}n, vale que
+\begin{align*}
+	(\phi\convol x)\wedge x & \,=\,\Big(\sum_{i<j}\,a^{ij}\,
+		\big(\phi(e_{i})\,e_{j}-\phi(e_{j})\,e_{i}\big)\Big)\wedge
+		\Big(\sum_{k<l}\,a^{kl}\,e_{k}\wedge e_{l}\Big) \\
+	& \,=\,\sum_{i<j}\,\sum_{k<l}\,a^{ij}a^{kl}\,
+		\big(\phi(e_{i})\,e_{j}-\phi(e_{j})\,e_{i}\big)\wedge
+			(e_{k}\wedge e_{l}) \\
+	& \,=\,
+	\sbox0{$\begin{smallmatrix} k<l \\k,l\not =j\end{smallmatrix}$}
+		\sum_{i<j}\,\sum_{\usebox{0}}\,a^{ij}a^{kl}\phi(e_{i})\,
+			e_{j}\wedge e_{k}\wedge e_{l} \\
+	& \qquad\qquad \,-\,
+	\sbox1{$\begin{smallmatrix} k<l \\k,l\not =i\end{smallmatrix}$}
+		\sum_{i<j}\,\sum_{\usebox{1}}\,a^{ij}a^{kl}\phi(e_{j})\,
+			e_{i}\wedge e_{k}\wedge e_{l}
+\end{align*}
+%
+En particular, si $\{\varepsilon^{1},\,\varepsilon^{2},\,%
+\varepsilon^{3},\,\varepsilon^{4}\}$ es la base de
+$\dual{(\bb{R}^{4})}$ dual de $\{e_{1},\,e_{2},\,e_{3},\,e_{4}\}$,
+entonces, tomando $\phi=\varepsilon^{1}$, por ejemplo, se tiene que
+\begin{align*}
+	(\varepsilon^{1}\convol x)\wedge x
+	& \,=\,
+	\sbox0{$\begin{smallmatrix} k<l \\k,l\not =j\end{smallmatrix}$}
+		\sum_{1<j}\,\sum_{\usebox{0}}\,a^{1j}a^{kl}\cdot 1\,
+			e_{j}\wedge e_{k}\wedge e_{l} \\
+	& \qquad\qquad \,-\,
+	\sbox1{$\begin{smallmatrix} k<l \\k,l\not =i\end{smallmatrix}$}
+		\sum_{i<1}\,\sum_{\usebox{1}}\,a^{i1}a^{kl}\cdot 1\,
+			e_{i}\wedge e_{k}\wedge e_{l}
+	\text{ .}
+\end{align*}
+%
+Las sumatorias que aparecen restando son vac\'{\i}as pues se suma sobre
+$i<1$, con lo cual
+\begin{align*}
+	(\varepsilon^{1}\convol x)\wedge x & \,=\,
+		a^{12}\,\big( a^{13}\,e_{2}\wedge e_{1}\wedge e_{3} +
+			a^{14}\,e_{2}\wedge e_{1}\wedge e_{4} +
+			a^{34}\,e_{2}\wedge e_{3}\wedge e_{4}\big) \\
+	& \quad\,+\,a^{13}\,\big( a^{12}\,e_{3}\wedge e_{1}\wedge e_{2} +
+			a^{14}\,e_{3}\wedge e_{1}\wedge e_{4} +
+			a^{24}\,e_{3}\wedge e_{2}\wedge e_{4}\big) \\
+	& \quad\,+\,a^{14}\,\big( a^{12}\,e_{4}\wedge e_{1}\wedge e_{2} +
+			a^{13}\,e_{4}\wedge e_{1}\wedge e_{3} +
+			a^{23}\,e_{4}\wedge e_{2}\wedge e_{3}\big) \\
+	& \,=\, (-a^{12}a^{13}+a^{12}a^{13})\,e_{1}\wedge e_{2}\wedge e_{3} +
+		(-a^{12}a^{14}+a^{12}a^{14})\,e_{1}\wedge e_{2}\wedge e_{4} \\
+	& \quad\,+\,
+		(-a^{13}a^{14}+a^{13}a^{14})\,e_{1}\wedge e_{3}\wedge e_{4} +
+		(a^{12}a^{34}-a^{13}a^{24}+a^{14}a^{23})\,
+			e_{2}\wedge e_{3}\wedge e_{4} \\
+	& \,=\,	(a^{12}a^{34}-a^{13}a^{24}+a^{14}a^{23})\,
+			e_{2}\wedge e_{3}\wedge e_{4}
+\end{align*}
+%
+Se deduce de esto que, si $(\phi\convol x)\wedge x=0$ para toda funcional
+$\phi\in\dual{(\bb{R}^{4})}$ y $x=\sum_{i<j}\,a^{ij}\,e_{i}\wedge e_{j}$,
+entonces se debe cumplir que
+\begin{equation}
+	\label{eq:pluckerparaplanos}
+	a^{12}a^{34}-a^{13}a^{24}+a^{14}a^{23} \,=\,0
+	\text{ .}
+\end{equation}
+%
+Las otras funcionales de la base, $\varepsilon^{2},\,\varepsilon^{3},\,%
+\varepsilon^{4}$, no determinan nuevas relaciones entre los coeficientes
+de $x$. De hecho, asumiendo se cumple la igualdad anterior, se
+puede deducir que $x$ es un tensor elemental y que por lo tanto
+$(\phi\convol x)\wedge x=0$ para toda funcional $\phi$.
+
+Los tensores elementales $f_{1}\wedge f_{2}\in\exterior[2]{\bb{R}^{4}}$
+tienen otra propiedad que no es cierta en general para un elemento
+arbitrario del producto exterior:
+\begin{align*}
+	(f_{1}\wedge f_{2})\wedge (f_{1}\wedge f_{2}) & \,=\,0
+	\text{ .}
+\end{align*}
+%
+Si $x\in\exterior[2]{\bb{R}^{4}}$ es un elemento arbitrario y
+$x=\sum_{i<j}\,a^{ij}\,e_{i}\wedge e_{j}$, entonces
+\begin{align*}
+	x\wedge x & \,=\,
+		a^{12}a^{34}\,e_{1}\wedge e_{2}\wedge e_{3}\wedge e_{4} +
+		a^{13}a^{24}\,e_{1}\wedge e_{3}\wedge e_{2}\wedge e_{4} \\
+	& \quad\,+\,
+		a^{14}a^{23}\,e_{1}\wedge e_{4}\wedge e_{2}\wedge e_{3} +
+		a^{23}a^{14}\,e_{2}\wedge e_{3}\wedge e_{1}\wedge e_{4} \\
+	& \quad\,+\,
+		a^{24}a^{13}\,e_{2}\wedge e_{4}\wedge e_{1}\wedge e_{3} +
+		a^{34}a^{12}\,e_{3}\wedge e_{4}\wedge e_{1}\wedge e_{2} \\
+	& \,=\,2\cdot(a^{12}a^{34}-a^{13}a^{24}+a^{14}a^{23})\,
+		e_{1}\wedge e_{2}\wedge e_{3}\wedge e_{4}
+	\text{ .}
+\end{align*}
+%
+De esto se deduce, como la caracter\'{\i}stica de $\bb{R}$ es $0$, que
+$x\wedge x=0$, si y s\'{o}lo si se cumple \eqref{eq:pluckerparaplanos}.
+
+Sea $x\in\exterior[2]{\bb{R}^{4}}$ con $x=\sum_{i<j}\,%
+a^{ij}\,e_{i}\wedge e_{j}$ y $x\not =0$. Alguno de los coeficientes
+$a^{ij}$ debe ser distinto de cero. Asumiendo que es $a^{12}\not =0$,
+sean $f_{1},f_{2}\in\bb{R}^{4}$ los vectores dados por
+\begin{align*}
+	f_{1} & \,=\, e_{1}+p^{13}\,e_{3}+p^{14}\,e_{4} \\
+	f_{2} & \,=\, e_{2}+p^{23}\,e_{3}+p^{24}\,e_{4}
+	\text{ .}
+\end{align*}
+%
+El producto de estos dos vectores est\'{a} dado por
+\begin{align*}
+	f_{1}\wedge f_{2} & \,=\, e_{1}\wedge e_{2}+p^{23}\,e_{1}\wedge e_{3}
+		+p^{24}\,e_{1}\wedge e_{4}+p^{13}\,e_{3}\wedge e_{2} \\
+	& \quad +p^{13}p^{24}\,e_{3}\wedge e_{4}+p^{14}\,e_{4}\wedge e_{2}
+		+p^{14}p^{23}\,e_{4}\wedge e_{3}
+\end{align*}
+%
+El elemento $x$ y $a^{12}\cdot f_{1}\wedge f_{2}$ son iguales en el
+coeficiente de $e_{1}\wedge e_{2}$. La igualdad
+\begin{align*}
+	x & \,=\, a^{12}\cdot f_{1}\wedge f_{2}
+\end{align*}
+%
+se cumple, si y s\'{o}lo si se verifica el siguiente sistema de ecuaciones:
+\begin{equation}
+	\label{eq:tensorelemental}
+	\begin{aligned}
+		a^{13} & \,=\, a^{12}p^{23} \\
+		a^{14} & \,=\, a^{12}p^{24} \\
+		a^{23} & \,=\, -a^{12}p^{13} \\
+		a^{24} & \,=\, -a^{12}p^{14} \\
+		a^{34} & \,=\,a^{12}\,(p^{13}p^{24}-p^{14}p^{23})
+	\end{aligned}
+\end{equation}
+%
+Las primeras cuatro ecuaciones determinan los valores de los coeficientes
+de $f_{1}$ y de $f_{2}$:
+\begin{align*}
+	p^{23} \,=\,\frac{a^{13}}{a^{12}} & \quad\text{,}\quad
+		p^{24} \,=\,\frac{a^{14}}{a^{12}} \text{ ,} \\
+	p^{13} \,=\,\frac{-a^{23}}{a^{12}} & \quad\text{,}\quad
+		p^{14} \,=\,\frac{-a^{24}}{a^{12}}
+	\text{ .}
+\end{align*}
+%
+Reemplazando en la \'{u}ltima ecuaci\'{o}n, se deduce,
+asumiendo que $a^{12}\not =0$, que $x=a^{12}\cdot f_{1}\wedge f_{2}$, si y
+s\'{o}lo si se verifica \eqref{eq:pluckerparaplanos}. Pero esto es equivalente
+a $x\wedge x=0$. En definitiva, vale el siguiente resultado.
+
+\begin{teoEquivalenciasTensoresElementalesRCuatro}%
+	\label{thm:equivtensoreselementalesrcuatro}
+	Sea $x\in\exterior[2]{\bb{R}^{4}}$ con $x=\sum_{i<j}\,
+	a^{ij}\,e_{i}\wedge e_{j}$ y $x\not =0$. Entonces $x$ es un
+	tensor elemental, si y s\'{o}lo si se cumple cualquiera de las
+	siguientes condiciones equivalentes:
+	\begin{itemize}
+		\item[(a)] $x\wedge x=0$, o bien,
+		\item[(b)] $(\phi\convol x)\wedge x=0$ para toda funcional
+			$\phi\in\dual{(\bb{R}^{4})}$.
+	\end{itemize}
+	%
+	En coordenadas, estas condiciones se traducen en
+	\begin{align*}
+		a^{12}a^{34}-a^{24}a^{13}+a^{14}a^{23} & \,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Tambi\'{e}n en coordenadas, si se verifica esta igualdad y
+	$a^{12}\not =0$, entonces $x=a^{12}\cdot f_{1}\wedge f_{2}$, donde
+	\begin{align*}
+		f_{1} & \,=\,e_{1}+\frac{-a^{23}}{a^{12}}\,e_{3}+
+			\frac{-a^{24}}{a^{12}}\,e_{4}
+		\quad\text{y} \\
+		f_{2} & \,=\,e_{2}+\frac{a^{13}}{a^{12}}\,e_{3}+
+			\frac{a^{14}}{a^{12}}\,e_{4}
+		\text{ .}
+	\end{align*}
+	%
+\end{teoEquivalenciasTensoresElementalesRCuatro}
+
+\begin{coroTensoresElementalesRTres}%
+	\label{thm:tensoreselementalesrtres}
+	En $\exterior[2]{\bb{R}^{3}}$, todo tensor es elemental.
+\end{coroTensoresElementalesRTres}
+
+\begin{proof}
+	Sea $\{e_{1},\,e_{2},\,e_{3}\}$ la base can\'{o}nica de
+	$\bb{R}^{3}$. La base inducida en $\exterior[2]{\bb{R}^{3}}$ es
+	\begin{align*}
+		 & \{e_{1}\wedge e_{2},
+		 	\,e_{1}\wedge e_{3},\,e_{2}\wedge e_{3}\}
+		\text{ .}
+	\end{align*}
+	%
+	Sea $x=x^{12}\,e_{1}\wedge e_{2}+x^{13}\,e_{1}\wedge e_{3}+%
+	x^{23}\,e_{2}\wedge e_{3}\in\exterior[2]{\bb{R}^{3}}$ un
+	elemento arbitrario y sea
+	$\{\varepsilon^{1},\,\varepsilon^{2},\,\varepsilon^{3}\}$ la base
+	dual de $\bb{R}^{3}$ respecto de $\{e_{1},\,e_{2},\,e_{3}\}$.
+	La convoluci\'{o}n de $x$ por cada una funcional $\phi$ es igual a
+	\begin{align*}
+		\phi\convol x & \,=\,
+			x^{12}\,\big(\phi(e_{1})\,e_{2}-\phi(e_{2})\,e_{1}\big)
+			+
+			x^{13}\,\big(\phi(e_{1})\,e_{3}-\phi(e_{3})\,e_{1}\big)
+			\\
+		& \quad +
+			x^{23}\,\big(\phi(e_{2})\,e_{3}-\phi(e_{3})\,e_{2}\big)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, tomando como $\phi$ las funcionales de la base dual,
+	\begin{align*}
+		\varepsilon^{1}\convol x & \,=\,x^{12}\,e_{2}+x^{13}\,e_{3}
+		\text{ ,} \\
+		\varepsilon^{2}\convol x & \,=\,x^{12}\,e_{1}+x^{23}\,e_{3}
+		\quad\text{y} \\
+		\varepsilon^{3}\convol x & \,=\,x^{13}\,e_{1}+(-x^{23})\,e_{2}
+		\text{ .}
+	\end{align*}
+	%
+	Tomando el producto contra $x$, se deduce que
+	\begin{align*}
+		(\varepsilon^{1}\convol x)\wedge x & \,=\,
+			(x^{12}\,e_{2}+x^{13}\,e_{3})\wedge
+			\big(x^{12}\,e_{1}\wedge e_{2}+
+			x^{13}\,e_{1}\wedge e_{3}+
+			x^{23}\,e_{2}\wedge e_{3}\big) \\
+		& \,=\,x^{12}x^{13}\,e_{2}\wedge e_{1}\wedge e_{3}+
+			x^{13}x^{12}\,e_{3}\wedge e_{1}\wedge e_{2}
+			\,=\,0
+	\end{align*}
+	%
+	y, de manera an\'{a}loga, que
+	\begin{align*}
+		(\varepsilon^{2}\convol x)\wedge x & \,=\,0
+		\quad\text{y} \\
+		(\varepsilon^{3}\convol x)\wedge x & \,=\,0
+		\text{ ,}
+	\end{align*}
+	%
+	tambi\'{e}n. Esto implica que $(\phi\convol x)\wedge x=0$
+	para toda funcional $\phi:\,\bb{R}^{3}\rightarrow\bb{R}$.
+
+	Ahora bien, si $\bb{R}^{3}$ se incluye en $\bb{R}^{4}$
+	v\'{\i}a $e_{1}\mapsto e_{1}$, $e_{2}\mapsto e_{2}$ y
+	$e_{3}\mapsto e_{3}$, entonces $\exterior[2]{\bb{R}^{3}}$ tambi\'{e}n
+	se incluye en $\exterior[2]{\bb{R}^{4}}$ como el subespacio
+	\begin{align*}
+		\exterior[2]{\bb{R}^{3}} & \,=\,\bigg\{
+			\sum_{i<j}\,a^{ij}\,e_{i}\wedge e_{j}\,:\,
+			a^{14}=a^{24}=a^{34}=0\bigg\}
+		\text{ .}
+	\end{align*}
+	%
+	Por otro lado, toda funcional $\phi:\,\bb{R}^{3}\rightarrow\bb{R}$ se
+	extiende a $\bb{R}^{4}$ tomando el valor $0$ en el elemento $e_{4}$
+	de la base, de manera que $(\varepsilon^{i}\convol x)\wedge x=0$ para
+	$i\in\{1,2,3\}$, si $x\in\exterior[2]{\bb{R}^{3}}$. Pero tambi\'{e}n
+	vale que $\varepsilon^{4}\convol x=0$ y, en particular,
+	\begin{align*}
+		(\varepsilon^{4}\convol x)\wedge x & \,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, $(\phi\convol x)\wedge x=0$ para toda funcional de
+	$\bb{R}^{4}$ y $x=f\wedge g$ para ciertos vectores $f,g\in\bb{R}^{4}$.
+	Dado que $\varepsilon^{4}\convol x=0$, debe valer
+	\begin{align*}
+		0 & \,=\varepsilon^{4}\convol(f\wedge g) \,=\,
+			\varepsilon^{4}(f)\,g-\varepsilon^{4}(g)\,f
+		\text{ .}
+	\end{align*}
+	%
+	Pero, entonces, si $\varepsilon^{4}(f)\not=0$ o
+	$\varepsilon^{4}(g)\not =0$, los vectores $f$ y $g$ no son linealmente
+	independientes y $x=f\wedge g=0$. Es decir, si $x\not =0$, entonces
+	$\varepsilon^{4}(f)=\varepsilon^{4}(g)=0$ y $f$ y $g$ pertenecen
+	a $\bb{R}^{3}$. Con lo cual, $x=f\wedge g$ en
+	$\exterior[2]{\bb{R}^{3}}$.
+\end{proof}
+
+Una manera m\'{a}s simple de demostrar que todo elemento de
+$\exterior[2]{\bb{R}^{3}}$ es elemental es notando que, si
+$x=x^{12}\,e_{1}\wedge e_{2}+x^{13}\,e_{1}\wedge e_{3}+%
+x^{23}\,e_{2}\wedge e_{3}$ y $x^{12}\not =0$, entonces, mediante un
+argumento similar al del caso $\bb{R}^{4}$, tomando los vectores
+\begin{align*}
+	f_{1} & \,=\,e_{1}+p^{13}\,e_{3}\quad\text{y} \\
+	f_{2} & \,=\,e_{2}+p^{23}\,e_{3}\text{ ,}
+\end{align*}
+%
+entonces $x=x^{12}\cdot f_{1}\wedge f_{2}$, si y s\'{o}lo si
+\begin{align*}
+	p^{23} & \,=\,\frac{x^{13}}{x^{12}}\quad\text{y} \\
+	p^{13} & \,=\,\frac{-x^{23}}{x^{12}}\text{ .}
+\end{align*}
+%
+Si alg\'{u}n otro coeficiente es distinto de cero, se deber\'{a} modificar
+la definici\'{o}n de estos vectores, pero tambi\'{e}n es posible escribir
+a $x$ como tensor elemental.
+

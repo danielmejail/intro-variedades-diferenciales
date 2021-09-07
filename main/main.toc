@@ -1,0 +1,88 @@
+\contentsline {chapter}{\numberline {1}Variedades diferenciales}{4}
+\contentsline {section}{\numberline {1.1}Variedades topol\'{o}gicas}{4}
+\contentsline {subsection}{\numberline {1.1.1}Definiciones y repaso de nociones de Topolog\'{\i }a}{4}
+\contentsline {subsection}{\numberline {1.1.2}Variedades con borde y variedades con esquinas}{5}
+\contentsline {subsubsection}{Subespacios}{6}
+\contentsline {subsubsection}{Cocientes}{6}
+\contentsline {subsubsection}{Espacios localmente compactos Hausdorff}{6}
+\contentsline {subsection}{\numberline {1.1.3}Propiedades b\'{a}sicas de las variedades}{7}
+\contentsline {subsection}{\numberline {1.1.4}Algunas observaciones}{10}
+\contentsline {subsection}{\numberline {1.1.5}Cartas coordenadas}{12}
+\contentsline {subsection}{\numberline {1.1.6}Par\'{e}ntesis: el grupo fundamental de una variedad}{12}
+\contentsline {section}{\numberline {1.2}Estructuras diferenciales}{14}
+\contentsline {subsection}{\numberline {1.2.1}Atlas suaves y estructuras diferenciales}{14}
+\contentsline {subsection}{\numberline {1.2.2}Representaciones locales en coordenadas}{15}
+\contentsline {subsection}{\numberline {1.2.3}El lema de las cartas}{15}
+\contentsline {section}{\numberline {1.3}Variedades con borde y variedades con esquinas}{17}
+\contentsline {subsection}{\numberline {1.3.1}Variedades con bordes}{17}
+\contentsline {subsection}{\numberline {1.3.2}Estructuras diferenciales en variedades con borde}{18}
+\contentsline {subsection}{\numberline {1.3.3}Variedades con borde}{19}
+\contentsline {chapter}{\numberline {2}Transformaciones suaves}{22}
+\contentsline {section}{\numberline {2.1}Funciones y transformaciones suaves}{22}
+\contentsline {subsection}{\numberline {2.1.1}Funciones suaves}{22}
+\contentsline {subsection}{\numberline {2.1.2}Transformaciones suaves}{23}
+\contentsline {subsection}{\numberline {2.1.3}Propiedades locales}{24}
+\contentsline {section}{\numberline {2.2}Particiones de la unidad}{25}
+\contentsline {subsection}{\numberline {2.2.1}Particiones en variedades topol\'{o}gicas}{26}
+\contentsline {subsection}{\numberline {2.2.2}Particiones en variedades diferenciales}{27}
+\contentsline {subsection}{\numberline {2.2.3}Algunos corolarios}{29}
+\contentsline {chapter}{\numberline {3}Espacio tangente y fibrado tangente}{31}
+\contentsline {section}{\numberline {3.1}El espacio tangente}{31}
+\contentsline {subsection}{\numberline {3.1.1}Vectores tangentes geom\'{e}tricos}{31}
+\contentsline {subsection}{\numberline {3.1.2}Derivaciones}{31}
+\contentsline {subsection}{\numberline {3.1.3}El espacio tangente a una variedad}{35}
+\contentsline {section}{\numberline {3.2}Algunas cuentas en coordenadas}{38}
+\contentsline {section}{\numberline {3.3}Curvas en variedades y relaci\'{o}n con el tangente}{41}
+\contentsline {section}{\numberline {3.4}El fibrado tangente}{42}
+\contentsline {chapter}{\numberline {4}El teorema del rango constante}{45}
+\contentsline {section}{\numberline {4.1}Los teoremas de la funci\'{o}n inversa y de la funci\'{o}n impl\'{\i }cita}{45}
+\contentsline {section}{\numberline {4.2}El rango de una transformaci\'{o}n}{48}
+\contentsline {section}{\numberline {4.3}M\'{a}s propiedades de los difeomorfismos locales}{51}
+\contentsline {section}{\numberline {4.4}El teorema del rango constante}{56}
+\contentsline {chapter}{\numberline {5}Subvariedades}{61}
+\contentsline {section}{\numberline {5.1}Embeddings}{61}
+\contentsline {section}{\numberline {5.2}Submersiones}{62}
+\contentsline {section}{\numberline {5.3}Subvariedades}{64}
+\contentsline {subsection}{\numberline {5.3.1}Subvariedades regulares}{65}
+\contentsline {subsection}{\numberline {5.3.2}Cartas preferenciales}{67}
+\contentsline {subsection}{\numberline {5.3.3}Conjuntos de nivel}{69}
+\contentsline {subsection}{\numberline {5.3.4}Puntos y valores regulares}{70}
+\contentsline {subsection}{\numberline {5.3.5}Subvariedades inmersas}{71}
+\contentsline {section}{\numberline {5.4}El tangente a una subvariedad}{72}
+\contentsline {subsection}{\numberline {5.4.1}Restricci\'{o}n y correstricci\'{o}n de transformaciones}{72}
+\contentsline {subsection}{\numberline {5.4.2}Extensi\'{o}n de funciones}{74}
+\contentsline {subsection}{\numberline {5.4.3}El espacio tangente a una subvariedad}{77}
+\contentsline {section}{\numberline {5.5}Subvariedades con borde}{82}
+\contentsline {subsection}{\numberline {5.5.1}Dominios regulares}{82}
+\contentsline {subsection}{\numberline {5.5.2}Algunas propiedades de las subvariedades con borde}{83}
+\contentsline {subsection}{\numberline {5.5.3}Fetas de borde}{83}
+\contentsline {chapter}{\numberline {6}Campos y $1$-formas}{84}
+\contentsline {section}{\numberline {6.1}Campos vectoriales}{84}
+\contentsline {subsection}{\numberline {6.1.1}El espacio $\ensuremath {\mathfrak {X}\left (M\right )}$ de campos suaves en una variedad}{85}
+\contentsline {subsection}{\numberline {6.1.2}Extensi\'{o}n de campos vectoriales}{86}
+\contentsline {subsection}{\numberline {6.1.3}Propiedades equivalentes a la suavidad de un campo}{87}
+\contentsline {subsection}{\numberline {6.1.4}Campos como derivaciones}{88}
+\contentsline {subsection}{\numberline {6.1.5}El \emph {pushforward} de un campo}{89}
+\contentsline {subsection}{\numberline {6.1.6}Campos tangentes a una subvariedad}{91}
+\contentsline {subsection}{\numberline {6.1.7}El corchete de Lie}{94}
+\contentsline {subsection}{\numberline {6.1.8}El corchete como derivaci\'{o}n}{96}
+\contentsline {subsection}{\numberline {6.1.9}M\'{a}s sobre campos tangentes}{97}
+\contentsline {section}{\numberline {6.2}El fibrado cotangente}{97}
+\contentsline {subsection}{\numberline {6.2.1}El espacio cotangente}{97}
+\contentsline {subsection}{\numberline {6.2.2}La transpuesta del diferencial}{98}
+\contentsline {subsection}{\numberline {6.2.3}El diferencial de una funci\'{o}n suave}{99}
+\contentsline {subsection}{\numberline {6.2.4}Bases coordenadas del espacio cotangente}{100}
+\contentsline {section}{\numberline {6.3}$1$-formas}{102}
+\contentsline {subsection}{\numberline {6.3.1}$1$-formas suaves}{102}
+\contentsline {subsection}{\numberline {6.3.2}El \emph {pullback} de una $1$-forma}{107}
+\contentsline {subsection}{\numberline {6.3.3}Integrar sobre segmentos}{108}
+\contentsline {chapter}{\numberline {7}Ejemplos}{114}
+\contentsline {section}{\numberline {7.1}Generalidades}{114}
+\contentsline {section}{\numberline {7.2}Espacios vectoriales y grupos de matrices}{114}
+\contentsline {section}{\numberline {7.3}Esferas y espacios proyectivos}{114}
+\contentsline {section}{\numberline {7.4}Variedades de dimensi\'{o}n $1$}{114}
+\contentsline {section}{\numberline {7.5}El toro}{114}
+\contentsline {chapter}{\numberline {8}Notas sueltas}{115}
+\contentsline {section}{\numberline {8.1}Existencia de marcos continuos sobre curvas diferenciables}{115}
+\contentsline {section}{\numberline {8.2}Planos como puntos}{115}
+\contentsline {chapter}{Bibliograf\'{\i }a}{116}

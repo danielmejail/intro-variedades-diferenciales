@@ -1,0 +1,325 @@
+\theoremstyle{plain}
+\newtheorem{lemaNotasSueltasGermenes}{Lema}[section]
+\newtheorem{propoSuavidadCampos}[lemaNotasSueltasGermenes]{Proposici\'{o}n}
+\newtheorem{propoEquivalenciaSuavidadCampos}[lemaNotasSueltasGermenes]%
+	{Proposici\'{o}n}
+\newtheorem{propoSuavidadFormas}[lemaNotasSueltasGermenes]{Proposici\'{o}n}
+\newtheorem{propoEquivalenciaSuavidadFormas}[lemaNotasSueltasGermenes]%
+	{Proposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsBaseEnElCotangente}[lemaNotasSueltasGermenes]{Observaci\'{o}n}
+
+%-------------
+
+\begin{lemaNotasSueltasGermenes}\label{lema:notassueltasgermenes}
+	Sea $M$ una variedad diferencial y sea $p\in M$. Sean
+	$v\in\tangente[p]{M}$, $U\subset M$ un entorno de $p$ y
+	$f,g\in C^\infty(U)$. Si $f|_V=g|_V$ para cierto abierto tal que
+	$V\subset U$ y $p\in V$, entonces $v\,f=v\,g$.
+\end{lemaNotasSueltasGermenes}
+
+\begin{proof}
+	Sea $h=f-g$ y sea $\psi:\,M\rightarrow\bb{R}$ una funci\'{o}n
+	suave, $\psi\geq 0$, tal que existe una bola abierta $B$ que verifica
+	$p\in B\subset\soporte{\psi}\subset V$ y $\psi|_B=1$. En particular,
+	$\psi(p)=1$. Entonces $\psi\,h=0$ en $M$ y
+	\begin{align*}
+		0 & \,=\,v(\psi\,h)\,=\,(v\,\psi)\,h(p)\,+\,
+			\psi(p)\,(v\,h)\,=\,v\,h
+		\text{ ,}
+	\end{align*}
+	%
+	pues $v(\psi\,h)=v(0)=0$ y $\psi(p)=1$ (no estamos usando que $\psi$
+	es constante en un entorno de $p$). As\'{\i},
+	\begin{align*}
+		\psi\,h & \,=\,
+			\begin{cases}
+				0 & \text{ en } U\setmin\soporte{\psi} \\
+				0 & \text{ en } V
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{propoSuavidadCampos}\label{propo:suavidadcampos}
+	Sea $X:\,M\rightarrow\tangente{M}$ una secci\'{o}n del fibrado
+	tangente. Entonces $X$ es suave (como secci\'{o}n), si y s\'{o}lo si,
+	para todo punto $p\in M$, existe una carta $(U,\psi)$, compatible con
+	la estructura de $M$, tal que $p\in U$ y con respecto a la cual las
+	funciones $X^i:\,U\rightarrow\bb R$ determinadas por
+	\begin{equation}\label{eq:suavidadcampos}
+		X|_U \,=\,X^i\,\gancho{x^i}
+	\end{equation}
+	%
+	son suaves.
+\end{propoSuavidadCampos}
+
+\begin{proof}
+	En primer lugar, $X^i=X(x^i)$, evaluar el campo $X$ en la funci\'{o}n
+	coordenada $x^i$. Que $X$ sea suave quiere decir que, para toda carta
+	compatible $(U,\varphi)$, la expresi\'{o}n en coordenadas
+	\begin{math}
+		\encoordenadas{X}=
+			\delfibrado{\varphi}\circ X\circ\varphi^{-1}:\,
+			\varphi(U)\rightarrow\bb{R}^{2n}
+	\end{math} --donde
+	\begin{math}
+		\delfibrado{\varphi}:\,\delfibrado{U}=\pi^{-1}(U)\rightarrow
+			\delfibrado{\varphi}(\delfibrado{U})=U\times\bb{R}^{n}
+	\end{math} es la carta correspondiente
+	$(\delfibrado{U},\delfibrado{\varphi})$ en $\tangente{M}$-- es suave,
+	en sentido usual. Pero $\encoordenadas{X}$ est\'{a} dada por
+	\begin{align*}
+		\encoordenadas{X}(x) & \,=\,\encoordenadas{X}(\lista{x}{n}) \\
+		& \,=\,
+			\big(X^1(\varphi^{-1}(x)),\,\dots,\,
+				X^n(\varphi^{-1}(x)),\,
+				x^1(\varphi^{-1}(x)),\,\dots,\,
+				x^n(\varphi^{-1}(x))\big) \\
+		& \,=\,\big(\encoordenadas{X}^1(x),\,\dots,\,
+			\encoordenadas{X}^n(x),\lista{x}{n}\big)
+		\text{ .}
+	\end{align*}
+	%
+	Esta expresi\'{o}n es v\'{a}lida para toda carta $(U,\varphi)$ y todo
+	campo $X:\,M\rightarrow\tangente{M}$, independientemente de su
+	suavidad. En particular, $X$ es suave (continua) en $U$, si y s\'{o}lo
+	si las funciones $\encoordenadas{X}^i=X^i\circ\varphi^{-1}$ los son en
+	$\varphi(U)$. Como $\varphi:\,U\rightarrow\varphi(U)$ es difeomorfismo,
+	esto equivale a que las funciones $X^i:\,U\rightarrow\bb R$ sean
+	suaves.
+\end{proof}
+
+\begin{propoEquivalenciaSuavidadCampos}\label{propo:equivalenciasuavidadcampos}
+	Sea $X:\,M\rightarrow\tangente{M}$ una secci\'{o}n. Las siguientes
+	afirmaciones son equivalentes.
+	\begin{enumerate}
+		\item\label{propo:equivalenciasuavidadcampos:seccion}
+			$X$ es suave;
+		\item\label{propo:equivalenciasuavidadcampos:global}
+			$Xf\in C^\infty(M)$ para toda $f\in C^\infty(M)$;
+		\item\label{propo:equivalenciasuavidadcampos:entornos}
+			$X|_Uf\in C^\infty(U)$ para toda $f\in C^\infty(U)$.
+	\end{enumerate}
+\end{propoEquivalenciaSuavidadCampos}
+
+Antes de demostrar esto, vale la pena recordar que una funci\'{o}n en $M$ es
+suave en un punto respecto de una carta compatible, si y s\'{o}lo si es suave,
+en el mismo punto, respecto de cualquier otra carta compatible.
+
+\begin{proof}
+	Si $X\in\champs M$ y $f\in C^\infty(M)$, dados $p\in M$ y una carta
+	$(U,\varphi)$ en $p$, en un entorno del punto (en $U$),
+	\begin{align*}
+		X\,f & \,=\,X^i\,\derivada{f}{x^i}
+		\text{ ,}
+	\end{align*}
+	%
+	que es suave. Expl\'{\i}citamente, en coordenadas, si $x\in\varphi(U)$,
+	\begin{align*}
+		\big(X\,f\big)(\varphi^{-1}(x)) & \,=\,
+			X^i\circ\varphi^{-1}(x)\,
+				\derivada{(f\circ\varphi^{-1})}{x^i}
+					(\varphi(\varphi^{-1}(x))) \,=\,
+			\encoordenadas{X}^i(x)\,
+				\derivada{\encoordenadas{f}}{x^i}(x)
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\encoordenadas{X}^i$ y $\encoordenadas{f}$ son las
+	representaciones en coordenadas de las funciones componentes $X^i$ y
+	$f$, definidas en $U$ (en el caso de $X^i$) y en $M$. Entonces $X\,f$
+	es suave en un entorno de $p$. Como el punto fue elegido de forma
+	arbitraria, $X\,f\in\suaves M$.
+
+	Si vale \ref{propo:equivalenciasuavidadcampos:global}, y
+	$f\in\suaves U$ para cierto abierto $U\subset M$, dado $p\in U$, existe
+	una funci\'{o}n $\psi:\,M\rightarrow\bb R$ suave tal que $\psi\geq 0$ y
+	un abierto $V$ tal que $p\in V$, $\clos{V}\subset U$, $\psi|_V=1$ y
+	$\soporte{\psi}\subset U$. Sea $\tilde{f}:\,M\rightarrow\bb R$ la
+	funci\'{o}n
+	\begin{align*}
+		\tilde{f} & \,:=\,
+			\begin{cases}
+				f\cdot\psi & \text{ en } U \\
+				0 & \text{ en } M\setmin\soporte{\psi}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Como el soporte de la funci\'{o}n $\psi$ est\'{a} contenido en $U$,
+	esta funci\'{o}n est\'{a} bien definida y es suave. Adem\'{a}s,
+	\begin{align*}
+		\big(\tilde f|_U\big)|_V & \,=\,\tilde f|_V \,=\,f|_V
+		\text{ ,}
+	\end{align*}
+	%
+	con lo cual, para $q\in V$,
+	\begin{align*}
+		\big(X|_Uf\big)(q) & \,=\,\big(X|_U\tilde f|_U\big)(g) \,=\,
+			\big(X\,\tilde f\big)(q)
+		\text{ .}
+	\end{align*}
+	%
+	Pero, por hip\'{o}tesis, $X\,\tilde f$ es suave en $M$, con lo que
+	$X|_Uf$ es suave en $V$. Como $p\in U$ fue elegido de manera
+	arbitraria, $X|_Uf$ es suave en todo el abierto $U$.
+
+	Finalmente, si se cumple
+	\ref{propo:equivalenciasuavidadcampos:entornos} y $(U,\varphi)$ es una
+	carta compatible, las componentes de $X$ en la carta est\'{a}n dadas
+	por
+	\begin{align*}
+		X|_U & \,=\, X^i\,\gancho{x^i}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $X^i=X|_U(x^i)$. Por hip\'{o}tesis, cada una de estas funciones
+	es suave en $U$ y, por la Proposici\'{o}n~\ref{propo:suavidadcampos},
+	$X\in\champs M$.
+\end{proof}
+
+\begin{propoSuavidadFormas}\label{propo:suavidadformas}
+	Sea $\omega:\,M\rightarrow\tangente*{M}$ una secci\'{o}n del fibrado
+	cotangente. Entonces $\omega$ es suave, si y s\'{o}lo si, para todo
+	$p\in M$, existe una carta $(U,\varphi)$ compatible, cuyo dominio
+	contiene a $p$ y tal que la representaci\'{o}n en coordenadas
+	\begin{equation}\label{eq:suavidadformas}
+		\omega|_U \,=\,\omega_i\,\lambda^i
+	\end{equation}
+	%
+	sea suave, es decir, de forma que las funciones
+	$\omega_i:\,U\rightarrow\bb R$ sean suaves, donde
+	$\big\{\lambda^i|_p\big\}_i$ es la base dual de
+	$\big\{\gancho[p]{x^i}\big\}_i$ en $\tangente*[p]{M}$ para $p\in U$.
+\end{propoSuavidadFormas}
+
+\begin{proof}
+	Sea $\pi:\,\tangente*{M}\rightarrow M$ la proyecci\'{o}n can\'{o}nica
+	del fibrado. Sea $(U,\varphi)$ una carta compatible con la estructura
+	de $M$ y sean $\delfibrado{U}=\pi^{-1}(U)\subset\tangente*{M}$ y
+	$\delfibrado{\varphi}:\,\delfibrado{U}\rightarrow U\times\bb R^n$ las
+	coordenadas correspondientes. La representaci\'{o}n en coordenadas de
+	la forma $\omega$ es la funci\'{o}n
+	\begin{math}
+		\encoordenadas{\omega}=
+			\delfibrado{\varphi}\circ\omega\circ\varphi^{-1}:\,
+			\varphi(U)\rightarrow\bb R^{2n}
+	\end{math} dada por
+	\begin{align*}
+		\encoordenadas{\omega}(x) & \,=\,\big(
+			\encoordenadas{\omega}_1(x),\,\dots,\,
+			\encoordenadas{\omega}_n(x),\,\lista{x}{n}\big)
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\encoordenadas{\omega}_i=\omega_i\circ\varphi^{-1}$ y cada
+	funci\'{o}n $\omega_i:\,U\rightarrow\bb R$ est\'{a} determinada por la
+	representaci\'{o}n \eqref{eq:suavidadformas}, es decir,
+	$\omega_i=\omega|_U\big(\gancho{x^i}\big)$. As\'{\i},
+	$\omega:\,M\rightarrow\tangente*{M}$ es, por definici\'{o}n, suave
+	(continua) en $U$, si y s\'{o}lo si las funciones
+	$\omega_i:\,U\rightarrow\bb R$ lo son.
+\end{proof}
+
+\begin{obsBaseEnElCotangente}\label{obs:baseenelcotangente}
+	Sea $(U,\varphi)$ una carta, sea $\big\{\gancho[p]{x^i}\big\}$ la base
+	dada por los campos coordenados en $\tangente[p]{M}$ y sea
+	$\big\{\lambda^i|_p\big\}_i$ la base dual. Sean $\{x^i\}_i$ las
+	funciones coordenadas en $U$ y sean $\big\{\de{x^i}\big\}_i$ las
+	$1$-formas $(\de{x^i})\,X=X(x^i)$. Entonces, si $p\in U$ y
+	$v\in\tangente[p]{M}$,
+	\begin{align*}
+		\de[p]{x^i}(v) & \,=\,v(x^i)
+		\text{ .}
+	\end{align*}
+	%
+	Pero $v=v^i\,\gancho[p]{x^i}$, donde $v^i=v(x^i)$. Como
+	$\big\{\lambda^i|_p\big\}_i$ es la base dual a la base can\'{o}nica,
+	\begin{align*}
+		\lambda^i|_p\,v & \,=\,v^i
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, para cada \'{\i}ndice $i$,
+	\begin{equation}\label{eq:baseenelcotangente}
+		\lambda^i|_p \,=\,\de[p]{x^i}
+		\text{ .}
+	\end{equation}
+	%
+\end{obsBaseEnElCotangente}
+
+\begin{propoEquivalenciaSuavidadFormas}\label{propo:equivalenciasuavidadformas}
+	Sea $\omega:\,M\rightarrow\tangente*{M}$ una secci\'{o}n. Las
+	siguientes afirmaciones son equivalentes.
+	\begin{enumerate}
+		\item\label{propo:equivalenciasuavidadformas:seccion}
+			$\omega$ es suave;
+		\item\label{propo:equivalenciasuavidadformas:global}
+			$\omega\,X\in\suaves M$ para todo $X\in\champs M$;
+		\item\label{propo:equivalenciasuavidadformas:entornos}
+			$\omega|_UX\in\suaves U$ para todo $X\in\champs U$.
+	\end{enumerate}
+\end{propoEquivalenciaSuavidadFormas}
+
+\begin{proof}
+	Asumiendo que $\omega:\,M\rightarrow\tangente*{M}$ es suave y que
+	$X\in\champs M$, para verificar la suavidad de
+	\begin{math}
+		\omega\,X:\,p\mapsto\omega_p\,X_p
+	\end{math}, verificamos que sea suave en coordenadas: sea $(U,\varphi)$
+	una carta compatible. La expresi\'{o}n de la funci\'{o}n en coordenadas
+	est\'{a} determinada por
+	\begin{equation}\label{eq:formacampoencoordenadas}
+		\omega\,X \,=\,\omega|_U\Big(X^i\,\gancho{x^i}\Big) \,=\,
+			X^i\Big(\omega|_U\gancho{x^i}\Big) \,=\,
+			X^i\,\omega_i
+		\text{ .}
+	\end{equation}
+	%
+	Por un lado, como $X$ es suave en $M$, las funciones $X^i$ son suaves
+	en $U$. Por otro, como $\omega\in\formes[1]{M}$, vale que
+	$\omega_i\in\suaves U$. En definitiva, la funci\'{o}n determinada por
+	evaluar $\omega\,X$ es suave en $U$. Como la carta era arbitraria, la
+	funci\'{o}n es suave en $M$.
+
+	Asumiendo \ref{propo:equivalenciasuavidadformas:global}, sea
+	$U\subset M$ un abierto y sea $X\in\champs U$. Sea $p\in U$ y sea
+	$\psi:\,M\rightarrow\bb R$ una funci\'{o}n suave tal que
+	$\psi\geq 0$, $\psi|_V=1$ en cierto abierto $V\subset U$,
+	$p\in V$, $\clos V\subset U$ y $\soporte{\psi}\subset U$. Sea
+	$\tilde X:\,M\rightarrow\tangente M$ el \emph{campo} dado por
+	\begin{align*}
+		\tilde X & \,:=\,
+			\begin{cases}
+				\psi\cdot X & \text{ en } U \\
+				0 & \text{ en } M\setmin\soporte{\psi}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Como el soporte de la funci\'{o}n chich\'{o}n $\psi$ est\'{a} contenido
+	en $U$, $\tilde X$ est\'{a} bien definido y es suave en $M$. Pero,
+	adem\'{a}s, $\tilde X|_V=X|_V$. Por un lado,
+	$\omega\,\tilde X\in\suaves M$, por hip\'{o}tesis. Por otro lado, si
+	$q\in V$,
+	\begin{align*}
+		\big(\omega\,\tilde X\big)(q) & \,=\,
+			\omega_q\,\tilde X|_q \,=\,
+			\omega_q\,X_q \,=\,\big(\omega|_UX\big)(q)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\omega|_UX$ es suave en $V$. Como $p\in U$ fue elegido de
+	manera arbitraria, $\omega|_UX\in\suaves U$.
+
+	Finalmente, asumiendo que vale
+	\ref{propo:equivalenciasuavidadformas:entornos} y que $(U,\varphi)$ es
+	una carta compatible, por hip\'{o}tesis, las componentes
+	$\omega_i=\omega|_U\gancho{x^i}$ de $\omega$ en $U$ son suave.
+	As\'{\i}, por la Proposici\'{o}n~\ref{propo:suavidadformas}, se ve que
+	$\omega$ es suave como secci\'{o}n, ya que la carta $(U,\varphi)$
+	hab\'{\i}a sido elegida de manera arbitraria.
+\end{proof}

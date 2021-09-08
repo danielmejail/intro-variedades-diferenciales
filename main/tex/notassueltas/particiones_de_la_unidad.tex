@@ -1,0 +1,243 @@
+\theoremstyle{plain}
+\newtheorem{teoParticiones}{Teorema}[section]
+\newtheorem{lemaBaseDeBolasPrecompactas}[teoParticiones]{Lema}
+\newtheorem{lemaConjuntoLocalmenteFinito}[teoParticiones]{Lema}
+\newtheorem{teoRefinamiento}[teoParticiones]{Teorema}
+\newtheorem{propoVariedadEsSigmaCompacta}[teoParticiones]{Proposici\'{o}n}
+\newtheorem{lemaParticiones}[teoParticiones]{Lema}
+
+\theoremstyle{remark}
+\newtheorem{obsBaseDeBolasRegulares}[teoParticiones]{Observaci\'{o}n}
+
+%-------------
+
+\begin{lemaBaseDeBolasPrecompactas}\label{lema:basedebolasprecompactas}
+	Toda variedad topol\'{o}gica admite una base de bolas coordenadas
+	precompactas.
+\end{lemaBaseDeBolasPrecompactas}
+
+\begin{proof}
+	Si $M=U$ es el dominio de una \'{u}nica carta,
+	$\varphi:\,U\rightarrow\encoordenadas{U}$ es un homeomorfismo con
+	alg\'{u}n abierto de $\bb R^n$. Dado un abierto arbitrario $W$, diremos
+	que una bola $B=\bola{r}{x}\subset W$ es una \emph{bola premium} (o
+	\emph{especial}, \emph{seleccionada}, \emph{de calidad}, etc.)
+	\emph{en/para el abierto $W$}, si existe $r'>r$ tal que
+	$\clos{\bola{r}{x}}\subset\bola{r'}{x}\subset W$. Consideramos el
+	conjunto
+	\begin{align*}
+		\widetilde{\cal B} & \,:=\,
+			\Big\{\bola{r}{x} \text{ premium en }
+				\encoordenadas{U}\,:\,x
+			\text{ tiene coordenadas racionales y } r>0
+			\text{ es racional }\Big\}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\widetilde{\cal B}$ tiene cardinal a lo sumo numerable y
+	constituye una base para la topolog\'{\i}a de $\encoordenadas{U}$. Como
+	$\varphi:\,U\rightarrow\encoordenadas{U}$ es un homeomorfismo, el
+	conjunto
+	\begin{math}
+		\cal B:=\big\{ B=\varphi^{-1}(\tilde B)\,:\,
+			\tilde B\in\widetilde{\cal B}\big\}
+	\end{math} es una base para la topolog\'{\i}a de $U$ y es numerable.
+	Por definici\'{o}n $\cal B$ est\'{a} compuesto por bolas coordenadas
+	precompactas.
+
+	En general, una variedad topol\'{o}gica arbitraria, $M$, se puede
+	cubrir por una familia numerable de abiertos coordenados:
+	\begin{math}
+		M=\bigcup_{n\geq 1}\,U_n
+	\end{math}. Si
+	\begin{math}
+		\cal B:=\bigcup_{n\geq 1}\,\cal B_n
+	\end{math}, donde $\cal B_n$ es una base numerable de bolas
+	precompactas para $U_n$, entonces $\cal B$ es numerable y constituye
+	una base para la topolog\'{\i}a de $M$. Lo \'{u}nico que falta
+	demostrar es que las bolas $B\in\cal B$ son precompactas \emph{en $M$}.
+
+	Sea $B\in\cal B_n$ un elemento de la base. Por definici\'{o}n,
+	$\clos B^{U_n}$ --la clausura \emph{en $U_n$} de la bola-- es compacta.
+	Pero $\clos B^M$ es cerrada en $M$ y contiene a $B$, de lo que se
+	deduce que $\clos B^M\cap U_n$ es cerrado en $U_n$ y contiene a $B$.
+	As\'{\i},
+	\begin{align*}
+		\clos B^M & \,\supset\,\clos B^M\,\cap\,U_n\,\supset\,
+			\clos B^{U_n}
+		\text{ .}
+	\end{align*}
+	%
+	Por otro lado, como $\clos B^{U_n}$ es compacta y ``subespacio de
+	subespacio es subespacio'', $\clos B^{U_n}$ es compacta como subespacio
+	de $M$. Como $M$ es $T_2$, este conjunto es cerrado en $M$. Pero
+	tambi\'{e}n contiene a $B$. En consecuencia,
+	$\clos B^M\subset\clos B^{U_n}$. En definitiva, ambas clausuras
+	coinciden, de lo que se deduce que $B$ es precompacta.
+\end{proof}
+
+\begin{obsBaseDeBolasRegulares}\label{obs:basedebolasregulares}
+	La afirmaci\'{o}n del Lema~\ref{lema:basedebolasprecompactas} sigue
+	siendo v\'{a}lida si se reemplaza ``bolas coordenadas precompactas''
+	por ``bolas coordenadas regulares''. Una bola coordenada regular es un
+	abierto $B\subset M$ con las siguientes caracter\'{\i}sticas:
+	existe una carta $(B',\varphi)$ y $r'>r>0$ tales que
+	$\clos B\subset B'$ y
+	\begin{align*}
+		\varphi(B) \,=\,\bola{r}{x} & \quad\text{,}\quad
+			\varphi(\clos B) \,=\,\clos{\bola{r}{x}}
+			\quad\text{y}\quad
+			\varphi(B') \,=\,\bola{r'}{x}
+	\end{align*}
+	%	
+	(notemos que no hemos introducido la noci\'{o}n de estructura suave).
+	La \'{u}nica parte del argumento que se debe modificar es
+	el p\'{a}rrafo final; el resto es v\'{a}lido luego de hacer el
+	reemplazo textual. Supongamos que $B\in\cal B_n$ y que
+	$\varphi_n:\,U_n\rightarrow\encoordenadas U_n$ es el homeo de la carta
+	compatible correspondiente. Por definici\'{o}n,
+	\begin{math}
+		\varphi_n(B)=\bola{r}{x}
+	\end{math} para cierto $r>0$ racional y $x\in\encoordenadas U_n$ con
+	coordenadas racionales y existe $r'>r$ tal que
+	\begin{align*}
+		\clos{\bola{r}{x}} & \,\subset\,\bola{r'}{x}\,\subset\,
+			\encoordenadas U_n
+		\text{ .}
+	\end{align*}
+	%
+	Si definimos $B'=\varphi_n^{-1}(\bola{r'}{x})$, entonces,
+	\emph{en $U_n$},
+	\begin{align*}
+		\clos B^{U_n} & \,=\,\varphi_n^{-1}\big(\clos{\bola{r}{x}}\big)
+			\,\subset\,\varphi_n^{-1}\big(\bola{r'}{x}\big)
+			\,=\,B'
+		\text{ .}
+	\end{align*}
+	%
+	Pero $\clos B^M=\clos B^{U_n}$, porque $B$ es precompacta en $U_n$
+	(regular implica precompacta), seg\'{u}n el Lema~%
+	\ref{lema:basedebolasprecompactas}. Esto quiere decir que la
+	expresi\'{o}n anterior es v\'{a}lida tomando clausura en $M$, en lugar
+	de clausura en $U_n$:
+	\begin{align*}
+		\clos B^M & \,=\,\clos B^{U_n}\,\subset\,B'
+		\text{ .}
+	\end{align*}
+	%
+\end{obsBaseDeBolasRegulares}
+
+Si asumimos que $M$ es una variedad diferencial, podemos preguntarnos si la
+estructura adicional nos permite concluir algo m\'{a}s fuerte, o si, dicho de
+otra manera, este resultado tiene una versi\'{o}n ``compatible'' con la
+estructura diferencial.
+
+\begin{lemaBaseDeBolasPrecompactas}[Porisma]%
+	\label{lema:basedebolasprecompactas:porisma}
+	Toda variedad diferencial admite una base de bolas coordenadas (suaves)
+	regulares.
+\end{lemaBaseDeBolasPrecompactas}
+
+\begin{proof}
+	Reemplazar ``homeo'' por ``difeo'' en la demostraci\'{o}n anterior.
+\end{proof}
+
+\begin{lemaConjuntoLocalmenteFinito}\label{lema:conjuntolocalmentefinito}
+	Sea $\cal X$ un conjunto localmente finito de subconjuntos de $M$ (un
+	espacio topol\'{o}gico). Entonces
+	\begin{enumerate}
+		\item\label{lema:conjuntolcalmentefinito:clausuras}
+			\begin{math}
+				\widetilde{\cal X}:=
+					\big\{\clos X\,:\,X\in\cal X\big\}
+			\end{math} es localmente finito;
+		\item\label{lema:conjuntolocalmentefinito:union}
+			\begin{math}
+				\clos{\bigcup\,\cal X}=
+					\bigcup\,\widetilde{\cal X}
+			\end{math}.
+	\end{enumerate}
+	%
+\end{lemaConjuntoLocalmenteFinito}
+
+\begin{proof}
+	Sea $x\in M$. Sea $U\subset M$ un abierto al cual $x$ pertenece. Si
+	$U\cap\clos X\not=\varnothing$ e $y$ es un elemento de este conjunto,
+	entonces $U$ es un entorno de $y$ y, por lo tanto,
+	$U\cap X\not=\varnothing$. En definitiva, para todo abierto
+	$V\subset M$,
+	\begin{align*}
+		V\,\cap\,\clos X\,\not=\,\varnothing &
+			\quad\Leftrightarrow\quad
+		V\,\cap\,X\,\not=\,\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	As\'{\i} $\cal X$ es localmente finito, si y s\'{o}lo si
+	$\widetilde{\cal X}$ lo es. Esto demuestra
+	\ref{lema:conjuntolocalmentefinito:clausuras}. En cuanto a
+	\ref{lema:conjuntolocalmentefinito:union}, el conjunto
+	$\clos{\bigcup\,\cal X}$ es cerrado y contiene a todo elemento de
+	$\cal X$. Es decir,
+	\begin{align*}
+		\clos X & \,\subset\,\clos{\bigcup\,\cal X}
+		\text{ ,}
+	\end{align*}
+	%
+	si $X\in\cal X$, lo que implica
+	\begin{math}
+		\bigcup\,\widetilde{\cal X}\subset
+			\clos{\bigcup\,\cal X}
+	\end{math}. Por otro lado, si $x\in\clos{\bigcup\,\cal X}$, existe un
+	entorno $U_0\subset M$ de $x$, tal que $U_0\cap X=\varnothing$ para
+	casi todo $X\in\cal X$ (todos salvo finitos). Si definimos
+	\begin{align*}
+		\cal A_{x,0} & \,:=\,\Big\{X\in\cal X\,:\,
+			U_0\cap X\not=\varnothing\Big\}
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $\cal A_{x,0}$ es finito. Pero tambi\'{e}n sabemos que debe
+	existir $y\in U_0\cap \big(\bigcup\,\cal X\big)$, pues $U_0$ es entorno
+	de $x$. Entonces $y\in U_0$ e $y\in X$ para alg\'{u}n $X\in\cal X$.
+	Este conjunto $X$ verifica $U_0\cap X\not=\varnothing$ y
+	$X\in\cal A_{x,0}$.
+	Llamemos $A=\bigcup\,\cal A_{x,0}$ (la uni\'{o}n de los elementos de
+	esta familia (finita) de conjuntos $X\in\cal X$). Entonces
+	$y\in U_0\cap A$. Eso se puede expresar de la siguiente manera:
+	\begin{align*}
+		U_0\,\cap\,\big(\bigcup\,\cal x\big) & \,=\,
+			U_0\,\cap\,A
+		\text{ .}
+	\end{align*}
+	%
+	Si $V\subset M$ es una abierto tal que $x\in V$, $V\cap U_0$ es
+	abierto, est\'{a} contenido en $U_0$ y contiene a $x$. Nuevamente,
+	podemos afirmar que existe
+	$y\in (V\cap U_0)\cap\big(\bigcup\,\cal X\big)$. As\'{\i},
+	\begin{align*}
+		(V\cap U_0)\,\cap\,\big(\bigcup\,\cal X\big) & \,\not=\,
+			\varnothing \quad\text{implica} \\
+		(V\cap U_0)\,\cap\,A & \,\not=\,\varnothing
+			\quad\text{implica} \\
+		V\,\cap\,A & \,\not=\,\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	Si $x\in\clos{\bigcup\,\cal X}$, por ser $A=\bigcup\,\cal A_{x,0}$ una
+	uni\'{o}n finita,
+	\begin{align*}
+		x & \,\in\,\clos{\bigcup\,\cal A_{x,0}} \,=\,
+			\bigcup\,\big\{\clos X\,:\,X\in\cal A_{x,0}\big\}
+			\,\subset\,\bigcup\,\widetilde{\cal X}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{teoRefinamiento}\label{thm:refinamiento}
+	Sea $M$ una variedad topol\'{o}gica y sea $\cal U$ un cubrimiento de
+	$M$ por abiertos. Sea $\cal B$ una base para la topolg\'{\i}a de $M$.
+	Existe un refinamiento numerable y localmente finito de $\cal U$
+	compuesto por elementos de $\cal B$.
+\end{teoRefinamiento}

@@ -241,3 +241,187 @@ estructura diferencial.
 	Existe un refinamiento numerable y localmente finito de $\cal U$
 	compuesto por elementos de $\cal B$.
 \end{teoRefinamiento}
+
+\begin{propoVariedadEsSigmaCompacta}\label{propo:variedadessigmacompacta}
+	Dada una variedad topol\'{o}gica $M$, existe una familia numerable de
+	compactos $\{K_n\}_{n\geq 1}$ tal que
+	\begin{align*}
+		\interior{K_n}\,\not=\,\varnothing & \quad\text{,}\quad
+			K_n\,\subset\,\interior{K_{n+1}}
+			\quad\text{y}\quad
+			M \,=\,\bigcup_{n\geq 1}\,K_n
+		\text{ .}
+	\end{align*}
+	%
+\end{propoVariedadEsSigmaCompacta}
+
+\begin{proof}
+	La variedad $M$ se puede cubrir por bolas precompactas. Como $M$ es
+	$N_2$, existe un subcubrimiento numerable. Ordenando este
+	subcubrimiento y tomando la clausura de las bolas, se obtiene la
+	familia de compactos: por ejemplo, $K_1=\clos{B_1}$ se cubre por
+	$B_1$ y el resto de las bolas, tomando un subcubrimiento finito, debe
+	haber al menos una $B_2$ para cubrir $K_1$; numeramos $\lista[2]{B}{n}$
+	y definimos $K_2$ como la uni\'{o}n de $\clos{B_i}$, $i\leq n$\dots
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n de \ref{thm:refinamiento}]
+	Sea $\{K_j\}_{j\geq 1}$ una familia numerable de compactos como
+	en el enunciado de la Proposici\'{o}n~%
+	\ref{propo:variedadessigmacompacta}. Sean
+	\begin{align*}
+		F_j & \,:=\,K_{j+1}\setmin\interior{K_j} \quad\text{y} \\
+		W_j & \,:=\,\interior{K_{j+2}}\setmin K_{j-1}
+		\text{ .}
+	\end{align*}
+	%
+	Si $j=1$, $K_0:=\varnothing$. Cada $F_j$ es cerrado y est\'{a}
+	contenido en el compacto $K_{j+1}$ y es, por lo tanto, compacto. Para
+	cada $x\in F_j$, existe $U_x\in\cal U$ tal que $x\in U_x$; elegimos,
+	tambi\'{e}n, $B_x^j\in\cal B$ tal que
+	\begin{align*}
+		x & \,\in\,B_x^j\subset U_x\cap W_j
+		\text{ .}
+	\end{align*}
+	%
+	Como $F_j$ es compacto y $\big\{B_x^j\,:\,x\in F_j\big\}$ es un
+	cubrimiento por abiertos, podemos extraer un subcubrimiento finito:
+	existen $\lista{x}{n_j}\in F_j$ tales que
+	\begin{align*}
+		F_j & \,\subset\, B_{x_1}^j\,\cup\,\cdots\,\cup\,
+			B_{x_{n_j}}^j
+		\text{ .}
+	\end{align*}
+	%
+	Definimos
+	\begin{math}
+		\cal V:=\big\{B_{x_i}^j\,:\,j\geq 1,\,n_j\geq i\geq 1\big\}
+	\end{math}. Entonces $\cal V$ es numerable y la inclusi\'{o}n
+	$B_{x_i}^j\subset U_{x_i}$ implica que es un refinamiento de $\cal U$.
+	Este refinamiento est\'{a} conformado por elementos de la base
+	$\cal B$, con lo que lo \'{u}nico que resta demostrar es que $\cal V$
+	es localmente finito.
+
+	Para demostrar esto, observamos que
+	\begin{align*}
+		|j-j'| \,\geq\,3 & \quad\Rightarrow\quad
+			W_j\,\cap\,W_{j'} \,=\,\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	Como $B_{x_i}^j\subset W_j$, una intersecci\'{o}n de la forma
+	$B_{x_k}^j\cap B_{x_l}^{j'}$ es vac\'{\i}a salvo, posiblemente, para
+	finitos valores de $l$ y $j'$. En definitiva, si $x\in M$, basta tomar
+	un elemento del mismo cubrimiento $\cal V$ que lo contenga, para
+	verificar que $\cal V$ es localmente finito; cualquier elemento de
+	$\cal V$ que contega a $x$ es un abierto que demuestra la finitud local
+	del cubrimiento en el punto.
+\end{proof}
+
+\begin{lemaParticiones}\label{lema:particiones:pendientesuave}
+	La funci\'{o}n
+	\begin{align*}
+		f(t) & \,:=\,
+			\begin{cases}
+				e^{-1/t} & t>0 \\
+				0 & t \leq 0
+			\end{cases}
+	\end{align*}
+	%
+	es suave.
+\end{lemaParticiones}
+
+\begin{lemaParticiones}\label{lema:particiones:escalonsuave}
+	Si $r_1<r_2$ son n\'{u}meros reales, la funci\'{o}n
+	\begin{align*}
+		h(t) & \,:=\,\frac{f(r_2-t)}{f(r_2-t)+f(t-r_1)}
+	\end{align*}
+	%
+	verifica: ser suave, $h=1$ en $t\leq r_1$ y $h=0$ en $r_2\leq t$.
+	Adem\'{a}s, $0<h(t)<1$, si $r_1<t<r_2$.
+\end{lemaParticiones}
+
+\begin{lemaParticiones}\label{lema:particiones:chichonsuave}
+	Si $0<r_1<r_2$, la funci\'{o}n
+	\begin{align*}
+		H(x) & \,:=\,h(|x|)
+	\end{align*}
+	%
+	verifica: ser suave, $H=1$ en $\clos{\bola{r_1}{0}}$ y $H=0$ en
+	$\bb R^n\setmin\bola{r_2}{0}$. Adem\'{a}s, $0<H(x)<1$ en
+	$\bola{r_2}{0}\setmin\clos{\bola{r_1}{0}}$.
+\end{lemaParticiones}
+
+\begin{teoParticiones}[Existencia de particiones suaves de la unidad]%
+	\label{thm:particiones}
+	Sea $M$ una variedad (diferencial). Sea $\cal U=\{U_\alpha\}_\alpha$ un
+	cubrimiento de $M$ por abiertos. Existe una partici\'{o}n de la unidad
+	para $M$, subordinada a $\cal U$ y compuesta por funciones suaves.
+\end{teoParticiones}
+
+\begin{proof}
+	Sean $\cal B_\alpha$ bases numerables conformadas por bolas regulares
+	para cada uno de los abiertos $U_\alpha$ y sea
+	$\cal B=\bigcup_\alpha\,\cal B_\alpha$. Por el Teorema del refinamiento
+	(Teorema~\ref{thm:refinamiento}), existe un refinamiento de $\cal U$,
+	localmente finito, numerable y compuesto por elementos de la base
+	$\cal B$. Sea $\cal V=\{B_i\}_{i\geq 1}$ dicho refinamiento.
+
+	Para cada $i$, $B_i$ es una bola coordenada regular, por lo tanto,
+	existen $B_i'\supset\clos{B_i}$ bolas coordenadas y cartas
+	$\varphi_i:\,B_i'\rightarrow\bola{r_i'}{0}$ tales que
+	$\varphi_i(B_i)=\bola{r_i}{0}$ para cierto $r_i<r_i'$ y
+	$\varphi_i(\clos{B_i})=\clos{\bola{r_i}{0}}$. Dentro de la bola
+	$\bola{r_i'}{0}$, podemos definir una funci\'{o}n suave $H_i$ tal que
+	$H_i=1$ en $\clos{\bola{s_i}{0}}$, $H=0$ en el complemento de
+	$\bola{t_i}{0}$ y tome un valor intermedio en el anillo
+	$\bola{t_i}{0}\setmin\clos{\bola{s_i}{0}}$ (eligiendo
+	$0<s_i<t_i\leq r_i<r_i'$). Luego definimos $f_i:\,M\rightarrow\bb R$
+	por
+	\begin{align*}
+		f_i & \,:=\,
+			\begin{cases}
+				H_i\circ\varphi_i & \text{ en } B_i' \\
+				0 & \text{ en } M\setmin\clos{B_i}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $f_i$ est\'{a} bien definida y es suave. Adem\'{a}s,
+	$\soporte{f_i}\subset\clos{B_i}$ (son iguales, si $t_i=r_i$). Por otro
+	lado, como $\{B_i\}_i$ es localmente finita, la familia de clausuras
+	$\{\clos{B_i}\}_i$ tambi\'{e}n lo es y, en particular,
+	$\{\soporte{f_i}\}_i$ es localmente finita. En consecuencia, la
+	expresi\'{o}n $f=\sum_i\,f_i$ est\'{a} bien definida y es suave. Esta
+	funci\'{o}n verifica $f>0$: en general, $f_i\geq 0$ en su dominio de
+	definici\'{o}n, todo punto $x$ pertenece a alg\'{u}n abierto $B_i$ y,
+	si $t_i=r_i$, $f_i>0$ en dicho abierto.
+
+	Finalmente, definimos $g_i=f_i/f$. Estas funciones son suaves y suman
+	$1$ en $M$. Adem\'{a}s, $\soporte{g_i}=\soporte{f_i}=\clos{B_i}$ es
+	compacto. Para obtener una partici\'{o}n subordinada a $\cal U$, usamos
+	el Axioma de elecci\'{o}n\dots Cada conjunto $B_i$ est\'{a} incluido en
+	alg\'{u}n abierto $U_\alpha$. Denotamos por $\alpha=a(i)$ alguno de
+	estos \'{\i}ndices y definimos
+	\begin{align*}
+		\psi_\alpha & \,:=\,\sum_{i\,:\,a(i)=\alpha}\,g_i
+		\text{ .}
+	\end{align*}
+	%
+	Algunas de estas sumatorias podr\'{\i}an ser vac\'{\i}as. La finitud
+	local de los soportes de las $g_i$ garantizan que estas nuevas
+	funciones est\'{e}n bien definidas y sean suaves. Las funciones
+	$\psi_\alpha$ tambi\'{e}n cumplen que $0\leq\psi_\alpha\leq 1$ y
+	$\sum_\alpha\,\psi_\alpha=\sum_i\,g_i=1$ en $M$. Por \'{u}ltimo,
+	como las $g_i$ son no negativas y estrictamente positivas en el
+	correspondiente abierto $B_i$,
+	\begin{align*}
+		\soporte{\psi_\alpha} & \,=\,\clos{%
+				\bigcup\,\{B_i\,:\,a(i)=\alpha\}} \,=\,
+			\bigcup\,\{\clos{B_i}\,:\,a(i)=\alpha\} \\
+		& \,\subset\,\bigcup\,\{B_i'\,:\,a(i)=\alpha\}\,\subset\,
+			U_\alpha
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

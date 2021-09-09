@@ -89,4 +89,5 @@
 \contentsline {section}{\numberline {8.4}Particiones de la unidad}{119}
 \contentsline {section}{\numberline {8.5}Inmersiones y embeddings}{123}
 \contentsline {section}{\numberline {8.6}Tangente en el borde}{126}
-\contentsline {chapter}{Bibliograf\'{\i }a}{128}
+\contentsline {section}{\numberline {8.7}Otra demostraci\'{o}n de la existencia de particiones}{127}
+\contentsline {chapter}{Bibliograf\'{\i }a}{130}

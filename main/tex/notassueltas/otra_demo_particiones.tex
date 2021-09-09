@@ -1,0 +1,139 @@
+\theoremstyle{plain}
+
+\theoremstyle{remark}
+
+%-------------
+
+Dado un cubrimiento por abiertos $\cal U$ de una variedad $M$, existen
+funciones $\{f_U\}_{U\in\cal U}$ tales que $f_U:\,M\rightarrow\bb R$,
+$f_U\geq 0$, $\sum_U\,f_U=1$, la colecci\'{o}n de soportes
+$\{\soporte{f_U}\}_U$ es localmente finita y $\soporte{f_U}\subset U$ para todo
+$U\in\cal U$. Se dice que la familia de funciones $\{f_U\}_U$ es una
+partici\'{o}n de la unidad subordinada al cubrimiento $\cal U$.
+
+Una bola regular en una variedad $M$ es un subconjunto abierto $B\subset M$ tal
+que existe una carta (compatible) $(B',\varphi)$ donde $B'$ es una bola
+coordenada (es decir, $\varphi(B')=\bola{r'}{z_0}$) y, adem\'{a}s,
+$\varphi(B)=\bola{r}{z_0}$ para cierto $r<r'$ y
+$\varphi(\clos B)=\clos{\bola{r}{z_0}}\subset\bola{r'}{z_0}$. Componiendo con
+una traslaci\'{o}n, se puede suponer que $z_0=0$ en $\bb R^m$. Cada dominio
+coordenado, dominio de una carta (compatible con la estructura de $M$) admite
+una base numerable compuesta de bolas regulares para su topolog\'{\i}a: como
+todo dominio coordenado es homeomorfo (difeomorfo) a un abierto de $\bb R^m$,
+basta con considerar las bolas $\bola{r}{z_0}$ con centro $z_0\in\bb R^m$ de
+coordenadas racionales y radio $r>0$ tambi\'{e}n racional tales que existe
+$r'>r$ con $\bola{r'}{z_0}\subset\varphi(U)$. Por otro lado, si $U\subset M$ es
+un abierto arbitrario y $B\subset U$ es una bola regular \emph{de $U$},
+entonces $B$ tambi\'{e}n es una bola regular de $M$, es decir, existe
+$(B',\varphi)$ carta compatible para $M$ con $\varphi(B')=\bola{r'}{z_0}$,
+$\varphi(\clos B^M)=\clos{\bola{r}{z_0}}$ y $\varphi(B)=\bola{r}{z_0}$.
+
+Demostremos esta \'{u}ltima afirmaci\'{o}n. Por hip\'{o}tesis, existe una carta
+$(B',\varphi)$ para $U$ con la propiedad de que $\varphi(B')=\bola{r'}{z_0}$,
+$\varphi(\clos B^U)=\clos{\bola{r}{z_0}}$ y $\varphi(B)=\bola{r}{z_0}$. Como
+$U\subset M$ es abierto, $(B',\varphi)$ es una bola coordenada compatible para
+$M$. Por razones conjunt\'{\i}sticas, $\varphi(B)=\bola{r}{z_0}$ y
+$\varphi(B')=\bola{r'}{z_0}$, considerando $(B',\varphi)$ como carta para $M$ y
+todo lo que resta ver es que $\varphi(\clos B^M)=\clos{\bola{r}{z_0}}$. Por un
+lado, $\clos B^U$ es compacta, pues es homeomorfa (difeomorfa) a
+$\clos{\bola{r}{z_0}}$. En particular, $\clos B^U$ es compacto como subespacio
+de $M$ y, por lo tanto, ($M$ es $T_2$) cerrado. As\'{\i},
+$\clos B^M\subset\clos B^U$. Pero$\clos B^M$ es cerrada, por definici\'{o}n, y,
+como $U$ es subespacio, $\clos B^M\cap U$ es cerrado en $U$. Como $B\subset U$
+y $B\subset\clos B^M$, vale que $\clos B^U\subset\clos B^M\cap U$. En
+definitiva, $\clos B^M=\clos B^U$ y $B$ es regular de $M$.
+
+La demostraci\'{o}n de la existencia de particiones de la unidad subordinadas a
+un cubrimiento se basa en:
+\begin{enumerate}
+	\item dadas $r<r'$, $\bola{r}{0}\subset\bola{r'}{0}$, existe
+		$H:\,\bb R^m\rightarrow\bb R$ suave tal que $H=1$ en
+		$\clos{\bola{r}{0}}$, $H=0$ en $M\setmin\bola{r'}{0}$ y
+		$0\leq H\leq 1$ en $\bb R^m$ (se puede ser m\'{a}s preciso);
+	\item toda variedad admite una base de bolas regulares; y
+	\item\label{existenciaderefinamientoregular}
+		todo cubrimiento por abiertos de una variedad admite un
+		\emph{refinamiento regular}.
+\end{enumerate}
+%
+Un cubrimiento regular es un cubrimiento $\cal V'$ numerable y localmente
+finito cuyos elementos son bolas coordenadas $B'$ tales que, si
+$\varphi(B')=\bola{r'}{z_0}$, eligiendo $B=\varphi^{-1}(\bola{r}{z_0})$ para
+cierto $r<r'$, la colecci\'{o}n $\cal V=\big\{B\,:\,B'\in\cal V'\big\}$ sigue
+siendo un cubrimiento. Alternativamente, podemos hablar de un cubrimiento
+$\cal V$ por bolas regulares $B$, de manera que podemos elegir, para cada $B$,
+$(B',\varphi)$, bola coordenada que garantiza que $B$ sea regular y
+$\cal V'=\big\{B'\,:\,B\in\cal V\big\}$ siga siendo localmente finito.
+
+Veamos primero el \'{\i}tem \ref{existenciaderefinamientoregular} y, luego,
+c\'{o}mo esto permite demostrar la existencia de particiones de la unidad. Los
+argumentos son muy similares a los utilizados en las otras demostraciones
+
+Sea $\cal U$ un cubrmiento por abiertos de una variedad $M$ y sea $\cal B$ una
+base de bolas coordenadas (no necesariamente regulares) para $M$. Sea
+$\{K_n\}_{n\geq 1}$ una sucesi\'{o}n exhaustiva de compactos y sean $F_j$ y
+$W_j$ definidos de la manera usual\dots Para cada $x\in F_j$ podemos elegir
+$B_x'\in\cal B$ de modo tal que $B_x'\subset W_j\cap U_x$, donde $U_x$ (elegido
+de antemano) es tal que $x\in U_x$ (cualquiera de todos los posibles abiertos).
+Aplicando una traslaci\'{o}n y una homotecia, podemos asumir que
+$\varphi(B_x')=\bola{3}{0}$ (esto no quiere decir que $\varphi(x)=0$).
+Definiendo $B_x:=\varphi^{-1}(\bola{1}{0})$, obtenemos una bola regular
+(realizada por $B_x'$). Adem\'{a}s,
+\begin{align*}
+	x & \,\in\,B_x\,\subset\,\clos{B_x}\,\subset\,B_x'\,\subset\,
+		U_x\cap W_j
+	\text{ .}
+\end{align*}
+%
+La colecci\'{o}n $\{B_x\,:\,x\in F_j\}$ es un cubrimiento de $F_j$, del cual
+podemos extraer un subcubrimiento finito $\{B_{j,1},\,\dots,\,B_{j,k_j}\}$
+($F_j\cap F_{j+1}\not=\varnothing$, tal vez, por lo que $B_x$ y $B_x'$ dependen
+de $j$, tambi\'{e}n). Sea $B_{j,t}'$ la bola correspondiente a $B_{j,t}$ y sean
+\begin{align*}
+	\cal V & \,:=\,\bigcup_{j\geq 0}\,\big\{B_{j,t}\,:\,
+		1\leq t\leq k_j\big\} \quad\text{y} \\
+	\cal V' & \,:=\,\bigcup_{j\geq 0}\,\big\{B_{j,t}'\,:\,
+		1\leq t\leq k_j\big\}
+	\text{ .}
+\end{align*}
+%
+Tanto $\cal V$ como $\cal V'$ son familias numerables de abiertos que cubren
+$M$ y, para cada par $j,t$, existe $U\in\cal U$ tal que
+$B_{j,t}\subset B_{j,t}'\subset U$, con lo que son refinamientos del
+cubrimiento original. Como siempre, $|j-j'|\geq 3$ implica que $W_j\cap W_{j'}$
+es vac\'{\i}a y, por lo tanto, cada bola $B_{j,t}'\subset V_j$ interseca, a lo
+sumo, finitas otras bolas $B_{i,s}'$. Esto quiere decir que $\cal V'$ (y
+\emph{a fortiori} $\cal V$) es localmente finito.
+
+El refinamiento $\cal V'$ definido en el p\'{a}rrafo anterior tiene la
+propiedad de que cada elemento de $\cal V'$ es una bola $(B',\varphi)$ tal que
+$\varphi(B')=\bola{3}{0}$ y, adem\'{a}s, la colecci\'{o}n $\cal V$
+compuesta por las bolas $(B,\varphi|)$, con $B=\varphi^{-1}(\bola{1}{0})$,
+tambi\'{e}n es un cubrimiento de $M$. En conclusi\'{o}n, $\cal V'$ (o $\cal V$)
+es un refinamiento regular (y numerable y localmente finito, por si hace falta
+la aclaraci\'{o}n) de $M$.
+
+La demostraci\'{o}n de la existencia de particiones de la unidad es
+esencialmente la misma, usando $\cal V$ en lugar del cubrimiento $\cal V$ de
+bolas regulares como en la demostraci\'{o}n usual (pero deber\'{\i}a ser
+indistinto). Para $B'\in\cal V'$ tomamos la bola interior regular
+correspondiente $B\in\cal V$ y definimos una funci\'{o}n chich\'{o}n de manera
+un poco m\'{a}s intr\'{\i}nseca:
+\begin{align*}
+	f_{B'} & \,:=\,
+		\begin{cases}
+			H\circ\varphi & \text{ en }B' \\
+			0 & \text{ en } M\setmin
+				\clos{\varphi^{-1}(\bola{2}{0})}
+		\end{cases}
+	\text{ ,}
+\end{align*}
+%
+donde $H:\,\bb R^m\rightarrow [0,1]$ es una funci\'{o}n suave que cumple
+$H=0$ en el complemento de $\bola{2}{0}$, $H=1$ en $\clos{\bola{1}{0}}$ y
+$0<H<1$ en otro caso. La ventaja de este argumento es que podemos ser un poco
+m\'{a}s precisos en cuanto al lugar en donde $f_{B'}$ toma el valor $1$. Como
+$\cal V$ es un cubrimiento, para cada $x\in M$ existe $B$ ($B'$) tal que
+$f_{B'}(x)=1$. El resto de la demostraci\'{o}n es igual. Lo importante para
+rescatar de este comentario es la noci\'{o}n de refinamiento regular (y su
+existencia).

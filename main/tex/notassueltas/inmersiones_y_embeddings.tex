@@ -1,0 +1,86 @@
+\theoremstyle{plain}
+\newtheorem{propoEquivalenciaEmbedding}{Proposici\'{o}n}[section]
+\newtheorem{propoInmersionEsLocalmenteEmbedding}[propoEquivalenciaEmbedding]%
+	{Proposici\'{o}n}
+\newtheorem{propoEmbeddingEntornoTajada}[propoEquivalenciaEmbedding]%
+	{Proposici\'{o}n}
+
+\theoremstyle{remark}
+
+%-------------
+
+\begin{propoInmersionEsLocalmenteEmbedding}%
+	\label{propo:inmersioneslocalmenteembedding}
+	Toda inmersi\'{o}n es localmente embedding.
+\end{propoInmersionEsLocalmenteEmbedding}
+
+\begin{proof}
+	Si $f:\,N\rightarrow M$ es una inmersi\'{o}n y $p\in N$, existen cartas
+	en $p$ y en $q=f(p)$ tales que
+	$\encoordenadas{f}=(\lista*{x}{n},0,\,\dots,\,0)$, donde $n=\dim\,N$.
+	En particular, $f$ es inyectiva en un entorno $U_1$ de $p$ en $N$. Sea
+	$U\subset U_1$ otro entorno del punto tal que $\clos U\subset U_1$ y
+	$\clos U$ sea compacta. Entonces
+	$f|_{\clos U}:\,\clos U\rightarrow f(\clos U)$ es biyectiva (y
+	continua) entre compactos (Hausdorff) y, por lo tanto, subespacio.
+	Restringiendo $f$ al entorno $U$, $f|_U:\,U\rightarrow M$ es embedding.
+\end{proof}
+
+\begin{proof}[Otra demostraci\'{o}n]
+	Como $f$ tiene rango constante, si $p\in N$, existen cartas
+	$(U,\varphi)$ y $(V,\psi)$ para $N$ en $p$ y para $M$ en $f(p)$,
+	respectivamente, tales que $f(U)\subset V$ y
+	\begin{align*}
+		\encoordenadas{f}(\lista*{x}{n}) & \,=\,
+			(\lista*{x}{k},0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	Sea $\epsilon'>0$ tal que $\cubo[m]{\epsilon'}{0}\subset\psi(V)$
+	($\psi(f(p))=0$) y sea
+	$V_0=\psi^{-1}(\cubo[m]{\epsilon'}{0})\subset V$. Como $V_0$ es
+	abierto, $f|_U^{-1}(V_0)\subset U$ es abierto, por continuidad. Sea
+	$W=U\cap f^{-1}(V_0)=f|_U^{-1}(V_0)$. Notamos que $p\in W$, por
+	definici\'{o}n. Sea $\epsilon>0$ tal que
+	$\cubo[n]{\epsilon}{0}\subset\varphi(W)$ ($\varphi(p)=0$) y sea
+	$U_0=\varphi^{-1}(\cubo[n]{\epsilon}{0})\subset W$. Entonces
+	\begin{align*}
+		\psi\circ f\circ\varphi^{-1}(\cubo[n]{\epsilon}{0}) & \,=\,
+			\psi\circ f(U_0) \,\subset\,\psi\circ f(W)\,\subset\,
+			\psi(V_0)\,=\,\cubo[m]{\epsilon'}{0}
+		\text{ .}
+	\end{align*}
+	%
+	Con respecto a la expresi\'{o}n en coordenadas $\encoordenadas{f}$, se
+	deduce que $\epsilon\leq\epsilon'$ y que
+	\begin{align*}
+		\encoordenadas{f}(\cubo[n]{\epsilon}{0}) & \,=\,
+			\big\{(\lista*{x}{m})\,:\,
+				|x^1|,\,\dots,\,|x^k|<\epsilon,\,
+				x^{k+1}=\cdots=x^m=0
+				\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Expresado de otra manera,
+	\begin{align*}
+		f(U_0) & \,=\,V_1\cap \big\{x^{k+1}=\cdots=x^m=0\big\}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $V_1=\psi^{-1}(\cubo[m]{\epsilon}{0})$. Vale observar que no
+	es necesariamente cierto que $U_0$ sea exactamente igual a la preimagen
+	de esta intersecci\'{o}n por la transformaci\'{o}n $f$.
+
+	En definitiva, si $f$ tiene rango constante $k$ (cerca de $p$), existen
+	cartas $(U_0,\varphi_0)$ y $(V_0,\psi_0)$ centradas en $p$ y en $f(p)$,
+	respectivamente, tales que
+	\begin{align*}
+		\varphi_0(U_0) & \,=\,\cubo[n]{\epsilon}{0} \text{ ,} \\
+		\psi_0(V_0) & \,=\,\cubo[m]{\epsilon}{0}
+			\quad\text{(mismo radio),} \\
+		f(U_0) & \,=\,V_0\cap\big\{\psi^{k+1}=\cdots=\psi^m=0\big\}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

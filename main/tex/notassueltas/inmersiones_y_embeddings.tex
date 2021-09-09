@@ -1,8 +1,8 @@
 \theoremstyle{plain}
-\newtheorem{propoEquivalenciaEmbedding}{Proposici\'{o}n}[section]
-\newtheorem{propoInmersionEsLocalmenteEmbedding}[propoEquivalenciaEmbedding]%
+\newtheorem{propoEntornoTajadaEmbedding}{Proposici\'{o}n}[section]
+\newtheorem{propoInmersionEsLocalmenteEmbedding}[propoEntornoTajadaEmbedding]%
 	{Proposici\'{o}n}
-\newtheorem{propoEmbeddingEntornoTajada}[propoEquivalenciaEmbedding]%
+\newtheorem{propoEmbeddingEntornoTajada}[propoEntornoTajadaEmbedding]%
 	{Proposici\'{o}n}
 
 \theoremstyle{remark}
@@ -83,4 +83,145 @@
 		\text{ .}
 	\end{align*}
 	%
+\end{proof}
+
+\begin{propoEmbeddingEntornoTajada}\label{propo:embeddingentornotajada}
+	Dado un embedding $f:\,N\rightarrow M$ y un punto $p\in N$, existe un
+	entorno $V_1\subset M$ de $q=f(p)$ tal que $f(N)\cap V_1$ sea una $n$-%
+	tajada de $V_1$.
+\end{propoEmbeddingEntornoTajada}
+
+\begin{proof}
+	Sean $(U_0,\varphi_0)$ y $(V_0,\psi_0)$ como en la demostraci\'{o}n
+	anterior. Dado que $f$ es subespacio, existe un abierto $W\subset M$
+	tal que $f(U_0)=f(N)\cap W$. Tomamos $V_1:=V_0\cap W$ y
+	$\psi_1=\psi_0|_{V_1}$. Entonces $(V_1,\psi_1)$ es una carta para $M$
+	centrada en $q$ y vale que $f(U_0)\subset V_1$. Adem\'{a}s,
+	\begin{align*}
+		\psi_1\circ f\circ\varphi_0^{-1}(\lista*{x}{n}) & \,=\,
+			(\lista*{x}{n},\,0,\,\dots,\,0)
+	\end{align*}
+	%
+	($k=n$). Pero, entonces,
+	\begin{align*}
+		V_1\,\cap\,\big\{\psi^{n+1}=\cdots=\psi^m=0\big\} & \,=\,
+			f(U_0) \,=\,f(N)\,\cap\,V_1
+		\text{ ,}
+	\end{align*}
+	%
+	lo que quiere decir que $f(N)\cap V_1$ es una $n$-tajada de $V_1$.
+\end{proof}
+
+\begin{propoEntornoTajadaEmbedding}\label{propo:entornotajadaembedding}
+	Si $f:\,N\rightarrow M$ verifica que, para todo punto $p\in N$, existe
+	una carta $(V,\psi)$ para $M$ en $f(p)$ tal que $f(N)\cap V$ sea una
+	$n$-tajada de $V$, entonces $f(N)$ tiene estructura de subvariedad
+	regular.
+\end{propoEntornoTajadaEmbedding}
+
+\begin{proof}
+	A $S=f(N)\subset M$ le damos la topolog\'{\i}a subespacio. Con respecto
+	a esta topolog\'{\i}a, $S$ es $T_2$ y $N_2$. Sea
+	\begin{align*}
+		\cal A & \,:=\,\big\{(V,\psi)\text{ carta para } M\,:\,
+			U\cap S\text{ es } n\text{-tajada }\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, si $(V,\psi)\in\cal A$, entonces
+	\begin{align*}
+		\psi(V)\,=\,\cubo[m]{\epsilon}{0} & \quad\text{y}\quad
+			\psi(V\cap S) \,=\,\cubo[m]{\epsilon}{0}\,\cap\,
+				\big\{x^{n+1}=\cdots=x^m\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Sea $\pi:\,\psi(V)\rightarrow\bb R^n$ la proyecci\'{o}n en las
+	primeras $n$ coordenadas y sea $j:\,\bb R^n\rightarrow\bb R^m$ la
+	inserci\'{o}n en las primeras $n$ coordenadas. En t\'{e}rminos de esta
+	notaci\'{o}n, observamos que $V\cap S$ es abierto en $S$, la
+	restricci\'{o}n
+	\begin{align*}
+		\pi_V|_{\psi(V\cap S)} & \,:\,\psi(V\cap S)\,\rightarrow\,
+			\cubo[n]{\epsilon}{0}
+	\end{align*}
+	%
+	es un homeo con inversa la restricci\'{o}n correstricci\'{o}n
+	\begin{math}
+		j|:\,\cubo[n]{\epsilon}{0}\rightarrow\psi(V\cap S)
+	\end{math} y el par $(V\cap S,\pi_V\circ\psi)$ es una carta para $S$.
+
+	Ahora bien, como todo punto $p\in S$ pertenece al dominio de alguno de
+	las cartas en $\cal A$, la familia
+	\begin{align*}
+		\cal A_S & \,:=\,\big\{(V\cap S,\pi_V\circ\psi)\,:\,
+			(V,\psi)\in\cal A\big\}
+	\end{align*}
+	%
+	es un atlas para $S$. En definitiva, $S$ es localmente euclidea de
+	dimensi\'{o}n $n$ y, por lo tanto, una variedad topol\'{o}gica.
+
+	Para darle estructura diferencial, corroboramos que el atlas $\cal A_S$
+	sea un atlas suavemente compatible. Sean $(V,\psi)$ y $(V',\psi')$
+	cartas en $\cal A$. El cambio de coordenadas
+	\begin{align*}
+		(\pi_V\circ\psi)\circ(\pi_{V'}\circ\psi')^{-1} & \,:\,
+		\pi_{V'}\circ\psi'\big((V\cap S)\cap(V'\cap S)\big)
+			\,\rightarrow\,
+		\pi_V\circ\psi\big((V\cap S)\cap(V'\cap S)\big)
+	\end{align*}
+	%
+	est\'{a} dado por
+	\begin{align*}
+		(\pi_V\circ\psi)\circ(\pi_{V'}\circ\psi')^{-1}
+			(\lista*{x}{n}) & \,=\,
+			\pi_V\circ\psi\big(
+				{\psi'}^{-1}(\lista*{x}{n},\,0,\,\dots,\,0)
+				\big) \\
+		& \,=\,\pi_V(\lista*{y}{m}) \,=\,(\lista*{y}{n})
+		\text{ .}
+	\end{align*}
+	%
+	Como ${\psi'}^{-1}(\lista*{x}{n},\,0,\,\dots,\,0)$ est\'{a} en $S$,
+	debe ser $y^{n+1}(=\psi^{n+1})=\cdots=y^m=0$. De todos modos, como la
+	composici\'{o}n $\psi\circ{\psi'}^{-1}$ es suave y $\pi_V$ y $j$
+	tambi\'{e}n lo son, las cartas son compatibles. En definitiva, la
+	variedad $S$ admite una estructura de variedad diferencial de
+	dimensi\'{o}n $n$, sobre la topolog\'{\i}a de subespacio de $M$.
+
+	La inclusi\'{o}n $\inc[S]:\,S\hookrightarrow M$ es un embedding: en
+	coordenadas,
+	\begin{align*}
+		\psi\circ\inc[S]\circ(\pi_V\circ\psi)^{-1}(\lista*{x}{n})
+			& \,=\,(\lista*{x}{n},\,0,\,\dots,\,0)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $\inc[S]$ es suave y tiene rango constante $n=\dim\,S$.
+
+	Si consideramos ahora $f|:\,N\rightarrow S$, dado $p\in N$ existen
+	cartas preferenciales $(U,\varphi)$ para $N$ en $p$ y $(V,\psi)$ para
+	$M$ en $q=f(p)$. Como $f(N)=S$ tiene la propiedad de $n$-subvariedad,
+	vale que
+	\begin{math}
+		f(N)\cap V=
+			\cubo[m]{\epsilon}{0}\cap\{\psi^{n+1}=\cdots\psi^m=0\}
+	\end{math}, con lo cual, $(V,\psi)\in\cal A$ y
+	$(V\cap S,\pi_V\circ\psi)\in\cal A_S$. Con respecto a estas cartas,
+	\begin{align*}
+		(\pi_V\circ\psi)\circ f\circ\varphi^{-1}(\lista*{x}{n}) & \,=\,
+			\pi_V\circ\encoordenadas{f}(\lista*{x}{n}) \,=\,
+			\pi_V(\lista*{x}{n},\,0,\,\dots,\,0) \\
+		& \,=\, (\lista*{x}{n})
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, la representaci\'{o}n en coordenadas es
+	\begin{math}
+		(\pi_V\circ\psi)\circ f\circ\varphi^{-1}=
+			\id[{\cubo[n]{\epsilon}{0}}]
+	\end{math}, suave y, m\'{a}s aun, un difeo. Como $f|:\,N\rightarrow S$
+	es biyectiva y difeomorfismo local, debe ser difeomorfismo. En
+	particular, $f:\,N\rightarrow M$ tiene rango constante (el rango de
+	$\inc[S]$) y es subespacio.
 \end{proof}

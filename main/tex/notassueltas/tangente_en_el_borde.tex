@@ -1,0 +1,93 @@
+\theoremstyle{plain}
+\newtheorem{propoTangenteEnElBorde}{Proposici\'{o}n}[section]
+
+\theoremstyle{remark}
+
+%-------------
+
+\begin{propoTangenteEnElBorde}\label{propo:tangenteenelborde}
+	La inclusi\'{o}n $\inc:\,\hemi[n]\rightarrow\bb R^n$ induce un iso
+	\begin{math}
+		\diferencial[x]{\inc}:\,\tangente[x]{\hemi[n]}\rightarrow
+			\tangente[x]{\bb R^n}
+	\end{math} para todo $x\in\hemi[n]$
+\end{propoTangenteEnElBorde}
+
+\begin{proof}
+	Sea $x\in\hemi[n]$ y sea $v\in\tangente[x]{\hemi[n]}$ una
+	derivaci\'{o}n en $\suaves{x,\hemi[n]}$. Si $f\in\suaves{\hemi[n]}$,
+	existe un abierto $U\subset\bb R^n$ que contiene a $x$ y una
+	funci\'{o}n suave $\tilde f:\,U\rightarrow\bb R$ tales que
+	\begin{align*}
+		\tilde f|_{U\cap\hemi[n]} & \,=\,f|_{U\cap\hemi[n]}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $\tilde f|_{U\cap\hemi[n]}$ y $f$ tiene el mismo germen
+	en $x$. Entonces, llamando $j$ a la inclusi\'{o}n
+	$U\cap\hemi[n]\hookrightarrow\hemi[n]$, se verifica que
+	\begin{align*}
+		v\,f & \,=\,v(\tilde f\circ j)
+		\text{ .}
+	\end{align*}
+	%
+	Por definici\'{o}n de la diferencial,
+	\begin{align*}
+		v\,f & \,=\,\big(
+			\diferencial[x]{(\inc\circ j)}\,v\big)\,\tilde f \,=\,
+			\big((\diferencial[x]{\inc})\cdot
+				(\diferencial[x]{j})\,v\big)\,\tilde f
+		\text{ .}
+	\end{align*}
+	%
+	Como $j$ es la inclusi\'{o}n de un abierto,
+	$\diferencial[x]{j}=\id[{\tangente[x]{\hemi[n]}}]$, identificando
+	naturalmente $\tangente[x]{(U\cap\hemi[n])}$ con
+	$\tangente[x]{\hemi[n]}$, v\'{\i}a
+	$\suaves{x,U\cap\hemi[n]}=\suaves{x,\hemi[n]}$. En definitiva, si
+	$(\diferencial[x]{\inc})\,v=0$, debe ser $v\,f=0$ para toda
+	$f\in\suaves{x,\hemi[n]}$. Esto demuestra que $\diferencial[x]{\inc}$
+	es monomorfismo.
+
+	Para ver que es epimorfismo, sea $w\in\tangente[x]{\bb R^n}$ y sea
+	\begin{align*}
+		w & \,=\,w^i\,\gancho[x]{x^i}
+	\end{align*}
+	%
+	su escritura en la base can\'{o}nica. Supongamos, m\'{a}s aun, que
+	$x\in\borde{\hemi[n]}$. Sean $g_1:\,U_1\rightarrow\bb R$ y
+	$g_2:\,U_2\rightarrow\bb R$ dos funciones suaves definidas en
+	abiertos $U_1,U_2\subset\bb R^n$ que contienen a $x$. Si
+	$g_1|_{U_1\cap\hemi[n]}=g_2|_{U_2\cap\hemi[n]}$ --si coinciden en
+	el semiespacio superior-- entonces
+	\begin{align*}
+		\derivada{g_1}{x^i}(x) & \,=\,\lim_{t\to0}\,
+			\frac{g_1(x+e_it)-g_1(x)}{t} \,=\,
+			\lim_{t\to0^+}\,\frac{g_1(x+e_it)-g_1(x)}{t} \\
+		& \,=\,\lim_{t\to0^+}\,\frac{g_2(x+e_it)-g_2(x)}{t} \,=\,
+			\lim_{t\to0}\,\frac{g_2(x+e_it)-g_2(x)}{t} \\
+		& \,=\,\derivada{g_2}{x^i}(x)
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, toda derivaci\'{o}n $w\in\tangente[x]{\bb R^n}$ queda
+	determinada por los valores en $\hemi[n]$:
+	\begin{align*}
+		w\,g_1 & \,=\,w^i\,\derivada{g_1}{x^i}(x)\,=\,
+			w^i\,\derivada{g_2}{x^i}(x) \,=\,w\,g_2
+		\text{ .}
+	\end{align*}
+	%
+	Si llamamos $v$ a la derivaci\'{o}n $v\in\tangente[x]{\hemi[n]}$ dada
+	por $v\,f=w\,\tilde f$, donde $\tilde f$ es alguna extensi\'{o}n de $f$
+	a un entrno de $x$ en $\bb R^n$, por lo anterior, $v$ queda bien
+	definida y es derivaci\'{o}n, porque $w$ lo es. Si ahora
+	$g\in\suaves{x,\bb R^n}$, entonces
+	\begin{align*}
+		\big(\diferencial[x]{\inc}\,v\big)\,g & \,=\,
+			v\big(g|_{\hemi[n]}\big) \,=\,w\,g
+	\end{align*}
+	%
+	y $\diferencial[x]{\inc}\,v=w$. En conclusi\'{o}n,
+	$\diferencial[x]{\inc}$ es epimorfismo, tambi\'{e}n.
+\end{proof}
